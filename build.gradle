@@ -1,0 +1,16 @@
+plugins {
+    id 'eclipse'
+    id 'idea'
+    id 'java'
+}
+
+sourceCompatibility = 1.8
+
+tasks.withType(JavaCompile) { options.encoding = 'UTF-8' }
+
+
+// für IntelliJ Idea
+// gradlew.bat idea
+
+// für Eclipse
+// gradlew.bat eclipse
