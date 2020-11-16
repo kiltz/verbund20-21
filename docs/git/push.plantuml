@@ -1,0 +1,17 @@
+@startuml
+skinparam titleBorderRoundCorner 15
+skinparam titleBorderThickness 2
+skinparam titleBorderColor red
+title GIT Push
+
+== Ausgangslage ==
+Friedrich -> "Dein Branch" : Ein Branch für Dich wurde\n aus dem Trainer-Branch erstellt
+
+== Änderung Deiner Daten ==
+
+"Dein Branch" -> "Dein Branch" : Deine Dateien sind lokal geändert
+"Dein Branch" -> "Dein Branch" : commit (überträgt Deine Änderungen\n in Dein lokales Repository)
+"Dein Branch" -> "Dein Branch" : fetch (holt die aktuellen\n Daten aus GitHub - optional)
+"Dein Branch" -> "Dein Branch" : push (Überträgt die Änderungen aus\n Deinem lokalen Repository zu GitHub)
+
+@enduml
