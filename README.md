@@ -6,3 +6,5 @@ gradlew idea
 
 ##Für Eclipse
 gradlew eclipse
+
+JDK 1.8
