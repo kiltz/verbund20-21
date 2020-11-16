@@ -1,0 +1,12 @@
+@startuml
+skinparam titleBorderRoundCorner 15
+skinparam titleBorderThickness 2
+skinparam titleBorderColor red
+title GIT Locations
+
+"Remote Repository\n (GitHub)" -> "Lokales Repository" : fetch
+"Lokales Repository" -> "Dateisystem" : merge
+"Dateisystem" -> "Dateisystem" : lokale Änderungen
+"Dateisystem" -> "Lokales Repository" : commit
+"Lokales Repository" -> "Remote Repository\n (GitHub)" : push
+@enduml

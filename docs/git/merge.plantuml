@@ -1,0 +1,15 @@
+@startuml
+skinparam titleBorderRoundCorner 15
+skinparam titleBorderThickness 2
+skinparam titleBorderColor red
+title GIT Merge
+
+== Ausgangslage ==
+Friedrich -> "Dein Branch" : Ein Branch für Dich wurde\n aus dem Trainer-Branch erstellt
+
+== Neue Daten ==
+
+"Dein Branch" -> "Dein Branch" : fetch (holt die aktuellen\n Daten aus GitHub)
+Friedrich -> "Dein Branch" : merge (holt die Daten aus dem\n Branch Friedrich in Deinen Branch)
+
+@enduml
