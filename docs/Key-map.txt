@@ -1,0 +1,15 @@
+Die wichtigsten Tastaturkürzel:
+
+CTRL+B          Go to Deklaration
+Ctrl+N          Go to Class
+
+CTRL+Space      Code Completion
+CTRL+P          Parameter Info
+ALT+Ins         Generate Code
+ALT+Enter       Quick Fix
+CTRL+ALT+L      Reformat Code
+
+ALT+F7          Find usages
+CTRL+Shift+F    Find in Path
+
+Shift+F10       Run
