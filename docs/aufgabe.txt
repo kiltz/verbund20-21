@@ -1,0 +1,8 @@
+Aufgabe zu GIT:
+
+Erzeugt eine Datei mit dem Namen "userinfo.txt" im Verzeichnis docs.
+
+Schreibt in die Datei euren Namen und die Firma.
+
+Committet und pushed die Datei.
+
