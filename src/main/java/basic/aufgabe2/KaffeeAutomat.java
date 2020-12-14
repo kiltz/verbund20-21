@@ -27,9 +27,13 @@ public class KaffeeAutomat {
 		rueckgeld = rueckgeld -  zehnermuenze;
 		int fuenfermuenze = rueckgeld % 5;
 		rueckgeld = rueckgeld - fuenfermuenze;
+		int zweiermuenze = rueckgeld % 2;
+		rueckgeld = rueckgeld - zweiermuenze;
+		int einsermuenze = rueckgeld %1;
+		rueckgeld = rueckgeld - einsermuenze;
 
 
-		System.out.println(rueckgeld + euroMuenze + "1 Euro" + fuffimuenze + "50-Cent )" + zwannimuenze +" 20-Cent " + zehnermuenze +"10-Cent " );
+		System.out.println(rueckgeld + euroMuenze + "1 Euro" + fuffimuenze + "50-Cent )" + zwannimuenze +" 20-Cent " + zehnermuenze +"10-Cent "+ fuenfermuenze + "5-Cent" + zweiermuenze +"2-Cent" + einsermuenze + "1-Cent");
 	}
 
 }
