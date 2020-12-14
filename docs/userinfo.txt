@@ -1,3 +1,0 @@
-Name: Lechner
-Vorname: Fabian
-Firma: GfK
