@@ -1,8 +1,9 @@
-Aufgabe zu GIT:
+Erzeugt im Paket basic.aufgabe1 die Klasse UserInfo.
 
-Erzeugt eine Datei mit dem Namen "userinfo.txt" im Verzeichnis docs.
+Erezugt die Methode main
 
-Schreibt in die Datei euren Namen und die Firma.
+In der Main soll euer Name und die Firma ausgegeben werden (Minimum!)
 
-Committet und pushed die Datei.
+Committen und Puschen.
 
+Zeit: 13:31
