@@ -1,4 +1,4 @@
-package basic.aufgabe1;
+ package basic.aufgabe1;
 
 public class UserInfo {
     public static void main(String[] args) {
@@ -6,3 +6,4 @@ public class UserInfo {
         System.out.println("Consorsbank!");
     }
 }
+
