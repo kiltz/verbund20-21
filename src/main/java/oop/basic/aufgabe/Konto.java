@@ -27,7 +27,9 @@ public class Konto {
 
 
     public void einzahlen(int betrag) {
-        kontostand += betrag;
+        if(betrag > 0) {
+            kontostand += betrag;
+        }
     }
 
     public void auszahlen(int betrag){
