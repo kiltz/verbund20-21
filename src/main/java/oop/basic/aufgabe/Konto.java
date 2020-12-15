@@ -4,8 +4,8 @@ public class Konto {
     private int Kontostand = 0;
     private int dispo = 0;
 
-    public void setDispo(int einzahlen){
-       dispo = dispo + einzahlen;
+    public void setDispo(int wert){
+       dispo += wert;
     }
 
     public int getDispo(){
