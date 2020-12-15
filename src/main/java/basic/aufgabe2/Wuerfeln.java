@@ -28,36 +28,19 @@ public class Wuerfeln {
         int max = 6;
         int min = 1;
         int range = max - min + 1;
-        int anzahl1 = 0;
-        int anzahl2 = 0;
-        int anzahl3 = 0;
-        int anzahl4 = 0;
-        int anzahl5 = 0;
-        int anzahl6 = 0;
-
+        int durchlaeufe=10000;
         double timeNeeded = 0;
-        int[] alleZahlen = new int[10000];
-        for (int i = 0; i < 10000; i++) {
+        int[] anzahlZahlen={0,0,0,0,0,0};
+        for (int i = 0; i < durchlaeufe; i++) {
             int zufall = (int) (Math.random() * range) + min;
-            alleZahlen[i] = zufall;
-            if (zufall == 1) {
-                anzahl1++;
-            } else if (zufall == 2) {
-                anzahl2++;
-            } else if (zufall == 3) {
-                anzahl3++;
-            } else if (zufall == 4) {
-                anzahl4++;
-            } else if (zufall == 5) {
-                anzahl5++;
-            } else {
-                anzahl6++;
-            }
+            anzahlZahlen[zufall-1]++;
         }
         timeNeeded = System.currentTimeMillis();
 
 
-        System.out.println("Anzahl 1: " + anzahl1 + " Anzahl2: " + anzahl2 + " Anzahl3: " + anzahl3 + " Anzahl4: " + anzahl4 + " Anzahl5: " + anzahl5 + " Anzahl6: " + anzahl6);
+        for(int i=0;i<6;i++){
+            System.out.println(anzahlZahlen[i]);
+        }
         System.out.println(timeNeeded);
 
     }
