@@ -25,20 +25,21 @@ package basic.aufgabe2;
 public class WuerfelStatistik {
 	public static void main(String[] args) {
 
+		int zaehler[] = new int[6];
 
-		int zahl = 1;
-		int zaehler[] = {0, 0, 0, 0, 0, 0};
-
-		for(int i = 0; i < 10000; i++){
+		long zeit1 = System.currentTimeMillis();
+		for(int i = 0; i < 100000000; i++){
 			int zufall = (int)(Math.random() * 6 + 1);
-			zaehler[zufall -1] = zaehler[zufall -1] + 1;
+			zaehler[zufall -1]++;
 		}
+		long zeit2 = System.currentTimeMillis();
+		System.out.println(zeit2 - zeit1);
 
-		System.out.println("Die Schleife zu durchlaufen hat " + System.currentTimeMillis() + " Millisekunden gedauert");
 
 		for(int i = 0; i < zaehler.length; i++){
-			System.out.println("Die Zahl " + zahl + " wurde " + zaehler[i] + " mal gewuerfelt.");
-			++zahl;
+			System.out.println("Die Zahl " + (i+1) + " wurde " + zaehler[i] + " mal gewuerfelt.");
 		}
+
+
 	}
 }
