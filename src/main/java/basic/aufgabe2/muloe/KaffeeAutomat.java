@@ -44,7 +44,6 @@ public class KaffeeAutomat {
 
 		// 3. Vereinfache die Lösung mit Schleifen
 
-
 	}
 
 }
