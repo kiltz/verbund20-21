@@ -30,6 +30,7 @@ public class WuerfelStatistik {
 		int zahl = 1;
 		int range = max - min + 1;
 		int durchlaeufe = 1000000;
+
 		for (int i = 0; i < durchlaeufe; i++) {
 
 			int zufall = (int)(Math.random() * range) + min;
