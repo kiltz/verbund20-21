@@ -7,7 +7,8 @@ public class KaffeeAutomat2 {
     int preis = 30;
     int gegeben = 200;
     int rueckgeld = gegeben - preis;
-    int[] wert =  {100,50, 20, 10,5};
+
+    int[] wert =  {100, 50, 20, 10,5};
     String[] name =  {"1-Euro", "50-Cent", "20-Cent", "10-Cent", "5-Cent"};
 
     for (int i = 0; i < 5; i++) {
