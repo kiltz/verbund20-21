@@ -4,7 +4,11 @@ public class KaffeautomatSchleife {
     public static void main(String[] args) {
         int preis = 30;
         int gegeben=250;
+
+        //rueckgeld berechnen
         int rueckgeld=gegeben-preis;
+        System.out.println(rueckgeld);
+
         int zweiEuroMuenzen=0;
         int einsEuroMuenzen=0;
         int funfzigctMuenzen=0;
@@ -20,7 +24,6 @@ public class KaffeautomatSchleife {
         //beginn der whileschleife , nur wenn mehr als 0 cent noch da sind
         while(rueckgeld>0) {
 
-            System.out.println(rueckgeld);
             if (rueckgeld >=200) {
                 zweiEuroMuenzen=rueckgeld/200;
                 rueckgeld = rueckgeld % 200;
