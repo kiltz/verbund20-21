@@ -6,11 +6,6 @@ public class Konto {
     int dispo;
 
     Konto(){
-
-    }
-
-    public void Kontostand(int kontostand) {
-        this.kontostand = kontostand;
     }
 
     public int getKontostand() {
