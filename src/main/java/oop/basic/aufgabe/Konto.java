@@ -5,32 +5,32 @@ public class Konto {
     Konto(){
     }
 
-    int kontostand;
     int dispo;
+    int kontostand;
 
+    // Soll keinen Wert ausgeben !
     public void setDispo(int dispo) {
         this.dispo = dispo;
     }
 
-
     public int getDispo() {
-        return dispo;
+        return 0;
     }
-
 
     public int getKontostand() {
-        return kontostand;
+        return 0;
     }
 
+    // Soll keinen Wert ausgeben !
     public void einzahlen(int betrag) {
-        kontostand = kontostand + betrag;
+        kontostand += betrag;
     }
 
-
+    // Soll keinen Wert ausgeben !
     public void auszahlen(int betrag) {
-        kontostand = kontostand - betrag;
-        if (kontostand < -dispo){
-            kontostand = kontostand + betrag;
+        if(betrag >= dispo){
+            kontostand -= betrag;
+            System.out.println("Keine Kontodeckung!");
         }
     }
 }
