@@ -18,7 +18,7 @@ public class KaffeeAutomat2 {
     for (int i = 0; i < 5; i++) {
         anzahl[i] = rueckgeld / wert[i];
         rueckgeld = rueckgeld % wert[i];
-        System.out.println(" Anzahl" + wert[i] +" Muenzen " + anzahl[i] + "Rest " + rueckgeld );
+        System.out.println(" Anzahl " + wert[i] +"er Muenzen " + anzahl[i] + " Rest " + rueckgeld );
         }
     }
 }
