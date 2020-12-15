@@ -3,6 +3,7 @@ package basic.aufgabe2.muloe;
 public class KaffeeAutomat {
 
 	public static void main(String[] args) {
+		/*
 		// Angenommen: Ein Kaffee kostet 30 Cent,
 		// wir werfen eine 2-Euro Münze in den Automat
 		// Welche Münzen bekommen wir als Rückgeld?
@@ -43,6 +44,18 @@ public class KaffeeAutomat {
 
 
 		// 3. Vereinfache die Lösung mit Schleifen
+		 */
+		int gegeben = 179;
+		int preis = 50;
+
+		int rest = gegeben - preis;
+		System.out.println("Muenze " + "Anzahl " + "Restbetrag ");
+		int [] muenzen = {200, 100,50,20,10,5,2,1};
+		for (int m : muenzen) {
+			System.out.println(m + "Cent  " + rest / m + "     Rest  " + rest % m);
+			rest = rest % m;
+		}
+
 
 
 	}
