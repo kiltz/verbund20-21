@@ -2,8 +2,8 @@ package oop.basic.aufgabe;
 
 public class Konto {
 
-    int kontostand ;
-    int dispo;
+   private int kontostand ;
+   private int dispo;
 
     Konto(){
     }
@@ -17,7 +17,7 @@ public class Konto {
     }
 
     public void auszahlen(int betrag) {
-        if (kontostand + dispo > betrag){
+        if (kontostand + dispo >= betrag){
             kontostand -= betrag;
         }else {
             System.out.println("Betrag nicht auszahlbar!");
