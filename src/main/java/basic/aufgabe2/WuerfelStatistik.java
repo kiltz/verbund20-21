@@ -24,8 +24,10 @@ package basic.aufgabe2;
 
 public class WuerfelStatistik {
 	public static void main(String[] args) {
-
-
+		int[] statistik = new int [6];
+		for (int i = 0; i < 10000; i++) {
+			double zufall = Math.random();
+		}
 		double zufall = Math.random();
 
 	}
