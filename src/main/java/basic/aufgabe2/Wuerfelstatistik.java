@@ -22,7 +22,7 @@ package basic.aufgabe2;
  *
  */
 
-public class WuerfelStatistik {
+public class Wuerfelstatistik {
 	public static void main(String[] args) {
 
 
