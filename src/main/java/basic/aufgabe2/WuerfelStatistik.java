@@ -25,9 +25,45 @@ package basic.aufgabe2;
 public class WuerfelStatistik {
 	public static void main(String[] args) {
 
+		int max=6;
+		int min=1;
+		int range=max-min+1;
+		int anzahl1=0;
+		int anzahl2=0;
+		int anzahl3=0;
+		int anzahl4=0;
+		int anzahl5=0;
+		int anzahl6=0;
 
-		double zufall = Math.random();
+		double timeNeeded=0;
+		int[] alleZahlen=new int[10000];
+		for(int i=0;i<10000;i++){
+			int zufall = (int) (Math.random() *range)+min;
+			alleZahlen[i]=zufall;
+			if(zufall==1){
+				anzahl1++;
+			}
+			else if(zufall==2){
+				anzahl2++;
+			}
+			else if(zufall==3){
+				anzahl3++;
+			}
+			else if(zufall==4){
+				anzahl4++;
+			}
+			else if(zufall==5){
+				anzahl5++;
+			}
+			else{
+				anzahl6++;
+			}
+		}
+		timeNeeded=System.currentTimeMillis();
 
-		// hier gehts los....
+
+		System.out.println("Anzahl 1: " + anzahl1 + " Anzahl2: " + anzahl2 + " Anzahl3: " + anzahl3 + " Anzahl4: " + anzahl4 + " Anzahl5: " + anzahl5 + " Anzahl6: " + anzahl6);
+		System.out.println(timeNeeded);
+
 	}
 }

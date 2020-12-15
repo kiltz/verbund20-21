@@ -18,7 +18,6 @@ public class KaffeeAutomat {
         int rest1ctMuenzen=0;
         while(rueck>0) {
 
-            System.out.println(rueck);
             if (rueck >=200) {
                 rest2EuroMuenzen=rueck/200;
                 rueck = rueck % 200;
