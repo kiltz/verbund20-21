@@ -29,12 +29,16 @@ public class Konto {
     public void einzahlen(int betrag) {
         if(betrag > 0) {
             kontostand += betrag;
+        }else{
+            System.out.println("Keine negativen Betraege einzahlen!");
         }
     }
 
     public void auszahlen(int betrag){
         if(kontostand + dispo >= betrag){
             kontostand -= betrag;
+        }else{
+            System.out.println("Dispo kann nicht ueberzogen werden!");
         }
 
 
