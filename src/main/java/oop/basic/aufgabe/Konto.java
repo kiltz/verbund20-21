@@ -19,9 +19,12 @@ public class Konto {
     }
 
     public void auszahlen(int auszahlung){
+        if (Kontostand - auszahlung >= -dispo )
         Kontostand -= auszahlung;
     }
-
+        else {
+            System.out.println("Geld Reicht nicht");
+    }
 
 }
 
