@@ -33,3 +33,37 @@ public class Bank {
 
     }
 }
+class Konto {
+    public static void main(String[] args) {
+        int kontostand;
+
+        public int getKontostand(){
+            return kontostand;
+        }
+
+        public void setKontostand(){
+
+        }
+        public int auszahlen( int abzug){
+            kontostand = kontostand - abzug;
+            return kontostand;
+        }
+
+        public int einzahlen ( int einzahlung){
+            kontostand = kontostand + einzahlung;
+            return kontostand;
+        }
+        public int setDispo ( int Dispo){
+
+            return kontostand;
+        }
+        public int getDispo () {
+            return Dispo;
+        }
+
+    }
+
+
+}
+
+

@@ -1,5 +1,8 @@
 package basic.aufgabe2;
 
+import sun.awt.geom.AreaOp;
+import sun.java2d.pipe.SolidTextRenderer;
+
 /**
  * Aufgabe:
  *
@@ -31,7 +34,7 @@ public class WuerfelStatistik {
 
 		for(int i = 0; i < 10000 ;i++)
 		{
-			double zufall = Math.random()*(max + min) ;
+			double zufall = Math.random()*max + min ;
 			int zahl=0;
 			zahl= (int) (zufall);
 			System.out.println(zufall);
@@ -46,6 +49,7 @@ public class WuerfelStatistik {
 		System.out.println("Sechser: "+zahlen[5]);
 		int gesamt = zahlen[0]+zahlen[1]+zahlen[2]+zahlen[3]+zahlen[4]+zahlen[5];
 		System.out.println(gesamt);
+
 		// hier gehts los....
 	}
 }
