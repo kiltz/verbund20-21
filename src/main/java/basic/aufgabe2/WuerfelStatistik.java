@@ -35,7 +35,6 @@ public class WuerfelStatistik {
 
 			int zufall = (int)(Math.random() * range) + min;
 			anzahl[zufall-1] = anzahl[zufall-1]+1;
-
 		}
 		for (int j : anzahl) {
 			System.out.println("Die Zahl " + zahl + " wurde " + j + " gewuerfelt");
