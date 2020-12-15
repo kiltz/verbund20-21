@@ -8,7 +8,6 @@ public class KaffeeAutomat2 {
     int gegeben = 200;
     int rueckgeld = gegeben - preis;
     int[] wert = new int[] {100,50, 20, 10,5};
-
     int[] anzahl = new int[5];
 
     for (int i = 0; i < 5; i++) {
