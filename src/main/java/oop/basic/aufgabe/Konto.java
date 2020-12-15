@@ -22,7 +22,7 @@ public class Konto {
     }
 
     public void auszahlen(int zahl) {
-        if (this.kontostand - zahl >= -200) {
+        if (this.kontostand - zahl > -this.dispo) {
             this.kontostand -= zahl;
         }
         else {
