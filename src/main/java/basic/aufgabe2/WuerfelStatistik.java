@@ -34,6 +34,8 @@ public class WuerfelStatistik {
 			zaehler[zufall -1] = zaehler[zufall -1] + 1;
 		}
 
+		System.out.println("Die Schleife zu durchlaufen hat " + System.currentTimeMillis() + " Millisekunden gedauert");
+
 		for(int i = 0; i < zaehler.length; i++){
 			System.out.println("Die Zahl " + zahl + " wurde " + zaehler[i] + " mal gewuerfelt.");
 			++zahl;
