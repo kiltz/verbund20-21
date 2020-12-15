@@ -31,26 +31,25 @@ public class WuerfelStatistik {
 
 		for(int i = 0; i < 10000 ;i++)
 		{
-			double zufall = Math.random()*(max+1);
-			zufall= (int) (zufall);
+			double zufall = Math.random()*(max + min) ;
+			int zahl=0;
+			zahl= (int) (zufall);
 			System.out.println(zufall);
-			if(zufall==1.0){
+			if(zahl==1){
 				zahlen[0]++;
 			}
-			else if(zufall==2.0){
+			else if(zahl==2){
 				zahlen[1]++;
 		}
-			else if(zufall==3.0){
+			else if(zahl==3){
 				zahlen[2]++;
 			}
-			else if(zufall==4.0){
+			else if(zahl==4){
 				zahlen[3]++;
-			}else if(zufall==5.0){
+			}else if(zahl==5){
 				zahlen[4]++;
-			}else if(zufall==6.0){
+			}else if(zahl==6){
 				zahlen[5]++;
-			}else{
-			i--;
 			}
 
 		}
