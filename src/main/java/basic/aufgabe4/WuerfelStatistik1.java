@@ -1,22 +1,20 @@
 package basic.aufgabe4;
+    public class WuerfelStatistik1 {
+        public static void main(String[] args) {
+            int wuerfe[] = {0,0,0,0,0,0 };
 
-import java.util.Random;
+            for(int i=0; i<1000; i++)
+            {
 
-public class WuerfelStatistik1 {
-    private static Random rand = new Random();
-
-    public static void main(String[] args) {
-        int num = 0;
-        int[] die = new int[7];
-        int[] die2 = new int[7];
-        for (int i = 1; i <= 1000; i++) {
-            for (int n = 1; n < die.length; n++) {
-                if (n == num) {
-                    die[n] += 1;
-                }
+                double wert = Math.random() * 6;
+                wuerfe[ (int)wert]++;
             }
-        }
-        System.out.printf("Zahl" , " Haeufigkeit");
+
+            for(int i=0; i<6;i++) {
+                System.out.println(i+":"+wuerfe[i]+" getroffen");
+
+
+            }
         }
 
 
