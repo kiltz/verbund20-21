@@ -14,11 +14,11 @@ public class Konto {
     public int getKontostand(){
         return Kontostand;
     }
-    public int einzahlen(int einzahlung){
+    public void einzahlen(int einzahlung){
         Kontostand += einzahlung;
     }
 
-    public int auszahlen(int auszahlung){
+    public void auszahlen(int auszahlung){
         Kontostand -= auszahlung;
     }
 
