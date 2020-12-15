@@ -17,9 +17,10 @@ public class Konto {
     }
 
     public void auszahlen(int betrag) {
-        kontostand = kontostand - betrag;
-        if (kontostand < -dispo){
-            kontostand = kontostand + betrag;
+        if (kontostand + dispo < betrag){
+            System.out.println("Betrag nicht auszahlbar!");
+        }else {
+            kontostand -= betrag;
         }
     }
 
