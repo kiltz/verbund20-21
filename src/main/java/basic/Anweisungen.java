@@ -45,7 +45,8 @@ public class Anweisungen {
         }
 
         for (int i = 1; i <= 10; i++) {
-            System.out.println(i +": "+ (i*i));
+            int q = i * i;
+            System.out.println(i +": "+ q);
         }
         System.out.println("nun mit while");
         int i = 1;
