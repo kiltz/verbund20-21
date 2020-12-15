@@ -32,5 +32,6 @@ public class Konto {
             kontostand -= betrag;
             System.out.println("Keine Kontodeckung!");
         }
+
     }
 }
