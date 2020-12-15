@@ -29,7 +29,7 @@ public class WuerfelStatistik {
 		int min = 1;
 		int zahl = 1;
 		int range = max - min + 1;
-		int durchlaeufe = 1000000;
+		int durchlaeufe = 150000;
 
 		for (int i = 0; i < durchlaeufe; i++) {
 
