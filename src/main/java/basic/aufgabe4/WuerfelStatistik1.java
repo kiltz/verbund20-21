@@ -3,7 +3,7 @@ package basic.aufgabe4;
         public static void main(String[] args) {
             int wuerfe[] = {0,0,0,0,0,0 };
 
-            for(int i=0; i<1000; i++)
+            for(int i=0; i<1000; ++i)
             {
                 System.out.println("Gewuerfelt: " + i);
                 double wert = Math.random() * 6;
