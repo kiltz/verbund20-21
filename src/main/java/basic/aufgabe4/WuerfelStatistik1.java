@@ -11,7 +11,7 @@ package basic.aufgabe4;
             }
 
             for(int i=0; i<6;i++) {
-                System.out.println(i+":"+wuerfe[i]+" getroffen");
+                System.out.println("Zahl " + i+" - "+wuerfe[i]);
 
 
             }
