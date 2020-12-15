@@ -54,6 +54,11 @@ public class WuerfelStatistik {
 			}
 			arrayOfNumbers[i] = zufall;
 		}
-		System.out.println("1: " + anzahl1 + ", 2: " + anzahl2 + ", 3: " + anzahl3 + ", 4: " + anzahl4 +", 5: " + anzahl5 + ", 6: " + anzahl6);
+		System.out.println("1: " + anzahl1 +
+							", 2: " + anzahl2 +
+							", 3: " + anzahl3 +
+							", 4: " + anzahl4 +
+							", 5: " + anzahl5 +
+							", 6: " + anzahl6);
 	}
 }
