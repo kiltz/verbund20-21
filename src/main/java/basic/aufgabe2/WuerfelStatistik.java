@@ -26,7 +26,7 @@ public class WuerfelStatistik {
 
         long start = System.currentTimeMillis();
 
-        int amountOfRolls = 200000;
+        int amountOfRolls = 10000;
         int[] arrayOfNumbers = new int[amountOfRolls];
         int anzahl1 = 0;
         int anzahl2 = 0;
@@ -62,6 +62,6 @@ public class WuerfelStatistik {
 
         long end = System.currentTimeMillis();
 
-        System.out.println("Zeit benoetigt zum durchlaufen: " + (end - start) +"ms");
+        System.out.println("Zeit benoetigt zum durchlaufen: " + (end - start) + "ms");
     }
 }
