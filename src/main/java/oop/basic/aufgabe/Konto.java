@@ -2,8 +2,8 @@ package oop.basic.aufgabe;
 
 public class Konto {
 
-    int dispo = 0;
-    int kontostand = 0;
+    private int dispo;
+    private int kontostand;
 
     public Konto(){
     }
@@ -17,26 +17,22 @@ public class Konto {
         return dispo;
     }
 
-    public int getKontostand() {
-        return kontostand;
-    }
-
-    public void setKontostand(int kontostand) {
-        this.kontostand = kontostand;
-    }
-
     public void setDispo(int dispo) {
         this.dispo = dispo;
     }
 
-
-    public void einzahlen(int kontostand) {
-        setKontostand(getKontostand() + kontostand);
+    public int getKontostand() {
+        return kontostand;
     }
 
-    public void auszahlen(int kontostand){
-        if(getKontostand() - kontostand >= getDispo() * -1){
-            setKontostand(getKontostand() - kontostand);
+
+    public void einzahlen(int betrag) {
+        kontostand += betrag;
+    }
+
+    public void auszahlen(int betrag){
+        if(kontostand + dispo >= betrag){
+            kontostand -= betrag;
         }
 
 
