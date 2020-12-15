@@ -2,12 +2,12 @@ package basic.aufgabe2;
 
 public class WuerfelStatistik {
 	public static void main(String[] args) {
-		int[] anzahl = {0,0,0,0,0,0};
+		int[] anzahl = new int[6];
 		int max = 6;
 		int min = 1;
 		int zahl = 1;
 		int range = max - min + 1;
-		int durchlaeufe = 150000;
+		int durchlaeufe = 100000000;
 
 		for (int i = 0; i < durchlaeufe; i++) {
 
