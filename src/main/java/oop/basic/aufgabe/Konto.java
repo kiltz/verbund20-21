@@ -22,6 +22,11 @@ public class Konto {
     }
 
     public void auszahlen(int zahl) {
-        this.kontostand -= zahl;
+        if (this.kontostand - zahl >= -200) {
+            this.kontostand -= zahl;
+        }
+        else {
+            System.out.println("Bankkonto ungenuegend!");
+        }
     }
 }
