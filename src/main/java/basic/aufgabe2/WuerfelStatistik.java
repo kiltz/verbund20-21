@@ -26,8 +26,17 @@ public class WuerfelStatistik {
 	public static void main(String[] args) {
 
 
-		double zufall = Math.random();
+		int zahl = 1;
+		int zaehler[] = {0, 0, 0, 0, 0, 0};
 
-		// hier gehts los....
+		for(int i = 0; i < 10000; i++){
+			int zufall = (int)(Math.random() * 6 + 1);
+			zaehler[zufall -1] = zaehler[zufall -1] + 1;
+		}
+
+		for(int i = 0; i < zaehler.length; i++){
+			System.out.println("Die Zahl " + zahl + " wurde " + zaehler[i] + " mal gewuerfelt.");
+			++zahl;
+		}
 	}
 }

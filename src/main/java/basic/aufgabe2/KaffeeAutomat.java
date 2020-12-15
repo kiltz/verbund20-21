@@ -1,20 +1,26 @@
 package basic.aufgabe2;
 
 public class KaffeeAutomat {
+	public static void main(String[] arg) {
 
-	public static void main(String[] args) {
-		// Angenommen: Ein Kaffee kostet 30 Cent,
-		// wir werfen eine 2-Euro Münze in den Automat
-		// Welche Münzen bekommen wir als Rückgeld?
+		// preis fuer den Kaffee 30cent
+		int preis = 30;
 
-		// 1. definiere den Preis und das gezahlte Geld am Anfang der Methode
+		// man hat 2Euro gegeben
+		int gegeben = 200;
 
-		// 2. Ermittle mit Hilfe von Modulo die Anzahl der einzelnen
-		// 		Münzen und arbeite mit dem Rest weiter.
+		// rechnung fuer das Rueckgeld
+		int rest = gegeben - preis;
 
-		// 3. Vereinfache die Lösung mit Schleifen
+		int werte[] = {100, 50, 20, 10, 5};
+		String name[] = {"1-Euro", "50-Cent", "20-Cent", "10-Cent", "5-Cent"};
+
+		for (int i = 0; i < werte.length; i++) {
+			int anzahl = rest / werte[i];
+			rest = rest % werte[i];
+			System.out.println("Du bekommst " + anzahl + ": " + name[i] + " Muenzen");
+		}
 
 
 	}
-
 }
