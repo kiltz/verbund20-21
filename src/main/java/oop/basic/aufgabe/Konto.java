@@ -35,8 +35,8 @@ public class Konto {
     }
 
     public void auszahlen(int kontostand){
-        if(getKontostand() - kontostand < -1500){
-            System.out.println("Fehler: Dispo kann nicht ueberzogen werden");
+        if(getKontostand() - kontostand < getDispo() * -1){
+
         } else {
             setKontostand(getKontostand() - kontostand);
         }
