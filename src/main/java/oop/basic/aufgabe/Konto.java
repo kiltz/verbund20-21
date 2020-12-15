@@ -15,7 +15,7 @@ public class Konto {
         return Kontostand;
     }
     public int einzahlen(int einzahlung){
-        Kontostand += einzahlung
+        Kontostand += einzahlung;
     }
 
     public int auszahlen(int auszahlung){
