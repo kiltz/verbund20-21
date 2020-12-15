@@ -5,7 +5,7 @@ package basic.aufgabe4;
 
             for(int i=0; i<1000; i++)
             {
-
+                System.out.println("Gewuerfelt: " + i);
                 double wert = Math.random() * 6;
                 wuerfe[ (int)wert]++;
             }
