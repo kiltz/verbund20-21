@@ -28,6 +28,5 @@ public class WuerfelStatistik {
 
 		double zufall = Math.random();
 
-		// hier gehts los....
 	}
 }
