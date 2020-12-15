@@ -50,7 +50,9 @@ public class WuerfelStatistik {
 		for (int anzahl : Zahlenhäufigkeit) {
 			zahl = zahl + 1;
 			System.out.println(zahl + ":  " + anzahl);
-		}
 
+
+		}
+		System.out.println("Benoetigte Zeit in Millisekunden: " + System.currentTimeMillis());
 	}
 }
