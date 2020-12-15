@@ -23,7 +23,7 @@ public class Konto {
         }
         else{
             System.out.println("Ihr maximales Auszahllimit wurde erreicht!");
-            kontostand=-1*dispo;
+
         }
     }
 
