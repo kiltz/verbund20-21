@@ -28,7 +28,7 @@ public class Anweisungen {
         }
         System.out.println(zahl);
 
-        int monat = 6;
+        int monat = 3;
         switch (monat) {
             case 1:
             case 2:
@@ -38,8 +38,10 @@ public class Anweisungen {
                 System.out.println("Frühling");
                 break;
             case 6:
+            case 7:
                 System.out.println("Sommer");
                 break;
+
             default:
                 System.out.println("Keine Ahnung");
         }
