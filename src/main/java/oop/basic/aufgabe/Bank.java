@@ -1,5 +1,7 @@
 package oop.basic.aufgabe;
 
+import oop.basic.aufgabe.muloe.Konto;
+
 public class Bank {
     public static void main(String[] args) {
         Konto k = new Konto();
@@ -29,5 +31,19 @@ public class Bank {
         if (k.getKontostand() != -200) {
             System.out.println("Fehler 6: Kontostand stimmt nicht!");
         }
+        k.auszahlen(1300);
+        if (k.getKontostand() != -1500) {
+            System.out.println("Fehler 6: Kontostand stimmt nicht!");
+        }
+
+        Konto kJulian = new Konto();
+        kJulian.auszahlen(500);
+        System.out.println(kJulian.getKontostand());
+
+        Konto kFriedrich = new Konto();
+        kFriedrich.setDispo(15000);
+        kFriedrich.auszahlen(500);
+        System.out.println(kFriedrich.getKontostand());
+
     }
 }
