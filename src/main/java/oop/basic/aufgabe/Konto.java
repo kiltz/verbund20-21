@@ -18,12 +18,12 @@ public class Konto {
         kontostand+=input;
     }
     public void auszahlen(int output){
-        if(kontostand-output>=-200) {
+        if(kontostand-output>=dispo*-1) {
             kontostand -= output;
         }
         else{
             System.out.println("Ihr maximales Auszahllimit wurde erreicht!");
-            kontostand=-200;
+            kontostand=-1*dispo;
         }
     }
 
