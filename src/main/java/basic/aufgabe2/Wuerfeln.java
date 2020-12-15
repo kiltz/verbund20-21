@@ -29,13 +29,15 @@ public class Wuerfeln {
         int min = 1;
         int range = max - min + 1;
         int durchlaeufe=10000;
-        double timeNeeded = 0;
+        long timeStart=System.currentTimeMillis();
+
         int[] anzahlZahlen={0,0,0,0,0,0};
         for (int i = 0; i < durchlaeufe; i++) {
             int zufall = (int) (Math.random() * range) + min;
             anzahlZahlen[zufall-1]++;
         }
-        timeNeeded = System.currentTimeMillis();
+        long timeEnd=System.currentTimeMillis();
+        long timeNeeded=timeEnd-timeStart;
 
 
         for(int i=0;i<6;i++){
