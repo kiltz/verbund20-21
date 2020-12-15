@@ -24,10 +24,41 @@ package basic.aufgabe2;
 
 public class WuerfelStatistik {
 	public static void main(String[] args) {
+		int[] wuerfelZahl = new int[10000000];
+		int zahl1 = 0;
+		int zahl2 = 0;
+		int zahl3 = 0;
+		int zahl4 = 0;
+		int zahl5 = 0;
+		int zahl6 = 0;
 
+		for (int i = 0; i < 10000000; i++){
+			int zufall = (int) (Math.random() * 6 + 1);
+			if (zufall == 1){
+				zahl1 += 1;
+			}else if(zufall == 2){
+				zahl2 += 1;
+			}else if(zufall == 3){
+				zahl3 += 1;
+			}else if(zufall == 4){
+				zahl4 += 1;
+			}else if(zufall == 5){
+				zahl5 += 1;
+			}else if(zufall == 6){
+				zahl6 += 1;
+			}
+			wuerfelZahl[i] = zufall;
+		}
+
+		System.out.println("1: " + zahl1 +
+						  " 2: " + zahl2 +
+						  " 3: " + zahl3 +
+						  " 4: " + zahl4 +
+						  " 5: " + zahl5 +
+						  " 6: " + zahl6);
 
 		double zufall = Math.random();
 
-		// hier gehts los....
+
 	}
 }
