@@ -13,7 +13,11 @@ public class Konto {
     }
 
     public void einzahlen(int betrag) {
-        kontostand = kontostand + betrag;
+        if (betrag >= 0) {
+            kontostand = kontostand + betrag;
+        }else{
+            System.out.println("Keine negativen Betraege moeglich!");
+        }
     }
 
     public void auszahlen(int betrag) {
