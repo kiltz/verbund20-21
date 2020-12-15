@@ -24,11 +24,21 @@ package basic.aufgabe2;
 
 public class WuerfelStatistik {
 	public static void main(String[] args) {
-		int[] statistik = new int [6];
-		for (int i = 0; i < 10000; i++) {
-			double zufall = Math.random();
-		}
-		double zufall = Math.random();
+		int[] anzahl = {0,0,0,0,0,0};
+		int max = 6;
+		int min = 1;
+		int zahl = 1;
+		int range = max - min + 1;
 
+		for (int i = 0; i < 10000; i++) {
+
+			int zufall = (int)(Math.random() * range) + min;
+			anzahl[zufall-1] = anzahl[zufall-1]+1;
+
+		}
+		for (int j : anzahl) {
+			System.out.println("Die Zahl " + zahl + " wurde " + j + " gewuerfelt");
+			++zahl;
+		}
 	}
 }
