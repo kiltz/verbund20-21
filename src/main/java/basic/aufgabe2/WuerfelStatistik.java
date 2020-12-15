@@ -7,7 +7,8 @@ public class WuerfelStatistik {
 		int min = 1;
 		int zahl = 1;
 		int range = max - min + 1;
-		int durchlaeufe = 100000000;
+		int durchlaeufe = 100000;
+		long zeitAnfang = System.currentTimeMillis();
 
 		for (int i = 0; i < durchlaeufe; i++) {
 
@@ -18,7 +19,9 @@ public class WuerfelStatistik {
 			System.out.println("Die Zahl " + zahl + " wurde " + j + " gewuerfelt");
 			++zahl;
 		}
-		System.out.println("Der Computer hat fuer die Aufgabe " + System.currentTimeMillis() + "ms gebraucht");
+		long zeitEnde = System.currentTimeMillis();
+		long zeitDif = zeitEnde - zeitAnfang;
+		System.out.println("Der Computer hat fuer die Aufgabe " + zeitDif + "ms gebraucht");
 
 	}
 }
