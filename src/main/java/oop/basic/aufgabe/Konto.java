@@ -16,7 +16,7 @@ public class Konto {
         kontostand+=input;
     }
     public void auszahlen(int output){
-        if(kontostand-output>=-1500) {
+        if(kontostand-output>=-dispo) {
             kontostand -= output;
         } else{
             System.out.println("Sie haben das Dispolimit erreicht, geld wird nicht ausgezahlt");
