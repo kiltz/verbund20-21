@@ -25,12 +25,18 @@ package basic.aufgabe2;
 public class WuerfelStatistik {
 
 	public static void main(String[] args) {
+		long anfangszeit = System.currentTimeMillis();
 		int i = 0;
 		int[] Zahlenhäufigkeit = {0, 0, 0, 0, 0, 0};
+
+
+
+
 		while (i < 10000) {
 			double zufall = Math.random();
 			i = i + 1;
 			//system.out.println(zufall);
+
 
 			if (zufall < 0.1666666) {
 				Zahlenhäufigkeit[0] = Zahlenhäufigkeit[0] + 1;
@@ -53,6 +59,6 @@ public class WuerfelStatistik {
 
 
 		}
-		System.out.println("Benoetigte Zeit in Millisekunden: " + System.currentTimeMillis());
+		System.out.println( System.currentTimeMillis() - anfangszeit);
 	}
 }
