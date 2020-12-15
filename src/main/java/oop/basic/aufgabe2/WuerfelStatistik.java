@@ -1,4 +1,4 @@
-package basic.aufgabe2;
+package oop.basic.aufgabe2;
 
 /**
  * Aufgabe:
