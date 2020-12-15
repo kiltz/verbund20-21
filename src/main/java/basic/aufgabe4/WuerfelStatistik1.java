@@ -10,7 +10,7 @@ package basic.aufgabe4;
                 wuerfe[ (int)wert]++;
             }
 
-            for(int i=0; i<6;i++) {
+            for(int i=0; i<6;++i) {
                 System.out.println("Zahl " + i+" - "+wuerfe[i]);
 
 
