@@ -24,7 +24,7 @@ package basic.aufgabe2;
 
 public class WuerfelStatistik {
 	public static void main(String[] args) {
-		int[] wuerfelZahl = new int[10000000];
+		int[] wuerfelZahl = new int[100];
 		int zahl1 = 0;
 		int zahl2 = 0;
 		int zahl3 = 0;
@@ -32,7 +32,7 @@ public class WuerfelStatistik {
 		int zahl5 = 0;
 		int zahl6 = 0;
 
-		for (int i = 0; i < 10000000; i++){
+		for (int i = 0; i < 100; i++){
 			int zufall = (int) (Math.random() * 6 + 1);
 			if (zufall == 1){
 				zahl1 += 1;
@@ -56,6 +56,8 @@ public class WuerfelStatistik {
 						  " 4: " + zahl4 +
 						  " 5: " + zahl5 +
 						  " 6: " + zahl6);
+
+		System.out.println("Die benoetigte Zeit " + System.currentTimeMillis() + " in Millisekunden");
 
 		double zufall = Math.random();
 
