@@ -28,9 +28,10 @@ public class Anweisungen {
         }
         System.out.println(zahl);
 
-        int monat = 6;
+        int monat = 1;
         switch (monat) {
             case 1:
+                System.out.println("Januar");
             case 2:
                 System.out.println("Winter");
                 break;
