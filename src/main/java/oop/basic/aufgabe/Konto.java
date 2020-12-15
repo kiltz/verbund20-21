@@ -35,10 +35,10 @@ public class Konto {
     }
 
     public void auszahlen(int kontostand){
-        if(getKontostand() - kontostand < getDispo() * -1){
-
-        } else {
+        if(getKontostand() - kontostand >= getDispo() * -1){
             setKontostand(getKontostand() - kontostand);
         }
+
+
     }
 }
