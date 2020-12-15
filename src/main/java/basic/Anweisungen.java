@@ -68,8 +68,8 @@ public class Anweisungen {
         zahlen[2] = 20;
         zahlen[3] = 10;
         zahlen[4] = 5;
-
         int [] zahlen2 = {100,50,20,10,5};
+
 
         for (int j : zahlen2) {
             System.out.println(j );
