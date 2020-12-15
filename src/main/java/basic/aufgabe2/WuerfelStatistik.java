@@ -23,7 +23,11 @@ package basic.aufgabe2;
 
 public class WuerfelStatistik {
     public static void main(String[] args) {
-        int[] arrayOfNumbers = new int[10000];
+
+        long start = System.currentTimeMillis();
+
+        int amountOfRolls = 200000;
+        int[] arrayOfNumbers = new int[amountOfRolls];
         int anzahl1 = 0;
         int anzahl2 = 0;
         int anzahl3 = 0;
@@ -31,7 +35,7 @@ public class WuerfelStatistik {
         int anzahl5 = 0;
         int anzahl6 = 0;
 
-        for (int i = 0; i < 10000; i++) {
+        for (int i = 0; i < amountOfRolls; i++) {
             int zufall = (int) (Math.random() * 6 + 1);
             if (zufall == 1) {
                 anzahl1 += 1;
@@ -48,11 +52,16 @@ public class WuerfelStatistik {
             }
             arrayOfNumbers[i] = zufall;
         }
+
         System.out.println("1: " + anzahl1 +
                 ", 2: " + anzahl2 +
                 ", 3: " + anzahl3 +
                 ", 4: " + anzahl4 +
                 ", 5: " + anzahl5 +
                 ", 6: " + anzahl6);
+
+        long end = System.currentTimeMillis();
+
+        System.out.println("Zeit benoetigt zum durchlaufen: " + (end - start) +"ms");
     }
 }
