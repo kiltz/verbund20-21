@@ -6,7 +6,7 @@ package basic.aufgabe4;
             for(int i=0; i<1000; ++i)
             {
                 System.out.println("Gewuerfelt: " + i);
-                double wert = Math.random() * 6;
+                double wert = Math.random() * wuerfe.length;
                 wuerfe[ (int)wert]++;
             }
 
@@ -16,6 +16,4 @@ package basic.aufgabe4;
 
             }
         }
-
-
 }
