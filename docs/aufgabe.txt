@@ -1,0 +1,9 @@
+Erzeugt im Paket basic.aufgabe1 die Klasse UserInfo.
+
+Erezugt die Methode main
+
+In der Main soll euer Name und die Firma ausgegeben werden (Minimum!)
+
+Committen und Puschen.
+
+Zeit: 13:31
