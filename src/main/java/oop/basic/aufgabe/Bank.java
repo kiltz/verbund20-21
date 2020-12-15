@@ -29,7 +29,5 @@ public class Bank {
         if (k.getKontostand() != -200) {
             System.out.println("Fehler 6: Kontostand stimmt nicht!");
         }
-
-
     }
 }
