@@ -35,22 +35,7 @@ public class WuerfelStatistik {
 			int zahl=0;
 			zahl= (int) (zufall);
 			System.out.println(zufall);
-			if(zahl==1){
-				zahlen[0]++;
-			}
-			else if(zahl==2){
-				zahlen[1]++;
-		}
-			else if(zahl==3){
-				zahlen[2]++;
-			}
-			else if(zahl==4){
-				zahlen[3]++;
-			}else if(zahl==5){
-				zahlen[4]++;
-			}else if(zahl==6){
-				zahlen[5]++;
-			}
+			zahlen[zahl-1]++;
 
 		}
 		System.out.println("Einser: "+zahlen[0]);
@@ -59,8 +44,8 @@ public class WuerfelStatistik {
 		System.out.println("Vierer: "+zahlen[3]);
 		System.out.println("Fuenfer: "+zahlen[4]);
 		System.out.println("Sechser: "+zahlen[5]);
-		int gesammt = zahlen[0]+zahlen[1]+zahlen[2]+zahlen[3]+zahlen[4]+zahlen[5];
-		System.out.println(gesammt);
+		int gesamt = zahlen[0]+zahlen[1]+zahlen[2]+zahlen[3]+zahlen[4]+zahlen[5];
+		System.out.println(gesamt);
 		// hier gehts los....
 	}
 }
