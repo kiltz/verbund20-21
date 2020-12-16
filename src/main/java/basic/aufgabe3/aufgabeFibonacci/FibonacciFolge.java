@@ -1,7 +1,4 @@
-package oop.basic.aufgabeFibonacci;
-
-import java.util.ArrayList;
-import java.util.List;
+package basic.aufgabe3.aufgabeFibonacci;
 
 public class FibonacciFolge {
     public static void main(String[] args) {
