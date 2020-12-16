@@ -33,8 +33,19 @@ public class KleineGui extends Application {
         Label lStatus = new Label("Ein Status");
         box.getChildren().add(lStatus);
 
-        Button button1 = new Button();
-        Button button2 = new Button("Accept");
+        DropShadow shadow = new DropShadow();
+        button3.addEventHandler(MouseEvent.MOUSE_ENTERED,
+                new EventHandler<MouseEvent>() {
+                    @Override public void handle(MouseEvent e) {
+                        button3.setEffect(shadow);
+                    }
+                });
+        button3.addEventHandler(MouseEvent.MOUSE_EXITED,
+                new EventHandler<MouseEvent>() {
+                    @Override public void handle(MouseEvent e) {
+                        button3.setEffect(null);
+                    }
+                });
 
         Scene scene = new Scene(box, 400,250);
         primaryStage.setScene(scene);
