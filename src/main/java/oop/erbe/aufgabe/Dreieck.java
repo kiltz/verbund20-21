@@ -10,6 +10,6 @@ public class Dreieck extends Form {
     }
 
     public int berechneUmfang() {
-        return (super.berechneUmfang()+ c);
+        return (super.berechneUmfang() + c);
     }
 }
