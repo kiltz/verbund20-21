@@ -25,6 +25,8 @@ public class KleineGui extends Application {
         box.getChildren().add(lMeinTextfeld);
         Label lDiesIstKeineUebung =new Label("Achtung Achtung, Durchsage: Dies ist keine Übung!");
         box.getChildren().add(lDiesIstKeineUebung);
+        Label lHilferuf =new Label("Hilfe mein Nachbar hat mein Klingelschild geklaut!");
+        box.getChildren().add(lHilferuf);
 
         Scene scene = new Scene(box, 500,350);
         primaryStage.setScene(scene);
