@@ -55,7 +55,7 @@ public class LoginGui extends Application {
 
     private void login(ActionEvent e) {
         String name = tfName.getText();
-        String pass = tfPasswortfield.getText();
+        String pass = tfPasswordfield.getText();
         System.out.println("Name: " + name + pass);
         if ("Testa".equals(name) && "Pass".equals(pass)) {
             System.out.println("Alles gut!");
