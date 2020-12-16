@@ -18,13 +18,17 @@ public class KleineGui extends Application {
         VBox box = new VBox();
 
         Label lInfo = new Label("Ein kleiner Text");
+        Label test = new Label ("Ein zweiter kleiner Text");
         box.getChildren().add(lInfo);
+        box.getChildren().add(test);
         Label lStatus = new Label("Ein Status");
+        Label lStatus2 = new Label("Ein zweiter Stauts");
         box.getChildren().add(lStatus);
+        box.getChildren().add(lStatus2);
 
-        Scene scene = new Scene(box, 400,250);
+        Scene scene = new Scene(box, 1000,750);
         primaryStage.setScene(scene);
-        primaryStage.setTitle("Mein kleines sinnloses Fensterchen");
+        primaryStage.setTitle("Mein großes sinnloses Fensterchen");
         primaryStage.show();
     }
 }
