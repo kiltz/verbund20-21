@@ -2,10 +2,11 @@ package oop.erbe.gui;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class KleineGui extends Application {
@@ -19,25 +20,21 @@ public class KleineGui extends Application {
         VBox box = new VBox();
 
         Label lInfo = new Label("Ein kleiner Text");
-        box.getChildren().add(lInfo);
         Label lStatus = new Label("Ein Status");
-        box.getChildren().add(lStatus);
-        Label lMeinTextfeld = new Label("neues Textfeld mit random Wörtern");
-        box.getChildren().add(lMeinTextfeld);
-        Label lDiesIstKeineUebung =new Label("Achtung Achtung, Durchsage: Dies ist keine Übung!");
-        box.getChildren().add(lDiesIstKeineUebung);
-        TextField tAntwort = new TextField("Hier eine Antwort eingeben");
-        box.getChildren().add(tAntwort);
-        Label lHilferuf =new Label("Hilfe mein Nachbar hat mein Klingelschild geklaut!");
-        box.getChildren().add(lHilferuf);
-        TextField tNeuesTextfeld = new TextField("Hier ist ein kleines Textfeld");
-        box.getChildren().add(tNeuesTextfeld);
-        Button kKnopf = new Button("kleiner süßer Button");
-        box.getChildren().add(kKnopf);
 
-        Scene scene = new Scene(box, 500,350);
+        TextField tfEingabe = new TextField("Eingabe");
+
+        box.getChildren().addAll(lInfo, lStatus, tfEingabe);
+
+        Scene scene = new Scene(box, 400,250);
         primaryStage.setScene(scene);
-        primaryStage.setTitle("Mein etwas größeres sinnloses Fensterchen");
+        primaryStage.setTitle("Mein kleines sinnloses Fensterchen");
         primaryStage.show();
+
+        Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setTitle("Neuer Dialog");
+        stage.setScene(new Scene(new StackPane(new Label("Nachricht!"))));
+        stage.show();
     }
 }
