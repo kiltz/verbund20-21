@@ -54,13 +54,15 @@ public class LoginGui extends Application {
     private void login(ActionEvent e) {
         String name = tfName.getText();
         System.out.println("Name: " + name);
-        if ("Testa".equals(name)) {
-            System.out.println("Alles gut!");
+        if ("Alexander Bartes".equals(name)) {
+            System.out.println("richtiger name");
         }
         // Aufgabe:
         // Prüft Passwort und Name gegen fixe Werte
         // Wenn die Daten stimmen zeige in Label "Login erfolgreich!"
         // Wenn die Daten NICHT stimmen zeige in Label "Login NICHT erfolgreich!"
-
+    private void passwort(ActionEvent e){
+            String name = tfPasswort.getText
+        }
     }
 }

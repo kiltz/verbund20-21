@@ -1,4 +1,4 @@
-package oop.erbe.aufgabe;
+/*package oop.erbe.aufgabe;
 
 public class ZeichenBlatt {
 
@@ -12,3 +12,4 @@ public class ZeichenBlatt {
 
     }
 }
+*/
