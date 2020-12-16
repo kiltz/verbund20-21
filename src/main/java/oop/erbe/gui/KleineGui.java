@@ -7,6 +7,8 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import javax.xml.soap.Text;
+
 public class KleineGui extends Application {
 
     public static void main(String[] args) {
@@ -17,7 +19,7 @@ public class KleineGui extends Application {
 
         VBox box = new VBox();
 
-        Label lInfo = new Label("Ein kleiner Text");
+        Label lInfo = new Label("Ich bin das Label ");
         box.getChildren().add(lInfo);
         Label lStatus = new Label("Ein Status");
         box.getChildren().add(lStatus);
