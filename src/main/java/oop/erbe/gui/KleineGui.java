@@ -30,7 +30,7 @@ public class KleineGui extends Application {
 
         Scene scene = new Scene(box, 500,350);
         primaryStage.setScene(scene);
-        primaryStage.setTitle("Mein kleines sinnloses Fensterchen");
+        primaryStage.setTitle("Mein etwas größeres sinnloses Fensterchen");
         primaryStage.show();
     }
 }
