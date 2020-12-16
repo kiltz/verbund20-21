@@ -17,6 +17,13 @@ import javafx.stage.Stage;
 public class LoginGui extends Application {
 
     private TextField tfName;
+    private PasswordField tfPasswort;
+    private String Passwort = "12345";
+    private String Name = "Testa";
+
+
+
+    private VBox box;
 
     public static void main(String[] args) {
         launch(args);
@@ -25,7 +32,7 @@ public class LoginGui extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        VBox box = new VBox(10);
+        box = new VBox(10);
         box.setPadding(new Insets(10, 20, 20, 20));
 
         HBox hBoxName = new HBox(10);
@@ -36,16 +43,26 @@ public class LoginGui extends Application {
 
         HBox hBoxPasswd = new HBox(10);
         Label lPasswort = new Label("Passwort");
-        PasswordField tfPasswort = new PasswordField();
+
+
+
+        tfPasswort = new PasswordField();
         hBoxPasswd.getChildren().addAll(lPasswort, tfPasswort);
 
-        Button bLogin = new Button("login");
+
+
+
+        Button bLogin = new Button("Einloggen");
         bLogin.setOnAction(e -> login(e));
 
         box.getChildren().addAll(hBoxName, hBoxPasswd, bLogin);
 
+
+
         Scene scene = new Scene(box, 400, 250);
         primaryStage.setScene(scene);
+
+
         primaryStage.setTitle("Login");
         primaryStage.show();
 
@@ -53,14 +70,14 @@ public class LoginGui extends Application {
 
     private void login(ActionEvent e) {
         String name = tfName.getText();
-        System.out.println("Name: " + name);
-        if ("Testa".equals(name)) {
-            System.out.println("Alles gut!");
+        String passwort = tfPasswort.getText();
+        Label output;
+        if (Passwort.equals(passwort)&&Name.equals(name)) {
+            output = new Label("Login erfolgreich");
+        } else {
+            output = new Label("Login nicht erfolgreich");
         }
-        // Aufgabe:
-        // Prüft Passwort und Name gegen fixe Werte
-        // Wenn die Daten stimmen zeige in Label "Login erfolgreich!"
-        // Wenn die Daten NICHT stimmen zeige in Label "Login NICHT erfolgreich!"
+        box.getChildren().add(output);
 
     }
 }
