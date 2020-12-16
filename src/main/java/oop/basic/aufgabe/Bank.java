@@ -37,7 +37,7 @@ public class Bank {
         }
 
         Konto kJulian = new Konto();
-        kJulian.auszahlen(500);
+        kJulian.auszahlen(5000000);
         System.out.println(kJulian.getKontostand());
 
         Konto kFriedrich = new Konto();
