@@ -2,6 +2,18 @@ package basic.aufgabe3;
 
 public class FibonacciFolge {
     public static void main(String[] args) {
-        //Gebe die Fibonacci bis 100 aus
+        int Wiederholung = 100;
+        long zahl1 = 0;
+        long zahl2 = 1;
+
+        for (int i = 1; i <= Wiederholung; ++i)
+        {
+            System.out.println(zahl1 + " ");
+            long Ergebnis = zahl1 + zahl2;
+            zahl1 = zahl2;
+            zahl2 = Ergebnis;
+            if (zahl1 >= 100)
+                break;
+        }
     }
 }
