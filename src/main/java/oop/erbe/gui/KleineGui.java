@@ -21,8 +21,10 @@ public class KleineGui extends Application {
         box.getChildren().add(lInfo);
         Label lStatus = new Label("Ein Status");
         box.getChildren().add(lStatus);
+        Label lZusatz = new Label("Hier ist das Zusatzfeld");
+        box.getChildren().add(lZusatz);
 
-        Scene scene = new Scene(box, 400,250);
+        Scene scene = new Scene(box, 700,450);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Mein kleines sinnloses Fensterchen");
         primaryStage.show();
