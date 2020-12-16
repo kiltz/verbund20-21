@@ -1,11 +1,9 @@
 package oop.erbe.gui;
 
 import javafx.application.Application;
+import javafx.geometry.Orientation;
 import javafx.scene.Scene;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -30,6 +28,11 @@ public class KleineGui extends Application {
         box.getChildren().add(pField);
         CheckBox cBox=new CheckBox("Test zum schreiben");
         box.getChildren().add(cBox);
+        ScrollBar sBar=new ScrollBar();
+        sBar.setOrientation(Orientation.VERTICAL);
+
+        box.getChildren().add(sBar);
+
 
         Scene scene = new Scene(box, 400,250);
         primaryStage.setScene(scene);
