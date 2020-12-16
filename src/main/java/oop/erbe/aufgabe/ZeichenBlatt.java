@@ -1,5 +1,5 @@
 package oop.erbe.aufgabe;
-/*
+
 public class ZeichenBlatt {
 
     public static void main(String[] args) {
@@ -12,4 +12,3 @@ public class ZeichenBlatt {
 
     }
 }
-*/

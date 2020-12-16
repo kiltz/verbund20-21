@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 package oop.erbe.gui;
 
@@ -7,6 +8,16 @@ package oop.erbe.gui;
         import javafx.scene.layout.StackPane;
         import javafx.scene.layout.VBox;
         import javafx.stage.Stage;
+=======
+package oop.erbe.gui;
+
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+>>>>>>> Friedrich
 
 public class KleineGui extends Application {
 
@@ -18,6 +29,7 @@ public class KleineGui extends Application {
 
         VBox box = new VBox();
 
+<<<<<<< HEAD
         Label lInfo = new Label("was geht denn heute ab?");
         box.getChildren().add(lInfo);
         Label lStatus = new Label("Was geht denn heute");
@@ -28,6 +40,16 @@ public class KleineGui extends Application {
         Scene scene = new Scene(box, 400,250);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Hans.exe");
+=======
+        Label lInfo = new Label("Ein kleiner Text");
+        box.getChildren().add(lInfo);
+        Label lStatus = new Label("Ein Status");
+        box.getChildren().add(lStatus);
+
+        Scene scene = new Scene(box, 400,250);
+        primaryStage.setScene(scene);
+        primaryStage.setTitle("Mein kleines sinnloses Fensterchen");
+>>>>>>> Friedrich
         primaryStage.show();
     }
 }
