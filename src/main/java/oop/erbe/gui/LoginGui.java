@@ -63,4 +63,14 @@ public class LoginGui extends Application {
         // Wenn die Daten NICHT stimmen zeige in Label "Login NICHT erfolgreich!"
 
     }
+
+    private void login(ActionEvent a) {
+        String passwort = tfName.getText();
+        System.out.println("Passwort: " + passwort);
+        if ("geheim".equals(passwort)) {
+            System.out.println("Login erfolgreich");
+        } else {
+            System.out.println("Login NICHT erfolgreich");
+        }
+    }
 }
