@@ -16,7 +16,7 @@ public class KleineGui extends Application {
     public void start(Stage primaryStage) throws Exception {
 
         VBox box = new VBox();
-
+        Label test = new Label("Ein kleinerer Text");
         Label lInfo = new Label("Ein kleiner Text");
         box.getChildren().add(lInfo);
         Label lStatus = new Label("Ein Status");

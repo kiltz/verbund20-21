@@ -1,3 +1,4 @@
+/*
 package oop.erbe.aufgabe;
 
 public class Dreieck extends Form {
@@ -7,3 +8,4 @@ public class Dreieck extends Form {
         super(s1,s2);
     }
 }
+*/

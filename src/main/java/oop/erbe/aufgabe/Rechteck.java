@@ -1,3 +1,4 @@
+/*
 package oop.erbe.aufgabe;
 
 import oop.erbe.Auto;
@@ -10,3 +11,4 @@ public class Rechteck extends Form {
         super(s1, s2)
 }
 
+*/
