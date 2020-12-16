@@ -18,7 +18,7 @@ public class KreisNutzer {
         System.out.println(k2.getRadius());
 
         Kreis k3 = null;
-//        k3.berechneUmfang();
+//   1     k3.berechneUmfang();
 
         int zahl = 5;
         Kreis k4 = new Kreis(zahl);
