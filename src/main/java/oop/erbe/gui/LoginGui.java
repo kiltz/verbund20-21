@@ -63,10 +63,10 @@ public class LoginGui extends Application {
         String name = tfName.getText();
         String password = tfPasswort.getText();
         if ("Tester".equals(name) && "123".equals(password)) {
-            lLogin.setText("erfolgreich!");
+            lLogin.setText("Login erfolgreich!");
             lLogin.setTextFill(Paint.valueOf("#00ff00"));
         } else {
-            lLogin.setText("NICHT erfolgreich!");
+            lLogin.setText("Login NICHT erfolgreich!");
             lLogin.setTextFill(Paint.valueOf("#ff0000"));
         }
         // Aufgabe:
