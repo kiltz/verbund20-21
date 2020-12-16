@@ -3,6 +3,7 @@ package oop.erbe.gui;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -25,10 +26,13 @@ public class KleineGui extends Application {
         Label lStatus2 = new Label("Ein zweiter Stauts");
         box.getChildren().add(lStatus);
         box.getChildren().add(lStatus2);
+        TextField tf = new TextField("Bismarck biss Mark, bis Mark Bismarck biss");
+        box.getChildren().add(tf);
 
         Scene scene = new Scene(box, 1000,750);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Mein großes sinnloses Fensterchen");
         primaryStage.show();
+
     }
 }
