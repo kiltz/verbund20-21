@@ -3,10 +3,8 @@ package oop.erbe.gui;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class KleineGui extends Application {
@@ -20,21 +18,13 @@ public class KleineGui extends Application {
         VBox box = new VBox();
 
         Label lInfo = new Label("Ein kleiner Text");
+        box.getChildren().add(lInfo);
         Label lStatus = new Label("Ein Status");
-
-        TextField tfEingabe = new TextField("Eingabe");
-
-        box.getChildren().addAll(lInfo, lStatus, tfEingabe);
+        box.getChildren().add(lStatus);
 
         Scene scene = new Scene(box, 400,250);
         primaryStage.setScene(scene);
-        primaryStage.setTitle("Fenster");
+        primaryStage.setTitle("Mein kleines sinnloses Fensterchen");
         primaryStage.show();
-
-        Stage stage = new Stage();
-        stage.initModality(Modality.APPLICATION_MODAL);
-        stage.setTitle("Des ist ein Dialog");
-        stage.setScene(new Scene(new StackPane(new Label("Hau Her"))));
-        stage.show();
     }
 }
