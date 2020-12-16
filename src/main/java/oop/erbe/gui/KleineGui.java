@@ -28,7 +28,7 @@ public class KleineGui extends Application {
 
 
 
-        Scene scene = new Scene(box, 400,250);
+        Scene scene = new Scene(box, 900,700);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Mein kleines sinnloses Fensterchen");
         primaryStage.show();
