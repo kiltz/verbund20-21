@@ -3,11 +3,14 @@ package oop.erbe.gui;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+
 
 public class KleineGui extends Application {
 
@@ -19,22 +22,28 @@ public class KleineGui extends Application {
 
         VBox box = new VBox();
 
-        Label lInfo = new Label("Ein kleiner Text");
-        Label lStatus = new Label("Ein Status");
+        Label lInfo = new Label("Wie geht es Hans heute?");
+        box.getChildren().add(lInfo);
+        Label lStatus = new Label("Hans ist müde.");
+        box.getChildren().add(lStatus);
+        Label lStatus2 = new Label("Hans möchte schlafen.");
+        box.getChildren().add(lStatus2);
+        TextField textFeld = new TextField("Hans versucht herauszufinden was ein Textfeld ist."+
+                " Hans hat herausgefunden was ein Textfeld ist und hat es deaktiviert");
+        textFeld.setEditable(false);
+        box.getChildren().add(textFeld);
+        PasswordField passwordField = new PasswordField();
+        box.getChildren().add(passwordField);
 
-        TextField tfEingabe = new TextField("Eingabe");
-
-        box.getChildren().addAll(lInfo, lStatus, tfEingabe);
+        Image image = new Image("https://hans-wagner.de/wp-content/uploads/2017/02/Hans_Wagner_Logo_rgb.png");
+        ImageView imageView = new ImageView(image);
+        imageView.setFitWidth(400);
+        imageView.setPreserveRatio(true);
+        box.getChildren().add(imageView);
 
         Scene scene = new Scene(box, 400,250);
         primaryStage.setScene(scene);
-        primaryStage.setTitle("Mein kleines sinnloses Fensterchen");
+        primaryStage.setTitle("Hans.exe");
         primaryStage.show();
-
-        Stage stage = new Stage();
-        stage.initModality(Modality.APPLICATION_MODAL);
-        stage.setTitle("Neuer Dialog");
-        stage.setScene(new Scene(new StackPane(new Label("Nachricht!"))));
-        stage.show();
     }
 }
