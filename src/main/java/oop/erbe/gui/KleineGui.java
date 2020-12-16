@@ -21,8 +21,8 @@ public class KleineGui extends Application {
         box.getChildren().add(lInfo);
         Label lStatus = new Label("Ein Status");
         box.getChildren().add(lStatus);
-        Label lmeinTextfeld = new Label("neues Textfeld mit random Wörtern");
-        box.getChildren().add(lmeinTextfeld);
+        Label lMeinTextfeld = new Label("neues Textfeld mit random Wörtern");
+        box.getChildren().add(lMeinTextfeld);
         Label lDiesIstKeineUebung =new Label("Achtung Achtung, Durchsage: Dies ist keine Übung!");
         box.getChildren().add(lDiesIstKeineUebung);
 
