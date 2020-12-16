@@ -6,6 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -21,6 +22,7 @@ public class KleineGui extends Application {
     public void start(Stage primaryStage) throws Exception {
 
         VBox box = new VBox();
+        HBox box2 = new HBox();
 
         Label lInfo = new Label("Ich bin das Label ");
         box.getChildren().add(lInfo);
@@ -40,5 +42,11 @@ public class KleineGui extends Application {
         primaryStage.setScene(scene);
         primaryStage.setTitle("Mein kleines sinnloses Fensterchen");
         primaryStage.show();
+
+
+        Stage stage = new Stage();
+        stage.setTitle("Neuer Dialog lol");
+        stage.setScene(new Scene(new StackPane(new Label("Nachricht!"))));
+        stage.show();
     }
 }
