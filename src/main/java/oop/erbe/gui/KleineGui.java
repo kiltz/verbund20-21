@@ -28,6 +28,10 @@ public class KleineGui extends Application {
         box.getChildren().add(lStatus2);
         TextField tf = new TextField("Bismarck biss Mark, bis Mark Bismarck biss");
         box.getChildren().add(tf);
+        Label bestesLabel = new Label("Wenn Fliegen hinter Fliegen fliegen, fliegen Fliegen Fliegen hinterher");
+        box.getChildren().add(bestesLabel);
+        Label bestesLabel2 = new Label("Wenn Robben hinter Robben robben, robben Robben Robben nach");
+        box.getChildren().add(bestesLabel2);
 
         Scene scene = new Scene(box, 1000,750);
         primaryStage.setScene(scene);
