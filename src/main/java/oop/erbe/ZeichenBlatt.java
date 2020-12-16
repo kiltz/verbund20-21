@@ -1,4 +1,4 @@
-package oop.erbe.aufgabe;
+package oop.erbe;
 
 import oop.erbe.aufgabe.muloe.Dreieck;
 import oop.erbe.aufgabe.muloe.Form;

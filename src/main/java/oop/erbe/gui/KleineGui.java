@@ -21,6 +21,12 @@ public class KleineGui extends Application {
         box.getChildren().add(lInfo);
         Label lStatus = new Label("Ein Status");
         box.getChildren().add(lStatus);
+        Label lLand = new Label("Ein Land");
+        box.getChildren().add(lLand);
+        Label lDEUTSCHLAND = new Label("Ein DEUTSCHLAND");
+        box.getChildren().add(lDEUTSCHLAND);
+
+
 
         Scene scene = new Scene(box, 400,250);
         primaryStage.setScene(scene);
