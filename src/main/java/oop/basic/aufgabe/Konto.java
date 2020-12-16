@@ -38,7 +38,7 @@ public class Konto {
         if(kontostand + dispo >= betrag){
             kontostand -= betrag;
         }else{
-            System.out.println("Dispo kann nicht ueberzogen werden!");
+            System.out.println("Fehler: Dispo kann nicht ueberzogen werden!");
         }
 
 
