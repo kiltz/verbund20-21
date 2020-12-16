@@ -27,7 +27,7 @@ public class Bank {
         }
         k.auszahlen(2500);
         if (k.getKontostand() != -200) {
-            System.out.println("Fehler 6: Kontostand stimmt nicht!");
+            System.out.println("Fehler 6: Kontostand stimmt nicht!!");
         }
 
 
