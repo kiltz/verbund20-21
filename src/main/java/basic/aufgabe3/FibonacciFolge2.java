@@ -9,11 +9,13 @@ public class FibonacciFolge2 {
 
         System.out.print(zahl1 + " " + zahl2);
 
-        for(int i = 0;i < 10; i++){
+        for(int i = 0;i < 100; i++){
             zahl3 = zahl1 + zahl2;
-            System.out.print(" " + zahl3);
-            zahl1 = zahl2;
-            zahl2 = zahl3;
+            if (zahl3 <= 100) {
+                System.out.print(" " + zahl3);
+                zahl1 = zahl2;
+                zahl2 = zahl3;
+            }
         }
     }
 }
