@@ -1,7 +1,8 @@
 package basic.aufgabe3;
 
-public class FibonacciFolge {
-    public static void main(String[] args) {
+public class FibonacciFolge2 {
+    public static void main(String[] arg) {
+
         int zahl1 = 0;
         int zahl2 = 1;
         int zahl3;
