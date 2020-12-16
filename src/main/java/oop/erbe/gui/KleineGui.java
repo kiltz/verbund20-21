@@ -19,6 +19,9 @@ public class KleineGui extends Application {
 
         Label lInfo = new Label("Ein kleiner Text");
         box.getChildren().add(lInfo);
+        Label nez = new Label("Ein kleiner Text3");
+        box.getChildren().add(nez);
+
         Label lStatus = new Label("Ein Status");
         box.getChildren().add(lStatus);
 
