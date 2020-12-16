@@ -3,6 +3,7 @@ package oop.erbe.gui;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
@@ -28,6 +29,8 @@ public class KleineGui extends Application {
                 " Hans hat herausgefunden was ein Textfeld ist und hat es deaktiviert");
         textFeld.setEditable(false);
         box.getChildren().add(textFeld);
+        PasswordField passwordField = new PasswordField();
+        box.getChildren().add(passwordField);
 
         Scene scene = new Scene(box, 400,250);
         primaryStage.setScene(scene);
