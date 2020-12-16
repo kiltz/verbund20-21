@@ -5,8 +5,10 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -34,16 +36,16 @@ public class KleineGui extends Application {
         box.getChildren().add(lStatus);
 
         DropShadow shadow = new DropShadow();
-        button3.addEventHandler(MouseEvent.MOUSE_ENTERED,
+        button.addEventHandler(MouseEvent.MOUSE_ENTERED,
                 new EventHandler<MouseEvent>() {
                     @Override public void handle(MouseEvent e) {
-                        button3.setEffect(shadow);
+                        button.setEffect(shadow);
                     }
                 });
-        button3.addEventHandler(MouseEvent.MOUSE_EXITED,
+        button.addEventHandler(MouseEvent.MOUSE_EXITED,
                 new EventHandler<MouseEvent>() {
                     @Override public void handle(MouseEvent e) {
-                        button3.setEffect(null);
+                        button.setEffect(null);
                     }
                 });
 
