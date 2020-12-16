@@ -17,6 +17,7 @@ import javafx.stage.Stage;
 public class LoginGui extends Application {
 
     private TextField tfName;
+    private PasswordField tfPasswordfield;
 
     public static void main(String[] args) {
         launch(args);
@@ -31,6 +32,7 @@ public class LoginGui extends Application {
         HBox hBoxName = new HBox(10);
         Label lName = new Label("Name");
         tfName = new TextField();
+        tfPasswordfield = new PasswordField();
 
         hBoxName.getChildren().addAll(lName, tfName);
 
@@ -53,9 +55,12 @@ public class LoginGui extends Application {
 
     private void login(ActionEvent e) {
         String name = tfName.getText();
-        System.out.println("Name: " + name);
-        if ("Testa".equals(name)) {
+        String pass = tfPasswortfield.getText();
+        System.out.println("Name: " + name + pass);
+        if ("Testa".equals(name) && "Pass".equals(pass)) {
             System.out.println("Alles gut!");
+
+
         }
         // Aufgabe:
         // Prüft Passwort und Name gegen fixe Werte
