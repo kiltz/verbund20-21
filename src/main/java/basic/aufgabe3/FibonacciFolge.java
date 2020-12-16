@@ -1,7 +1,12 @@
 package basic.aufgabe3;
 
+<<<<<<< HEAD
         import java.util.ArrayList;
         import java.util.Arrays;
+=======
+import java.util.ArrayList;
+import java.util.Arrays;
+>>>>>>> LeonWolf
 
 public class FibonacciFolge {
     public static void main(String[] args) {
@@ -16,5 +21,9 @@ public class FibonacciFolge {
         }
     }
 }
+<<<<<<< HEAD
 {
 }
+=======
+
+>>>>>>> LeonWolf
