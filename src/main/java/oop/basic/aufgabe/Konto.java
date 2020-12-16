@@ -23,7 +23,7 @@ public class Konto {
 
     public void einzahlen(int zahl) {
         this.kontostand += zahl;
-    }
+        }
 
 
     public void auszahlen(int zahl) {
