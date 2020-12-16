@@ -28,10 +28,16 @@ public class Anweisungen {
         }
         System.out.println(zahl);
 
+<<<<<<<<< Temporary merge branch 1
+        int monat = 6;
+        switch (monat) {
+            case 1:
+=========
         int monat = 1;
         switch (monat) {
             case 1:
                 System.out.println("Januar");
+>>>>>>>>> Temporary merge branch 2
             case 2:
                 System.out.println("Winter");
                 break;
@@ -46,8 +52,12 @@ public class Anweisungen {
         }
 
         for (int i = 1; i <= 10; i++) {
+<<<<<<<<< Temporary merge branch 1
+            System.out.println(i +": "+ (i*i));
+=========
             int q = i * i;
             System.out.println(i +": "+ q);
+>>>>>>>>> Temporary merge branch 2
         }
         System.out.println("nun mit while");
         int i = 1;

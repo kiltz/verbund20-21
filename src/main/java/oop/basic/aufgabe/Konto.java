@@ -1,30 +1,37 @@
 package oop.basic.aufgabe;
 
 public class Konto {
-    private int Kontostand = 0;
+
+    private int kontostand = 0;
     private int dispo = 0;
 
-    public void setDispo(int wert){
-       dispo += wert;
+
+    public int getKontostand() {
+        return this.kontostand;
     }
 
-    public int getDispo(){
-        return dispo;
-    }
-    public int getKontostand(){
-        return Kontostand;
-    }
-    public void einzahlen(int einzahlung){
-        Kontostand += einzahlung;
+
+    public int getDispo() {
+        return this.dispo;
     }
 
-    public void auszahlen(int auszahlung){
-        if (Kontostand - auszahlung >= -dispo )
-        Kontostand -= auszahlung;
+
+    public void setDispo(int zahl) {
+        this.dispo += zahl;
     }
+
+
+    public void einzahlen(int zahl) {
+        this.kontostand += zahl;
+    }
+
+
+    public void auszahlen(int zahl) {
+        if (this.kontostand - zahl >= -this.dispo) {
+            this.kontostand -= zahl;
+        }
         else {
-            System.out.println("Geld Reicht nicht");
+            System.out.println("Bankkonto ungenuegend!");
+        }
     }
-
 }
-
