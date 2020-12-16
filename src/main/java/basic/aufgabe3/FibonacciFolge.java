@@ -8,8 +8,8 @@ public class FibonacciFolge {
             int zahl2 =1;
             int zahl3 =0;
         System.out.print(zahl1+" "+zahl2);
-            while(zahl3<100)
-            {
+
+           for(int i=0; i<10;i++) {
                 zahl3=zahl1+zahl2;
                 System.out.print(" "+zahl3);
                 zahl1=zahl2;
