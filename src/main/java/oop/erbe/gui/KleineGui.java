@@ -21,8 +21,12 @@ public class KleineGui extends Application {
         box.getChildren().add(lInfo);
         Label lStatus = new Label("Ein Status");
         box.getChildren().add(lStatus);
+        Label lmeinTextfeld = new Label("neues Textfeld mit random Wörtern");
+        box.getChildren().add(lmeinTextfeld);
+        Label lDiesIstKeineUebung =new Label("Achtung Achtung, Durchsage: Dies ist keine Übung!");
+        box.getChildren().add(lDiesIstKeineUebung);
 
-        Scene scene = new Scene(box, 400,250);
+        Scene scene = new Scene(box, 500,350);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Mein kleines sinnloses Fensterchen");
         primaryStage.show();
