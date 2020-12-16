@@ -2,7 +2,6 @@ package basic.aufgabe3;
 
 public class FibonacciFolge {
     public static void main(String[] args) {
-        int Wiederholung = 1;
         long zahl1 = 0;
         long zahl2 = 1;
 
