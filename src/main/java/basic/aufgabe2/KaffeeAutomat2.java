@@ -1,6 +1,6 @@
 package basic.aufgabe2;
 
-public class KaffeeAutomat {
+class KaffeeAutomat {
 	public static void main(String[] arg) {
 
 		// preis fuer den Kaffee 30cent
