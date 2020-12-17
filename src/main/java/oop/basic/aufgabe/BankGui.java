@@ -1,56 +1,47 @@
 package oop.basic.aufgabe;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.scene.Scene;
-import javafx.scene.input.InputMethodTextRun;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-import java.awt.*;
+
 
 public class BankGui extends Application {
 
     private TextField tfEingabe;
 
-
     @Override
     public void start(Stage primaryStage) throws Exception {
         VBox box = new VBox(10);
-
 
         // 1. erzeuge ein Eingabfeld für den Betrag
         HBox hBoxEingabe = new HBox(10);
         tfEingabe = new TextField();
 
-        hBoxEingabe.getChildren().add(tfEingabe);
-
-        int value = Integer.parseInt(tfEingabe.getText());
-
         // 2. Erzeuge einen Button für "setze Dispo"
             // er soll eine Methode setDispo(...) aufrufen
-        HBox hBoxSetDispo = new HBox(10);
-
         Button btSetDispo = new Button("Set Dispo");
-        btSetDispo.setActionCommand(Konto.setDispo(value));
-        hBoxSetDispo.getChildren().add(btSetDispo);
+        btSetDispo.setOnAction(e -> setDispo(e));
 
         // 3. erzeuge einen Button "einzahlen"
             // er soll eine Methode einzahlen(...) aufrufen
-        HBox hBoxEinzahlen = new HBox(10);
-
         Button btEinzahlen = new Button("Einzahlen");
-        btEinzahlen.setActionCommand(Konto.einzahlen(value));
-        hBoxEinzahlen.getChildren().add(btEinzahlen);
+        btEinzahlen.setOnAction(e -> einzahlen(e));
 
         // 4. erzeuge einen Button "auszahlen"
             // er soll eine Methode auszahlen(...) aufrufen
-        HBox hBoxAuszahlen = new HBox(10);
-
         Button btAuszahlen = new Button("Auszahlen");
-        btAuszahlen.setActionCommand(Konto.auszahlen(value));
-        hBoxAuszahlen.getChildren().add(btAuszahlen);
+        btAuszahlen.setOnAction(e -> auszahlen(e));
 
+
+        // Hinzufügen aller Elemente:
+        hBoxEingabe.getChildren().addAll(tfEingabe,btSetDispo,btEinzahlen,btAuszahlen);
+        box.getChildren().addAll(hBoxEingabe);
         // 5. Überprüfe, das die Button die richtigen Methoden aufrufen.
 
         // 6. Wandele den Betrag aus dem TextFeld in eine Zahl um
@@ -63,6 +54,17 @@ public class BankGui extends Application {
         primaryStage.setTitle("Bank");
         primaryStage.show();
 
+    }
 
+    private void auszahlen(ActionEvent e) {
+        System.out.println("Auszahlen!");
+    }
+
+    private void einzahlen(ActionEvent e) {
+        System.out.println("Einzahlen!");
+    }
+
+    private void setDispo(ActionEvent e) {
+        System.out.println("Dispo Setzen!");
     }
 }
