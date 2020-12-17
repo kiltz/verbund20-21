@@ -25,17 +25,16 @@ public class BankGui extends Application {
         VBox box = new VBox(10);
 
         // 1. erzeuge ein Eingabfeld für den Betrag
-        HBox hBoxEingabe = new HBox(10);
         tfEingabe = new TextField();
         lKontostand = new Label();
         lDispo = new Label();
 
-
-        // 2. Erzeuge einen Button für "setze Dispo"
-            // er soll eine Methode setDispo(...) aufrufen
+        HBox hBoxEingabe = new HBox(10);
         HBox hBoxButtons = new HBox(10);
         HBox hBoxGetValues = new HBox(10);
 
+        // 2. Erzeuge einen Button für "setze Dispo"
+            // er soll eine Methode setDispo(...) aufrufen
         Button btSetDispo = new Button("Set Dispo");
         btSetDispo.setOnAction(e -> setDispo(e));
 
