@@ -14,9 +14,14 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import javax.swing.*;
+
 public class LoginGui extends Application {
 
     private TextField tfName;
+    private PasswordField tfPasswort;
+    private VBox box;
+
 
     public static void main(String[] args) {
         launch(args);
@@ -25,7 +30,7 @@ public class LoginGui extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        VBox box = new VBox(10);
+        box = new VBox(10);
         box.setPadding(new Insets(10, 20, 20, 20));
 
         HBox hBoxName = new HBox(10);
@@ -36,7 +41,7 @@ public class LoginGui extends Application {
 
         HBox hBoxPasswd = new HBox(10);
         Label lPasswort = new Label("Passwort");
-        PasswordField tfPasswort = new PasswordField();
+        tfPasswort = new PasswordField();
         hBoxPasswd.getChildren().addAll(lPasswort, tfPasswort);
 
         Button bLogin = new Button("login");
@@ -54,13 +59,23 @@ public class LoginGui extends Application {
     private void login(ActionEvent e) {
         String name = tfName.getText();
         System.out.println("Name: " + name);
-        if ("Testa".equals(name)) {
+        String passwort = tfPasswort.getText();
+        System.out.println("Passwort: " + passwort);
+        if ("Testa".equals(name) && "Geheim".equals(passwort)) {
+            Label erfolgreich = new Label("Login erfolgreich!");
+            box.getChildren().add(erfolgreich);
             System.out.println("Alles gut!");
+        }else{
+            Label nichtErfolgreich = new Label("Login nicht erfolgreich!");
+            box.getChildren().add(nichtErfolgreich);
         }
+
+
+
+
         // Aufgabe:
         // Prüft Passwort und Name gegen fixe Werte
         // Wenn die Daten stimmen zeige in Label "Login erfolgreich!"
         // Wenn die Daten NICHT stimmen zeige in Label "Login NICHT erfolgreich!"
-
     }
 }
