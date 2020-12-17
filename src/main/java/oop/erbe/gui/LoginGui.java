@@ -17,6 +17,9 @@ import javafx.stage.Stage;
 public class LoginGui extends Application {
 
     private TextField tfName;
+    private PasswordField tfPasswort;
+    private Label lErgebnis;
+
 
     public static void main(String[] args) {
         launch(args);
@@ -31,18 +34,19 @@ public class LoginGui extends Application {
         HBox hBoxName = new HBox(10);
         Label lName = new Label("Name");
         tfName = new TextField();
+        lErgebnis = new Label();
 
         hBoxName.getChildren().addAll(lName, tfName);
 
         HBox hBoxPasswd = new HBox(10);
-        Label lPasswort = new Label("Passwort");
+        Label lPasswort = new Label("Geheim");
         PasswordField tfPasswort = new PasswordField();
         hBoxPasswd.getChildren().addAll(lPasswort, tfPasswort);
 
         Button bLogin = new Button("login");
         bLogin.setOnAction(e -> login(e));
 
-        box.getChildren().addAll(hBoxName, hBoxPasswd, bLogin);
+        box.getChildren().addAll(hBoxName, hBoxPasswd, bLogin,lErgebnis);
 
         Scene scene = new Scene(box, 400, 250);
         primaryStage.setScene(scene);
@@ -53,14 +57,23 @@ public class LoginGui extends Application {
 
     private void login(ActionEvent e) {
         String name = tfName.getText();
-        System.out.println("Name: " + name);
+        String passwort = tfPasswort.getText();
+        System.out.println("NAME: " + name);
+        System.out.println("Passwort: " + passwort);
         if ("Testa".equals(name)) {
-            System.out.println("Alles gut!");
+            System.out.println("Login erfolgreich!");
         }
+        else {
+            System.out.println("Login nicht erfolgreich!");
+
+            lErgebnis.setText("Login nicht erfolgreich!");
+            }
+        }
+
         // Aufgabe:
         // Prüft Passwort und Name gegen fixe Werte
         // Wenn die Daten stimmen zeige in Label "Login erfolgreich!"
         // Wenn die Daten NICHT stimmen zeige in Label "Login NICHT erfolgreich!"
 
     }
-}
+
