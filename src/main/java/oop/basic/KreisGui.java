@@ -19,10 +19,11 @@ public class KreisGui extends Application {
     private TextField tfEingabe;
     private Label lResult;
 
-    Kreis kreis = new Kreis();
+    private Kreis kreis;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        kreis = new Kreis();
         VBox box = new VBox(10);
         box.setPadding(new Insets(10, 20, 20, 20));
 
