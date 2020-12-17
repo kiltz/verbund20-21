@@ -17,7 +17,7 @@ public class Konto {
 
 
     public void setDispo(int zahl) {
-        this.dispo += zahl;
+        this.dispo = zahl;
     }
 
 
