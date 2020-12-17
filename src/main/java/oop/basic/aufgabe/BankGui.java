@@ -24,20 +24,19 @@ public class BankGui extends Application {
         hboxBetrag.getChildren().addAll(textEingabe, betragFeld);
         //setze dispoo
         Button setDispo=new Button("Dispoo setzen");
-        setDispo.setOnAction((e->setDispo()));
+        setDispo.setOnAction((e->setDispo(e)));
         //einzahlbutton
         Button einzahlB=new Button("Einzahlen");
-        einzahlB.setOnAction(e->einzahlen());
+        einzahlB.setOnAction(e->einzahlen(e));
         //ausgabebutton
         Button auszahlB=new Button("Auszahlen");
-        auszahlB.setOnAction(e->auszahlen());
+        auszahlB.setOnAction(e->auszahlen(e));
 
 
         box.getChildren().addAll(hboxBetrag, setDispo, einzahlB, auszahlB);
         // 5. Überprüfe, das die Button die richtigen Methoden aufrufen.
 
         // umwandlung in zahl
-        int eingegebenerBetrag = Integer.parseInt(betragFeld.getText());
 
 
         Scene scene = new Scene(box, 400, 250);
@@ -48,7 +47,9 @@ public class BankGui extends Application {
     }
 
     private void setDispo(ActionEvent e) {
-        System.out.println("Disp setzen !");
+        System.out.println("Dispo setzen !");
+        int eingegebenerBetrag = Integer.parseInt(betragFeld.getText());
+
 
     }
 
@@ -57,9 +58,13 @@ public class BankGui extends Application {
 
     private void einzahlen(ActionEvent e) {
         System.out.println("Betrag einzahlen");
+        int eingegebenerBetrag = Integer.parseInt(betragFeld.getText());
+
     }
 
     private void auszahlen(ActionEvent e) {
         System.out.println("Betrag auszahlen");
+        int eingegebenerBetrag = Integer.parseInt(betragFeld.getText());
+
     }
 }
