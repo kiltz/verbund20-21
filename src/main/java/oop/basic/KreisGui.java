@@ -6,6 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class KreisGui  extends Application {
@@ -27,6 +28,8 @@ public class KreisGui  extends Application {
         lRadius = new Label("Radius: " + kreis.getRadius());
         lUmfang = new Label("Umfang: ");
         fehler = new Label();
+        lUmfang.setTextFill(Color.BLUE);
+        lRadius.setTextFill(Color.BLUE);
 
         Button bRadius = new Button("Umfang Berechnen");
         bRadius.setOnAction(e -> berechneUmfang());
@@ -46,8 +49,10 @@ public class KreisGui  extends Application {
             kreis.setRadius(radius);
             lRadius.setText("Radius: " + kreis.getRadius());
             lUmfang.setText("Umfang: " + kreis.berechneUmfang());
+            
         } catch (Exception e) {
             fehler.setText("Fehler: " + e);
+            fehler.setTextFill(Color.RED);
         }
     }
 }
