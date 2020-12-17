@@ -16,6 +16,8 @@ public class BankGui extends Application {
     private Konto konto;
     private Label lKontostand;
     private Label lDispo;
+    private VBox box;
+    private Label lFehlermeldung;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -27,6 +29,7 @@ public class BankGui extends Application {
         tfBetrag = new TextField();
         lKontostand = new Label();
         lDispo = new Label();
+        lFehlermeldung = new Label();
 
         Button bsetzeDispo = new Button("setze Dispo");
         bsetzeDispo.setOnAction(e -> setDispo(e) );
@@ -62,7 +65,13 @@ public class BankGui extends Application {
 
     private void auszahlen(ActionEvent e) {
         int betrag = Integer.parseInt(tfBetrag.getText());
-        konto.auszahlen(betrag);
+
+        try {
+            konto.auszahlen(betrag);
+        } catch (Exception exception) {
+            lFehlermeldung.setText("Betrag nicht auszahlbar!");
+            box.getChildren().add(lFehlermeldung);
+        }
         lKontostand.setText("Kontostand: " + konto.getKontostand());
     }
 }

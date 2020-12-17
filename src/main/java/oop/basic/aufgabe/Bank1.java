@@ -1,7 +1,7 @@
 package oop.basic.aufgabe;
 
 public class Bank1 {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         Konto k = new Konto();
         k.setDispo(1500);
         if (k.getDispo() != 1500) {
