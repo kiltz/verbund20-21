@@ -49,7 +49,7 @@ public class LoginGui extends Application {
         bLogin.setOnAction(e -> login(e));
 
         box.getChildren().addAll(hBoxName, hBoxPasswd, bLogin);
-
+        
         Scene scene = new Scene(box, 400, 250);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Login");
