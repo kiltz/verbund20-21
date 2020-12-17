@@ -17,10 +17,10 @@ import static javafx.application.Application.launch;
 
 public class KreisGui extends Application {
 
-    TextField tRadius;
-    Label lAusgabe;
-    int radius;
-    Kreis k=new Kreis();
+    private TextField tRadius;
+    private Label lAusgabe;
+    private int radius;
+    private Kreis k=new Kreis();
 
     public static void main(String[] args) {
         launch(args);
