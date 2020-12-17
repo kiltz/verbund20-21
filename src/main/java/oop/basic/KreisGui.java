@@ -22,7 +22,7 @@ public class KreisGui extends Application {
     public void start(Stage primaryStage) throws Exception {
 
         VBox box = new VBox(10);
-        box.setPadding(new Insets(10, 20, 20, 20));
+        box.setPadding(new Insets(20, 20, 20, 20));
         kreis = new Kreis();
 
         tfRadius = new TextField("Radius eingeben");
@@ -35,7 +35,7 @@ public class KreisGui extends Application {
 
         box.getChildren().addAll(tfRadius, lRadius, lUmfang, bBerechne, lfehler);
 
-        Scene scene = new Scene(box, 300, 300);
+        Scene scene = new Scene(box, 400, 200);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Bank");
         primaryStage.show();
