@@ -35,7 +35,7 @@ public class BankGui extends Application {
         // Beispiel:
          int umwandlung = Integer.parseInt("123");
 
-        box.getChildren().addAll(bAuszahlen, bDispo, bEinzahlen, tfBetrag);
+        box.getChildren().addAll(tfBetrag,bDispo,bEinzahlen,bAuszahlen);
         Scene scene = new Scene(box,  400, 250);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Bank");
