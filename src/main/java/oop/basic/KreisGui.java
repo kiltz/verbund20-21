@@ -22,7 +22,7 @@ public class KreisGui extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        VBox box = new VBox();
+        VBox box = new VBox(10);
         HBox hBoxEingabe = new HBox(10);
         
         tfEingabe = new TextField();
