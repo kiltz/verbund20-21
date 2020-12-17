@@ -10,9 +10,6 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-import javax.xml.soap.Text;
-import java.awt.*;
-
 public class BankGui extends Application {
     private TextField bFeld;
 
@@ -28,14 +25,14 @@ public class BankGui extends Application {
 
         // 2. Erzeuge einen Button für "setze Dispo"
         Button bDispo = new Button("Setze Dispo");
-        bDispo.setOnAction((e -> bDispo));
+        bDispo.setOnAction((e -> setDispo()));
 
             // er soll eine Methode setDispo(...) aufrufen
 
         // 3. erzeuge einen Button "einzahlen"
             // er soll eine Methode einzahlen(...) aufrufen
         Button bEinzahlen = new Button("Einzahlen");
-        bEinzahlen.setOnAction(e->Einzahlen());
+        bEinzahlen.setOnAction(e->einzahlen());
 
         // 4. erzeuge einen Button "auszahlen"
             // er soll eine Methode auszahlen(...) aufrufen
@@ -47,7 +44,6 @@ public class BankGui extends Application {
 
         // 6. Wandele den Betrag aus dem TextFeld in eine Zahl um
         // Beispiel:
-        int zahl = Integer.parseInt(bFeld.getText());
 
 
         Scene scene = new Scene(box, 400, 250);
@@ -55,5 +51,18 @@ public class BankGui extends Application {
         primaryStage.setTitle("Bank");
         primaryStage.show();
 
+    }
+
+    private void setDispo() {
+        System.out.println("Dispo");
+        int zahl = Integer.parseInt(bFeld.getText());
+    }
+
+    private void auszahlen() {
+        System.out.println("auszahlen");
+    }
+
+    private void einzahlen() {
+        System.out.println("einzahlen");
     }
 }
