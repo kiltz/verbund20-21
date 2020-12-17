@@ -13,7 +13,7 @@ import java.awt.*;
 public class BankGui extends Application {
 
     private TextField tfBetrag;
-
+    private int betrag;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -44,7 +44,7 @@ public class BankGui extends Application {
 
         // 6. Wandele den Betrag aus dem TextFeld in eine Zahl um
         // Beispiel:
-        int betrag = Integer.parseInt(tfBetrag.getText());
+
 
         box.getChildren().addAll(tfBetrag, bDispo, bEinzahlen, bAuszahlen);
 
@@ -53,21 +53,22 @@ public class BankGui extends Application {
         primaryStage.setTitle("Bank");
         primaryStage.show();
 
-
-
-
-
     }
 
+
+
     private void auszahlen(ActionEvent e) {
-        System.out.println("Auszahlen");
+        betrag = Integer.parseInt(tfBetrag.getText());
+        System.out.println("Auszahlen" + betrag);
     }
 
     private void einzahlen(ActionEvent e) {
-        System.out.println("Einzahlen");
+        betrag = Integer.parseInt(tfBetrag.getText());
+        System.out.println("Einzahlen " + betrag);
     }
 
     private void setDispo(ActionEvent e) {
-        System.out.println("Dispo setzen");
+        betrag = Integer.parseInt(tfBetrag.getText());
+        System.out.println("Dispo setzen " + betrag);
     }
 }
