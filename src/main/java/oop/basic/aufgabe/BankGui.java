@@ -9,6 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.scene.paint.Color;
 
 public class BankGui extends Application {
 
@@ -30,6 +31,9 @@ public class BankGui extends Application {
         lKontostand = new Label();
         lDispo = new Label();
         lFehlermeldung = new Label();
+        lKontostand.setTextFill(Color.BLUE);
+        lDispo.setTextFill(Color.BLUE);
+        lFehlermeldung.setTextFill(Color.RED);
 
         Button bsetzeDispo = new Button("setze Dispo");
         bsetzeDispo.setOnAction(e -> setDispo(e) );
@@ -43,7 +47,7 @@ public class BankGui extends Application {
         lKontostand.setText("Kontostand: " + konto.getKontostand());
         lDispo.setText("Dispo: " + konto.getDispo());
 
-        box.getChildren().addAll(tfBetrag,bsetzeDispo, bEinzahlen,bAuszahlen,lKontostand, lDispo);
+        box.getChildren().addAll(tfBetrag,bsetzeDispo, bEinzahlen,bAuszahlen,lKontostand, lDispo, lFehlermeldung);
 
         Scene scene = new Scene(box, 400, 250);
         primaryStage.setScene(scene);
@@ -64,12 +68,11 @@ public class BankGui extends Application {
     }
 
     private void auszahlen(ActionEvent e) {
-        int betrag = Integer.parseInt(tfBetrag.getText());
         try {
+        int betrag = Integer.parseInt(tfBetrag.getText());
             konto.auszahlen(betrag);
         } catch (Exception exception) {
             lFehlermeldung.setText("Betrag nicht auszahlbar!");
-            box.getChildren().add(lFehlermeldung);
         }
         lKontostand.setText("Kontostand: " + konto.getKontostand());
     }
