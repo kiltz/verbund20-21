@@ -31,14 +31,12 @@ public class KreisGui  extends Application {
         Button bRadius = new Button("Umfang Berechnen");
         bRadius.setOnAction(e -> berechneUmfang());
 
-
         box.getChildren().addAll(tfRadius, lRadius, lUmfang, bRadius, fehler);
 
         Scene scene = new Scene(box, 400, 250);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Bank");
         primaryStage.show();
-
 
     }
 
@@ -48,8 +46,8 @@ public class KreisGui  extends Application {
             kreis.setRadius(radius);
             lRadius.setText("Radius: " + kreis.getRadius());
             lUmfang.setText("Umfang: " + kreis.berechneUmfang());
-        } catch (NumberFormatException e) {
-            fehler.setText("Radius zu klein!");
+        } catch (Exception e) {
+            fehler.setText("Fehler: " + e);
         }
     }
 }
