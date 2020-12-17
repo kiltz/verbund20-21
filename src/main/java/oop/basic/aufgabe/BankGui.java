@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 
 public class BankGui extends Application {
     private TextField bFeld;
+    private Konto konto = new Konto();
 
     @Override
     public void start(Stage primaryStage) throws Exception {
