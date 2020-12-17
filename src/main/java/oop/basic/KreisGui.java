@@ -58,6 +58,7 @@ public class KreisGui extends Application {
             int r=Integer.parseInt(radiusText);
             k.setRadius(r);
             lAusgabe.setText("Umfang: " +k.berechneUmfang());
+            lAusgabe.setTextFill(Paint.valueOf("#000000"));
         }
         catch(NumberFormatException f){
             lAusgabe.setText("Falsche Eingabe");
