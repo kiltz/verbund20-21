@@ -9,6 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 
 public class BankGui extends Application {
@@ -24,6 +25,8 @@ public class BankGui extends Application {
 
         ausgabeDispo=new Label("Aktueller Dispostand: 0");
         ausgabeKontostand=new Label("Aktueller Kontostand: 0");
+        ausgabeDispo.setTextFill(Paint.valueOf("#ff0000"));
+        ausgabeKontostand.setTextFill(Paint.valueOf("#00ff00"));
 
         HBox hboxBetrag=new HBox(10);
         Label textEingabe=new Label("Geben Sie hier Ihren Betrag ein:");
