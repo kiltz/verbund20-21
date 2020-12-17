@@ -5,11 +5,20 @@ import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import java.awt.*;
+
 public class BankGui extends Application {
+
     @Override
     public void start(Stage primaryStage) throws Exception {
         VBox box = new VBox(10);
 
+        TextField tfBetrag = new TextField("Eingabe: ");
+        Button bDispo = new Button();
+        Button bEinzahlen = new Button();
+        Button bAuszahlen = new Button();
+
+        box.getChildren().addAll(tfBetrag, bDispo, bEinzahlen, bAuszahlen);
         // 1. erzeuge ein Eingabfeld für den Betrag
 
         // 2. Erzeuge einen Button für "setze Dispo"
