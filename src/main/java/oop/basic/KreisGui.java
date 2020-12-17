@@ -28,8 +28,7 @@ public class KreisGui extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        VBox box;
-        box = new VBox(10);
+        VBox box= new VBox(10);
         box.setPadding(new Insets(10, 20, 20, 20));
 
 
