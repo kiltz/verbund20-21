@@ -30,6 +30,7 @@ public class KreisGui  extends Application {
         fehler = new Label();
         lUmfang.setTextFill(Color.BLUE);
         lRadius.setTextFill(Color.BLUE);
+        fehler.setTextFill(Color.RED);
 
         Button bRadius = new Button("Umfang Berechnen");
         bRadius.setOnAction(e -> berechneUmfang());
@@ -49,10 +50,10 @@ public class KreisGui  extends Application {
             kreis.setRadius(radius);
             lRadius.setText("Radius: " + kreis.getRadius());
             lUmfang.setText("Umfang: " + kreis.berechneUmfang());
+            fehler.setText("");
             
         } catch (Exception e) {
             fehler.setText("Fehler: " + e);
-            fehler.setTextFill(Color.RED);
         }
     }
 }
