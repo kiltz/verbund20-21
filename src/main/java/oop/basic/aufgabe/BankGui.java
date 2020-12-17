@@ -2,6 +2,7 @@ package oop.basic.aufgabe;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -16,33 +17,28 @@ public class BankGui extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         VBox box = new VBox(10);
+        box.setPadding(new Insets(10, 20, 20, 20));
 
-        // 1. erzeuge ein Eingabfeld für den Betrag
+
         HBox hboxBetrag=new HBox(10);
         Label textEingabe=new Label("Geben Sie hier Ihren Betrag ein:");
         betragFeld=new TextField();
 
         hboxBetrag.getChildren().addAll(textEingabe, betragFeld);
-        // 2. Erzeuge einen Button für "setze Dispo"
-            // er soll eine Methode setDispo(...) aufrufen
+
         Button setDispo=new Button("setze Dispo");
-        setDispo.setOnAction((e->setDispo());
-        // 3. erzeuge einen Button "einzahlen"
-            // er soll eine Methode einzahlen(...) aufrufen
+        setDispo.setOnAction(e->setDispo(e));
+
         Button einzahlB=new Button("einzahlen");
-        einzahlB.setOnAction(e->einzahlen());
-        // 4. erzeuge einen Button "auszahlen"
-            // er soll eine Methode auszahlen(...) aufrufen
+        einzahlB.setOnAction(e->einzahlen(e));
+
         Button auszahlB=new Button("auszahlen");
-        auszahlB.setOnAction(e->auszahlen());
+        auszahlB.setOnAction(e->auszahlen(e));
 
 
         box.getChildren().addAll(hboxBetrag, setDispo, einzahlB, auszahlB);
-        // 5. Überprüfe, das die Button die richtigen Methoden aufrufen.
 
-        // 6. Wandele den Betrag aus dem TextFeld in eine Zahl um
-        // Beispiel:
-        int eingegebenerBetrag = Integer.parseInt(betragFeld.getText());
+
 
 
         Scene scene = new Scene(box, 400, 250);
@@ -50,5 +46,21 @@ public class BankGui extends Application {
         primaryStage.setTitle("Bank");
         primaryStage.show();
 
+    }
+
+
+    private void auszahlen(ActionEvent e) {
+        System.out.println("Auszahlen erreicht");
+        int betrag=Integer.parseInt(betragFeld.getText());
+    }
+
+    private void einzahlen(ActionEvent e) {
+        System.out.println("Einzahlen erreicht");
+        int betrag=Integer.parseInt(betragFeld.getText());
+    }
+
+    private void setDispo(ActionEvent e) {
+        System.out.println("setDispo erreicht");
+        int betrag=Integer.parseInt(betragFeld.getText());
     }
 }
