@@ -1,5 +1,6 @@
 package oop.erbe.gui;
 
+import javafx.animation.ParallelTransition;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.geometry.Insets;
@@ -16,7 +17,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class LoginGui extends Application {
-
+    private VBox box;
     private TextField tfName;
     private PasswordField tfPasswort;
 
@@ -57,29 +58,20 @@ public class LoginGui extends Application {
 
     private void login(ActionEvent e) {
         String name = tfName.getText();
-        System.out.println("Name: " + name);
-        if ("Fabian".equals(name)) {
-            System.out.println("Name: Alles gut!");
-            zaehler += 1;
-        }
-        // Aufgabe:
-        // Prüft Passwort und Name gegen fixe Werte
         String password = tfPasswort.getText();
-        if ("Geheim".equals(password)) {
-            System.out.println("Passwort: Alles gut!");
-            zaehler += 1;
-            if (zaehler == 2) {
-                Label lErfolgreich = new Label("Login Erfolgreich");
-                HBox hBoxErfolgreich = new HBox(10);
-                hBoxErfolgreich.getChildren().add(lErfolgreich);
-            } else {
-                Label lNichtErfolgreich = new Label("Login nicht Erfolgreich");
-                HBox hBoxErfolgreich = new HBox(10);
-                hBoxErfolgreich.getChildren().add(lNichtErfolgreich);
+        System.out.println("Name: " + name);
+        if ("Fabian".equals(name) && "Geheim".equals(password)) {
+            Label geschafft = new Label("Login Erfolgreich!");
+            box.getChildren().add(geschafft);
+        }
+        else {
+            Label nichtgeschafft = new Label("Login nicht Erfolgreich!");
+            box.getChildren().add(nichtgeschafft);
+
+
             }
             // Wenn die Daten stimmen zeige in Label "Login erfolgreich!"
             // Wenn die Daten NICHT stimmen zeige in Label "Login NICHT erfolgreich!"
 
         }
     }
-}
