@@ -6,49 +6,74 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import oop.basic.aufgabe.Konto;
+
+import java.awt.*;
 
 public class BankGui extends Application {
 
-    private TextField betragFeld;
+    private TextField tfBetrag;
+    private int betrag;
+    private Konto konto;
+    private Label dispo;
+    private Label kontostand;
+
+
     @Override
     public void start(Stage primaryStage) throws Exception {
+
         VBox box = new VBox(10);
+        konto = new Konto();
 
-        // 1. erzeuge ein Eingabfeld für den Betrag
-        HBox hboxBetrag=new HBox(10);
-        Label textEingabe=new Label("Geben Sie hier Ihren Betrag ein:");
-        betragFeld=new TextField();
 
-        hboxBetrag.getChildren().addAll(textEingabe, betragFeld);
-        // 2. Erzeuge einen Button für "setze Dispo"
-        // er soll eine Methode setDispo(...) aufrufen
-        Button setDispo=new Button("setze Dispo");
-        setDispo.setOnAction(e->setDispo());
+
+        tfBetrag = new TextField("Betrag eingeben: ");
+
+
+        Button bDispo = new Button("Dispo ");
+        bDispo.setOnAction(e -> setDispo(e));
+
         // 3. erzeuge einen Button "einzahlen"
         // er soll eine Methode einzahlen(...) aufrufen
-        Button einzahlen=new Button("einzahlen");
-        einzahlen.setOnAction(e->einzahlen());
-        // 4. erzeuge einen Button "auszahlen"
-        // er soll eine Methode auszahlen(...) aufrufen
-        Button auszahlen = new Button("auszahlen");
-        auszahlen.setOnAction(e->auszahlen());
+        Button bEinzahlen = new Button("Einzahlen");
+        bEinzahlen.setOnAction(e -> einzahlen(e));
 
 
-        box.getChildren().addAll(hboxBetrag, setDispo, einzahlen, auszahlen);
-        // 5. Überprüfe, das die Button die richtigen Methoden aufrufen.
+        Button bAuszahlen = new Button("Auszahlen");
+        bAuszahlen.setOnAction(e -> auszahlen(e));
 
-        // 6. Wandele den Betrag aus dem TextFeld in eine Zahl um
-        // Beispiel:
-        int eingegebenerBetrag = Integer.parseInt(betragFeld.getText());
 
+
+
+        box.getChildren().addAll(tfBetrag, bDispo, bEinzahlen, bAuszahlen);
 
         Scene scene = new Scene(box, 400, 250);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Bank");
         primaryStage.show();
 
+    }
+
+
+
+    private void auszahlen(ActionEvent e) {
+        betrag = Integer.parseInt(tfBetrag.getText());
+        konto.auszahlen(betrag);
+    }
+
+
+
+    private void einzahlen(ActionEvent e) {
+        betrag = Integer.parseInt(tfBetrag.getText());
+        konto.einzahlen(betrag);
+        kontostand = new Label("Kontostand" + konto.getKontostand());
+
+    }
+
+    private void setDispo(ActionEvent e) {
+        betrag = Integer.parseInt(tfBetrag.getText());
+        konto.setDispo(betrag);
     }
 }
