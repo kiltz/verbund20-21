@@ -3,20 +3,26 @@ package oop.basic.aufgabe;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import oop.basic.aufgabe.muloe.Konto;
 
-public class BankGui extends Application {
+public class BankGui<konto> extends Application {
     private TextField tfBetrag;
-
+    private Konto konto;
+    private Label lDispo;
+    private Label lKontostand;
     @Override
     public void start(Stage primaryStage) throws Exception {
         VBox box = new VBox(10);
-
+        konto = new Konto();
         // 1. erzeuge ein Eingabfeld für den Betrag
       
         tfBetrag = new TextField();
+        lDispo = new Label();
+        lKontostand = new Label();
         // 2. Erzeuge einen Button für "setze Dispo"
             // er soll eine Methode setDispo(...) aufrufen
         Button bDispo = new Button("Dispo");
@@ -35,7 +41,7 @@ public class BankGui extends Application {
         // Beispiel:
          int umwandlung = Integer.parseInt("123");
 
-        box.getChildren().addAll(tfBetrag,bDispo,bEinzahlen,bAuszahlen);
+        box.getChildren().addAll(tfBetrag,lDispo,lKontostand,bDispo,bEinzahlen,bAuszahlen);
         Scene scene = new Scene(box,  400, 250);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Bank");
@@ -45,13 +51,20 @@ public class BankGui extends Application {
 
     private void setDispo() {
         System.out.println("Dispo setzen");
+        int zahl = Integer.parseInt(tfBetrag.getText());
+        lDispo.setText("Dein Dispo beträgt: "+zahl);
+        konto.setDispo(zahl);
+        String text = ""+zahl;
+        System.out.println(konto.getDispo());
     }
 
     private void einzahlen() {
         System.out.println("einzahlen");
+        lKontostand.setText("Dein Kontostand beträgt");
     }
 
     private void auszahlen() {
         System.out.println("auszahlen");
+        lKontostand.setText("Dein Kontostand beträgt");
     }
 }
