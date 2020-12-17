@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 
 public class BankGui extends Application {
 
-    private TextField  tfBetrag;
+    private TextField tfBetrag;
     private Konto konto;
     private Label lKontostand;
     private Label lDispo;
