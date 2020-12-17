@@ -30,7 +30,7 @@ public class KreisGui extends Application {
         lRadius = new Label("Radius: " + kreis.getRadius());
         lUmfang = new Label("Umfang: ");
         lfehler = new Label();
-        lUmfang.setTextFill(Color.BLUE);
+        lUmfang.setTextFill(Color.DARKBLUE);
         lRadius.setTextFill(Color.BLUE);
         lfehler.setTextFill(Color.RED);
 

@@ -24,7 +24,7 @@ public class BankGui extends Application {
     public void start(Stage primaryStage) throws Exception {
 
         VBox box = new VBox(10);
-        box.setPadding(new Insets(10, 20, 20, 20));
+        box.setPadding(new Insets(20, 20, 20, 20));
 
         konto = new Konto();
         tfBetrag = new TextField();
