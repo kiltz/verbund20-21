@@ -30,11 +30,6 @@ public class BankGui extends Application {
 
         box.getChildren().addAll(tfBetrag,bsetzeDispo, bEinzahlen,bAuszahlen);
 
-        // 6. Wandele den Betrag aus dem TextFeld in eine Zahl um
-        // Beispiel:
-
-
-
 
         Scene scene = new Scene(box, 400, 250);
         primaryStage.setScene(scene);
@@ -46,15 +41,18 @@ public class BankGui extends Application {
     private void setDispo(ActionEvent e) {
         System.out.println("Setze Dispo");
         int betrag = Integer.parseInt(tfBetrag.getText());
+        System.out.println(betrag);
     }
 
     private void einzahlen(ActionEvent e) {
         System.out.println("Betrag einzahlen");
         int betrag = Integer.parseInt(tfBetrag.getText());
+        System.out.println(betrag);
     }
 
     private void auszahlen(ActionEvent e) {
         System.out.println("Betrag auszahlen");
         int betrag = Integer.parseInt(tfBetrag.getText());
+        System.out.println(betrag);
     }
 }
