@@ -18,6 +18,7 @@ public class LoginGui extends Application {
 
     private TextField tfName;
     private PasswordField tfPasswordfield;
+    private Label erfolgreich;
 
     public static void main(String[] args) {
         launch(args);
@@ -38,12 +39,11 @@ public class LoginGui extends Application {
 
         HBox hBoxPasswd = new HBox(10);
         Label lPasswort = new Label("Passwort");
-        PasswordField tfPasswort = new PasswordField();
-        hBoxPasswd.getChildren().addAll(lPasswort, tfPasswort);
+        hBoxPasswd.getChildren().addAll(lPasswort, tfPasswordfield);
 
         Button bLogin = new Button("login");
         bLogin.setOnAction(e -> login(e));
-
+        Label erfolgreich = new Label("Geschafft");
         box.getChildren().addAll(hBoxName, hBoxPasswd, bLogin);
 
         Scene scene = new Scene(box, 400, 250);
@@ -56,9 +56,10 @@ public class LoginGui extends Application {
     private void login(ActionEvent e) {
         String name = tfName.getText();
         String pass = tfPasswordfield.getText();
-        System.out.println("Name: " + name + pass);
-        if ("Testa".equals(name) && "Pass".equals(pass)) {
-            System.out.println("Alles gut!");
+        System.out.println("Name: " + name);
+        if ("Testa".equals(name) && "Passwort".equals(pass)) {
+            erfolgreich.setText("Sehr gut");
+            System.out.println("Sehr gut");
 
 
         }
