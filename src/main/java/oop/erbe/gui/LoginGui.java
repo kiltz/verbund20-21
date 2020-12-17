@@ -9,9 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class LoginGui extends Application {
@@ -37,6 +35,7 @@ public class LoginGui extends Application {
         HBox hBoxPasswd = new HBox(10);
         Label lPasswort = new Label("Passwort");
         PasswordField tfPasswort = new PasswordField();
+        tfPasswort = new PasswordField();
         hBoxPasswd.getChildren().addAll(lPasswort, tfPasswort);
 
         Button bLogin = new Button("login");
@@ -50,27 +49,20 @@ public class LoginGui extends Application {
         primaryStage.show();
 
     }
-
     private void login(ActionEvent e) {
         String name = tfName.getText();
         System.out.println("Name: " + name);
         if ("Testa".equals(name)) {
             System.out.println("Alles gut!");
-        }
-        // Aufgabe:
-        // Prüft Passwort und Name gegen fixe Werte
-        // Wenn die Daten stimmen zeige in Label "Login erfolgreich!"
-        // Wenn die Daten NICHT stimmen zeige in Label "Login NICHT erfolgreich!"
-
-    }
-
-    private void login(ActionEvent a) {
-        String passwort = tfName.getText();
-        System.out.println("Passwort: " + passwort);
-        if ("geheim".equals(passwort)) {
-            System.out.println("Login erfolgreich");
-        } else {
-            System.out.println("Login NICHT erfolgreich");
+            String passwort = tfPasswort.getText();
+            System.out.println("Passwort: " + passwort);
+            if ("Testa".equals(name) && "Geheim".equals(passwort)) {
+                Label erfolgreich = new Label("Login erfolgreich!");
+                box.getChildren().add(erfolgreich);
+            } else {
+                Label nichtErfolgreich = new Label("Login nicht erfolgreich!");
+                box.getChildren().add(nichtErfolgreich);
+            }
         }
     }
 }
