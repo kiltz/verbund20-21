@@ -9,15 +9,17 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class LoginGui extends Application {
 
     private TextField tfName;
-    private TextField tfPasswort;
+    private PasswordField tfPasswort;
+    private VBox box;
+    private Label lAnswer;
+
+
 
     public static void main(String[] args) {
         launch(args);
@@ -26,7 +28,7 @@ public class LoginGui extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        VBox box = new VBox(10);
+        box = new VBox(10);
         box.setPadding(new Insets(10, 20, 20, 20));
 
         HBox hBoxName = new HBox(10);
@@ -37,7 +39,7 @@ public class LoginGui extends Application {
 
         HBox hBoxPasswd = new HBox(10);
         Label lPasswort = new Label("Passwort");
-        PasswordField tfPasswort = new PasswordField();
+        tfPasswort = new PasswordField();
         hBoxPasswd.getChildren().addAll(lPasswort, tfPasswort);
 
         Button bLogin = new Button("login");
@@ -57,10 +59,13 @@ public class LoginGui extends Application {
         String geheim = tfPasswort.getText();
         System.out.println("Name: " + name);
         System.out.println("Geheim: " + geheim);
-        if (("Testa".equals(name))&&("passwort".equals(geheim))) {
+        if ("Tester".equals(name)&&"geheim".equals(geheim)) {
             System.out.println("Alles gut!");
+            HBox hBoxAnswer = new HBox(10);
+            Label lAnswer = new Label("Login erfolgreich");
         }else{
             System.out.println("Nix gibts!");
+
         }
         // Aufgabe:
         // Prüft Passwort und Name gegen fixe Werte
