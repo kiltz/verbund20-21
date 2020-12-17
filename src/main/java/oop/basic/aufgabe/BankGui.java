@@ -25,6 +25,8 @@ public class BankGui extends Application {
 
         // 2. Erzeuge einen Button für "setze Dispo"
             // er soll eine Methode setDispo(...) aufrufen
+        HBox hBoxButtons = new HBox(10);
+
         Button btSetDispo = new Button("Set Dispo");
         btSetDispo.setOnAction(e -> setDispo(e));
 
@@ -38,16 +40,18 @@ public class BankGui extends Application {
         Button btAuszahlen = new Button("Auszahlen");
         btAuszahlen.setOnAction(e -> auszahlen(e));
 
-
         // Hinzufügen aller Elemente:
-        hBoxEingabe.getChildren().addAll(tfEingabe,btSetDispo,btEinzahlen,btAuszahlen);
-        box.getChildren().addAll(hBoxEingabe);
+        hBoxEingabe.getChildren().add(tfEingabe);
+        hBoxButtons.getChildren().addAll(btSetDispo,btEinzahlen,btAuszahlen);
+        box.getChildren().addAll(hBoxEingabe, hBoxButtons);
+
         // 5. Überprüfe, das die Button die richtigen Methoden aufrufen.
+
+
 
         // 6. Wandele den Betrag aus dem TextFeld in eine Zahl um
         // Beispiel:
         int zahl = Integer.parseInt("1234");
-
 
         Scene scene = new Scene(box, 400, 250);
         primaryStage.setScene(scene);
