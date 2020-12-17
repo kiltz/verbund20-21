@@ -41,7 +41,7 @@ public class KreisGui extends Application {
 
         Scene scene = new Scene(box, 400, 250);
         primaryStage.setScene(scene);
-        primaryStage.setTitle("Login");
+        primaryStage.setTitle("Kreis");
         primaryStage.show();
 
     }
