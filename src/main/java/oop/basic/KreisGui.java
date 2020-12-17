@@ -28,13 +28,11 @@ public class KreisGui extends Application {
         tfEingabe = new TextField();
         lResult = new Label("Umfang: ");
 
-        HBox hBoxButtons = new HBox(10);
         Button calculate = new Button("Berechne!");
         calculate.setOnAction(e -> berechneUmfang(e));
 
-        hBoxEingabe.getChildren().add(tfEingabe);
-        hBoxButtons.getChildren().add(calculate);
-        box.getChildren().addAll(hBoxEingabe,hBoxButtons, lResult);
+        hBoxEingabe.getChildren().addAll(tfEingabe, calculate);
+        box.getChildren().addAll(hBoxEingabe, lResult);
 
         Scene scene = new Scene(box, 400, 250);
         primaryStage.setScene(scene);
