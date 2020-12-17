@@ -61,8 +61,10 @@ public class KreisGui extends Application {
         }
         catch(NumberFormatException f){
             lAusgabe.setText("Falsche Eingabe");
+            lAusgabe.setTextFill(Paint.valueOf("#ff0000"));
         } catch (Exception exception) {
             lAusgabe.setText("Radius zu klein");
+            lAusgabe.setTextFill(Paint.valueOf("ff0000"));
         }
 
     }
