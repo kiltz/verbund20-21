@@ -22,8 +22,8 @@ public class BankGui extends Application {
         VBox box = new VBox(10);
         box.setPadding(new Insets(10, 20, 20, 20));
 
-        ausgabeDispo=new Label();
-        ausgabeKontostand=new Label();
+        ausgabeDispo=new Label("Aktueller Dispostand: 0");
+        ausgabeKontostand=new Label("Aktueller Kontostand: 0");
 
         HBox hboxBetrag=new HBox(10);
         Label textEingabe=new Label("Geben Sie hier Ihren Betrag ein:");
@@ -65,13 +65,13 @@ public class BankGui extends Application {
 
         int betrag=Integer.parseInt(betragFeld.getText());
         konto.einzahlen(betrag);
-        ausgabeKontostand.setText("Aktueller Kontostand" + konto.getKontostand());
+        ausgabeKontostand.setText("Aktueller Kontostand: " + konto.getKontostand());
     }
 
     private void setDispo(ActionEvent e) {
 
         int betrag=Integer.parseInt(betragFeld.getText());
         konto.setDispo(betrag);
-        ausgabeDispo.setText("Aktueller Dispostand" + konto.getDispo());
+        ausgabeDispo.setText("Aktueller Dispostand: " + konto.getDispo());
     }
 }
