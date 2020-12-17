@@ -27,8 +27,8 @@ public class BankGui extends Application {
         // 1. erzeuge ein Eingabfeld für den Betrag
         tfEingabe = new TextField();
         tfEingabe.setPrefWidth(225);
-        lKontostand = new Label();
-        lDispo = new Label();
+        lKontostand = new Label("Kontostand: 0");
+        lDispo = new Label("Dispo-Höhe: 0");
 
         HBox hBoxEingabe = new HBox(10);
         HBox hBoxButtons = new HBox(10);
@@ -74,21 +74,18 @@ public class BankGui extends Application {
 
 
     private void auszahlen(ActionEvent e) {
-        System.out.println("Auszahlen!");
         betrag = Integer.parseInt(tfEingabe.getText());
         konto.auszahlen(betrag);
         lKontostand.setText("Kontostand: " + konto.getKontostand());
     }
 
     private void einzahlen(ActionEvent e) {
-        System.out.println("Einzahlen!");
         betrag = Integer.parseInt(tfEingabe.getText());
         konto.einzahlen(betrag);
         lKontostand.setText("Kontostand: " + konto.getKontostand());
     }
 
     private void setDispo(ActionEvent e) {
-        System.out.println("Dispo setzen!");
         betrag = Integer.parseInt(tfEingabe.getText());
         konto.setDispo(betrag);
         lDispo.setText("Dispo-Höhe: " + (konto.getDispo()));
