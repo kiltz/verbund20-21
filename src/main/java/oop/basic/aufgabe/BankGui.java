@@ -90,6 +90,11 @@ public class BankGui extends Application {
         betrag = Integer.parseInt(tfEingabe.getText());
         konto.einzahlen(betrag);
         lKontostand.setText("Kontostand: " + konto.getKontostand());
+        if(konto.getKontostand() < 0){
+            lKontostand.setTextFill(Paint.valueOf("#ff0000"));
+        } else {
+            lKontostand.setTextFill(Paint.valueOf("#0000ff"));
+        }
     }
 
     private void setDispo(ActionEvent e) {
