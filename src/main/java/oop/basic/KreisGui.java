@@ -19,9 +19,9 @@ public class KreisGui extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         VBox box = new VBox(10);
-        Kreis k1 = new Kreis();
+        k1 = new Kreis();
         tfRadius= new TextField();
-        lUmfang= new Label("Kreis"+k1.getRadius());
+        lUmfang= new Label("Umfang:  "+k1.getRadius());
         bRechne= new Button("Berechne Umfang");
         bRechne.setOnAction(e -> bRechne());
 
@@ -38,11 +38,12 @@ public class KreisGui extends Application {
 
         try {
             k1.setRadius(zahl);
+            lUmfang.setText("Der Umfang Beträgt "+k1.berechneUmfang());
+            String text = ""+zahl;
+            System.out.println(k1.berechneUmfang());
         } catch (Exception e) {
-            e.printStackTrace();
+            lUmfang.setText(e.getMessage());;
         }
-        lUmfang.setText("Der Umfang Beträgt"+k1.berechneUmfang());
-        String text = ""+zahl;
-        System.out.println(k1.berechneUmfang());
+
     }
 }
