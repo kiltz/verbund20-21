@@ -25,8 +25,7 @@ public class BankGui extends Application {
 
         ausgabeDispo=new Label("Aktueller Dispostand: 0");
         ausgabeKontostand=new Label("Aktueller Kontostand: 0");
-        ausgabeDispo.setTextFill(Paint.valueOf("#ff0000"));
-        ausgabeKontostand.setTextFill(Paint.valueOf("#00ff00"));
+
 
         HBox hboxBetrag=new HBox(10);
         Label textEingabe=new Label("Geben Sie hier Ihren Betrag ein:");
@@ -62,6 +61,11 @@ public class BankGui extends Application {
         int betrag=Integer.parseInt(betragFeld.getText());
         konto.auszahlen(betrag);
         ausgabeKontostand.setText("Aktueller Kontostand" + konto.getKontostand());
+        if(konto.getKontostand() < 0){
+            ausgabeKontostand.setTextFill(Paint.valueOf("#ff0000"));
+        } else {
+            ausgabeKontostand.setTextFill(Paint.valueOf("#0000ff"));
+        }
     }
 
     private void einzahlen(ActionEvent e) {
@@ -69,6 +73,11 @@ public class BankGui extends Application {
         int betrag=Integer.parseInt(betragFeld.getText());
         konto.einzahlen(betrag);
         ausgabeKontostand.setText("Aktueller Kontostand: " + konto.getKontostand());
+        if(konto.getKontostand() < 0){
+            ausgabeKontostand.setTextFill(Paint.valueOf("#ff0000"));
+        } else {
+            ausgabeKontostand.setTextFill(Paint.valueOf("#00ff00"));
+        }
     }
 
     private void setDispo(ActionEvent e) {
