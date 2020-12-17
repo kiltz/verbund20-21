@@ -10,7 +10,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.scene.paint.Color;
 
-@SuppressWarnings("RedundantThrows")
+
 public class KreisGui extends Application {
 
 
