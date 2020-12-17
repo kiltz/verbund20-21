@@ -65,7 +65,6 @@ public class BankGui extends Application {
 
     private void auszahlen(ActionEvent e) {
         int betrag = Integer.parseInt(tfBetrag.getText());
-
         try {
             konto.auszahlen(betrag);
         } catch (Exception exception) {
