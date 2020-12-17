@@ -21,8 +21,8 @@ public class BankGui<konto> extends Application {
         // 1. erzeuge ein Eingabfeld für den Betrag
       
         tfBetrag = new TextField();
-        lDispo = new Label();
-        lKontostand = new Label();
+        lDispo = new Label("Dispo"+konto.getDispo());
+        lKontostand = new Label("Kontostand"+konto.getKontostand());
         // 2. Erzeuge einen Button für "setze Dispo"
             // er soll eine Methode setDispo(...) aufrufen
         Button bDispo = new Button("Dispo");
@@ -59,11 +59,13 @@ public class BankGui<konto> extends Application {
     }
 
     private void einzahlen() {
+        int zahl = Integer.parseInt(tfBetrag.getText());
         System.out.println("einzahlen");
         lKontostand.setText("Dein Kontostand beträgt");
     }
 
     private void auszahlen() {
+        int zahl = Integer.parseInt(tfBetrag.getText());
         System.out.println("auszahlen");
         lKontostand.setText("Dein Kontostand beträgt");
     }
