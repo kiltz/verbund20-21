@@ -31,13 +31,18 @@ public class KreisGui extends Application {
         box = new VBox(10);
         box.setPadding(new Insets(10, 20, 20, 20));
 
-        tRadius=new TextField();
+
         lAusgabe=new Label();
+
+        HBox hBox=new HBox();
+        Label lRadius=new Label("Radius: ");
+        tRadius=new TextField();
+        hBox.getChildren().addAll(lRadius, tRadius);
 
         Button bRechnen=new Button("Berechne Umfang");
         bRechnen.setOnAction(e->rechneUmfang(e));
 
-        box.getChildren().addAll(tRadius, lAusgabe, bRechnen);
+        box.getChildren().addAll(hBox, lAusgabe, bRechnen);
 
         Scene scene = new Scene(box, 400, 250);
         primaryStage.setScene(scene);
