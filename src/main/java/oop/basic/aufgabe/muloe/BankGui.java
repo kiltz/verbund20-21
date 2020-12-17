@@ -34,19 +34,19 @@ public class BankGui extends Application {
         // 3. erzeuge einen Button "einzahlen"
         Button bEinzahlen = new Button("einzahlen");
         // er soll eine Methode einzahlen(...) aufrufen
-        bEinzahlen.setOnAction(e -> einzahlen(e));
+        bEinzahlen.setOnAction(e -> zahlen(true));
 
         // 4. erzeuge einen Button "auszahlen"
         Button bAuszahlen = new Button("auszahlen");
         // er soll eine Methode auszahlen(...) aufrufen
-        bAuszahlen.setOnAction(e -> auszahlen(e));
+        bAuszahlen.setOnAction(e -> zahlen(false));
 
         // 5. Überprüfe, das die Button die richtigen Methoden aufrufen.
 
         // 6. Wandele den Betrag aus dem TextFeld in eine Zahl um
         // Beispiel:
-        lDispo = new Label("Dispo: "+konto.getDispo());
-        lKontostand = new Label("Kontostand: "+konto.getKontostand());
+        lDispo = new Label("Dispo: " + konto.getDispo());
+        lKontostand = new Label("Kontostand: " + konto.getKontostand());
 
         box.getChildren().addAll(tfBetrag, bDispo, bEinzahlen, bAuszahlen,
                 lDispo, lKontostand);
@@ -58,23 +58,20 @@ public class BankGui extends Application {
 
     }
 
-    private void auszahlen(ActionEvent e) {
+    private void zahlen(boolean einzahlen) {
         int zahl = Integer.parseInt(tfBetrag.getText());
         tfBetrag.setText("");
-        konto.auszahlen(zahl);
-        lKontostand.setText("Kontostand: "+konto.getKontostand());
-    }
-
-    private void einzahlen(ActionEvent e) {
-        int zahl = Integer.parseInt(tfBetrag.getText());
-        tfBetrag.setText("");
-        konto.einzahlen(zahl);
-        lKontostand.setText("Kontostand: "+konto.getKontostand());
+        if (einzahlen) {
+            konto.einzahlen(zahl);
+        } else {
+            konto.auszahlen(zahl);
+        }
+        lKontostand.setText("Kontostand: " + konto.getKontostand());
     }
 
     private void setDispo(ActionEvent e) {
         int zahl = Integer.parseInt(tfBetrag.getText());
         konto.setDispo(zahl);
-        lDispo.setText("Dispo: "+konto.getDispo());
+        lDispo.setText("Dispo: " + konto.getDispo());
     }
 }
