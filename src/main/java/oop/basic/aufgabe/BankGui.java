@@ -38,22 +38,18 @@ public class BankGui extends Application {
         lKontostand.setText("Kontostand: " + konto.getKontostand());
         lDispo.setText("Dispo: " + konto.getDispo());
 
-
         box.getChildren().addAll(tfBetrag,bsetzeDispo, bEinzahlen,bAuszahlen,lKontostand, lDispo);
-
 
         Scene scene = new Scene(box, 400, 250);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Bank");
         primaryStage.show();
-
     }
 
     private void setDispo(ActionEvent e) {
         int betrag = Integer.parseInt(tfBetrag.getText());
         konto.setDispo(betrag);
         lDispo.setText("Dispo: " + konto.getDispo());
-
     }
 
     private void einzahlen(ActionEvent e) {
