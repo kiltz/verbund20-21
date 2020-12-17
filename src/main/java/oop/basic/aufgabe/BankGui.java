@@ -40,7 +40,7 @@ public class BankGui extends Application {
         Button bAuszahlen = new Button("auszahlen");
         bAuszahlen.setOnAction(e -> k.auszahlen(betrag));
 
-        box.getChildren().addAll(tfeingabeFeld, bEinzahlen,bsetzeDispo,bAuszahlen);
+        box.getChildren().addAll(tfeingabeFeld,bsetzeDispo, bEinzahlen,bAuszahlen);
 
         // 5. Überprüfe, das die Button die richtigen Methoden aufrufen.
 
