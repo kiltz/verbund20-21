@@ -53,9 +53,9 @@ public class KreisGui extends Application {
 
     private void rechneUmfang(ActionEvent e) {
         k=new Kreis();
-        String radiusText=tRadius.getText();
+
         try{
-            int r=Integer.parseInt(radiusText);
+            int r=Integer.parseInt(tRadius.getText());
             k.setRadius(r);
             lAusgabe.setText("Umfang: " +k.berechneUmfang());
             lAusgabe.setTextFill(Paint.valueOf("#000000"));
