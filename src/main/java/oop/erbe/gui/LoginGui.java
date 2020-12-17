@@ -15,6 +15,14 @@ import javafx.stage.Stage;
 public class LoginGui extends Application {
 
     private TextField tfName;
+    private VBox box;
+    private PasswordField tfPasswort;
+    private Label ausgabe = new Label();
+    private String loginName = "Hans";
+    private String loginPasswort = "Geheim";
+
+    public LoginGui() {
+    }
 
     public static void main(String[] args) {
         launch(args);
@@ -23,7 +31,7 @@ public class LoginGui extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        VBox box = new VBox(10);
+        box = new VBox(10);
         box.setPadding(new Insets(10, 20, 20, 20));
 
         HBox hBoxName = new HBox(10);
@@ -34,7 +42,6 @@ public class LoginGui extends Application {
 
         HBox hBoxPasswd = new HBox(10);
         Label lPasswort = new Label("Passwort");
-        PasswordField tfPasswort = new PasswordField();
         tfPasswort = new PasswordField();
         hBoxPasswd.getChildren().addAll(lPasswort, tfPasswort);
 
@@ -51,18 +58,16 @@ public class LoginGui extends Application {
     }
     private void login(ActionEvent e) {
         String name = tfName.getText();
-        System.out.println("Name: " + name);
-        if ("Testa".equals(name)) {
-            System.out.println("Alles gut!");
-            String passwort = tfPasswort.getText();
-            System.out.println("Passwort: " + passwort);
-            if ("Testa".equals(name) && "Geheim".equals(passwort)) {
-                Label erfolgreich = new Label("Login erfolgreich!");
-                box.getChildren().add(erfolgreich);
+        String passwort = tfPasswort.getText();
+        Label ausgabe;
+
+            if (loginName.equals(name) && loginPasswort.equals(passwort)) {
+                ausgabe = new Label("Login erfolgreich!");
+                ausgabe.setText("Login erfolgreich!");
             } else {
-                Label nichtErfolgreich = new Label("Login nicht erfolgreich!");
-                box.getChildren().add(nichtErfolgreich);
+                ausgabe = new Label("Login nicht erfolgreich!");
+                ausgabe.setText("Login nicht erfolgreich!");
             }
+        box.getChildren().add(ausgabe);
         }
     }
-}
