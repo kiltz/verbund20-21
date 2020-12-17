@@ -48,18 +48,10 @@ public class BankGui extends Application {
         Button btAuszahlen = new Button("Auszahlen");
         btAuszahlen.setOnAction(e -> auszahlen(e));
 
-        // Button um den Kontostand "abzufragen"
-        Button btKontostand = new Button("Kontostand");
-        btKontostand.setOnAction(e -> getKontostand(e));
-
-        //Button um den Dispo "anzuzeigen"
-        Button btDispo = new Button("Dispo anzeigen");
-        btDispo.setOnAction(e -> getDispo(e));
 
         // Hinzufügen aller Elemente:
         hBoxEingabe.getChildren().add(tfEingabe);
         hBoxButtons.getChildren().addAll(btSetDispo,btEinzahlen,btAuszahlen);
-        hBoxGetValues.getChildren().addAll(btKontostand,btDispo);
         box.getChildren().addAll(hBoxEingabe, hBoxButtons, hBoxGetValues);
         box.getChildren().add(lKontostand);
         box.getChildren().add(lDispo);
@@ -79,31 +71,25 @@ public class BankGui extends Application {
 
     }
 
-    private void getDispo(ActionEvent e) {
-        System.out.println("Dispo anzeigen!");
-        lDispo.setText("Dispo-Höhe: "+ konto.getDispo());
-    }
-
-    private void getKontostand(ActionEvent e) {
-        System.out.println("Kontostand");
-        lKontostand.setText("Kontostand: " + konto.getKontostand());
-    }
 
     private void auszahlen(ActionEvent e) {
         System.out.println("Auszahlen!");
         betrag = Integer.parseInt(tfEingabe.getText());
         konto.auszahlen(betrag);
+        lKontostand.setText("Kontostand: " + konto.getKontostand());
     }
 
     private void einzahlen(ActionEvent e) {
         System.out.println("Einzahlen!");
         betrag = Integer.parseInt(tfEingabe.getText());
         konto.einzahlen(betrag);
+        lKontostand.setText("Kontostand: " + konto.getKontostand());
     }
 
     private void setDispo(ActionEvent e) {
         System.out.println("Dispo setzen!");
         betrag = Integer.parseInt(tfEingabe.getText());
         konto.setDispo(betrag);
+        lDispo.setText("Dispo-Höhe: " + (konto.getDispo()));
     }
 }
