@@ -15,13 +15,15 @@ public class BankGui extends Application {
 
     private TextField betragFeld;
     private Konto konto=new Konto();
-    Label ausgabe;
+    Label ausgabeDispo;
+    Label ausgabeKontostand;
     @Override
     public void start(Stage primaryStage) throws Exception {
         VBox box = new VBox(10);
         box.setPadding(new Insets(10, 20, 20, 20));
 
-        ausgabe=new Label();
+        ausgabeDispo=new Label();
+        ausgabeKontostand=new Label();
 
         HBox hboxBetrag=new HBox(10);
         Label textEingabe=new Label("Geben Sie hier Ihren Betrag ein:");
@@ -39,7 +41,7 @@ public class BankGui extends Application {
         auszahlB.setOnAction(e->auszahlen(e));
 
 
-        box.getChildren().addAll(hboxBetrag, setDispo, einzahlB, auszahlB, ausgabe);
+        box.getChildren().addAll(hboxBetrag, setDispo, einzahlB, auszahlB, ausgabeDispo, ausgabeKontostand);
 
 
 
@@ -56,20 +58,20 @@ public class BankGui extends Application {
 
         int betrag=Integer.parseInt(betragFeld.getText());
         konto.auszahlen(betrag);
-        ausgabe.setText("Aktueller Kontostand" + konto.getKontostand());
+        ausgabeKontostand.setText("Aktueller Kontostand" + konto.getKontostand());
     }
 
     private void einzahlen(ActionEvent e) {
 
         int betrag=Integer.parseInt(betragFeld.getText());
         konto.einzahlen(betrag);
-        ausgabe.setText("Aktueller Kontostand" + konto.getKontostand());
+        ausgabeKontostand.setText("Aktueller Kontostand" + konto.getKontostand());
     }
 
     private void setDispo(ActionEvent e) {
 
         int betrag=Integer.parseInt(betragFeld.getText());
         konto.setDispo(betrag);
-        ausgabe.setText("Aktueller Dispostand" + konto.getDispo());
+        ausgabeDispo.setText("Aktueller Dispostand" + konto.getDispo());
     }
 }
