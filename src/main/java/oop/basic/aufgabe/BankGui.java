@@ -3,6 +3,7 @@ package oop.basic.aufgabe;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -12,9 +13,10 @@ import javax.xml.soap.Text;
 
 public class BankGui extends Application {
     private TextField tfName;
+    private Konto konto;
     @Override
     public void start(Stage primaryStage) throws Exception {
-
+        konto = new Konto(getKontostand);
         VBox box = new VBox(10);
 
         // 1. erzeuge ein Eingabfeld für den Betrag
@@ -24,21 +26,22 @@ public class BankGui extends Application {
         // 2. Erzeuge einen Button für "setze Dispo"
             // er soll eine Methode setDispo(...) aufrufen
         Button bDispo = new Button("Setze Dispo");
+        bDispo.setOnAction(e -> getDispo(tfBetrag));
         // 3. erzeuge einen Button "einzahlen"
             // er soll eine Methode einzahlen(...) aufrufen
         Button bEinzahlen = new Button("Einzahlen");
+        bEinzahlen.setOnAction(e -> einzahlen(bEinzahlen));
         // 4. erzeuge einen Button "auszahlen"
             // er soll eine Methode auszahlen(...) aufrufen
         Button bAuszahlen = new Button("Auszahlen");
-
+        bAuszahlen.setOnAction(e -> auszahlen(bAuszahlen));
         // 5. Überprüfe, das die Button die richtigen Methoden aufrufen.
-        bDispo.setOnAction(k -> getDispo(tfBetrag));
-        bAuszahlen.setOnAction(k -> auszahlen(bAuszahlen));
-        bEinzahlen.setOnAction(k -> einzahlen(bEinzahlen));
         // 6. Wandele den Betrag aus dem TextFeld in eine Zahl um
         int zahl = Integer.parseInt("tfBetrag");
+        Label lKontostand = new Label("Kontostand:" + konto);
+        Label lAusgezahlt = new Label("Ausgezahlt");
         // Beispiel:
-        box.getChildren().addAll(hBoxName, bDispo, bEinzahlen, bAuszahlen);
+        box.getChildren().addAll(hBoxName, bDispo, bEinzahlen, bAuszahlen, lKontostand, lAusgezahlt);
         Scene scene = new Scene(box, 400, 250);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Bank");
