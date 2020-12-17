@@ -1,4 +1,6 @@
 package oop.basic.aufgabe;
+import javafx.scene.control.Label;
+import oop.basic.aufgabe.muloe.Konto;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -13,15 +15,22 @@ import javax.swing.plaf.basic.BasicEditorPaneUI;
 
 public class BankGui extends Application {
 
+    Konto konto = new Konto();
     private TextField tfBetrag;
     private Button BsetzDispo;
     private Button BEinzahlen;
     private Button Bauszahlen;
+    private Label lDispo;
+    private Label lKontoinfo;
+    private int Betrag;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
         VBox box = new VBox(10);
         HBox hBox = new HBox(10);
+
+        lKontoinfo = new Label("Name");
+        lDispo = new Label();
 
 
 
@@ -48,7 +57,7 @@ public class BankGui extends Application {
         // Beispiel:
         int zahl = Integer.parseInt("1234");
 
-        box.getChildren().addAll(tfBetrag,BsetzDispo,BEinzahlen,Bauszahlen);
+        box.getChildren().addAll(tfBetrag,BsetzDispo,BEinzahlen,Bauszahlen,lKontoinfo,lDispo);
         Scene scene = new Scene(box, 400, 250);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Bank");
@@ -59,12 +68,22 @@ public class BankGui extends Application {
 
     private void BEinzahlen() {
         System.out.println("Zahle Ein");
+        int einzahlung = Integer.parseInt(tfBetrag.getText());
+        konto.einzahlen(einzahlung);
+        lKontoinfo.setText("Kontostand"+konto.getKontostand());
     }
 
     private void BsetzDispo() {
-        System.out.println("Setze Dispo");
+        System.out.println("Dispo setzen");
+        int zahl = Integer.parseInt(tfBetrag.getText());
+        konto.setDispo(zahl);
+        lDispo.setText("Dispo"+konto.getDispo());
     }
     private void Bauszahlen() {
         System.out.println("Zahle aus");
+        int auszahlung = Integer.parseInt(tfBetrag.getText());
+        konto.auszahlen(auszahlung);
+        lKontoinfo.setText("Kontostand"+konto.getKontostand());
+
     }
 }
