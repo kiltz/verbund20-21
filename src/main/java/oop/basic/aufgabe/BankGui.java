@@ -47,12 +47,19 @@ public class BankGui extends Application {
 
     }
 
-    private void setDispo(ActionEvent ) {
+    private void setDispo(ActionEvent e) {
+        System.out.println("Disp setzen !");
+
     }
 
-    private void einzahlen() {
+
+
+
+    private void einzahlen(ActionEvent e) {
+        System.out.println("Betrag einzahlen");
     }
 
-    private void auszahlen() {
+    private void auszahlen(ActionEvent e) {
+        System.out.println("Betrag auszahlen");
     }
 }
