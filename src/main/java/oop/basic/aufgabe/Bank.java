@@ -1,7 +1,7 @@
 package oop.basic.aufgabe;
 
 import oop.basic.aufgabe.muloe.Konto;
-/*
+
 public class Bank {
     public static void main(String[] args) {
         Konto k = new Konto();
@@ -28,7 +28,7 @@ public class Bank {
         if (k.getKontostand() != -200) {
             System.out.println("Fehler 6: Kontostand stimmt nicht!");
         }
-//<<<<<<<<< Temporary merge branch 1
+
         k.auszahlen(1300);
         if (k.getKontostand() != -1500) {
             System.out.println("Fehler 6: Kontostand stimmt nicht!");
@@ -42,9 +42,5 @@ public class Bank {
         kFriedrich.setDispo(15000);
         kFriedrich.auszahlen(500);
         System.out.println(kFriedrich.getKontostand());
-
-=========
-//>>>>>>>> Temporary merge branch 2
     }
-}
-*/
+    }
