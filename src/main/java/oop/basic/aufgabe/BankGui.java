@@ -61,6 +61,7 @@ public class BankGui extends Application {
     private void auszahlen(ActionEvent e) {
 
         int betrag=Integer.parseInt(betragFeld.getText());
+        betragFeld.setText("");
         konto.auszahlen(betrag);
         ausgabeKontostand.setText("Kontostand" + konto.getKontostand());
     }
@@ -68,6 +69,7 @@ public class BankGui extends Application {
     private void einzahlen(ActionEvent e) {
 
         int betrag=Integer.parseInt(betragFeld.getText());
+        betragFeld.setText("");
         konto.einzahlen(betrag);
         ausgabeKontostand.setText("Kontostand" + konto.getKontostand());
     }
