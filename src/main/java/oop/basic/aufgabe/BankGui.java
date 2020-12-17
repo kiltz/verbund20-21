@@ -1,31 +1,43 @@
 package oop.basic.aufgabe;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class BankGui extends Application {
+    private TextField betragFeld;
     @Override
     public void start(Stage primaryStage) throws Exception {
         VBox box = new VBox(10);
 
-        // 1. erzeuge ein Eingabfeld für den Betrag
+        //eingabefeld
+        HBox hboxBetrag=new HBox(10);
+        Label textEingabe=new Label("Betrag eingeben:");
+        betragFeld=new TextField();
 
-        // 2. Erzeuge einen Button für "setze Dispo"
-            // er soll eine Methode setDispo(...) aufrufen
+        hboxBetrag.getChildren().addAll(textEingabe, betragFeld);
+        //setze dispoo
+        Button setDispo=new Button("Dispoo setzen");
+        setDispo.setOnAction((e->setDispo()));
+        //einzahlbutton
+        Button einzahlB=new Button("Einzahlen");
+        einzahlB.setOnAction(e->einzahlen());
+        //ausgabebutton
+        Button auszahlB=new Button("Auszahlen");
+        auszahlB.setOnAction(e->auszahlen());
 
-        // 3. erzeuge einen Button "einzahlen"
-            // er soll eine Methode einzahlen(...) aufrufen
 
-        // 4. erzeuge einen Button "auszahlen"
-            // er soll eine Methode auszahlen(...) aufrufen
-
+        box.getChildren().addAll(hboxBetrag, setDispo, einzahlB, auszahlB);
         // 5. Überprüfe, das die Button die richtigen Methoden aufrufen.
 
-        // 6. Wandele den Betrag aus dem TextFeld in eine Zahl um
-        // Beispiel:
-        int zahl = Integer.parseInt("1234");
+        // umwandlung in zahl
+        int eingegebenerBetrag = Integer.parseInt(betragFeld.getText());
 
 
         Scene scene = new Scene(box, 400, 250);
@@ -33,5 +45,14 @@ public class BankGui extends Application {
         primaryStage.setTitle("Bank");
         primaryStage.show();
 
+    }
+
+    private void setDispo(ActionEvent ) {
+    }
+
+    private void einzahlen() {
+    }
+
+    private void auszahlen() {
     }
 }
