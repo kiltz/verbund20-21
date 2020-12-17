@@ -10,11 +10,12 @@ public class Kreis {
         return radius;
     }
 
-    public void setRadius(int radius) {
+    public void setRadius(int radius) throws Exception {
         if (radius >= 0) {
             this.radius = radius;
         } else {
             // Mecker!
+            throw new Exception("Radius ist zu klein!");
         }
     }
 
