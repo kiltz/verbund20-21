@@ -20,6 +20,7 @@ public class KreisGui extends Application {
     TextField tRadius;
     Label lAusgabe;
     int radius;
+    Kreis k=new Kreis();
 
     public static void main(String[] args) {
         launch(args);
@@ -55,26 +56,18 @@ public class KreisGui extends Application {
         String radiusText=tRadius.getText();
         try{
             int r=Integer.parseInt(radiusText);
-            setRadius(r);
-            lAusgabe.setText("Umfang: " +(2*this.radius*Math.PI));
+            k.setRadius(r);
+            lAusgabe.setText("Umfang: " +(2*k.getRadius()*Math.PI));
         }
         catch(NumberFormatException f){
-            System.out.println("Fehler bei der Eingabe");
+            lAusgabe.setText("Falsche Eingabe");
         } catch (Exception exception) {
-            System.out.println("Radius zu klein");;
+            lAusgabe.setText("Radius zu klein");
         }
 
     }
 
-    private void setRadius(int radius) throws Exception{
-        if (radius >= 0) {
-            this.radius = radius;
-        }
-        else {
 
-            throw new Exception("Radius ist zu klein!");
-        }
-    }
 
 
 }
