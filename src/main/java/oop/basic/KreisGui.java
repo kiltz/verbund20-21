@@ -12,9 +12,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 
-
 public class KreisGui extends Application {
-
 
     private TextField tfEingabe;
     private Label lResult;
@@ -26,10 +24,6 @@ public class KreisGui extends Application {
 
         HBox hBoxEingabe = new HBox(25);
         HBox hBoxHeader = new HBox(25);
-
-
-
-
 
         tfEingabe = new TextField();
         lResult = new Label("Umfang: ");
@@ -56,9 +50,6 @@ public class KreisGui extends Application {
             int value = Integer.parseInt(tfEingabe.getText());
             kreis.setRadius(value);
             lResult.setText("Umfang: " + kreis.berechneUmfang());
-
-
-
 
         } catch (NumberFormatException f) {
             lResult.setText("Falscher Wert - " + f.getMessage());
