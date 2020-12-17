@@ -8,6 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 
 
@@ -28,6 +29,7 @@ public class BankGui extends Application {
         tfEingabe = new TextField();
         tfEingabe.setPrefWidth(225);
         lKontostand = new Label("Kontostand: 0");
+        lKontostand.setTextFill(Paint.valueOf("#0000ff"));
         lDispo = new Label("Dispo-Höhe: 0");
 
         HBox hBoxEingabe = new HBox(10);
@@ -77,6 +79,11 @@ public class BankGui extends Application {
         betrag = Integer.parseInt(tfEingabe.getText());
         konto.auszahlen(betrag);
         lKontostand.setText("Kontostand: " + konto.getKontostand());
+        if(konto.getKontostand() < 0){
+            lKontostand.setTextFill(Paint.valueOf("#ff0000"));
+        } else {
+            lKontostand.setTextFill(Paint.valueOf("#0000ff"));
+        }
     }
 
     private void einzahlen(ActionEvent e) {
