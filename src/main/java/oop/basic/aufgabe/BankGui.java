@@ -26,6 +26,7 @@ public class BankGui extends Application {
 
         // 1. erzeuge ein Eingabfeld für den Betrag
         tfEingabe = new TextField();
+        tfEingabe.setPrefWidth(225);
         lKontostand = new Label();
         lDispo = new Label();
 
@@ -50,11 +51,11 @@ public class BankGui extends Application {
 
 
         // Hinzufügen aller Elemente:
+        box.getChildren().add(lKontostand);
+        box.getChildren().add(lDispo);
         hBoxEingabe.getChildren().add(tfEingabe);
         hBoxButtons.getChildren().addAll(btSetDispo,btEinzahlen,btAuszahlen);
         box.getChildren().addAll(hBoxEingabe, hBoxButtons, hBoxGetValues);
-        box.getChildren().add(lKontostand);
-        box.getChildren().add(lDispo);
 
         // 5. Überprüfe, das die Button die richtigen Methoden aufrufen.
 
