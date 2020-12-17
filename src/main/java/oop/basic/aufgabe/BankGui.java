@@ -1,6 +1,7 @@
 package oop.basic.aufgabe;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -9,38 +10,34 @@ import javafx.stage.Stage;
 
 public class BankGui extends Application {
 
-    private TextField  tfeingabeFeld;
-    int betrag;
-
+    private TextField  tfBetrag;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
 
         VBox box = new VBox(10);
 
-        // 1. erzeuge ein Eingabfeld für den Betrag
-
-        tfeingabeFeld = new TextField();
+        tfBetrag = new TextField();
 
         // 2. Erzeuge einen Button für "setze Dispo"
             // er soll eine Methode setDispo(...) aufrufen
-        Konto k = new Konto();
+
         Button bsetzeDispo = new Button("setze Dispo");
-        bsetzeDispo.setOnAction(e -> k.setDispo(betrag) );
+        bsetzeDispo.setOnAction(e -> setDispo(e) );
 
         // 3. erzeuge einen Button "einzahlen"
             // er soll eine Methode einzahlen(...) aufrufen
 
         Button bEinzahlen = new Button("einzahlen");
-        bEinzahlen.setOnAction(e -> k.einzahlen(betrag));
+        bEinzahlen.setOnAction(e -> einzahlen(e));
 
         // 4. erzeuge einen Button "auszahlen"
             // er soll eine Methode auszahlen(...) aufrufen
 
         Button bAuszahlen = new Button("auszahlen");
-        bAuszahlen.setOnAction(e -> k.auszahlen(betrag));
+        bAuszahlen.setOnAction(e -> auszahlen(e));
 
-        box.getChildren().addAll(tfeingabeFeld,bsetzeDispo, bEinzahlen,bAuszahlen);
+        box.getChildren().addAll(tfBetrag,bsetzeDispo, bEinzahlen,bAuszahlen);
 
         // 5. Überprüfe, das die Button die richtigen Methoden aufrufen.
 
@@ -55,5 +52,17 @@ public class BankGui extends Application {
         primaryStage.setTitle("Bank");
         primaryStage.show();
 
+    }
+
+    private void setDispo(ActionEvent e) {
+        System.out.println("Setze Dispo");
+    }
+
+    private void einzahlen(ActionEvent e) {
+        System.out.println("Betrag einzahlen");
+    }
+
+    private void auszahlen(ActionEvent e) {
+        System.out.println("Betrag auszahlen");
     }
 }
