@@ -2,6 +2,7 @@ package oop.basic;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -23,6 +24,8 @@ public class KreisGui extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         VBox box = new VBox(10);
+        box.setPadding(new Insets(10, 20, 20, 20));
+
         HBox hBoxEingabe = new HBox(10);
         HBox hBoxHeader = new HBox(10);
 
