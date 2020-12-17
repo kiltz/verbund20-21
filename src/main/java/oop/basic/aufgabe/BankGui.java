@@ -17,8 +17,8 @@ public class BankGui extends Application {
     private TextField tfBetrag;
     private int betrag;
     private Konto konto;
-    private Label dispo;
     private Label kontostand;
+    private Label dispo;
 
 
     @Override
@@ -73,7 +73,8 @@ public class BankGui extends Application {
     private void einzahlen(ActionEvent e) {
         betrag = Integer.parseInt(tfBetrag.getText());
         konto.einzahlen(betrag);
-        kontostand = new Label("Kontostand" + konto.getKontostand());
+        kontostand.setText("Kontostand: " + konto.getKontostand());
+        dispo.setText("Dispo: " + konto.getDispo());
 
     }
 
@@ -81,4 +82,6 @@ public class BankGui extends Application {
         betrag = Integer.parseInt(tfBetrag.getText());
         konto.setDispo(betrag);
     }
+
+
 }
