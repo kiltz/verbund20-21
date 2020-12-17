@@ -2,6 +2,7 @@ package oop.basic.aufgabe;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -9,34 +10,40 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-
 public class BankGui extends Application {
+
     private TextField betragFeld;
+    private Konto konto;
+    Label ausgabeDispo;
+    Label ausgabeKontostand;
     @Override
     public void start(Stage primaryStage) throws Exception {
+        konto =new Konto();
         VBox box = new VBox(10);
+        box.setPadding(new Insets(10, 20, 20, 20));
 
-        //eingabefeld
+        ausgabeDispo=new Label();
+        ausgabeKontostand=new Label();
+
         HBox hboxBetrag=new HBox(10);
-        Label textEingabe=new Label("Betrag eingeben:");
+        Label textEingabe=new Label("Geben Sie hier Ihren Betrag ein:");
         betragFeld=new TextField();
 
         hboxBetrag.getChildren().addAll(textEingabe, betragFeld);
-        //setze dispoo
+
         Button setDispo=new Button("Dispoo setzen");
-        setDispo.setOnAction((e->setDispo(e)));
-        //einzahlbutton
-        Button einzahlB=new Button("Einzahlen");
+        setDispo.setOnAction(e->setDispo(e));
+
+        Button einzahlB=new Button("einzahlen");
         einzahlB.setOnAction(e->einzahlen(e));
-        //ausgabebutton
-        Button auszahlB=new Button("Auszahlen");
+
+        Button auszahlB=new Button("auszahlen");
         auszahlB.setOnAction(e->auszahlen(e));
 
 
-        box.getChildren().addAll(hboxBetrag, setDispo, einzahlB, auszahlB);
-        // 5. Überprüfe, das die Button die richtigen Methoden aufrufen.
+        box.getChildren().addAll(hboxBetrag, setDispo, einzahlB, auszahlB, ausgabeDispo, ausgabeKontostand);
 
-        // umwandlung in zahl
+
 
 
         Scene scene = new Scene(box, 400, 250);
@@ -46,25 +53,25 @@ public class BankGui extends Application {
 
     }
 
-    private void setDispo(ActionEvent e) {
-        System.out.println("Dispo setzen !");
-        int eingegebenerBetrag = Integer.parseInt(betragFeld.getText());
-
-
-    }
-
-
-
-
-    private void einzahlen(ActionEvent e) {
-        System.out.println("Betrag einzahlen");
-        int eingegebenerBetrag = Integer.parseInt(betragFeld.getText());
-
-    }
 
     private void auszahlen(ActionEvent e) {
-        System.out.println("Betrag auszahlen");
-        int eingegebenerBetrag = Integer.parseInt(betragFeld.getText());
 
+        int betrag=Integer.parseInt(betragFeld.getText());
+        konto.auszahlen(betrag);
+        ausgabeKontostand.setText("Kontostand" + konto.getKontostand());
+    }
+
+    private void einzahlen(ActionEvent e) {
+
+        int betrag=Integer.parseInt(betragFeld.getText());
+        konto.einzahlen(betrag);
+        ausgabeKontostand.setText("Kontostand" + konto.getKontostand());
+    }
+
+    private void setDispo(ActionEvent e) {
+
+        int betrag=Integer.parseInt(betragFeld.getText());
+        konto.setDispo(betrag);
+        ausgabeDispo.setText("Dispostand" + konto.getDispo());
     }
 }
