@@ -20,7 +20,7 @@ public class KreisGui extends Application {
     private TextField tRadius;
     private Label lAusgabe;
     private int radius;
-    private Kreis k=new Kreis();
+    private Kreis k;
 
     public static void main(String[] args) {
         launch(args);
@@ -53,6 +53,7 @@ public class KreisGui extends Application {
     }
 
     private void rechneUmfang(ActionEvent e) {
+        k=new Kreis();
         String radiusText=tRadius.getText();
         try{
             int r=Integer.parseInt(radiusText);
