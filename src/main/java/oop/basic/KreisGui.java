@@ -15,8 +15,7 @@ public class KreisGui extends Application {
     private Kreis kreis;
     private TextField tfRadius;
     private Label lUmfang;
-    private int radius;
-    private Label fehler;
+    private Label lfehler;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -27,12 +26,12 @@ public class KreisGui extends Application {
         tfRadius = new TextField("Radius eingeben");
         lRadius = new Label("Radius: " + kreis.getRadius());
         lUmfang = new Label("Umfang: ");
-        fehler = new Label();
+        lfehler = new Label();
 
-        Button bRadius = new Button("Umfang Berechnen");
-        bRadius.setOnAction(e -> berechneUmfang());
+        Button bBerechne = new Button("Umfang Berechnen");
+        bBerechne.setOnAction(e -> berechneUmfang());
 
-        box.getChildren().addAll(tfRadius, lRadius, lUmfang, bRadius, fehler);
+        box.getChildren().addAll(tfRadius, lRadius, lUmfang, bBerechne, lfehler);
 
         Scene scene = new Scene(box, 400, 250);
         primaryStage.setScene(scene);
@@ -42,13 +41,12 @@ public class KreisGui extends Application {
 
     private void berechneUmfang() {
         try {
-            radius = Integer.parseInt(tfRadius.getText());
+            int radius = Integer.parseInt(tfRadius.getText());
             kreis.setRadius(radius);
             lRadius.setText("Radius: " + kreis.getRadius());
             lUmfang.setText("Umfang: " + kreis.berechneUmfang());
         } catch (Exception e) {
-            fehler.setText("Fehler: " + e);
-
+            lfehler.setText("Fehler: " + e);
         }
     }
 }
