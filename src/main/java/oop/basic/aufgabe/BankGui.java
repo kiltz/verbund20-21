@@ -72,9 +72,11 @@ public class BankGui extends Application {
         try {
         int betrag = Integer.parseInt(tfBetrag.getText());
             konto.auszahlen(betrag);
-        } catch (Exception exception) {
-            lFehlermeldung.setText("Betrag nicht auszahlbar!");
-        }
+        } catch (NumberFormatException exception1) {
+        lFehlermeldung.setText("Bitte eine Zahl eingeben!");
+        } catch (Exception exception){
+        lFehlermeldung.setText("Betrag nicht auszahlbar!");
+    }
         lKontostand.setText("Kontostand: " + konto.getKontostand());
     }
 }
