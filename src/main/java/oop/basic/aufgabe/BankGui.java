@@ -9,6 +9,8 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import oop.basic.aufgabe.muloe.Konto;
 
+import java.sql.SQLOutput;
+
 public class BankGui<konto> extends Application {
     private TextField tfBetrag;
     private Konto konto;
@@ -38,7 +40,7 @@ public class BankGui<konto> extends Application {
         // 5. Überprüfe, das die Button die richtigen Methoden aufrufen.
 
         // 6. Wandele den Betrag aus dem TextFeld in eine Zahl um
-        // Beispiel:
+        // Beispiel:12
          int umwandlung = Integer.parseInt("123");
 
         box.getChildren().addAll(tfBetrag,lDispo,lKontostand,bDispo,bEinzahlen,bAuszahlen);
