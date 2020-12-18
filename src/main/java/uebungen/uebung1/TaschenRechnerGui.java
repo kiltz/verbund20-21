@@ -25,9 +25,6 @@ public class TaschenRechnerGui extends javafx.application.Application
         BorderPane box = new BorderPane();
         box.setPadding(new Insets(10,10,10,10));
 
-
-        Label lblSum;
-
         box.setTop(new Label("Trage eine Zahl ein: "));
 
 
