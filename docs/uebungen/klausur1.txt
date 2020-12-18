@@ -1,0 +1,41 @@
+Leistungstest
+-------------
+Zeit: 30 Minuten
+Open-Book-Klausur: Alle nicht-personellen Hilfsmittel (Unterlage, Beispieldateien) sind erlaubt.
+
+(2 Punkte)
+1. Erzeuge eine Klasse mit dem Namen "TaschenRechnerGui" im Paket "uebungen.uebung1"
+    Hinweis: Wenn von der namensgebung abgewichen wird, wird der komplette Test mit 0 Punkten bewertet.
+
+(2 Punkte)
+2. Lasse die Klasse "TaschenRechnerGui" von der Klasse "javafx.application.Application" erben, überschreibe die Methode
+    "public void start(Stage primaryStage)"
+
+(2 Punkt)
+3. Erweitere die Klasse "TaschenRechnerGui" durch die Main-Methode. In dieser Methode soll die Allpication "gelaunched"
+    werden.
+
+(3 Punkte)
+4. Erzeuge in der Start-Methode eine VBox als WurzelKnoten und weise ihn einer Szene zu.
+Übergebe die Szene an die primaryStage, setze den Titel auf "Taschenrechner" und zeige die Bühne an.
+
+(7 Punkte)
+5. Erzeuge zwei Textfelder, zwei Label und einen Button.
+    - die Textfelder sind für die Eingabe zweier Zahlen
+    - ein Label enthält ein "+" und steht zwischen den Eingabefeldern
+    - ein Label enthält das Ergebnis
+    - der Button hat den Text "="
+
+(3 Punkte)
+6. Hauch dem Button Leben ein. Wenn man auf den Button klick soll eine Methode "rechne()" aufgerufen werden.
+
+(5 Punkte)
+7. In der Methode "rechne()" sollen die Eingabe aus den beiden Textfeldern ausgelesen werden.
+    Wandele sie in Zahlen um und berechne die Summe der beiden Zahlen
+    Gebe das Ergebnis in dem Ergebnis-Label aus.
+
+Auf alle Fälle: Commit und Push.
+    Hinweis: Nur das was zur Endzeit in GitHub ist, wird bewertet.
+
+Gesamt: 24 Punkte
+
