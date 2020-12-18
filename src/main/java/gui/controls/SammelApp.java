@@ -31,7 +31,7 @@ public class SammelApp extends Application {
         root.getChildren().add(getTextFelder());
         root.getChildren().add(getBoxAndButts());
 
-        Scene scene = new Scene(root, 600, 450);
+        Scene scene = new Scene(root, 800, 550);
         primaryStage.setTitle("Control-Sammlung");
         primaryStage.setScene(scene);
         primaryStage.show();
