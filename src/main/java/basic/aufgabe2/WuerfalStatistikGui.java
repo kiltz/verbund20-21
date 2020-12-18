@@ -27,7 +27,7 @@ public class WuerfalStatistikGui extends Application {
         VBox box = new VBox(10);
         box.setPadding(new Insets(10, 20, 20, 20));
 
-        Label lTitel = new Label("Wie Oft willst du würfeln?");
+        Label lTitel = new Label("Wie oft willst du wuerfeln?");
         tfAnzahlRolls = new TextField();
         Button btnWuerfeln = new Button("Wuerfeln!");
         btnWuerfeln.setOnAction(e -> wuerfeln(e));
