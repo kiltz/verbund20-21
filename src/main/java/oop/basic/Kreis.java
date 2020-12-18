@@ -10,12 +10,11 @@ public class Kreis {
         return radius;
     }
 
-    public void setRadius(int radius) throws Exception {
+    public void setRadius(int radius) {
         if (radius >= 0) {
             this.radius = radius;
         } else {
             // Mecker!
-            throw new Exception("Radius ist zu klein!");
         }
     }
 
@@ -32,5 +31,8 @@ public class Kreis {
         // lokale Variable
         double umfang = 2 * radius * Math.PI;
         return umfang;
+    }
+
+    public static class tes {
     }
 }

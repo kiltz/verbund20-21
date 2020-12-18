@@ -45,7 +45,7 @@ public class KreisGui extends Application {
         Kreis.setRadius(zahl);
         Ausgabe.setText("Umfang: " + Kreis.berechneUmfang());
         } catch (NumberFormatException e) {
-            error.setText("Fehler");
+            error.setText("Radius zu klein!");
         }
     }
 }
