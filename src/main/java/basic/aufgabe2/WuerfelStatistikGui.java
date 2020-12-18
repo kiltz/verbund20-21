@@ -15,8 +15,6 @@ public class WuerfelStatistikGui extends Application {
     private TextField tfAnzahl;
     private TextField tfReichweite;
     private Label ausgabe;
-    private int[] anzahl = new int[6];
-    private int zahl = 1;
     VBox box;
 
     public static void main(String[] args) {
@@ -37,7 +35,7 @@ public class WuerfelStatistikGui extends Application {
 
         box.getChildren().addAll(tfAnzahl, tfReichweite,bWuerfeln, ausgabe);
 
-        Scene scene = new Scene(box, 400, 350);
+        Scene scene = new Scene(box, 400, 400);
         primaryStage.setScene(scene);
         primaryStage.setTitle("WuerfelStatistik");
         primaryStage.show();
@@ -45,9 +43,11 @@ public class WuerfelStatistikGui extends Application {
     }
 
     private void wuerfeln(ActionEvent e) {
+        int zahl = 1;
+        int reichweite = Integer.parseInt(tfReichweite.getText());
         int durchlaeufe = Integer.parseInt(tfAnzahl.getText());
+        int[] anzahl = new int [reichweite];
         for (int i = 0; i < durchlaeufe; i++) {
-            int reichweite = Integer.parseInt(tfReichweite.getText());
             int min = 1;
             int zufall = (int)(Math.random() * reichweite) + min;
             anzahl[zufall-1] = anzahl[zufall-1]+1;
