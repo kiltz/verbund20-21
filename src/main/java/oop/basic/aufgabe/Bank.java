@@ -5,6 +5,7 @@ import oop.basic.aufgabe.muloe.Konto;
 public class Bank {
     public static void main(String[] args) {
         Konto k = new Konto();
+
         k.setDispo(1500);
         if (k.getDispo() != 1500) {
             System.out.println("Fehler 1: Dispo stimmt nicht!");
