@@ -1,4 +1,4 @@
-package oop.basic.aufgabe;
+/*package oop.basic.aufgabe;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -77,3 +77,5 @@ public class BankGui extends Application {
         konto.setDispo(betrag);
     }
 }
+
+ */
