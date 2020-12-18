@@ -36,12 +36,10 @@ public class TaschenRechnerGui extends Application {
 
         box.getChildren().addAll(tf1, lPlus, tf2, bRechne, lErgebnis);
 
-
         Scene scene = new Scene(box, 400, 250);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Taschenrechner");
         primaryStage.show();
-
 
     }
 
