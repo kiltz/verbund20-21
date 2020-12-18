@@ -30,7 +30,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 
-    public class TaschenRechnerGui<tEingabe> extends Application {
+    public class TaschenRechnerGui extends Application {
 
         private TextField tEingabe;
         private Label lErgebnis;
