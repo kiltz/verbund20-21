@@ -52,7 +52,7 @@ public class TaschenRechnerGui extends javafx.application.Application
 
         rechne.setOnAction(new EventHandler<ActionEvent>() {
         @Override
-        public void handle(ActionEvent event){
+        public void handle(ActionEvent event){ //ich bin so dumm! 
             int num1 = Integer.parseInt(zahl1.getText());
             int num2 = Integer.parseInt(zahl2.getText());
             int ergebnis = num1 + num2;
