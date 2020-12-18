@@ -2,6 +2,7 @@ package oop.basic.aufgabe2.muloe;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -24,8 +25,12 @@ public class WuerfelStatistikGui extends Application {
     }
     public void start(Stage primaryStage) throws Exception{
         VBox box=new VBox(10);
+        box.setPadding(new Insets(10,10,10,10));
 
+        HBox hboxAnzahl=new HBox();
+        Label lAnzahl=new Label("Wie viele Seiten soll der Würfel haben?");
         tAnzahl=new TextField();
+        hboxAnzahl.getChildren().addAll(lAnzahl, tAnzahl);
 
         HBox hbox=new HBox();
         Label lAusgabeZahl=new Label("Welche Zahl soll ausgegeben werden?");
@@ -37,7 +42,7 @@ public class WuerfelStatistikGui extends Application {
         bWurf.setOnAction(e->wurf(e));
 
         ausgabe=new Label();
-        box.getChildren().addAll(tAnzahl, hbox, bWurf, ausgabe);
+        box.getChildren().addAll(hboxAnzahl, hbox, bWurf, ausgabe);
 
         Scene scene = new Scene(box, 400, 250);
         primaryStage.setScene(scene);
