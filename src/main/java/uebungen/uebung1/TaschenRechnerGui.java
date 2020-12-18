@@ -23,7 +23,7 @@ public class TaschenRechnerGui extends Application {
         tfZahl2= new TextField();
         Label lPlus = new Label("+");
 
-        lErgebnis= new Label(""+rechne());
+        lErgebnis= new Label("rechne()");
         Button bRechne= new Button("=");
         bRechne.setOnAction(e -> rechne());
         Scene scene = new Scene(box,  400, 250);
