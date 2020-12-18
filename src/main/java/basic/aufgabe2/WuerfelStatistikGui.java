@@ -43,21 +43,25 @@ public class WuerfelStatistikGui extends Application {
     }
 
     private void wuerfeln(ActionEvent e) {
-        int zahl = 1;
-        int reichweite = Integer.parseInt(tfReichweite.getText());
-        int durchlaeufe = Integer.parseInt(tfAnzahl.getText());
-        int[] anzahl = new int [reichweite];
-        for (int i = 0; i < durchlaeufe; i++) {
-            int min = 1;
-            int zufall = (int)(Math.random() * reichweite) + min;
-            anzahl[zufall-1] = anzahl[zufall-1]+1;
-        }
-        for (int j : anzahl) {
-            ausgabe = new Label();
-            ausgabe.setText("Die Zahl " + zahl + " wurde " + j + " mal gewuerfelt");
-            ++zahl;
-            box.getChildren().addAll(ausgabe);
-        }
+        try {
+            int zahl = 1;
+            int reichweite = Integer.parseInt(tfReichweite.getText());
+            int durchlaeufe = Integer.parseInt(tfAnzahl.getText());
+            int[] anzahl = new int [reichweite];
+            for (int i = 0; i < durchlaeufe; i++) {
+                int min = 1;
+                int zufall = (int)(Math.random() * reichweite) + min;
+                anzahl[zufall-1] = anzahl[zufall-1]+1;
+            }
+            for (int j : anzahl) {
+                ausgabe = new Label();
+                ausgabe.setText("Die Zahl " + zahl + " wurde " + j + " mal gewuerfelt");
+                ++zahl;
+                box.getChildren().addAll(ausgabe);
+            }
 
+        } catch (NumberFormatException e1){
+            ausgabe.setText("Fehlerhafte Eingabe");
+        }
     }
 }
