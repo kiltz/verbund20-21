@@ -45,10 +45,10 @@ import javafx.stage.Stage;
             VBox box = new VBox(10);
             box.setPadding(new Insets(10, 20, 20, 20));
 
-            // Eingabefeld für den Radius
+
             tEingabe  = new TextField();
 
-            // Button um den Radius zu setzen
+
             Button bKlick = new Button("rechne");
             bKlick.setDefaultButton(true);
 
@@ -60,7 +60,7 @@ import javafx.stage.Stage;
             int Zahl1 = Integer.parseInt(String.valueOf(zahl1));
             System.out.println("sum");
 
-            // Label um den Umfang auszugeben
+
             lErgebnis = new Label("Ergebnis =");
 
             box.getChildren().addAll(tEingabe, bKlick,lErgebnis );
