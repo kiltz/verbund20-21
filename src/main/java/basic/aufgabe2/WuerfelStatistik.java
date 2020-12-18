@@ -24,12 +24,10 @@ package basic.aufgabe2;
 
 public class WuerfelStatistik {
 
-	public static void main(String[] args) {
+	public String wuerfeln(int Wuerfelzahl) {
 		long anfangszeit = System.currentTimeMillis();
 		int i = 0;
 		int[] Zahlenhäufigkeit = {0, 0, 0, 0, 0, 0};
-
-
 
 
 		while (i < 10000) {
@@ -52,6 +50,8 @@ public class WuerfelStatistik {
 				Zahlenhäufigkeit[5] = Zahlenhäufigkeit[5] + 1;
 			}
 		}
+		return ("1: " + Zahlenhäufigkeit[0] + ", 2: " + Zahlenhäufigkeit[1] + ", 3: " + Zahlenhäufigkeit[2] + ", 4: " + Zahlenhäufigkeit[3] + ", 5: " + Zahlenhäufigkeit[4] + ", 6: " + Zahlenhäufigkeit[5]);
+/*
 		int zahl = 0;
 		for (int anzahl : Zahlenhäufigkeit) {
 			zahl = zahl + 1;
@@ -60,5 +60,7 @@ public class WuerfelStatistik {
 
 		}
 		System.out.println( System.currentTimeMillis() - anfangszeit);
+
+ */
 	}
 }
