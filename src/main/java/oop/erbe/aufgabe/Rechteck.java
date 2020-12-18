@@ -1,14 +1,15 @@
-/*
+
 package oop.erbe.aufgabe;
 
-import oop.erbe.Auto;
+public class Rechteck extends Form{
 
-public class Rechteck extends Form {
-    public Rechteck() {
-        this();
+    public Rechteck(){
+
     }
-    public Rechteck(int s1, int s2) {
-        super(s1, s2)
-}
 
-*/
+    public Rechteck(int seite1, int seite2){
+        super(seite1, seite2);
+    }
+
+
+}

@@ -1,4 +1,4 @@
-/*package uebungen.uebung1;
+package uebungen.uebung1;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -39,5 +39,3 @@ public class TaschenRechnerGui extends Application {
 
         }
     }
-}
-*/

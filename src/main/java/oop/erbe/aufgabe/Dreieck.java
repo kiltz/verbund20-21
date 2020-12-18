@@ -1,11 +1,26 @@
-/*
 package oop.erbe.aufgabe;
 
 public class Dreieck extends Form {
-    public int s3 = 14;
-    public Dreieck(int s1, int s2, int s3) {
 
-        super(s1,s2);
+    private int seite3;
+
+    public Dreieck(int seite1, int seite2, int seite3){
+
+
+        super(seite1, seite2);
+        this.seite3 = seite3;
+    }
+
+
+    public int getSeite3() {
+        return seite3;
+    }
+    public void setSeite3(int seite3) {
+        this.seite3 = seite3;
+    }
+
+    @Override
+    public int berechneUmfang() {
+        return super.berechneUmfang() / 2 + seite3;
     }
 }
-*/
