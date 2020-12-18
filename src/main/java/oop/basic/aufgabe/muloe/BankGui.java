@@ -8,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 
@@ -65,6 +66,11 @@ public class BankGui extends Application {
             konto.einzahlen(zahl);
         } else {
             konto.auszahlen(zahl);
+        }
+        if (konto.getKontostand() < 0) {
+            lKontostand.setTextFill(Color.web("#E23130"));
+        } else {
+            lKontostand.setTextFill(Color.web("#005091"));
         }
         lKontostand.setText("Kontostand: " + konto.getKontostand());
     }
