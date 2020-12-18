@@ -1,4 +1,4 @@
-package uebungen.uebung1;
+/*package uebungen.uebung1;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -35,8 +35,9 @@ public class TaschenRechnerGui extends Application {
         primaryStage.setTitle("TaschenRechner");
         primaryStage.show();
 
-        public static void main (String[]args){
+  //      public static void main (String[]args){
 
         }
     }
 }
+*/

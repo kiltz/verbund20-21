@@ -1,4 +1,4 @@
-package basic.aufgabe2.muloe;
+/*package basic.aufgabe2.muloe;
 
 /**
  * Aufgabe:
@@ -20,7 +20,7 @@ package basic.aufgabe2.muloe;
  * <p>
  * Variiere die Anzahl der Durchläufe, gehe in die Masse.
  */
-
+/*
 public class WuerfelStatistik {
     public static void main(String[] args) {
 
@@ -39,3 +39,4 @@ public class WuerfelStatistik {
 
     }
 }
+*/
