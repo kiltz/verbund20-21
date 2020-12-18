@@ -44,9 +44,13 @@ public class TaschenRechnerGui extends Application {
     }
 
     private void rechne(ActionEvent e) {
-        int zahl1 = Integer.parseInt(tf1.getText());
-        int zahl2 = Integer.parseInt(tf2.getText());
-        int ergebnis = zahl1 + zahl2;
-        lErgebnis.setText("Ergebnis: " + ergebnis);
+        try {
+            int zahl1 = Integer.parseInt(tf1.getText());
+            int zahl2 = Integer.parseInt(tf2.getText());
+            int ergebnis = zahl1 + zahl2;
+            lErgebnis.setText("Ergebnis: " + ergebnis);
+        } catch (NumberFormatException e1) {
+            lErgebnis.setText("Die Eingabe war keine Zahl! (" + e1.getMessage() + ")");
+        }
     }
 }
