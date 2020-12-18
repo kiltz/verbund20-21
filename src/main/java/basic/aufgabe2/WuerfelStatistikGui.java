@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 
 public class WuerfelStatistikGui extends Application {
 
-    private int zaehler[] = new int[6];
+    private final int[] zaehler = new int[6];
     private Label lAusgabe;
     private int zahl = 1;
 
@@ -23,7 +23,7 @@ public class WuerfelStatistikGui extends Application {
 
         lAusgabe = new Label("");
         Button bWuerfeln = new Button("Wuerfeln");
-        bWuerfeln.setOnAction(e -> wuerfeln(e));
+        bWuerfeln.setOnAction(this::wuerfeln);
 
 
         box.getChildren().addAll(bWuerfeln, lAusgabe);
@@ -40,12 +40,12 @@ public class WuerfelStatistikGui extends Application {
             int zufall = (int)(Math.random() * 6 + 1);
             zaehler[zufall -1]++;
         }
-        String s = "";
+        StringBuilder s = new StringBuilder();
         for (int j : zaehler) {
-            s += zahl + ": " + j + "\n";
+            s.append(zahl).append(": ").append(j).append("\n");
             zahl++;
         }
-        lAusgabe.setText(s);
+        lAusgabe.setText(s.toString());
 
     }
 }
