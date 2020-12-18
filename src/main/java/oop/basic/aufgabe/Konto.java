@@ -1,6 +1,7 @@
 package oop.basic.aufgabe;
 
-public class Konto {
+
+public class Konto extends BankGui{
 
     Konto(){
     }

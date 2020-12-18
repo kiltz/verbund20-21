@@ -22,7 +22,7 @@ public class BankGui extends Application {
     public void start(Stage primaryStage) throws Exception {
         konto = new Konto();
         VBox box = new VBox(10);
-        box.setPadding(new Insets(10, 20, 20, 20));
+        box.setPadding(new Insets(30, 30, 30, 20));
 
         // 1. erzeuge ein Eingabfeld für den Betrag
         tfBetrag = new TextField();

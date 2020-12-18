@@ -12,11 +12,11 @@ import javafx.stage.Stage;
 
 public class BankGui extends Application {
     private TextField bFeld;
-    private Konto konto = new Konto();
 
     @Override
     public void start(Stage primaryStage) throws Exception {
         VBox box = new VBox(10);
+
         // 1. erzeuge ein Eingabfeld für den Betrag
         HBox betrag = new HBox(20);
         Label textFeld = new Label("Betrag: ");
@@ -27,8 +27,7 @@ public class BankGui extends Application {
         // 2. Erzeuge einen Button für "setze Dispo"
         Button bDispo = new Button("Setze Dispo");
         bDispo.setOnAction((e -> setDispo()));
-
-            // er soll eine Methode setDispo(...) aufrufen
+        // er soll eine Methode setDispo(...) aufrufen
 
         // 3. erzeuge einen Button "einzahlen"
             // er soll eine Methode einzahlen(...) aufrufen
@@ -40,6 +39,7 @@ public class BankGui extends Application {
         Button bAuszahlen = new Button("Auszahlen");
         bAuszahlen.setOnAction(e->auszahlen());
         box.getChildren().addAll(betrag, bDispo, bEinzahlen, bAuszahlen);
+
 
         // 5. Überprüfe, das die Button die richtigen Methoden aufrufen.
 

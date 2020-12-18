@@ -17,7 +17,6 @@ public class KreisTzGui extends Application {
     private Kreis kreis;
 
     public static void main(String[] args) {
-        launch(args);
     }
 
     @Override
