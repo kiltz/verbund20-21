@@ -43,11 +43,11 @@ public class TaschenRechnerGui extends javafx.application.Application
         center.add(new Label("Zahl1"), 0, 0);
         center.add(new Label("+"), 0, 0);
         Button rechne = new Button("=");
-        Label nez = new Label("Zahl2");
+        Label lnez = new Label("Zahl2");
 
         center.add(new Label("Zahl2"), 1, 0);
         center.add(zahl1, 1, 0);
-        center.add(nez, 1, 1);
+        center.add(lnez, 1, 1);
         center.add(zahl2, 1, 2);
         center.add(rechne, 1, 3);
         box.setCenter(center);
