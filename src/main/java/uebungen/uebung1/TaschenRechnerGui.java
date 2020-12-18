@@ -38,7 +38,7 @@ public class TaschenRechnerGui extends Application {
         tfZahl2 = new TextField();
 
         Button bGleich = new Button("=");
-        bGleich.setOnAction(e -> rechnen(e));
+        bGleich.setOnAction(e -> rechne(e));
 
         box.getChildren().addAll(tfZahl1, lPlus, tfZahl2, bGleich, lErgebnis, fehlerAusgabe);
 
@@ -49,7 +49,7 @@ public class TaschenRechnerGui extends Application {
 
     }
 
-    private void rechnen(ActionEvent e) {
+    private void rechne(ActionEvent e) {
         try {
             zahl1 = Integer.parseInt(tfZahl1.getText());
             zahl2 = Integer.parseInt(tfZahl2.getText());
