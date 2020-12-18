@@ -31,8 +31,8 @@ public class TaschenRechnerGui extends javafx.application.Application
         box.setTop(new Label("Trage eine Zahl ein: "));
 
 
-        lblSum = new Label("");
-        box.setBottom(lblSum);
+        Label lblAddition = new Label("");
+        box.setBottom(lblAddition);
 
 
         GridPane center = new GridPane();
@@ -67,7 +67,7 @@ public class TaschenRechnerGui extends javafx.application.Application
             int num1 = Integer.parseInt(zahl1.getText());
             int num2 = Integer.parseInt(zahl2.getText());
             int ergebnis = num1 + num2;
-            lblSum.setText("Das Ergebnis ist: " + ergebnis);
+            lblAddition.setText("Das Ergebnis ist: " + ergebnis);
             }
             }
         );
