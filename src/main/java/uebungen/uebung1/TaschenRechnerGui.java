@@ -57,7 +57,7 @@ import javafx.stage.Stage;
             int zahl2 = 1;
             int sum = zahl1 + zahl2;
 
-            int radius = Integer.parseInt(String.valueOf(zahl1));
+            int Zahl1 = Integer.parseInt(String.valueOf(zahl1));
             System.out.println("sum");
 
             // Label um den Umfang auszugeben
