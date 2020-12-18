@@ -21,7 +21,7 @@ public class TaschenRechnerGui extends Application {
         launch(args);
     }
 
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage) throws Exception {
         VBox box = new VBox();
 
         HBox hbox = new HBox();
@@ -31,7 +31,7 @@ public class TaschenRechnerGui extends Application {
         hbox.getChildren().addAll(tZahl1, lPlus, tZahl2);
 
         Button bGleich = new Button("=");
-        bGleich.setOnAction(e->rechne(e));
+        bGleich.setOnAction(e -> rechne(e));
 
         lErgebnis = new Label();
 
@@ -45,16 +45,15 @@ public class TaschenRechnerGui extends Application {
     }
 
     private void rechne(ActionEvent e) {
-        String text1=tZahl1.getText();
-        String text2=tZahl2.getText();
+        String text1 = tZahl1.getText();
+        String text2 = tZahl2.getText();
         try {
             int zahl1 = Integer.parseInt(text1);
             int zahl2 = Integer.parseInt(text2);
             int ergebnis = zahl1 + zahl2;
             lErgebnis.setText("Ihr Ergebnis ist: " + ergebnis);
             lErgebnis.setTextFill(Paint.valueOf("#00ff00"));
-        }
-        catch(NumberFormatException f){
+        } catch (NumberFormatException f) {
             lErgebnis.setText("Ihre Eingabe war falsch!");
             lErgebnis.setTextFill(Paint.valueOf("#ff0000"));
         }
