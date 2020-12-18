@@ -27,7 +27,7 @@ public class WuerfelStatistikGui extends Application {
     public void start(Stage primaryStage) throws Exception {
 
         box = new VBox(10);
-        box.setPadding(new Insets(20, 20, 20, 20));
+        box.setPadding(new Insets(20, 20, 10, 20));
 
         tfAnzahl = new TextField();
         tfReichweite = new TextField();
