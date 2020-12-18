@@ -22,7 +22,7 @@ public class TaschenRechnerGui extends Application {
     }
 
     public void start(Stage primaryStage) throws Exception {
-        VBox box = new VBox();
+        VBox box = new VBox(10);
 
         HBox hbox = new HBox();
         tZahl1 = new TextField();
