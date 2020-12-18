@@ -7,14 +7,22 @@ public class KreisNutzer {
         // erzeuge ein Objekt der Klasse Kreis
         Kreis k1 = new Kreis();
         // weise einer Eigenschaft (radius) einen Wert zu
-        k1.setRadius(10);
+        try {
+            k1.setRadius(10);
+        } catch (Exception e) {
+            System.out.println("Fehler aufgetreten: "+e.getMessage());
+        }
         // Nutze eine Methode des Objektes
         double umfang = k1.berechneUmfang();
         System.out.println(umfang);
 
 
         Kreis k2 = k1;
-        k2.setRadius(-15);
+        try {
+            k2.setRadius(-15);
+        } catch (Exception e) {
+            System.out.println("Habe Execption bekommen, was richtig ist!");
+        }
         // immer noch 10 ist!
         System.out.println(k2.getRadius());
 
