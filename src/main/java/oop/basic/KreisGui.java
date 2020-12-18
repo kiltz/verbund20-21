@@ -1,6 +1,7 @@
 package oop.basic;
 
 import javafx.application.Application;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -22,6 +23,7 @@ public class KreisGui  extends Application {
     public void start(Stage primaryStage) throws Exception {
 
         VBox box = new VBox(10);
+        box.setPadding(new Insets(10, 20, 20, 20));
         kreis = new Kreis();
 
         tfRadius = new TextField("Radius eingeben");
