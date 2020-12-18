@@ -1,5 +1,6 @@
 package oop.basic;
 
+
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.geometry.Insets;
@@ -10,15 +11,13 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class KreisTzGui extends Application {
+public class KreisGUI extends Application {
 
     private TextField tfRadius;
-    private Label lErgebnis;
-    private Label lKlick;
+    private Label lUmfang;
     private Kreis kreis;
 
-    public static void main(String[] args) {
-        launch(args);
+    public static void main(String[] args) { launch(args);
     }
 
     @Override
@@ -31,17 +30,17 @@ public class KreisTzGui extends Application {
         tfRadius = new TextField();
 
         // Button um den Radius zu setzen
-        Button bKlick = new Button("rechne");
-        bKlick.setDefaultButton(true);
-
+        Button bSetze = new Button("setze Radius");
+        bSetze.setDefaultButton(true);
+        bSetze.setOnAction(e -> setzeRadius(e));
 
         // Label um den Umfang auszugeben
-        lErgebnis = new Label("Ergebnis");
+        lUmfang = new Label("Umfang: 0");
 
-        box.getChildren().addAll(tfRadius, bKlick,lErgebnis );
+        box.getChildren().addAll(tfRadius, bSetze, lUmfang);
         Scene scene = new Scene(box, 400, 250);
         primaryStage.setScene(scene);
-        primaryStage.setTitle("Taschenrechner");
+        primaryStage.setTitle("Kreis-Dialog");
         primaryStage.show();
 
     }
@@ -52,11 +51,11 @@ public class KreisTzGui extends Application {
         try {
             int radius = Integer.parseInt(eingabe);
             kreis.setRadius(radius);
-            lErgebnis.setText("Ergebnis + "+kreis.berechneUmfang());
+            lUmfang.setText("Umfang: "+kreis.berechneUmfang());
         } catch (NumberFormatException e1) {
-            lErgebnis.setText("Die Eingabe war keine Zahl! ("+e1.getMessage()+")");
+            lUmfang.setText("Die Eingabe war keine Zahl! ("+e1.getMessage()+")");
         } catch (Exception e2) {
-            lErgebnis.setText(e2.getMessage());
+            lUmfang.setText(e2.getMessage());
         }
 
     }
