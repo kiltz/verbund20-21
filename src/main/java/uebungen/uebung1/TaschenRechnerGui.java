@@ -23,6 +23,7 @@ public class TaschenRechnerGui extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
+
         VBox box = new VBox(10);
         box.setPadding(new Insets(10, 20, 20, 20));
 
@@ -48,6 +49,7 @@ public class TaschenRechnerGui extends Application {
         primaryStage.show();
 
     }
+
 
     private void rechne(ActionEvent e) {
         try {

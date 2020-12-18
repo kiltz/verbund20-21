@@ -11,6 +11,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -19,6 +20,8 @@ public class LoginGui extends Application {
     private TextField tfName;
     private PasswordField tfPasswort;
     private VBox box;
+    private Label erfolgreich;
+    private Label nichtErfolgreich;
 
     public static void main(String[] args) {
         launch(args);
@@ -39,12 +42,16 @@ public class LoginGui extends Application {
         HBox hBoxPasswd = new HBox(10);
         Label lPasswort = new Label("Passwort");
         tfPasswort = new PasswordField();
+        erfolgreich = new Label("");
+        erfolgreich.setTextFill(Color.BLUE);
+        nichtErfolgreich = new Label("");
+        nichtErfolgreich.setTextFill(Color.RED);
         hBoxPasswd.getChildren().addAll(lPasswort, tfPasswort);
 
         Button bLogin = new Button("login");
         bLogin.setOnAction(e -> login(e));
 
-        box.getChildren().addAll(hBoxName, hBoxPasswd, bLogin);
+        box.getChildren().addAll(hBoxName, hBoxPasswd, bLogin, erfolgreich, nichtErfolgreich);
 
         Scene scene = new Scene(box, 400, 250);
         primaryStage.setScene(scene);
@@ -59,11 +66,11 @@ public class LoginGui extends Application {
         String passwort = tfPasswort.getText();
         System.out.println("Passwort: " + passwort);
         if ("Testa".equals(name) && "Geheim".equals(passwort)) {
-            Label erfolgreich = new Label("Login erfolgreich!");
-            box.getChildren().add(erfolgreich);
+            erfolgreich.setText("Login erfolgreich!");
+            nichtErfolgreich.setText("");
         }else{
-            Label nichtErfolgreich = new Label("Login nicht erfolgreich!");
-            box.getChildren().add(nichtErfolgreich);
+            nichtErfolgreich.setText("Login nicht erfolgreich!");
+            erfolgreich.setText("");
         }
 
 
