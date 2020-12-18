@@ -8,6 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 
 public class TaschenRechnerGui extends Application {
@@ -50,5 +51,6 @@ public class TaschenRechnerGui extends Application {
         int zahl2=Integer.parseInt(text2);
         int ergebnis=zahl1+zahl2;
         lErgebnis.setText("Ihr Ergebnis ist: " + ergebnis);
+        lErgebnis.setTextFill(Paint.valueOf("#00ff00"));
     }
 }
