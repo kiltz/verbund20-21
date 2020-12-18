@@ -1,6 +1,7 @@
 package uebungen.uebung1;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -29,6 +30,7 @@ public class TaschenRechnerGui extends Application {
         hbox.getChildren().addAll(tZahl1, lPlus, tZahl2);
 
         Button bGleich = new Button("=");
+        bGleich.setOnAction(e->rechne(e));
 
         lErgebnis = new Label();
 
@@ -39,5 +41,14 @@ public class TaschenRechnerGui extends Application {
         primaryStage.setTitle("Taschenrechner");
         primaryStage.show();
 
+    }
+
+    private void rechne(ActionEvent e) {
+        String text1=tZahl1.getText();
+        String text2=tZahl2.getText();
+        int zahl1=Integer.parseInt(text1);
+        int zahl2=Integer.parseInt(text2);
+        int ergebnis=zahl1+zahl2;
+        lErgebnis.setText("Ihr Ergebnis ist: " + ergebnis);
     }
 }
