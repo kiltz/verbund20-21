@@ -38,10 +38,10 @@ public class WuerfelStatistik {
 
 
     }
-    public int[] wurf(int anzahl){
+    public int[] wurf(int anzahl, int anzahlW){
         int[] wuerfe = new int[anzahl];
 
-        for (int i = 0; i < 10000000; ++i) {
+        for (int i = 0; i < anzahlW; ++i) {
             int wuerfelErgebnis = (int) (Math.random() * wuerfe.length) + 1;
             wuerfe[wuerfelErgebnis - 1]++;
         }

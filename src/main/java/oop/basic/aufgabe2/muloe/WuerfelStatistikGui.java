@@ -18,6 +18,7 @@ public class WuerfelStatistikGui extends Application {
     WuerfelStatistik wuerfel=new WuerfelStatistik();
     TextField tAnzahl;
     TextField tAusgabe;
+    TextField tAnzahlWuerfe;
     Label ausgabe;
 
     public static void main(String[] args) {
@@ -32,6 +33,11 @@ public class WuerfelStatistikGui extends Application {
         tAnzahl=new TextField();
         hboxAnzahl.getChildren().addAll(lAnzahl, tAnzahl);
 
+        HBox hboxAnzahlW=new HBox();
+        Label lAnzahlW=new Label("Wie oft willst du wuerfeln?");
+        tAnzahlWuerfe=new TextField();
+        hboxAnzahlW.getChildren().addAll(lAnzahlW, tAnzahlWuerfe);
+
         HBox hbox=new HBox();
         Label lAusgabeZahl=new Label("Welche Zahl soll ausgegeben werden?");
         tAusgabe=new TextField();
@@ -42,7 +48,7 @@ public class WuerfelStatistikGui extends Application {
         bWurf.setOnAction(e->wurf(e));
 
         ausgabe=new Label();
-        box.getChildren().addAll(hboxAnzahl, hbox, bWurf, ausgabe);
+        box.getChildren().addAll(hboxAnzahl, hbox, hboxAnzahlW, bWurf, ausgabe);
 
         Scene scene = new Scene(box, 400, 250);
         primaryStage.setScene(scene);
@@ -53,7 +59,8 @@ public class WuerfelStatistikGui extends Application {
     private void wurf(ActionEvent e) {
         try {
             int anzahl = Integer.parseInt(tAnzahl.getText());
-            int[] ergebnisse = wuerfel.wurf(anzahl);
+            int anzahlW=Integer.parseInt(tAnzahlWuerfe.getText());
+            int[] ergebnisse = wuerfel.wurf(anzahl, anzahlW);
             int zahlAusgabe = Integer.parseInt(tAusgabe.getText());
             if (zahlAusgabe > anzahl) {
                 ausgabe.setText("Ausgabe für diese Zahl nicht möglich");
