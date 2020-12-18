@@ -21,7 +21,7 @@ public class WuerfelGui extends Application {
 
 
         VBox box = new VBox(10);
-        tfWurfzahl = new TextField("Hier die Anzahl an Würfen ausgeben");
+        tfWurfzahl = new TextField("Hier die Anzahl an Würfen eingeben");
         bRechne = new Button("=");
         lErgebnis = new Label();
 
