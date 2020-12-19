@@ -18,7 +18,11 @@ public class TaschenRechnerGui extends Application{
     private Label lErgebnis;
     private Button bEqual;
 
+    public static void main(String[] args) { launch(args); }
+
     public void start(Stage primaryStage) {
+
+
         VBox box = new VBox(10);
         box.setPadding(new Insets(30, 25, 50, 25));
 
@@ -29,6 +33,7 @@ public class TaschenRechnerGui extends Application{
         bEqual = new Button("=");
 
         bEqual.setOnAction(e -> rechne(e));
+        bEqual.setDefaultButton(true);
 
         box.getChildren().addAll(tfZahl1, lPlus, tfZahl2, bEqual, lErgebnis);
         Scene scene = new Scene(box,  400, 250);
@@ -38,6 +43,13 @@ public class TaschenRechnerGui extends Application{
     }
 
     private void rechne(ActionEvent e) {
-
+        try {
+            int zahl1 = Integer.parseInt(tfZahl1.getText());
+            int zahl2 = Integer.parseInt(tfZahl2.getText());
+            int ergebnis = zahl1 + zahl2;
+            lErgebnis.setText("Ergebnis: " + ergebnis);
+        }catch (NumberFormatException e1) {
+            lErgebnis.setText("Die Eingabe war keine Zahl (" + e1.getMessage() + ")");
+        }
     }
 }
