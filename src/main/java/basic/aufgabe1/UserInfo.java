@@ -2,7 +2,8 @@ package basic.aufgabe1;
 
 public class UserInfo {
     public static void main(String[] args) {
-        System.out.println("Miriam Gleich");
-        System.out.println("Consorsbank");
+        String name = "Alexander Bleicher";
+        String arbeit = "ERGO DIREKT AG";
+        System.out.println("Mein Name ist " + name + ". Ich arbeite bei der " + arbeit);
     }
 }
