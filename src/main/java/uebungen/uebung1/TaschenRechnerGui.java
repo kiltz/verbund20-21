@@ -23,8 +23,38 @@ public class TaschenRechnerGui extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        tf1 = new TextField();
-        tf2 = new TextField();
+        tf1 = new TextField(){
+            @Override
+            public void replaceText(int start, int end, String text) {
+                if (text.matches("[0-9]") || text == "") {
+                    super.replaceText(start, end, text);
+                }
+            }
+
+            @Override
+            public void replaceSelection(String text) {
+                if (text.matches("[0-9]") || text == "") {
+                    super.replaceSelection(text);
+                }
+
+            }
+        };
+        tf2 = new TextField(){
+            @Override
+            public void replaceText(int start, int end, String text) {
+                if (text.matches("[0-9]") || text == "") {
+                    super.replaceText(start, end, text);
+                }
+            }
+
+            @Override
+            public void replaceSelection(String text) {
+                if (text.matches("[0-9]") || text == "") {
+                    super.replaceSelection(text);
+                }
+
+            }
+        };
         lErgebnis = new Label();
         Label lPlus = new Label("+");
 
