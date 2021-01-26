@@ -28,6 +28,9 @@ public class TaschenRechnerGui extends Application {
         lErgebnis = new Label();
         Label lPlus = new Label("+");
 
+        tf1.setPromptText("1.Zahl eingeben");
+        tf2.setPromptText("2.Zahl eingeben");
+
         VBox box = new VBox(10);
         box.setPadding(new Insets(20, 20, 20, 20));
 

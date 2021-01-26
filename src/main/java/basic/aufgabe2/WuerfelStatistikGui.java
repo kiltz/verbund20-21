@@ -27,11 +27,45 @@ public class WuerfelStatistikGui extends Application {
         box = new VBox(10);
         box.setPadding(new Insets(20, 20, 10, 20));
 
-        tfAnzahl = new TextField();
-        tfReichweite = new TextField();
+        tfAnzahl = new TextField(){
+            @Override
+            public void replaceText(int start, int end, String text) {
+                if (text.matches("[0-9]")) {
+                    super.replaceText(start, end, text);
+                }
+            }
+
+            @Override
+            public void replaceSelection(String text) {
+                if (text.matches("[0-9]")) {
+                    super.replaceSelection(text);
+                }
+
+            }
+        };
+        tfReichweite = new TextField(){
+            @Override
+            public void replaceText(int start, int end, String text) {
+                if (text.matches("[0-9]")) {
+                    super.replaceText(start, end, text);
+                }
+            }
+
+            @Override
+            public void replaceSelection(String text) {
+                if (text.matches("[0-9]")) {
+                    super.replaceSelection(text);
+                }
+
+            }
+        };
+
+        tfAnzahl.setPromptText("Anzahl eingeben");
+        tfReichweite.setPromptText("Reichweite eingeben");
         ausgabe = new Label();
         Button bWuerfeln = new Button("Würfeln");
         bWuerfeln.setOnAction(e -> wuerfeln(e));
+
 
         box.getChildren().addAll(tfAnzahl, tfReichweite,bWuerfeln, ausgabe);
 

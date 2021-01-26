@@ -59,6 +59,7 @@ public class SammelApp extends Application {
                 if (text.matches("[0-9]")) {
                     super.replaceSelection(text);
                 }
+
             }
         };
         tfNurZahlen.setPromptText("Nur Zahlen!");
