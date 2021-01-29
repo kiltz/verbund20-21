@@ -132,13 +132,14 @@ public class SammelApp extends Application {
         labelMitBild.setGraphicTextGap(15);
         labelMitBild.setTooltip(new Tooltip("Ein Icon aus dem Netz."));
 
-        Label langerLabel = new Label("In den Betten \n\n der Hutmacher drehen gegen Türme.\n\n Wir haben nichts fangen können, nur eine Zeitung kurzweilig überhaupt gesehen.\n\n Jeder herein, ganz versessen den Ganges.");
+        Label langerLabel = new Label("In den Betten der Hutmacher drehen gegen Türme. Wir haben nichts fangen können, nur eine Zeitung kurzweilig überhaupt gesehen.Jeder herein, ganz versessen den Ganges.");
         langerLabel.setWrapText(true);
+        langerLabel.setPrefSize(200,200);
         langerLabel.setTooltip(new Tooltip(langerLabel.getText()));
         langerLabel.setContentDisplay(ContentDisplay.CENTER);
 
         ScrollPane scrolli = new ScrollPane();
-        scrolli.setMaxWidth(100);
+        scrolli.setMaxWidth(200);
         scrolli.setContent(langerLabel);
 
 
