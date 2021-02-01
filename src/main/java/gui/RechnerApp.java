@@ -19,11 +19,13 @@ public class RechnerApp extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        HBox root = new HBox(10);
-        root.setPadding(new Insets(10, 20, 20, 20));
+        HBox root = new HBox(20);
+        root.setPadding(new Insets(20, 40, 40, 40));
 
         TextField eingabe = new TextField();
         TextField eingabe2 = new TextField();
+        eingabe.setPrefWidth(50);
+        eingabe2.setPrefWidth(50);
 
         Label plus = new Label("+");
         Label ergebnis = new Label("7");
