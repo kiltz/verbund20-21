@@ -57,16 +57,6 @@ public class RechnerApp extends Application {
         tf1.setPromptText("1.Zahl eingeben");
         tf2.setPromptText("2.Zahl eingeben");
         lErgebnis = new Label();
-
-        Label lModifikator = new Label(" + ");
-        Button brechne = new Button(" = ");
-        brechne.setOnAction(e -> rechne(e));
-        HBox root = new HBox();
-        root.setSpacing(10.0);
-        root.getChildren().addAll(tf1,lModifikator,tf2,brechne,lErgebnis);
-        Scene scene = new Scene(root, 500, 400);
-        primaryStage.setScene(scene);
-        primaryStage.show();
     }
 
     private void rechne(javafx.event.ActionEvent e) {
