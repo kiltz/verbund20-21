@@ -1,9 +1,8 @@
 package gui.uebung;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -11,7 +10,9 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
+
 
 /**
  * Aufgabe:
@@ -28,59 +29,65 @@ import javafx.stage.Stage;
  * 3. Benutzernamen und Passwort müssen irgendwelchen festen Werten entsprechen
  *
  * Hinweis: Schachtelt VBox und HBox
- *
  */
+
 public class LoginApp extends Application {
 
-    private Label lStatus;
-    private PasswordField tfPasswort;
-    private TextField tfBenutzer;
+    private TextField tfMail;
+    private PasswordField pfPassword;
+    private Label lResult;
 
     public static void main(String[] args) {
-        launch(null);
+        launch();
     }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        VBox root = new VBox();
-        root.setPadding(new Insets(10, 10, 10, 10));
-        root.getChildren().add(getBenutzerZeile());
-        root.getChildren().add(getPasswortZeile());
-        root.getChildren().add(getButtonZeile());
-        Scene scene = new Scene(root, 350, 200);
+
+        VBox vMain = new VBox(10);
+        vMain.setPadding(new Insets(20, 20, 20, 20));
+
+        HBox hMail = new HBox(10);
+        Label lMail = new Label("E-Mail ");
+        tfMail = new TextField();
+        hMail.getChildren().addAll(lMail, tfMail);
+
+        HBox hPassword = new HBox(10);
+        Label lPassword = new Label("Passwort ");
+        pfPassword = new PasswordField();
+        hPassword.getChildren().addAll(lPassword, pfPassword);
+
+        Button bLogin = new Button("Login");
+        bLogin.setOnAction(e -> validate(e));
+
+        lResult = new Label("Bitte geben Sie Ihre Daten ein");
+
+        vMain.getChildren().addAll(hMail, hPassword, bLogin, lResult);
+
+        Scene scene = new Scene(vMain, 300, 400);
+
+        primaryStage.setTitle("Login App");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
 
-    private Node getButtonZeile() {
-        HBox box = new HBox(15);
-        box.setPadding(new Insets(10));
-        box.setAlignment(Pos.CENTER_RIGHT);
-        lStatus = new Label();
-        Button bLogin = new Button("Login");
-        bLogin.setDefaultButton(true);
-        bLogin.setOnAction(e -> login());
-        box.getChildren().addAll(lStatus, bLogin);
-        return box;
-    }
+    private void validate(ActionEvent e) {
 
-    private void login() {
-        lStatus.setText("Login");
-    }
+        String mail = tfMail.getText();
+        String password = pfPassword.getText();
 
-    private Node getPasswortZeile() {
-        HBox box = new HBox(15);
-        box.setPadding(new Insets(10));
-        tfPasswort = new PasswordField();
-        box.getChildren().addAll(new Label("Passwort"), tfPasswort);
-        return box;
-    }
+        if (mail.isEmpty() || password.isEmpty()) {
+            lResult.setText("Eingabe darf nicht leer sein!");
+            lResult.setTextFill(Paint.valueOf("#ff0000"));
 
-    private Node getBenutzerZeile() {
-        HBox box = new HBox(15);
-        box.setPadding(new Insets(10));
-        tfBenutzer = new TextField();
-        box.getChildren().addAll(new Label("Benutzername"), tfBenutzer);
-        return box;
+        } else {
+            if (mail.equals("Hans") && password.equals("Hans123")) {
+                lResult.setText("Willkommen!");
+                lResult.setTextFill(Paint.valueOf("#00ff00"));
+            } else {
+                lResult.setText("Ungueltige Daten eingegeben!");
+                lResult.setTextFill(Paint.valueOf("#ff0000"));
+            }
+        }
     }
 }

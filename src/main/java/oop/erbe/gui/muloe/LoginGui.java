@@ -29,7 +29,7 @@ public class LoginGui extends Application {
         box.setPadding(new Insets(10, 20, 20, 20));
 
         HBox hBoxName = new HBox(10);
-        Label lName = new Label("Name")
+        Label lName = new Label("Name");
         tfName = new TextField();
 
         hBoxName.getChildren().addAll(lName, tfName);
