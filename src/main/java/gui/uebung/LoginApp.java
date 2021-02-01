@@ -44,6 +44,7 @@ public class LoginApp extends Application {
     public void start(Stage primaryStage) throws Exception {
         VBox completeBox=new VBox();
         Insets insets=new Insets(10,10,10,10);
+
         HBox line1=new HBox();
         Label lName=new Label("E-Mail:");
         tfName=new TextField();
