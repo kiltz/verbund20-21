@@ -1,10 +1,13 @@
 package gui;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Labeled;
 import javafx.scene.control.TextField;
+import javafx.scene.input.InputMethodTextRun;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
@@ -19,6 +22,10 @@ import javafx.stage.Stage;
  */
 public class RechnerApp extends Application {
 
+    private Labeled l2;
+    private InputMethodTextRun t1;
+    private InputMethodTextRun t2;
+
     public static void main(String[] args) {
         launch(null);
     }
@@ -28,8 +35,11 @@ public class RechnerApp extends Application {
         Label l1 = new Label("+");
         Label l2 = new Label("7");
         TextField t1 = new TextField();
+        t1.setMaxWidth(50);
         TextField t2 = new TextField();
+        t2.setMaxWidth(50);
         Button b1 = new Button("=");
+        b1.setOnAction(e -> rechne(e));
         Font font = Font.font("Arial", FontWeight.BOLD, 12);
         b1.setFont(font);
         HBox root = new HBox();
@@ -37,5 +47,21 @@ public class RechnerApp extends Application {
         Scene scene = new Scene(root, 500, 400);
         primaryStage.setScene(scene);
         primaryStage.show();
+    }
+
+    private void rechne(ActionEvent e) {
+        System.out.println("Klick");
+        // Textfelder auslesen
+        int zahl1 = Integer.parseInt(t1.getText());
+        int zahl2 = Integer.parseInt(t2.getText());
+        int ergebnis=0;
+        // String in int umwandeln
+
+        // rechnen
+        ergebnis = zahl1 + zahl2;
+        // Ergebnis ausgeben
+        l2.setText(String.valueOf(ergebnis));
+
+
     }
 }
