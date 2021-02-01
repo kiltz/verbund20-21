@@ -10,6 +10,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 
 import javax.xml.soap.Text;
@@ -18,18 +19,19 @@ import javax.xml.soap.Text;
  * Aufgabe:
  * Zeigt zwei Eingabefelder für Benutzername und Passwort
  * Beschribt die Eingabefelder mit einem Label
- *
+ * <p>
  * Erzeugt einen Button (Login)
- *
+ * <p>
  * Macht den Dialog hübsch
- *
+ * <p>
  * Validiert den Dialog
  * 1. Benutzername darf nicht leer sein
  * 2. Passwort darf nicht leer sein
  * 3. Benutzernamen und Passwort müssen irgendwelchen festen Werten entsprechen
- *
+ * <p>
  * Hinweis: Schachtelt VBox und HBox
  */
+
 public class LoginApp extends Application {
 
     private TextField tfMail;
@@ -57,6 +59,7 @@ public class LoginApp extends Application {
         hPassword.getChildren().addAll(lPassword, pfPassword);
 
         Button bLogin = new Button("Login");
+        bLogin.setOnAction(e -> validate(e));
 
         lResult = new Label("Bitte geben Sie Ihre Daten ein");
 
@@ -69,4 +72,23 @@ public class LoginApp extends Application {
         primaryStage.show();
     }
 
+    private void validate(ActionEvent e) {
+
+        String mail = tfMail.getText();
+        String password = pfPassword.getText();
+
+        if (mail.isEmpty() || password.isEmpty()) {
+            lResult.setText("Eingabe darf nicht leer sein!");
+            lResult.setTextFill(Paint.valueOf("#ff0000"));
+
+        } else {
+            if (mail.equals("Hans") && password.equals("Hans123")) {
+                lResult.setText("Willkommen!");
+                lResult.setTextFill(Paint.valueOf("#00ff00"));
+            } else {
+                lResult.setText("Ungueltige Daten eingegeben!");
+                lResult.setTextFill(Paint.valueOf("#ff0000"));
+            }
+        }
+    }
 }
