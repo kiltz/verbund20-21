@@ -17,7 +17,7 @@ public class LoginApp extends Application {
     private TextField tfName;
     private VBox box;
     private PasswordField tfPasswort;
-    //private Label ausgabe = new Label();
+    private Label ausgabe = new Label();
     private String loginName = "Hans";
     private String loginPasswort = "Geheim";
 
@@ -35,17 +35,15 @@ public class LoginApp extends Application {
         box.setPadding(new Insets(10, 20, 20, 10));
 
         HBox hBoxName = new HBox(10);
-        //hBoxName.setPadding(new Insets(10,10,10,10));
         Label lBenutzername = new Label("Benutzername: ");
-        lBenutzername.setPrefSize(150.0,10.0);
+        lBenutzername.setPrefSize(100.0,10.0);
         tfName = new TextField();
 
         hBoxName.getChildren().addAll(lBenutzername, tfName);
 
         HBox hBoxPasswd = new HBox(10);
-        //hBoxPasswd.setPadding(new Insets(10,10,10,10));
         Label lPasswort = new Label("Passwort: ");
-        lPasswort.setPrefSize(150.0,10.0);
+        lPasswort.setPrefSize(100.0,10.0);
         tfPasswort = new PasswordField();
         hBoxPasswd.getChildren().addAll(lPasswort, tfPasswort);
 
@@ -65,13 +63,13 @@ public class LoginApp extends Application {
     private void login(ActionEvent e) {
         String name = tfName.getText();
         String passwort = tfPasswort.getText();
-        Label ausgabe = new Label();
+        //Label ausgabe;
 
             if (loginName.equals(name) && loginPasswort.equals(passwort)) {
-                ausgabe = new Label("Login erfolgreich!");
+                //ausgabe = new Label("Login erfolgreich!");
                 ausgabe.setText("Login erfolgreich!");
             } else {
-                ausgabe = new Label("Login nicht erfolgreich!");
+                //ausgabe = new Label("Login nicht erfolgreich!");
                 ausgabe.setText("Login nicht erfolgreich!");
             }
         box.getChildren().add(ausgabe);
