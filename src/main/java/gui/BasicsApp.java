@@ -27,5 +27,6 @@ public class BasicsApp extends Application {
         Scene scene = new Scene(root, 300, 400);
         primaryStage.setScene(scene);
         primaryStage.show();
+
     }
 }
