@@ -10,6 +10,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
+import javafx.scene.paint.Color;
 
 /**
  * Aufgabe:
@@ -89,8 +90,11 @@ public class LoginApp extends Application {
     public void login(ActionEvent e) {
         if (username.getText().equals("User") && password.getText().equals("abc123")) {
             llogin.setText("Erfolgreicher Login");
+            llogin.setTextFill(Color.web("#005091"));
         } else {
-            llogin.setText("Falsches Passwort oder Nutzername");
+            llogin.setText("Falscher Nutzername oder Passwort");
+            llogin.setTextFill(Color.web("#E23130"));
+
         }
     }
 }
