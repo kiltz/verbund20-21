@@ -31,9 +31,9 @@ public class RechnerApp extends Application {
     public void start(Stage primaryStage) throws Exception {
         Label lEins = new Label("+");
         lErgebnis = new Label("7");
-        tfEins = new TextField("5");
+        TextField tfEins = new TextField("5");
         tfEins.setMaxWidth(50);
-        tfZwei = new TextField("2");
+        TextField tfZwei = new TextField("2");
         tfZwei.setMaxWidth(50);
         Button bRechne = new Button(" = ");
         bRechne.setDefaultButton(true);
@@ -43,6 +43,14 @@ public class RechnerApp extends Application {
         root.setSpacing(10.0);
         Insets insets = new Insets(20, 10, 10, 50);
         root.setPadding(insets);
+        /*
+        root.getChildren().add(tfEins);
+        root.getChildren().add(lEins);
+        root.getChildren().add(tfZwei);
+        root.getChildren().add(bRechne);
+        root.getChildren().add(lErgebnis);
+        oder kürzer:
+         */
         root.getChildren().addAll(tfEins, lEins,tfZwei, bRechne, lErgebnis);
         Scene scene = new Scene(root, 400, 200);
         primaryStage.setTitle("Rechner");
@@ -53,16 +61,20 @@ public class RechnerApp extends Application {
     }
 
     private void rechne(ActionEvent e) {
+        System.out.println("Klick");
         // Textfelder auslesen
         String eingabe1 = tfEins.getText();
         String eingabe2 = tfZwei.getText();
+
         // String in int umwandeln
         int zahl1 = Integer.parseInt(eingabe1);
         int zahl2 = Integer.parseInt(eingabe2);
 
         // rechnen
-        int ergebnis = zahl1 + zahl2;
+
         // Ergebnis ausgeben
-        lErgebnis.setText(""+ergebnis);
+        lErgebnis.setText("Ergebnis");
+
+        // Bis 11:35 Uhr
     }
 }

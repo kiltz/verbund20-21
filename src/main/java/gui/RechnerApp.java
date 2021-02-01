@@ -1,31 +1,18 @@
 package gui;
 
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.geometry.Insets;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-import javax.xml.soap.Text;
-
-/*
-Aufgabe:
-Eingabefeld
-Label
-Eingabefeld
-Button
-Label
-
- */
-
 public class RechnerApp extends Application {
+
+    private TextField tf1;
+    private TextField tf2;
+    private Label lErgebnis;
 
     public static void main(String[] args) {
         launch(null);
@@ -33,61 +20,60 @@ public class RechnerApp extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        VBox box = new VBox(10);
-        box.setPadding(new Insets(30, 25, 50, 25));
 
-        TextField t1 = new TextField("");
-        Label lPlus = new Label("+");
-        TextField t2 = new TextField("");
-        Label lErg = new Label("Ergebnis: ");
-        Button bEquals = new Button("=");
+        tf1 = new TextField(){
+            @Override
+            public void replaceText(int start, int end, String text) {
+                if (text.matches("[0-9]") || text.equals("")) {
+                    super.replaceText(start, end, text);
+                }
+            }
 
-        bEquals.setOnAction(e -> rechne(e));
-        bEquals.setDefaultButton(true);
+            @Override
+            public void replaceSelection(String text) {
+                if (text.matches("[0-9]") || text.equals("")) {
+                    super.replaceSelection(text);
+                }
 
-        box.getChildren().addAll(t1, lPlus, t2, bEquals, lErg);
+            }
+        };
+        tf2 = new TextField(){
+            @Override
+            public void replaceText(int start, int end, String text) {
+                if (text.matches("[0-9]") || text.equals("")) {
+                    super.replaceText(start, end, text);
+                }
+            }
 
-        Label l = new Label("Hallo App!");
+            @Override
+            public void replaceSelection(String text) {
+                if (text.matches("[0-9]") || text.equals("")) {
+                    super.replaceSelection(text);
+                }
+
+            }
+        };
+
+        tf1.setPromptText("1.Zahl eingeben");
+        tf2.setPromptText("2.Zahl eingeben");
+        lErgebnis = new Label();
+
+        Label lModifikator = new Label(" + ");
+        Button brechne = new Button(" = ");
+        brechne.setOnAction(e -> rechne(e));
         HBox root = new HBox();
-        root.getChildren().add(l);
-        Scene scene = new Scene(root, 300, 400);
+        root.setSpacing(10.0);
+        root.getChildren().addAll(tf1,lModifikator,tf2,brechne,lErgebnis);
+        Scene scene = new Scene(root, 500, 400);
         primaryStage.setScene(scene);
         primaryStage.show();
-
-        root.getChildren().add(getLabel());
-        root.getChildren().add(getButton());
-        root.getChildren().add(getTextFeld());
     }
 
-    private void rechne(ActionEvent e) {
+    private void rechne(javafx.event.ActionEvent e) {
+        double zahl1 = Double.parseDouble(tf1.getText());
+        double zahl2 = Double.parseDouble(tf2.getText());
+        double ergebnis = zahl1 + zahl2;
+        lErgebnis.setText(String.valueOf(ergebnis));
+
     }
-
-    private Node getTextFeld() {
-        HBox box = new HBox();
-        TextField t1 = new TextField();
-        TextField t2 = new TextField();
-
-        box.getChildren().addAll(t1, t2);
-        return box;
-    }
-
-    private Node getButton(){
-        HBox box = new HBox();
-        Button bEquals = new Button("=");
-
-        box.getChildren().addAll(bEquals);
-        return box;
-    }
-
-    private Node getLabel(){
-        HBox box = new HBox();
-        Label lPlus = new Label("+");
-        Label lErg = new Label();
-
-
-        box.getChildren().addAll(lPlus);
-        return box;
-    }
-
 }
-
