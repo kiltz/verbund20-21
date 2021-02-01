@@ -6,6 +6,13 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
+/**
+ * Aufgabe:
+ * Kopiert diese Datei nach RechnerApp.
+ * Zwei Textfelder, zwei Label und einen Button anzeigt.
+ *
+ * [.5.] + [.2.] (=) 7
+ */
 public class BasicsApp extends Application {
 
     public static void main(String[] args) {
