@@ -70,5 +70,6 @@ public class RechnerApp extends Application {
         // Ergebnis ausgeben
         lErgebnis.setText("Ergebnis");
 
+        // Bis 11:35 Uhr
     }
 }
