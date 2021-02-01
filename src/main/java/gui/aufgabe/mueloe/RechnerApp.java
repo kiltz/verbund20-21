@@ -41,14 +41,6 @@ public class RechnerApp extends Application {
         root.setSpacing(10.0);
         Insets insets = new Insets(20, 10, 10, 50);
         root.setPadding(insets);
-        /*
-        root.getChildren().add(tfEins);
-        root.getChildren().add(lEins);
-        root.getChildren().add(tfZwei);
-        root.getChildren().add(bRechne);
-        root.getChildren().add(lErgebnis);
-        oder kürzer:
-         */
         root.getChildren().addAll(tfEins, lEins,tfZwei, bRechne, lErgebnis);
         Scene scene = new Scene(root, 400, 200);
         primaryStage.setTitle("Rechner");
