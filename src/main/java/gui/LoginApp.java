@@ -23,7 +23,7 @@ public class LoginApp extends Application {
     private final String loginPasswort = "Geheim";
 
     public static void main(String[] args) {
-        launch(null);
+        launch(args);
     }
 
     @Override
@@ -73,7 +73,7 @@ public class LoginApp extends Application {
     private void login(ActionEvent e) {
         String name = tfName.getText();
         String passwort = tfPasswort.getText();
-        String meldung = "Alles OK";
+        String meldung;
 
         if (loginName.equals(name) && loginPasswort.equals(passwort)) {
             meldung = "Login erfolgreich!";
