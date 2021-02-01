@@ -19,8 +19,8 @@ public class LoginApp extends Application {
     private TextField tfName;
     private PasswordField tfPasswort;
     private Label ausgabe;
-    private String loginName = "Hans";
-    private String loginPasswort = "Geheim";
+    private final String loginName = "Hans";
+    private final String loginPasswort = "Geheim";
 
     public static void main(String[] args) {
         launch(null);
@@ -43,6 +43,7 @@ public class LoginApp extends Application {
         HBox box = new HBox(15);
         box.setPadding(new Insets(10));
         tfName = new TextField();
+        tfName.setPrefWidth(100.0);
         box.getChildren().addAll(new Label("Benutzername"), tfName);
         return box;
     }
@@ -51,6 +52,7 @@ public class LoginApp extends Application {
         HBox box = new HBox(15);
         box.setPadding(new Insets(10));
         tfPasswort = new PasswordField();
+        tfPasswort.setPrefWidth(100.0);
         box.getChildren().addAll(new Label("Passwort"), tfPasswort);
         return box;
     }
@@ -71,19 +73,15 @@ public class LoginApp extends Application {
     private void login(ActionEvent e) {
         String name = tfName.getText();
         String passwort = tfPasswort.getText();
+        String meldung = "Alles OK";
 
         if (loginName.equals(name) && loginPasswort.equals(passwort)) {
-            ausgabe = new Label("Login erfolgreich!");
-            ausgabe.setText("Login erfolgreich!");
+            meldung = "Login erfolgreich!";
         } else if (loginName.equals(name) & !loginPasswort.equals(passwort)) {
-            ausgabe = new Label("Login nicht erfolgreich! Passwort falsch");
-            ausgabe.setText("Login nicht erfolgreich! Passwort falsch");
-        } else if (loginPasswort.equals(passwort) & !loginName.equals(name)) {
-            ausgabe = new Label("Login nicht erfolgreich! Benutzer unbekannt");
-            ausgabe.setText("Login nicht erfolgreich! Benutzer unbekannt");
+            meldung ="Login nicht erfolgreich! Passwort falsch";
         } else {
-            ausgabe = new Label("Login nicht erfolgreich!");
-            ausgabe.setText("Login nicht erfolgreich!");
+            meldung = "Login nicht erfolgreich!";
         }
+        ausgabe.setText(meldung);
     }
 }
