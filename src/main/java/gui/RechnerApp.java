@@ -6,6 +6,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
 /**
@@ -28,6 +30,8 @@ public class RechnerApp extends Application {
         TextField t1 = new TextField();
         TextField t2 = new TextField();
         Button b1 = new Button("=");
+        Font font = Font.font("Arial", FontWeight.BOLD, 12);
+        b1.setFont(font);
         HBox root = new HBox();
         root.getChildren().addAll(t1, l1, t2, b1,l2);
         Scene scene = new Scene(root, 500, 400);
