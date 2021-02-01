@@ -20,6 +20,8 @@ import javafx.stage.Stage;
 public class RechnerApp extends Application {
 
     private Label lErgebnis;
+    private TextField tfEins;
+    private TextField tfZwei;
 
     public static void main(String[] args) {
         launch(null);
@@ -29,9 +31,9 @@ public class RechnerApp extends Application {
     public void start(Stage primaryStage) throws Exception {
         Label lEins = new Label("+");
         lErgebnis = new Label("7");
-        TextField tfEins = new TextField("5");
+        tfEins = new TextField("5");
         tfEins.setMaxWidth(50);
-        TextField tfZwei = new TextField("2");
+        tfZwei = new TextField("2");
         tfZwei.setMaxWidth(50);
         Button bRechne = new Button(" = ");
         bRechne.setDefaultButton(true);
@@ -51,17 +53,16 @@ public class RechnerApp extends Application {
     }
 
     private void rechne(ActionEvent e) {
-        System.out.println("Klick");
         // Textfelder auslesen
-
+        String eingabe1 = tfEins.getText();
+        String eingabe2 = tfZwei.getText();
         // String in int umwandeln
-        int zahl1 = Integer.parseInt("78");
+        int zahl1 = Integer.parseInt(eingabe1);
+        int zahl2 = Integer.parseInt(eingabe2);
 
         // rechnen
-
+        int ergebnis = zahl1 + zahl2;
         // Ergebnis ausgeben
-        lErgebnis.setText("Ergebnis");
-
-        // Bis 11:35 Uhr
+        lErgebnis.setText(""+ergebnis);
     }
 }
