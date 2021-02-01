@@ -69,6 +69,7 @@ public class RechnerApp extends Application {
         // String in int umwandeln
         int zahl1 = Integer.parseInt(eingabe1);
         int zahl2 = Integer.parseInt(eingabe2);
+        int ergebnis = zahl1 + zahl2;
 
         // rechnen
 

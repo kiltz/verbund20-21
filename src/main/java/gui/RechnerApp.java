@@ -18,6 +18,8 @@ public class RechnerApp extends Application {
         launch(null);
     }
 
+
+
     @Override
     public void start(Stage primaryStage) throws Exception {
 
@@ -64,6 +66,5 @@ public class RechnerApp extends Application {
         double zahl2 = Double.parseDouble(tf2.getText());
         double ergebnis = zahl1 + zahl2;
         lErgebnis.setText(String.valueOf(ergebnis));
-
     }
 }
