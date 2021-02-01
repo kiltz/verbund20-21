@@ -11,6 +11,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 /**
@@ -65,7 +66,24 @@ public class LoginApp extends Application {
     }
 
     private void login() {
-        lStatus.setText("Login");
+        String ben = tfBenutzer.getText();
+        String passwd = tfPasswort.getText();
+        String meldung = "OK";
+        String blau = "#005091";
+        String rot = "#E23130";
+        if (ben.isEmpty()) {
+            meldung = "Benutzername ist leer";
+        }
+        if ("OK".equals(meldung) && ben.length() < 2) {
+            meldung = "Benutzername ist zu kurz";
+        }
+        if ("OK".equals(meldung)) {
+            lStatus.setTextFill(Color.web(blau));
+        } else {
+            lStatus.setTextFill(Color.web(rot));
+        }
+        //lStatus.setTextFill(Color.web("OK".equals(meldung) ? blau : rot));
+        lStatus.setText(meldung);
     }
 
     private Node getPasswortZeile() {
