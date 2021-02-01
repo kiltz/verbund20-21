@@ -1,29 +1,45 @@
 package gui.uebung;
-
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 /**
  * Aufgabe:
  * Zeigt zwei Eingabefelder für Benutzername und Passwort
  * Beschribt die Eingabefelder mit einem Label
- *
+ * <p>
  * Erzeugt einen Button (Login)
- *
+ * <p>
  * Macht den Dialog hübsch
- *
+ * <p>
  * Validiert den Dialog
  * 1. Benutzername darf nicht leer sein
  * 2. Passwort darf nicht leer sein
  * 3. Benutzernamen und Passwort müssen irgendwelchen festen Werten entsprechen
- *
+ * <p>
  * Hinweis: Schachtelt VBox und HBox
- *
+ */
+
+/**
+ * Aufgabe:
+ * Kopiert diese Datei nach RechnerApp.
+ * Zwei Textfelder, zwei Label und einen Button anzeigt.
+ * <p>
+ * [.5.] + [.2.] (=) 7
  */
 public class LoginApp extends Application {
+
+    private TextField tfEins;
+    private PasswordField pfZwei;
+    private Label erfolgreich;
 
     public static void main(String[] args) {
         launch(null);
@@ -31,11 +47,55 @@ public class LoginApp extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Label l = new Label("Hallo App!");
-        HBox root = new HBox();
-        root.getChildren().add(l);
-        Scene scene = new Scene(root, 300, 400);
+        erfolgreich = new Label();
+
+        tfEins = new TextField();
+        pfZwei = new PasswordField();
+        Button Login = new Button("Login");
+        Login.setDefaultButton(true);
+        Login.setOnAction(e -> einloggen(e));
+
+        VBox root = new VBox();
+        HBox Box1 = new HBox(20);
+
+        HBox Box3 = new HBox(20);
+
+        root.setSpacing(10.0);
+        Insets insets = new Insets(20, 10, 10, 50);
+        root.setPadding(insets);
+        /*
+        root.getChildren().add(tfEins);
+        root.getChildren().add(lEins);
+        root.getChildren().add(tfZwei);
+        root.getChildren().add(bRechne);
+        root.getChildren().add(lErgebnis);
+        oder kürzer:
+         */
+        Box1.getChildren().addAll(tfEins, pfZwei);
+        Box3.getChildren().addAll(Login, erfolgreich);
+        root.getChildren().addAll(Box1, Box3);
+        Scene scene = new Scene(root, 400, 200);
+        primaryStage.setTitle("Rechner");
         primaryStage.setScene(scene);
         primaryStage.show();
+
+
+    }
+
+    private void einloggen(ActionEvent e) {
+        System.out.println("Klick");
+        // Textfelder auslesen
+        // String in int umwandeln
+        String Nutzername = tfEins.getText();
+        String Passwort = pfZwei.getText();
+
+        // rechnen
+        if (Nutzername == "Vladimir" && Passwort == "Pass") {
+            erfolgreich.setText("einloggen erfolreich");
+        }
+        else {
+            erfolgreich.setText("fehlgeschlagen");
+        }
     }
 }
+
