@@ -17,7 +17,7 @@ public class LoginApp extends Application {
     private TextField tfName;
     private VBox box;
     private PasswordField tfPasswort;
-    private Label ausgabe = new Label();
+    //private Label ausgabe = new Label();
     private String loginName = "Hans";
     private String loginPasswort = "Geheim";
 
@@ -31,19 +31,21 @@ public class LoginApp extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        box = new VBox(10);
-        box.setPadding(new Insets(10, 10, 10, 10));
+        box = new VBox(10.0);
+        box.setPadding(new Insets(10, 20, 20, 10));
 
-        HBox hBoxName = new HBox(20);
-        hBoxName.setPadding(new Insets(10,10,10,10));
-        Label lBenutzername = new Label("Benutzername");
+        HBox hBoxName = new HBox(10);
+        //hBoxName.setPadding(new Insets(10,10,10,10));
+        Label lBenutzername = new Label("Benutzername: ");
+        lBenutzername.setPrefSize(150.0,10.0);
         tfName = new TextField();
 
         hBoxName.getChildren().addAll(lBenutzername, tfName);
 
-        HBox hBoxPasswd = new HBox(20);
-        hBoxPasswd.setPadding(new Insets(10,10,10,10));
-        Label lPasswort = new Label("Passwort:");
+        HBox hBoxPasswd = new HBox(10);
+        //hBoxPasswd.setPadding(new Insets(10,10,10,10));
+        Label lPasswort = new Label("Passwort: ");
+        lPasswort.setPrefSize(150.0,10.0);
         tfPasswort = new PasswordField();
         hBoxPasswd.getChildren().addAll(lPasswort, tfPasswort);
 
@@ -54,7 +56,7 @@ public class LoginApp extends Application {
 
         box.getChildren().addAll(hBoxName, hBoxPasswd, bLogin);
         
-        Scene scene = new Scene(box, 400, 250);
+        Scene scene = new Scene(box, 400, 200);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Login");
         primaryStage.show();
@@ -63,7 +65,7 @@ public class LoginApp extends Application {
     private void login(ActionEvent e) {
         String name = tfName.getText();
         String passwort = tfPasswort.getText();
-        Label ausgabe;
+        Label ausgabe = new Label();
 
             if (loginName.equals(name) && loginPasswort.equals(passwort)) {
                 ausgabe = new Label("Login erfolgreich!");
