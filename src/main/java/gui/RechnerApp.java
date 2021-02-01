@@ -19,10 +19,10 @@ public class RechnerApp extends Application {
         TextField tf1 = new TextField("Tf1");
         TextField tf2 = new TextField("Tf2");
         Label l = new Label(" + ");
-        Label r = new Label (" = ");
+        Label r = new Label (" Ergebnis ");
         HBox root = new HBox();
-        Button e = new Button("Ergebnis");
-        root.getChildren().addAll(tf1,l,tf2,r,e);
+        Button e = new Button(" = ");
+        root.getChildren().addAll(tf1,l,tf2,e,r);
         Scene scene = new Scene(root, 500, 400);
         primaryStage.setScene(scene);
         primaryStage.show();
