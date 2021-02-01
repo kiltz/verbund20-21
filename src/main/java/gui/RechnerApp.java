@@ -10,21 +10,70 @@ import javafx.stage.Stage;
 
 public class RechnerApp extends Application {
 
+    private TextField tf1;
+    private TextField tf2;
+    private Label lErgebnis;
+
     public static void main(String[] args) {
         launch(null);
     }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        TextField tf1 = new TextField("Tf1");
-        TextField tf2 = new TextField("Tf2");
-        Label l = new Label(" + ");
-        Label r = new Label ("  Ergebnis ");
+
+        tf1 = new TextField(){
+            @Override
+            public void replaceText(int start, int end, String text) {
+                if (text.matches("[0-9]") || text.equals("")) {
+                    super.replaceText(start, end, text);
+                }
+            }
+
+            @Override
+            public void replaceSelection(String text) {
+                if (text.matches("[0-9]") || text.equals("")) {
+                    super.replaceSelection(text);
+                }
+
+            }
+        };
+        tf2 = new TextField(){
+            @Override
+            public void replaceText(int start, int end, String text) {
+                if (text.matches("[0-9]") || text.equals("")) {
+                    super.replaceText(start, end, text);
+                }
+            }
+
+            @Override
+            public void replaceSelection(String text) {
+                if (text.matches("[0-9]") || text.equals("")) {
+                    super.replaceSelection(text);
+                }
+
+            }
+        };
+
+        tf1.setPromptText("1.Zahl eingeben");
+        tf2.setPromptText("2.Zahl eingeben");
+        lErgebnis = new Label();
+
+        Label lModifikator = new Label(" + ");
         Button brechne = new Button(" = ");
+        brechne.setOnAction(e -> rechne(e));
         HBox root = new HBox();
-        root.getChildren().addAll(tf1,l,tf2,brechne,r);
+        root.setSpacing(10.0);
+        root.getChildren().addAll(tf1,lModifikator,tf2,brechne,lErgebnis);
         Scene scene = new Scene(root, 500, 400);
         primaryStage.setScene(scene);
         primaryStage.show();
+    }
+
+    private void rechne(javafx.event.ActionEvent e) {
+        double zahl1 = Double.parseDouble(tf1.getText());
+        double zahl2 = Double.parseDouble(tf2.getText());
+        double ergebnis = zahl1 + zahl2;
+        lErgebnis.setText(String.valueOf(ergebnis));
+
     }
 }
