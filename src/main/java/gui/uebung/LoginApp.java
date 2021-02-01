@@ -45,7 +45,7 @@ public class LoginApp extends Application {
         VBox completeBox=new VBox();
         Insets insets=new Insets(10,10,10,10);
         HBox line1=new HBox();
-        Label lName=new Label("Name:");
+        Label lName=new Label("E-Mail:");
         tfName=new TextField();
         line1.getChildren().add(lName);
         line1.getChildren().add(tfName);
