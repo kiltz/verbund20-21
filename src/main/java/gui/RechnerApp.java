@@ -30,7 +30,7 @@ public class RechnerApp extends Application {
         Button b1 = new Button("=");
         HBox root = new HBox();
         root.getChildren().addAll(t1, l1, t2, b1,l2);
-        Scene scene = new Scene(root, 300, 400);
+        Scene scene = new Scene(root, 500, 400);
         primaryStage.setScene(scene);
         primaryStage.show();
     }
