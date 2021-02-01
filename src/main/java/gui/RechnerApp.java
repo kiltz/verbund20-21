@@ -36,7 +36,7 @@ public class RechnerApp extends Application {
         tfZahl1 = new TextField();
         tfZahl1.setMaxWidth(80);
 
-        Label plus = new Label("+");
+        Label lPlus = new Label("+");
 
         tfZahl2 = new TextField();
         tfZahl2.setMaxWidth(80);
@@ -49,7 +49,7 @@ public class RechnerApp extends Application {
         HBox root = new HBox(10);
         root.setPadding(new Insets(10, 20, 20, 20));
 
-        root.getChildren().addAll(tfZahl1, plus, tfZahl2, btBerechne, lErgebnis);
+        root.getChildren().addAll(tfZahl1, lPlus, tfZahl2, btBerechne, lErgebnis);
 
         Scene scene = new Scene(root, 400, 250);
         primaryStage.setTitle("Rechner App, but fancy");
