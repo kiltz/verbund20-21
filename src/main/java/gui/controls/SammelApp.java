@@ -2,6 +2,7 @@ package gui.controls;
 
 import javafx.application.Application;
 import javafx.application.Platform;
+import javafx.beans.value.ObservableValue;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -30,12 +31,47 @@ public class SammelApp extends Application {
         root.getChildren().add(getButtons());
         root.getChildren().add(getTextFelder());
         root.getChildren().add(getBoxAndButts());
+        root.getChildren().add(getCombo());
 
-        Scene scene = new Scene(root, 600, 450);
+        ScrollPane scrolli = new ScrollPane();
+        scrolli.setContent(root);
+
+        Scene scene = new Scene(scrolli, 600, 450);
         primaryStage.setTitle("Control-Sammlung");
         primaryStage.setScene(scene);
         primaryStage.show();
 
+    }
+
+    private Node getCombo() {
+        HBox box = new HBox();
+        box.setSpacing(15);
+        ComboBox<String> cb = new ComboBox<>();
+        cb.getItems().add("Combo");
+        cb.getItems().add("Zwei");
+        cb.getItems().add("Drei");
+
+        ChoiceBox<String> cb2 = new ChoiceBox<>();
+        cb2.getItems().add("Choice");
+        cb2.getItems().add("Zwei");
+        cb2.getItems().add("Drei");
+
+        ListView<String> liste = new ListView<>();
+        liste.getItems().addAll("Liste","Zwei", "Drei");
+        liste.getSelectionModel().selectedItemProperty().addListener(
+                (ObservableValue<? extends String> ov, String o, String n) -> {
+                    System.out.println("Liste: "+n);
+                });
+//        liste.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+        liste.setMaxWidth(100);
+        ScrollPane scrolli = new ScrollPane();
+        scrolli.setMaxWidth(100);
+        scrolli.setMaxHeight(150);
+        scrolli.setContent(liste);
+        scrolli.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+
+        box.getChildren().addAll(cb, cb2, scrolli);
+        return box;
     }
 
     private Node getTextFelder() {
@@ -49,7 +85,7 @@ public class SammelApp extends Application {
         TextField tfNurZahlen = new TextField() {
             @Override
             public void replaceText(int start, int end, String text) {
-                if (text.matches("[0-9]")) {
+                if (text.isEmpty() || text.matches("[0-9]")) {
                     super.replaceText(start, end, text);
                 }
             }
