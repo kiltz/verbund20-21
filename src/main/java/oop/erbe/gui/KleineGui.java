@@ -28,13 +28,13 @@ public class KleineGui extends Application {
 
         Scene scene = new Scene(box, 400,250);
         primaryStage.setScene(scene);
-        primaryStage.setTitle("Mein kleines sinnloses Fensterchen");
+        primaryStage.setTitle("Fenster");
         primaryStage.show();
 
         Stage stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);
-        stage.setTitle("Neuer Dialog");
-        stage.setScene(new Scene(new StackPane(new Label("Nachricht!"))));
+        stage.setTitle("Des ist ein Dialog");
+        stage.setScene(new Scene(new StackPane(new Label("Hau Her"))));
         stage.show();
     }
 }
