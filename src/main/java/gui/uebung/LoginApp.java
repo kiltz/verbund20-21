@@ -84,7 +84,7 @@ public class LoginApp extends Application {
 
     }
     public void login(ActionEvent e){
-        if(tfName.getText().equals("Hans") && pfPassword.getText().equals("Hans")){
+        if(tfName.getText().equals("Hans@Hans.de") && pfPassword.getText().equals("Hans")){
             lAusgabe.setText("Login erfolgreich!");
             lAusgabe.setTextFill(Paint.valueOf("#00ff00"));
         }
