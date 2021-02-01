@@ -7,8 +7,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+
+import javax.swing.*;
 
 
 public class TaschenRechnerGui extends Application {
@@ -25,7 +28,7 @@ public class TaschenRechnerGui extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        VBox box = new VBox(10);
+        HBox box = new HBox(10);
         box.setPadding(new Insets(10, 20, 20, 20));
 
         tfZahl1 = new TextField();
@@ -39,15 +42,17 @@ public class TaschenRechnerGui extends Application {
 
         box.getChildren().addAll(tfZahl1, lPlus, tfZahl2, btBerechne, lErgebnis);
 
-        Scene scene = new Scene(box, 400, 250);
+        Scene scene = new Scene(box, 600, 250);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Taschenrechner");
         primaryStage.show();
     }
 
     private void rechne(ActionEvent e) {
-        int zahl1 = Integer.parseInt(tfZahl1.getText());
-        int zahl2 = Integer.parseInt(tfZahl2.getText());
-        lErgebnis.setText("Ergebnis: " + (zahl1 + zahl2));
+
+            int zahl1 = Integer.parseInt(tfZahl1.getText());
+            int zahl2 = Integer.parseInt(tfZahl2.getText());
+            lErgebnis.setText("Ergebnis: " + (zahl1 + zahl2));
+            
     }
 }
