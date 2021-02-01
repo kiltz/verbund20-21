@@ -28,6 +28,7 @@ public class RechnerApp extends Application {
         t2.setPrefWidth(60);
 
         HBox root = new HBox();
+        root.setSpacing(10);
         root.getChildren().addAll(t1, l2, t2, b1, l3);
         Scene scene = new Scene(root, 700, 400);
         primaryStage.setScene(scene);
