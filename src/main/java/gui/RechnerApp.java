@@ -12,6 +12,13 @@ import javafx.stage.Stage;
 
 public class RechnerApp extends Application {
 
+    private int zahl1;
+    private int zahl2;
+    private TextField tfEingabe;
+    private TextField tfEingabe2;
+    private Label lErgebnis;
+
+
     public static void main(String[] args) {
         launch(null);
     }
@@ -19,25 +26,32 @@ public class RechnerApp extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        HBox root = new HBox(20);
-        root.setPadding(new Insets(20, 40, 40, 40));
+        HBox root = new HBox(10);
+        root.setPadding(new Insets(10));
 
-        TextField eingabe = new TextField();
-        TextField eingabe2 = new TextField();
-        eingabe.setPrefWidth(50);
-        eingabe2.setPrefWidth(50);
+        tfEingabe = new TextField("3");
+        tfEingabe2 = new TextField("4");
+        tfEingabe.setPrefWidth(50);
+        tfEingabe2.setPrefWidth(50);
 
         Label plus = new Label("+");
-        Label ergebnis = new Label("7");
+        lErgebnis = new Label("7");
 
         Button gleich = new Button("=");
+        gleich.setOnAction(e -> rechnen());
 
 
-        root.getChildren().addAll(eingabe, plus, eingabe2, gleich, ergebnis);
+        root.getChildren().addAll(tfEingabe, plus, tfEingabe2, gleich, lErgebnis);
 
-        Scene scene = new Scene(root, 300, 400);
+        Scene scene = new Scene(root, 400, 300);
         primaryStage.setTitle("Rechnerapp");
         primaryStage.setScene(scene);
         primaryStage.show();
+    }
+
+    private void rechnen() {
+        zahl1 = Integer.parseInt(tfEingabe.getText());
+        zahl2 = Integer.parseInt(tfEingabe2.getText());
+        lErgebnis.setText("" + (zahl1 + zahl2));
     }
 }
