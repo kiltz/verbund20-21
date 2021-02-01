@@ -13,22 +13,21 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 
-import javax.xml.soap.Text;
 
 /**
  * Aufgabe:
  * Zeigt zwei Eingabefelder für Benutzername und Passwort
  * Beschribt die Eingabefelder mit einem Label
- * <p>
+ *
  * Erzeugt einen Button (Login)
- * <p>
+ *
  * Macht den Dialog hübsch
- * <p>
+ *
  * Validiert den Dialog
  * 1. Benutzername darf nicht leer sein
  * 2. Passwort darf nicht leer sein
  * 3. Benutzernamen und Passwort müssen irgendwelchen festen Werten entsprechen
- * <p>
+ *
  * Hinweis: Schachtelt VBox und HBox
  */
 
