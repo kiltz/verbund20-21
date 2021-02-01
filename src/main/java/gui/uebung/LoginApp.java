@@ -1,4 +1,5 @@
 package gui.uebung;
+
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.geometry.Insets;
@@ -55,10 +56,9 @@ public class LoginApp extends Application {
         Login.setDefaultButton(true);
         Login.setOnAction(e -> einloggen(e));
 
-        VBox root = new VBox();
-        HBox Box1 = new HBox(20);
-
-        HBox Box3 = new HBox(20);
+        HBox root = new HBox();
+        VBox Box1 = new VBox(20);
+        VBox Box2 = new VBox(20);
 
         root.setSpacing(10.0);
         Insets insets = new Insets(20, 10, 10, 50);
@@ -72,10 +72,10 @@ public class LoginApp extends Application {
         oder kürzer:
          */
         Box1.getChildren().addAll(tfEins, pfZwei);
-        Box3.getChildren().addAll(Login, erfolgreich);
-        root.getChildren().addAll(Box1, Box3);
+        Box2.getChildren().addAll(Login, erfolgreich);
+        root.getChildren().addAll(Box1, Box2);
         Scene scene = new Scene(root, 400, 200);
-        primaryStage.setTitle("Rechner");
+        primaryStage.setTitle("Login");
         primaryStage.setScene(scene);
         primaryStage.show();
 
@@ -88,10 +88,11 @@ public class LoginApp extends Application {
         // String in int umwandeln
         String Nutzername = tfEins.getText();
         String Passwort = pfZwei.getText();
-
+//        System.out.println(Nutzername);
+ //       System.out.println(Passwort);
         // rechnen
-        if (Nutzername == "Vladimir" && Passwort == "Pass") {
-            erfolgreich.setText("einloggen erfolreich");
+        if (Nutzername.equals("vladimir") && Passwort.equals("pass")) {
+            erfolgreich.setText("einloggen erfolgreich");
         }
         else {
             erfolgreich.setText("fehlgeschlagen");
