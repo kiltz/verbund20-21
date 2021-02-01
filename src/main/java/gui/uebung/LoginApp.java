@@ -2,6 +2,7 @@ package gui.uebung;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -40,26 +41,34 @@ public class LoginApp extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         VBox completeBox=new VBox();
-
+        Insets insets=new Insets(10,10,10,10);
         HBox line1=new HBox();
         Label lName=new Label("Name:");
         tfName=new TextField();
         line1.getChildren().add(lName);
         line1.getChildren().add(tfName);
+        line1.setSpacing(10);
+        line1.setPadding(insets);
 
         HBox line2=new HBox();
         Label lPassword=new Label("Passwort:");
         tfPassword=new TextField();
         line2.getChildren().add(lPassword);
         line2.getChildren().add(tfPassword);
+        line2.setSpacing(10);
+        line2.setPadding(insets);
 
         HBox line3=new HBox();
         Button bLogin=new Button("Login");
         bLogin.setOnAction(e->login(e));
         line3.getChildren().add(bLogin);
+        line3.setSpacing(10);
+        line3.setPadding(insets);
 
         HBox line4=new HBox();
         line4.getChildren().add(lAusgabe);
+        line4.setSpacing(10);
+        line4.setPadding(insets);
 
         completeBox.getChildren().add(line1);
         completeBox.getChildren().add(line2);
