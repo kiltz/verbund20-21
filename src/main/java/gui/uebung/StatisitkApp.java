@@ -39,15 +39,16 @@ public class StatisitkApp extends Application {
         hinzufuegen = new Button ("hinzufügen");
         Label min = new Label ("min");
         Label max = new Label ("max");
-        minimum = new Label ("");
-        maximum = new Label ("");
+        minimum = new Label ("1");
+        maximum = new Label ("15");
         Label dschntt = new Label ("durchschnitt");
-        durchschnitt = new Label ("");
+        durchschnitt = new Label ("8");
         Label Sum = new Label ("Summe");
-        summe = new Label ("");
+        summe = new Label ("16");
         Label anzahl_eingaben = new Label ("Anzahl Eingaben");
-        anzahleingaben = new Label("");
+        anzahleingaben = new Label("2");
         leeren = new Button("Liste leeren");
+
 
 
         HBox HB1 = new HBox(eingabe, zahleingabe, hinzufuegen);
@@ -65,10 +66,13 @@ public class StatisitkApp extends Application {
 
         VBox root = new VBox(HB1, HB2, HB3, HB4, HB5, HB6);
         root.setSpacing(10.0);
+        Insets insets = new Insets(20, 10, 20, 10);
+        root.setPadding(insets);
 
-        Insets insets = new Insets(20, 10, 10, 50);
-        Scene scene = new Scene(root, 300, 400);
+
+        Scene scene = new Scene(root, 400, 400);
         primaryStage.setScene(scene);
         primaryStage.show();
     }
 }
+
