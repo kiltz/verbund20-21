@@ -2,6 +2,7 @@ package gui;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -26,6 +27,9 @@ public class RechnerApp extends Application {
         button.setOnAction(e->rechne(e));
         ergebnis=new Label("");
         HBox root = new HBox();
+        root.setSpacing(10);
+        Insets insets= new Insets(10,10,10,10);
+        root.setPadding(insets);
         root.getChildren().add(text1);
         root.getChildren().add(l1);
         root.getChildren().add(text2);
@@ -40,9 +44,9 @@ public class RechnerApp extends Application {
         String t1=text1.getText();
         String t2=text2.getText();
         try{
-            int zahl1=Integer.parseInt(t1);
-            int zahl2=Integer.parseInt(t2);
-            int endwert=zahl1+zahl2;
+            double zahl1=Double.parseDouble(t1);
+            double zahl2=Double.parseDouble(t2);
+            double endwert=Math.round((zahl1+zahl2)*100)/100.0;
             ergebnis.setText("Ihr Ergebnis ist: " + endwert);
         }
         catch(NumberFormatException f){
