@@ -33,7 +33,7 @@ public class LoginApp extends Application {
 
     private TextField tfName;
     private PasswordField tfPasswort;
-    private Label lErfolgreich;
+    private Label lPruefen;
 
 
     public static void main(String[] args) {
@@ -61,10 +61,10 @@ public class LoginApp extends Application {
         hBoxName.getChildren().addAll(lName, tfName);
         hBoxPasswort.getChildren().addAll(lPasswort, tfPasswort);
 
-        lErfolgreich = new Label("");
+        lPruefen = new Label("");
 
 
-        box.getChildren().addAll(hBoxName, hBoxPasswort, login, lErfolgreich);
+        box.getChildren().addAll(hBoxName, hBoxPasswort, login, lPruefen);
 
         Scene scene = new Scene(box, 300, 400);
         primaryStage.setScene(scene);
@@ -81,15 +81,15 @@ public class LoginApp extends Application {
         System.out.println("Passwort: " + passwort);
 
         if ("".equals(name) || "".equals(passwort)){
-            lErfolgreich.setText("Es muss etwas eingegeben werden!");
-            lErfolgreich.setTextFill(Color.RED);
+            lPruefen.setText("Es muss etwas eingegeben werden!");
+            lPruefen.setTextFill(Color.RED);
         }
         else if("Test".equals(name) && "Geheim".equals(passwort)) {
-            lErfolgreich.setText("Login erfolgreich!");
-            lErfolgreich.setTextFill(Color.BLUE);
+            lPruefen.setText("Login erfolgreich!");
+            lPruefen.setTextFill(Color.BLUE);
         }else{
-            lErfolgreich.setText("Login nicht erfolgreich!");
-            lErfolgreich.setTextFill(Color.RED);
+            lPruefen.setText("Login nicht erfolgreich!");
+            lPruefen.setTextFill(Color.RED);
         }
     }
 }
