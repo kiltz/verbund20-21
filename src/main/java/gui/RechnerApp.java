@@ -11,6 +11,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
+import java.text.DecimalFormat;
+
 /**
  * Aufgabe:
  * Kopiert diese Datei nach RechnerApp.
@@ -49,18 +51,22 @@ public class RechnerApp extends Application {
 
         root.getChildren().addAll(tfZahl1, plus, tfZahl2, btBerechne, lErgebnis);
 
-        Scene scene = new Scene(root, 700, 250);
+        Scene scene = new Scene(root, 400, 250);
+        primaryStage.setTitle("Rechner App, but fancy");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
 
     private void berechne(ActionEvent e) {
         try {
-            int zahl1 = Integer.parseInt(tfZahl1.getText());
-            int zahl2 = Integer.parseInt(tfZahl2.getText());
-            int ergebnis = zahl1 + zahl2;
+            double zahl1 = Double.parseDouble(tfZahl1.getText());
+            double zahl2 = Double.parseDouble(tfZahl2.getText());
+            double ergebnis = (zahl1 + zahl2);
 
-            lErgebnis.setText("Ergebnis: " + ergebnis);
+            DecimalFormat df = new DecimalFormat("0.00");
+            String strErgebnis = df.format(ergebnis);
+
+            lErgebnis.setText("Ergebnis: " + strErgebnis);
             lErgebnis.setTextFill(Color.valueOf("#000000"));
 
         } catch (NumberFormatException f) {
