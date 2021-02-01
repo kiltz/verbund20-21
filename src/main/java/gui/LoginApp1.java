@@ -1,8 +1,11 @@
-package gui.uebung;
+package gui;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
@@ -23,7 +26,10 @@ import javafx.stage.Stage;
  * Hinweis: Schachtelt VBox und HBox
  *
  */
-public class LoginApp extends Application {
+public class LoginApp1 extends Application {
+    private Label login;
+    private TextField tfEins;
+    private TextField tfZwei;
 
     public static void main(String[] args) {
         launch(null);
@@ -31,11 +37,23 @@ public class LoginApp extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Label l = new Label("Hallo App!");
+        Label l = new Label("Login Dialog!");
         HBox root = new HBox();
         root.getChildren().add(l);
+        tfEins = new TextField("");
+        tfZwei = new TextField("");
+        Button bLogin = new Button("Login");
         Scene scene = new Scene(root, 300, 400);
         primaryStage.setScene(scene);
         primaryStage.show();
+    }
+
+    private void rechne(ActionEvent e) {
+        String eingabe1 = tfEins.getText();
+        String eingabe2 = tfZwei.getText();
+        int zahl1 = Integer.parseInt(eingabe1);
+        int zahl2 = Integer.parseInt(eingabe2);
+
+
     }
 }
