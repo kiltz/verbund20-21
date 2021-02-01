@@ -1,4 +1,4 @@
-package gui;
+package gui.uebung;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -8,12 +8,22 @@ import javafx.stage.Stage;
 
 /**
  * Aufgabe:
- * Kopiert diese Datei nach RechnerApp.
- * Zwei Textfelder, zwei Label und einen Button anzeigt.
+ * Zeigt zwei Eingabefelder für Benutzername und Passwort
+ * Beschribt die Eingabefelder mit einem Label
  *
- * [.5.] + [.2.] (=) 7
+ * Erzeugt einen Button (Login)
+ *
+ * Macht den Dialog hübsch
+ *
+ * Validiert den Dialog
+ * 1. Benutzername darf nicht leer sein
+ * 2. Passwort darf nicht leer sein
+ * 3. Benutzernamen und Passwort müssen irgendwelchen festen Werten entsprechen
+ *
+ * Hinweis: Schachtelt VBox und HBox
+ *
  */
-public class BasicsApp extends Application {
+public class LoginApp extends Application {
 
     public static void main(String[] args) {
         launch(null);
