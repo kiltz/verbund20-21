@@ -6,9 +6,11 @@ import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 import jdk.nashorn.internal.ir.LabelNode;
 
@@ -33,7 +35,7 @@ public class LoginApp extends Application {
 
     private Label lAusgabe=new Label("Daten eingeben");
     private TextField tfName;
-    private TextField tfPassword;
+    private PasswordField pfPassword;
     public static void main(String[] args) {
         launch(null);
     }
@@ -52,9 +54,9 @@ public class LoginApp extends Application {
 
         HBox line2=new HBox();
         Label lPassword=new Label("Passwort:");
-        tfPassword=new TextField();
+        pfPassword=new PasswordField();
         line2.getChildren().add(lPassword);
-        line2.getChildren().add(tfPassword);
+        line2.getChildren().add(pfPassword);
         line2.setSpacing(10);
         line2.setPadding(insets);
 
@@ -82,11 +84,13 @@ public class LoginApp extends Application {
 
     }
     public void login(ActionEvent e){
-        if(tfName.getText().equals("Hans") && tfPassword.getText().equals("Hans")){
+        if(tfName.getText().equals("Hans") && pfPassword.getText().equals("Hans")){
             lAusgabe.setText("Login erfolgreich!");
+            lAusgabe.setTextFill(Paint.valueOf("#00ff00"));
         }
         else{
             lAusgabe.setText("Fehlerhafte eingabe!");
+            lAusgabe.setTextFill(Paint.valueOf("#ff0000"));
         }
 
     }
