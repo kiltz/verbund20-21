@@ -74,7 +74,7 @@ public class LoginApp extends Application {
         Box1.getChildren().addAll(tfEins, pfZwei);
         Box2.getChildren().addAll(Login, erfolgreich);
         root.getChildren().addAll(Box1, Box2);
-        Scene scene = new Scene(root, 400, 200);
+        Scene scene = new Scene(root, 300, 200);
         primaryStage.setTitle("Login");
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -92,7 +92,7 @@ public class LoginApp extends Application {
  //       System.out.println(Passwort);
         // rechnen
         if (Nutzername.equals("vladimir") && Passwort.equals("pass")) {
-            erfolgreich.setText("einloggen erfolgreich");
+            erfolgreich.setText("erfolgreich");
         }
         else {
             erfolgreich.setText("fehlgeschlagen");
