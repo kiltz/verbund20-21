@@ -23,8 +23,8 @@ import javafx.stage.Stage;
 public class RechnerApp extends Application {
 
     private Labeled l2;
-    private InputMethodTextRun t1;
-    private InputMethodTextRun t2;
+    private TextField t1;
+    private TextField t2;
 
     public static void main(String[] args) {
         launch(null);
@@ -33,10 +33,10 @@ public class RechnerApp extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         Label l1 = new Label("+");
-        Label l2 = new Label("7");
-        TextField t1 = new TextField();
+        l2 = new Label("7");
+        t1 = new TextField();
         t1.setMaxWidth(50);
-        TextField t2 = new TextField();
+        t2 = new TextField();
         t2.setMaxWidth(50);
         Button b1 = new Button("=");
         b1.setOnAction(e -> rechne(e));
