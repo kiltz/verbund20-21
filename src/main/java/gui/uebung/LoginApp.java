@@ -48,7 +48,7 @@ public class LoginApp extends Application {
         HBox hb1 = new HBox();
         hb1.setSpacing(10.0);
         HBox hb2 = new HBox();
-        hb2.setSpacing(10.0);
+        hb2.setSpacing(40.0);
         HBox hb3 = new HBox();
         hb3.setSpacing(10.0);
         HBox hb4 = new HBox();
