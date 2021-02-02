@@ -9,6 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -30,7 +31,7 @@ public class StatisitkApp extends Application {
     Label lSumme;
     Label lDurchschnitt;
     Label lMin;
-    Label lMmax;
+    Label lMax;
     Label lAnzahl;
 
 
@@ -84,11 +85,13 @@ public class StatisitkApp extends Application {
     }
 
     private Node getMinMax() {
-        HBox box = new HBox(15);
+        HBox box = new HBox(10);
         box.setPadding(new Insets(10));
-        lMin = new Label("Min: " + list.indexOf(0));
-        lMmax = new Label("Max: " + list.lastIndexOf(list));
-        box.getChildren().addAll(lMin,lMmax);
+        lMin = new Label("0");
+        lMin.setTextFill(Color.web("#005091"));
+        lMax = new Label("0");
+        lMax.setTextFill(Color.web("#005091"));
+        box.getChildren().addAll(new Label("Min:"), lMin, new Label("Max:"),lMax);
         return box;
     }
 
@@ -110,11 +113,32 @@ public class StatisitkApp extends Application {
         //anzahl = (""+list.size());
         Collections.sort(list);
         int summe = 0;
-        for (Integer i:list) {
-            summe += eingabeAlsInt;
+        int min = -1;
+        int max = 0;
+        // Liste durchlaufen (iterieren)
+        for (Integer i : list) {
+            summe += i;
+            if (min == -1 || min > i) {
+                min = i;
+            }
+            if (max < i) {
+                max = i;
+            }
         }
-        lSumme.setText("Summe:" + summe);
-
+        lSumme.setText(""+summe);
+        lDurchschnitt.setText(""+(summe/list.size()));
+        lMin.setText(""+min);
+        lMax.setText(""+max);
+        lAnzahl.setText(""+list.size());
+        tfEingabe.setText("");
+    }
+    private void leereListe() {
+        list = new ArrayList<>();
+        lMin.setText("0");
+        lMax.setText("0");
+        lDurchschnitt.setText("0");
+        lSumme.setText("0");
+        lAnzahl.setText("0");
     }
 
 }
