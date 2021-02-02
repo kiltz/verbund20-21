@@ -102,6 +102,6 @@ public class passwdManagerApp extends Application {
         manager.neu(new Passwort(tfName.getText(),tfBenutzer.getText(), pfPassword.getText()));
     }
     public void suchen(ActionEvent e){
-
+        manager.suche(tfSuchen.getText());
     }
 }
