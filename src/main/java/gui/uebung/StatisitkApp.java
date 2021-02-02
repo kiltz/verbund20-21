@@ -133,7 +133,7 @@ public class StatisitkApp extends Application {
             lMin.setText("Min " + Collections.min(liste));
             lMax.setText("Max " + Collections.max(liste));
             lSumme.setText("Summe " + sum);
-            lDurchschnitt.setText("Durchschnitt " + (sum / liste.toArray().length));
+            lDurchschnitt.setText("Durchschnitt " + (sum / liste.size()));
             lAnzahlEingabe.setText("Anzahl Eingabe " + anzahl);
             lFehlerausgabe.setText("");
         }
