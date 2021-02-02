@@ -3,10 +3,7 @@ package basic.liste.pwmanager;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -18,6 +15,7 @@ public class passwdManagerApp extends Application {
     public TextField tfBenutzer;
     public PasswordField pfPassword;
     public TextField tfSuchen;
+    private TextArea taAusgabe;
     public static void main(String[] args) {
         launch(args);
     }
@@ -29,11 +27,15 @@ public class passwdManagerApp extends Application {
         HBox boxLineBenutzer=getLineBenutzer();
         HBox boxLinePassword=getLinePassword();
         HBox boxLineSuchen=getLineSuchen();
+        HBox boxLineAusgabe=getLineAusgabe();
 
         root.getChildren().add(boxLineName);
         root.getChildren().add(boxLineBenutzer);
         root.getChildren().add(boxLinePassword);
         root.getChildren().add(boxLineSuchen);
+        root.getChildren().add(boxLineAusgabe);
+
+        root.setSpacing(10);
 
         Scene scene=new Scene(root, 400,400);
         primaryStage.setScene(scene);
@@ -48,6 +50,7 @@ public class passwdManagerApp extends Application {
         HBox box=new HBox();
         box.getChildren().add(lName);
         box.getChildren().add(tfName);
+        box.setSpacing(10);
         return box;
     }
 
@@ -57,6 +60,7 @@ public class passwdManagerApp extends Application {
         HBox box=new HBox();
         box.getChildren().add(lBenutzer);
         box.getChildren().add(tfBenutzer);
+        box.setSpacing(10);
         return box;
     }
 
@@ -69,6 +73,7 @@ public class passwdManagerApp extends Application {
         box.getChildren().add(lPassword);
         box.getChildren().add(pfPassword);
         box.getChildren().add(bEintragen);
+        box.setSpacing(10);
         return box;
     }
 
@@ -79,6 +84,15 @@ public class passwdManagerApp extends Application {
         HBox box=new HBox();
         box.getChildren().add(tfSuchen);
         box.getChildren().add(bSuchen);
+        box.setSpacing(10);
+        return box;
+    }
+
+    public HBox getLineAusgabe(){
+        taAusgabe=new TextArea();
+        HBox box=new HBox();
+        box.getChildren().add(taAusgabe);
+        box.setSpacing(10);
         return box;
     }
 
