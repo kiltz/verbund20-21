@@ -38,61 +38,43 @@ public class LoginApplikation extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-
+//boxerstellung
         VBox completeBox=new VBox();
-
-
-
-
-
+//zeile eins in der ansicht
         HBox zeile1=new HBox();
         Label lName=new Label("Nutzername:");
         tfName=new TextField();
         zeile1.getChildren().add(lName);
         zeile1.getChildren().add(tfName);
-
-
+//zeile zwei in der ansicht
         HBox zeile2=new HBox();
         Label lPassword=new Label("Passwort:");
         tfPassword=new TextField();
-
-
-
         zeile2.getChildren().add(lPassword);
         zeile2.getChildren().add(tfPassword);
-
-
-
-
+//zeile drei in der ansicht
         HBox zeile3=new HBox();
         Button bLogin=new Button("Login");
         bLogin.setOnAction(e->login(e));
         zeile3.getChildren().add(bLogin);
-
+//zeile vier in der ansicht
         HBox zeile4=new HBox();
         zeile4.getChildren().add(lAusgabe);
-
-
-
-
-
+        //alle elemente der Box hinzufügen
         completeBox.getChildren().add(zeile1);
         completeBox.getChildren().add(zeile2);
         completeBox.getChildren().add(zeile3);
         completeBox.getChildren().add(zeile4);
 
-
-
-
+        //scenen einstellungen
         Scene scene=new Scene(completeBox, 500, 500);
-
         primaryStage.setScene(scene);
         primaryStage.setTitle("Pauls Superlogin");
         primaryStage.show();
 
     }
 
-
+    //methode login
     public void login(ActionEvent e){
         if(tfName.getText().equals("Paul") && tfPassword.getText().equals("123")){
             lAusgabe.setText("Login erfolgreich!");
@@ -103,4 +85,3 @@ public class LoginApplikation extends Application {
 
     }
 }
-
