@@ -12,9 +12,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-import javax.xml.soap.Text;
-
 public class PasswdManagerApp extends Application {
+    Manager manager = new Manager();
     private TextField tfName;
     private TextField tfBenutzer;
     private TextField tfPasswort;
@@ -53,6 +52,7 @@ public class PasswdManagerApp extends Application {
     }
 
     private void suche() {
+        taBenutzer.setText("" + manager.suche(tfSuche.getText()));
     }
 
     private Node getEintrag() {
@@ -66,6 +66,7 @@ public class PasswdManagerApp extends Application {
     }
 
     private void eintragen() {
+        manager.neu(new Passwort(tfName.getText(),tfBenutzer.getText(), tfPasswort.getText()));
     }
 
     private Node getPasswort() {
