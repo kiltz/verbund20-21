@@ -65,7 +65,7 @@ public class passwdManagerApp extends Application {
         manager = new Manager();
 
         Scene scene = new Scene(vBox, 500, 400);
-        primaryStage.setTitle("Passwort Manager App");
+        primaryStage.setTitle("Passwort Manager");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
