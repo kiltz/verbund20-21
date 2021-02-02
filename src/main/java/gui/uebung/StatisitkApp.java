@@ -2,6 +2,7 @@ package gui.uebung;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -18,12 +19,12 @@ import java.util.stream.Collectors;
  * Zahleneingabe
  * Min, Max, Summe, Durchschnitt, anzahl Zahlen ausgeben
  *
- * [.5.] + [.2.] (=) 7
+ *
  */
 public class StatisitkApp extends Application {
     public List<Integer> list=new ArrayList<>();
     public TextField tfInput;
-
+    public Insets insets=new Insets(10,10,10,10);
     public Label lDurchschnitt;
     public Label lEintraege;
     public Label lSumme;
@@ -49,7 +50,9 @@ public class StatisitkApp extends Application {
         root.getChildren().add(boxLineDurchschnitt);
         root.getChildren().add(boxLineSumme);
         root.getChildren().add(boxLineEintraege);
-        root.getChildren().add(boxLineButtons); //Stand: Add all überall ersetzen, button aktualisieren schon bei hinzufügen
+        root.getChildren().add(boxLineButtons);
+        root.setPadding(insets);
+        root.setSpacing(10);
         Scene scene = new Scene(root, 500, 500);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Statistik");
@@ -67,6 +70,8 @@ public class StatisitkApp extends Application {
         box.getChildren().add(lInput);
         box.getChildren().add(tfInput);
         box.getChildren().add(bInput);
+        box.setPadding(insets);
+        box.setSpacing(10);
         return box;
     }
 
@@ -76,6 +81,8 @@ public class StatisitkApp extends Application {
         HBox box=new HBox();
         box.getChildren().add(lMin);
         box.getChildren().add(lMax);
+        box.setPadding(insets);
+        box.setSpacing(10);
         return box;
     }
 
@@ -83,6 +90,7 @@ public class StatisitkApp extends Application {
         lSumme=new Label("Summe: " + 0);
         HBox box=new HBox();
         box.getChildren().add(lSumme);
+        box.setPadding(insets);
         return box;
     }
 
@@ -90,6 +98,7 @@ public class StatisitkApp extends Application {
         lEintraege=new Label("Anzahl der Einträge: " + 0);
         HBox box=new HBox();
         box.getChildren().add(lEintraege);
+        box.setPadding(insets);
         return box;
     }
     public HBox getLineButtons(){
@@ -97,6 +106,7 @@ public class StatisitkApp extends Application {
         bListeLeeren.setOnAction((e->listeLeeren(e)));
         HBox box=new HBox();
         box.getChildren().add(bListeLeeren);
+        box.setPadding(insets);
         return box;
     }
     public int getSumme(){
@@ -110,6 +120,7 @@ public class StatisitkApp extends Application {
         lDurchschnitt=new Label("Durchschnitt: " + 0);
         HBox box=new HBox();
         box.getChildren().add(lDurchschnitt);
+        box.setPadding(insets);
         return box;
     }
 
@@ -131,6 +142,7 @@ public class StatisitkApp extends Application {
             lDurchschnitt.setText("Durchschnitt: " + getDurchschnitt());
             lSumme.setText("Summe: " + getSumme());
             lEintraege.setText("Einträge: " + list.size());
+            tfInput.setText("");
         }
         catch(NumberFormatException f){
             System.out.println("Falsche Eingabe!");
