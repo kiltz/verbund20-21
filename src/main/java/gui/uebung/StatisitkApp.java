@@ -25,13 +25,14 @@ import java.util.List;
 
 public class StatisitkApp extends Application {
 
-    TextField tf;
+    TextField tfEingabe;
     List<Integer> list = new ArrayList<>();
-    Label su;
-    Label du;
-    Label mi;
-    Label ma;
-    Label an;
+    Label lSumme;
+    Label lDurchschnitt;
+    Label lMin;
+    Label lMmax;
+    Label lAnzahl;
+
 
     public static void main(String[] args) {
         launch(args);
@@ -60,68 +61,60 @@ public class StatisitkApp extends Application {
     private Node getSumme() {
         HBox box = new HBox(15);
         box.setPadding(new Insets(10));
-        Label summe = new Label("Summe: ");
-        su.setText(String.valueOf(summieren()));
-        box.getChildren().addAll(summe, su);
+        lSumme = new Label("Summe: ");
+        box.getChildren().add(lSumme);
         return box;
     }
 
     private Node getAnzahl() {
         HBox box = new HBox(15);
         box.setPadding(new Insets(10));
-        Label anzahl = new Label("Anzahl :");
-        an.setText(String.valueOf(list.size()));
-        box.getChildren().addAll(anzahl,an);
+        lAnzahl = new Label("Anzahl :");
+        lAnzahl.setText("Anzahl :"+ list.size());
+        box.getChildren().add(lAnzahl);
         return box;
     }
 
     private Node getDurchschnitt() {
         HBox box = new HBox(15);
         box.setPadding(new Insets(10));
-        Label durchschnitt = new Label("Durchschnitt: ");
-        du.setText(String.valueOf(berechneDurchschnitt()));
-        box.getChildren().addAll(durchschnitt, du);
+        lDurchschnitt = new Label("Durchschnitt: ");
+        box.getChildren().add(lDurchschnitt);
         return box;
     }
 
     private Node getMinMax() {
         HBox box = new HBox(15);
         box.setPadding(new Insets(10));
-        Label min = new Label("Min: ");
-        Label max = new Label("Max: ");
-        box.getChildren().addAll(min,max);
+        lMin = new Label("Min: " + list.indexOf(0));
+        lMmax = new Label("Max: " + list.lastIndexOf(list));
+        box.getChildren().addAll(lMin,lMmax);
         return box;
     }
 
     private Node getInput() {
         HBox box = new HBox(15);
         box.setPadding(new Insets(10));
-        tf = new TextField();
+        tfEingabe = new TextField();
         Button bAdd = new Button("Hinzufuegen");
         bAdd.setDefaultButton(true);
         bAdd.setOnAction(e -> add());
-        box.getChildren().addAll(new Label("Eingabe"), tf,bAdd);
+        box.getChildren().addAll(new Label("Eingabe"), tfEingabe,bAdd);
         return box;
     }
 
     public void add() {
-        list.add(Integer.parseInt(tf.getText()));
+        String eingabe = tfEingabe.getText();
+        Integer eingabeAlsInt = Integer.parseInt(eingabe);
+        list.add(eingabeAlsInt);
+        //anzahl = (""+list.size());
         Collections.sort(list);
-    }
-    public int summieren(){
         int summe = 0;
-        if (list.size()>=1){
-            for(int i:list) {
-                summe = summe + i;
-            }
+        for (Integer i:list) {
+            summe += eingabeAlsInt;
         }
-        return summe;
+        lSumme.setText("Summe:" + summe);
+
     }
-    public float berechneDurchschnitt(){
-        float  durchschnitt=0;
-        if (list.size() >= 1) {
-           durchschnitt =  (float) summieren() / (float) list.size();
-        }
-        return durchschnitt;
-    }
+
 }
