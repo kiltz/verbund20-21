@@ -113,8 +113,8 @@ public class PasswdManagerApp extends Application {
 
     private void suchen() {
         taAusgabe.setText("");
-        List<Passwort> ergebnise=manager.suche(tfSuche.getText());
-        for(Passwort ergebnis:ergebnise){
+        List<Passwort> ergebnisse=manager.suche(tfSuche.getText());
+        for(Passwort ergebnis:ergebnisse){
             taAusgabe.setText(taAusgabe.getText() + ergebnis.toString() + "\n");
         }
         tfSuche.setText("");
