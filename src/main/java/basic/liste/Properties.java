@@ -1,13 +1,14 @@
 package basic.liste;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 
-import java.awt.event.ActionEvent;
 import java.util.Map;
 
 public class Properties extends Application {
@@ -15,6 +16,8 @@ public class Properties extends Application {
         launch(args);
     }
 
+
+    private TextField txtEingabe = new TextField();
     private TextArea txtAusgabe = new TextArea();
 
     @Override
@@ -23,14 +26,15 @@ public class Properties extends Application {
         Button btnAusgabe = new Button("Ausgabe");
         btnAusgabe.setOnAction(event -> ausgeben(event));
         txtAusgabe.setEditable(true);
-        vMain.getChildren().addAll();
+        vMain.getChildren().addAll(txtAusgabe);
         Scene scene = new Scene(vMain, 150,150);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Prop. Ausgabe!");
         primaryStage.show();
+
     }
 
-    private void ausgeben(javafx.event.ActionEvent event) {
+    private void ausgeben(ActionEvent event) {
         java.util.Properties Prps = System.getProperties();
         for (Map.Entry<Object, Object> e : Prps.entrySet()) {
             txtAusgabe.setText(e.getKey() + ":" + e.getValue());
