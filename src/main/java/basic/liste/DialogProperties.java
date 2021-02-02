@@ -28,8 +28,9 @@ public class DialogProperties extends Application {
 
         taAusgabe.setEditable(false);
 
-        root.getChildren().addAll();
-        Scene scene=new Scene(root,200,200);
+        root.getChildren().add(bAusgeben);
+        root.getChildren().add(taAusgabe);
+        Scene scene=new Scene(root,500,500);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Properties Ausgabe");
         primaryStage.show();
@@ -39,7 +40,7 @@ public class DialogProperties extends Application {
     public void ausgeben(ActionEvent e){
         Properties props = System.getProperties();
         for (Map.Entry<Object, Object> element : props.entrySet()) {
-            taAusgabe.setText(element.getKey()+": "+element.getValue());
+            taAusgabe.setText(taAusgabe.getText() + element.getKey()+": "+element.getValue() + "\n");
         }
     }
 }
