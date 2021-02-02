@@ -10,9 +10,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -76,31 +74,29 @@ public class StatisitkApp extends Application {
         lMin=new Label("Min: " + 0);
         lMax=new Label("Max: " + 0);
         HBox box=new HBox();
-        box.getChildren().addAll();
+        box.getChildren().add(lMin);
+        box.getChildren().add(lMax);
         return box;
     }
 
     public HBox getLineSumme(){
         lSumme=new Label("Summe: " + 0);
         HBox box=new HBox();
-        box.getChildren().addAll();
+        box.getChildren().add(lSumme);
         return box;
     }
 
     public HBox getLineEintraege(){
         lEintraege=new Label("Anzahl der Einträge: " + 0);
         HBox box=new HBox();
-        box.getChildren().addAll();
+        box.getChildren().add(lEintraege);
         return box;
     }
     public HBox getLineButtons(){
-        Button bNeueZahlen=new Button("Aktualisieren");
-        bNeueZahlen.setOnAction(e->aktualisieren(e));
         Button bListeLeeren=new Button("Liste leeren");
         bListeLeeren.setOnAction((e->listeLeeren(e)));
-
         HBox box=new HBox();
-        box.getChildren().addAll();
+        box.getChildren().add(bListeLeeren);
         return box;
     }
     public int getSumme(){
@@ -113,11 +109,11 @@ public class StatisitkApp extends Application {
     public HBox getLineDurchschnitt(){
         lDurchschnitt=new Label("Durchschnitt: " + 0);
         HBox box=new HBox();
-        box.getChildren().addAll();
+        box.getChildren().add(lDurchschnitt);
         return box;
     }
 
-    public double getDurchSchnitt(){
+    public double getDurchschnitt(){
         int totalSum=0;
         for(Integer number: list){
             totalSum+=number;
@@ -129,16 +125,24 @@ public class StatisitkApp extends Application {
     public void hinzufügen(ActionEvent e){
         try{
             list.add(Integer.parseInt(tfInput.getText()));
+            Collections.sort(list);
+            lMin.setText("Min: " + list.get(0));
+            lMax.setText("Max: " + list.get(list.size()-1));
+            lDurchschnitt.setText("Durchschnitt: " + getDurchschnitt());
+            lSumme.setText("Summe: " + getSumme());
+            lEintraege.setText("Einträge: " + list.size());
         }
         catch(NumberFormatException f){
             System.out.println("Falsche Eingabe!");
         }
     }
 
-    public void aktualisieren(ActionEvent e){
-        launch();
-    }
     public void listeLeeren(ActionEvent e){
         list=new ArrayList<>();
+        lMin.setText("Min: 0");
+        lMax.setText("Max: 0");
+        lDurchschnitt.setText("Durchschnitt: 0.0");
+        lSumme.setText("Summe: 0");
+        lEintraege.setText("Einträge: " + list.size());
     }
 }
