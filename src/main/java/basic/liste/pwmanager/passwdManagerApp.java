@@ -105,12 +105,18 @@ public class passwdManagerApp extends Application {
         String benutzer=tfName.getText();
         String password=pfPassword.getText();
         manager.neu(new Passwort(name,benutzer,password));
+        taAusgabe.setText("Eintragung durchgeführt!");
+        tfName.setText("");
+        tfBenutzer.setText("");
+        pfPassword.setText("");
+        taAusgabe.setText("");
     }
     public void suchen(ActionEvent e){
-        List<Passwort> ergebnise=manager.suche(tfSuchen.getText();
+        taAusgabe.setText("");
+        List<Passwort> ergebnise=manager.suche(tfSuchen.getText());
         for(Passwort ergebnis:ergebnise){
             taAusgabe.setText(taAusgabe.getText() + ergebnis.toString() + "\n");
         }
-
+        tfSuchen.setText("");
     }
 }
