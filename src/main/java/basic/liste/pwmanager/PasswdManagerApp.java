@@ -43,6 +43,47 @@ public class PasswdManagerApp extends Application {
         primaryStage.show();
     }
 
+    private Node getNameZeile() {
+        HBox box = new HBox(15);
+        Label lName = new Label("Name");
+        lName.setPrefSize(50,10);
+        tfName = new TextField();
+        box.getChildren().addAll(lName,tfName);
+        return box;
+    }
+
+    private Node getBenutzerZeile() {
+        HBox box = new HBox(15);
+        Label lBenutzer = new Label("Benutzer");
+        lBenutzer.setPrefSize(50,10);
+        tfBenutzer = new TextField();
+        box.getChildren().addAll(lBenutzer,tfBenutzer);
+        return box;
+    }
+
+    private Node getPasswdZeile() {
+        HBox box = new HBox(15);
+        Label lPasswd = new Label("Passwd");
+        lPasswd.setPrefSize(50,10);
+        tfPasswd = new TextField();
+        box.getChildren().addAll(lPasswd,tfPasswd);
+        return box;
+    }
+
+    private Node getEintragenZeile() {
+        HBox box = new HBox(15);
+        Button bEintragen = new Button("Eintragen");
+        bEintragen.setAlignment(Pos.CENTER);
+        bEintragen.setDefaultButton(true);
+        bEintragen.setOnAction(e -> eintragen());
+        box.getChildren().add(bEintragen);
+        return box;
+    }
+
+    private void eintragen() {
+        manager.neu(new Passwort(tfName.getText(),tfBenutzer.getText(),tfPasswd.getText()));
+    }
+
     private Node getAusgabeZeile() {
         HBox box = new HBox(15);
         taAusgabe = new TextArea();
@@ -69,49 +110,6 @@ public class PasswdManagerApp extends Application {
         List<Passwort> liste = manager.suche(tfSuche.getText());
         for (Passwort passwort : liste) {
             taAusgabe.setText(""+ passwort+"\n");
-
         }
-    }
-
-    private Node getEintragenZeile() {
-        HBox box = new HBox(15);
-        Button bEintragen = new Button("Eintragen");
-        bEintragen.setAlignment(Pos.CENTER);
-        bEintragen.setDefaultButton(true);
-        bEintragen.setOnAction(e -> eintragen());
-        box.getChildren().add(bEintragen);
-        return box;
-    }
-
-    private void eintragen() {
-        manager.neu(new Passwort(tfName.getText(),tfBenutzer.getText(),tfPasswd.getText()));
-    }
-
-    private Node getPasswdZeile() {
-        HBox box = new HBox(15);
-        Label lPasswd = new Label("Passwd");
-        lPasswd.setPrefSize(50,10);
-        tfPasswd = new TextField();
-        box.getChildren().addAll(lPasswd,tfPasswd);
-        return box;
-    }
-
-    private Node getBenutzerZeile() {
-        HBox box = new HBox(15);
-        Label lBenutzer = new Label("Benutzer");
-        lBenutzer.setPrefSize(50,10);
-        tfBenutzer = new TextField();
-        box.getChildren().addAll(lBenutzer,tfBenutzer);
-        return box;
-    }
-
-
-    private Node getNameZeile() {
-        HBox box = new HBox(15);
-        Label lName = new Label("Name");
-        lName.setPrefSize(50,10);
-        tfName = new TextField();
-        box.getChildren().addAll(lName,tfName);
-        return box;
     }
 }
