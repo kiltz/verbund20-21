@@ -12,8 +12,6 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-import java.lang.reflect.Array;
-
 
 public class PasswdApp extends Application {
 
@@ -64,7 +62,7 @@ public class PasswdApp extends Application {
         validNormal = "abcdefghijklmnopqrstuvwxyz";
         validCapital = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         validNumbers = "0123456789";
-        validExclusives = "!§$%&/()=?";
+        validExclusives = "!@§$%&/()=?`{[]}#+-*";
     }
 
     private void generate(ActionEvent e) {
