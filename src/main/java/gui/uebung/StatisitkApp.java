@@ -10,6 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
@@ -34,6 +35,7 @@ public class StatisitkApp extends Application {
     private ArrayList<Integer> liste = new ArrayList<Integer>();
     private int zahl;
     private int anzahl;
+    private Label lFehlerausgabe;
 
     public static void main(String[] args) {
         launch(null);
@@ -42,13 +44,20 @@ public class StatisitkApp extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         VBox root = new VBox(15);
-        root.getChildren().addAll(getEingabe(), getMinMax(), getDurchschnitt(), getSumme(), getAnzahlEingabe());
+        root.getChildren().addAll(getEingabe(), getMinMax(), getDurchschnitt(), getSumme(), getAnzahlEingabe(), getFehlerAusgabe());
         Scene scene = new Scene(root, 300, 400);
         primaryStage.setScene(scene);
         primaryStage.setTitle("StatistikApp");
         primaryStage.show();
     }
 
+    private Node getFehlerAusgabe() {
+        HBox box = new HBox(15);
+        lFehlerausgabe = new Label("");
+        box.getChildren().add(lFehlerausgabe);
+
+        return box;
+    }
 
 
     private Node getAnzahlEingabe() {
@@ -107,20 +116,26 @@ public class StatisitkApp extends Application {
     }
 
     private void hinzufuegen() {
-        zahl = Integer.parseInt(tfEingabe.getText());
-        liste.add(zahl);
+        String eingabe = tfEingabe.getText();
+        if(eingabe.equals("")){
+            lFehlerausgabe.setText("Bitte etwas eingeben!");
+            lFehlerausgabe.setTextFill(Color.RED);
+        }else {
+            zahl = Integer.parseInt(tfEingabe.getText());
+            liste.add(zahl);
 
-        anzahl +=1;
+            anzahl += 1;
 
-        int sum = 0;
-        for(int i : liste)
-            sum += i;
+            int sum = 0;
+            for (int i : liste)
+                sum += i;
 
-        lMin.setText("Min " + Collections.min(liste));
-        lMax.setText("Max " + Collections.max(liste));
-        lSumme.setText("Summe " + sum);
-        lDurchschnitt.setText("Durchschnitt " + (sum/liste.toArray().length));
-        lAnzahlEingabe.setText("Anzahl Eingabe " + anzahl);
-
+            lMin.setText("Min " + Collections.min(liste));
+            lMax.setText("Max " + Collections.max(liste));
+            lSumme.setText("Summe " + sum);
+            lDurchschnitt.setText("Durchschnitt " + (sum / liste.toArray().length));
+            lAnzahlEingabe.setText("Anzahl Eingabe " + anzahl);
+            lFehlerausgabe.setText("");
+        }
     }
 }
