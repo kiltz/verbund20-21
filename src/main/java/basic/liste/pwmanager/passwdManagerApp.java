@@ -17,7 +17,7 @@ public class passwdManagerApp extends Application {
     public TextField tfSuchen;
     private TextArea taAusgabe;
 
-    public Manager manager;
+    public Manager manager=new Manager();
     public static void main(String[] args) {
         launch(args);
     }
@@ -47,7 +47,7 @@ public class passwdManagerApp extends Application {
 
     public HBox getLineName(){
         Label lName=new Label("Name");
-        tfName=new TextField();
+        tfName=new TextField("");
 
         HBox box=new HBox();
         box.getChildren().add(lName);
@@ -58,7 +58,7 @@ public class passwdManagerApp extends Application {
 
     public HBox getLineBenutzer(){
         Label lBenutzer=new Label("Benutzer");
-        tfBenutzer=new TextField();
+        tfBenutzer=new TextField("");
         HBox box=new HBox();
         box.getChildren().add(lBenutzer);
         box.getChildren().add(tfBenutzer);
@@ -99,7 +99,10 @@ public class passwdManagerApp extends Application {
     }
 
     public void eintragen(ActionEvent e){
-        manager.neu(new Passwort(tfName.getText(),tfBenutzer.getText(), pfPassword.getText()));
+        String name=tfName.getText();
+        String benutzer=tfName.getText();
+        String password=pfPassword.getText();
+        manager.neu(new Passwort(name,benutzer,password));
     }
     public void suchen(ActionEvent e){
         manager.suche(tfSuchen.getText());
