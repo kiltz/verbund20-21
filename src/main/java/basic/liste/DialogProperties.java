@@ -39,8 +39,7 @@ public class DialogProperties extends Application {
 
     public void ausgeben(ActionEvent e){
         Properties props = System.getProperties();
-        for (Map.Entry<Object, Object> element : props.entrySet()) {
-            taAusgabe.setText(taAusgabe.getText() + element.getKey()+": "+element.getValue() + "\n");
-        }
+        taAusgabe.setText("Betriebssystem: " + System.getProperty("os.name"));
+
     }
 }
