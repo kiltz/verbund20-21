@@ -62,10 +62,13 @@ public class SystemEigenschaftenGUI extends Application {
 
     private void suche(ActionEvent e) {
         Properties props = System.getProperties();
+        String benutzer = System.getProperty("user.name");
+        String betriebssystem = System.getProperty("os.name");
+        String tempVerzeichnis = System.getProperty("java.io.tmpdir");
         for (Map.Entry<Object, Object> f : props.entrySet()) {
             System.out.println(f.getKey()+": "+f.getValue());
         }
-        taAusgabe.setText(""+props);
+        taAusgabe.setText("Benutzer: " + benutzer + "\n" + "Betriebssystem: " + betriebssystem +"\n" + "Temporaeres Verzeichnis: " + tempVerzeichnis);
 
     }
 }
