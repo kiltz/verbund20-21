@@ -13,6 +13,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import java.util.List;
+
 
 public class PasswdManagerApp extends Application {
 
@@ -21,10 +23,12 @@ public class PasswdManagerApp extends Application {
     }
 
     Manager manager = new Manager();
+    Passwort p = new Passwort();
     TextField tfName;
     TextField tfBenutzer;
     TextField tfPasswd;
     TextField tfSuche;
+    TextArea textArea;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -43,7 +47,7 @@ public class PasswdManagerApp extends Application {
 
     private Node getAusgabeZeile() {
         HBox box = new HBox(15);
-        TextArea textArea = new TextArea();
+        textArea = new TextArea();
         textArea.setPrefRowCount(4);
         textArea.setPrefColumnCount(20);
         textArea.setWrapText(true);
@@ -62,9 +66,11 @@ public class PasswdManagerApp extends Application {
         return box;
     }
 
-    private void suche(){
-        manager.suche(tfSuche.getText());
-
+    private void suche() {
+        List<Passwort> liste = manager.suche("m");
+        for (Passwort passwort : liste) {
+            textArea.setText(""+ passwort);
+        }
     }
 
     private Node getEintragenZeile() {
@@ -78,7 +84,7 @@ public class PasswdManagerApp extends Application {
     }
 
     private void eintragen() {
-        manager.neu();
+        manager.neu(new Passwort(tfName.getText(),tfBenutzer.getText(),tfPasswd.getText()));
     }
 
     private Node getPasswdZeile() {
@@ -108,6 +114,4 @@ public class PasswdManagerApp extends Application {
         box.getChildren().addAll(lName,tfName);
         return box;
     }
-
-
 }
