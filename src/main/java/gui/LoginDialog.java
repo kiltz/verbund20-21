@@ -40,9 +40,9 @@ public class LoginDialog extends Application{
         password = new PasswordField();
 
         Button btnLogin = new Button("Login");
-        btnLogin.setPadding(insets);
+        //btnLogin.setPadding(insets);
         Insets insets = new Insets(20);
-        btnLogin.setOnAction(event -> login(e));
+        //btnLogin.setOnAction(event -> login(e));
 
         hBoxName.getChildren().addAll(lname, tfName);
         hBoxPassword.getChildren().addAll(password, lpw);
