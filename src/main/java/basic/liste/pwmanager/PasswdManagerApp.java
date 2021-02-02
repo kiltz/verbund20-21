@@ -28,7 +28,7 @@ public class PasswdManagerApp extends Application {
     TextField tfBenutzer;
     TextField tfPasswd;
     TextField tfSuche;
-    TextArea textArea;
+    TextArea taAusgabe;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -47,11 +47,11 @@ public class PasswdManagerApp extends Application {
 
     private Node getAusgabeZeile() {
         HBox box = new HBox(15);
-        textArea = new TextArea();
-        textArea.setPrefRowCount(4);
-        textArea.setPrefColumnCount(20);
-        textArea.setWrapText(true);
-        box.getChildren().add(textArea);
+        taAusgabe = new TextArea();
+        taAusgabe.setPrefRowCount(4);
+        taAusgabe.setPrefColumnCount(20);
+        taAusgabe.setWrapText(true);
+        box.getChildren().add(taAusgabe);
         return box;
     }
 
@@ -61,15 +61,17 @@ public class PasswdManagerApp extends Application {
         Button bSuche = new Button("Suche");
         bSuche.setAlignment(Pos.CENTER_RIGHT);
         bSuche.setDefaultButton(true);
-        bSuche.setOnAction(e -> suche());
+        bSuche.setOnAction(e -> suchen());
         box.getChildren().addAll(tfSuche,bSuche);
         return box;
     }
 
-    private void suche() {
-        List<Passwort> liste = manager.suche(""+tfSuche.getText());
+    private void suchen() {
+        taAusgabe.setText("");
+        List<Passwort> liste = manager.suche(tfSuche.getText());
         for (Passwort passwort : liste) {
-            textArea.setText(""+ passwort);
+            taAusgabe.setText(""+ passwort+"\n");
+
         }
     }
 
