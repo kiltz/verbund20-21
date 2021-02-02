@@ -13,8 +13,7 @@ import java.util.List;
 
 
 public class PasswdManagerApp extends Application {
-    private Manager manager = new Manager();
-    private Passwort p = new Passwort();
+    private final Manager manager = new Manager();
     private TextField tfName;
     private TextField tfBenutzer;
     private TextField tfPasswd;
@@ -78,8 +77,15 @@ public class PasswdManagerApp extends Application {
     }
 
     private void eintragen() {
-        manager.neu(new Passwort(tfName.getText(),tfBenutzer.getText(),tfPasswd.getText()));
-        System.out.println("Datensatz erfolgreich angelegt");
+        String name=tfName.getText();
+        String benutzer=tfBenutzer.getText();
+        String password=tfPasswd.getText();
+        manager.neu(new Passwort(name,benutzer,password));
+        taAusgabe.setText("Eintragung durchgeführt!");
+        tfName.setText("");
+        tfBenutzer.setText("");
+        tfPasswd.setText("");
+        taAusgabe.setText("");
     }
 
     private Node getAusgabeZeile() {
@@ -89,7 +95,7 @@ public class PasswdManagerApp extends Application {
         taAusgabe.setPrefColumnCount(20);
         taAusgabe.setWrapText(true);
         ScrollPane scrolli = new ScrollPane();
-        scrolli.setMaxWidth(200);
+        scrolli.setMaxWidth(250);
         scrolli.setContent(taAusgabe);
         box.getChildren().add(scrolli);
         return box;
@@ -107,9 +113,10 @@ public class PasswdManagerApp extends Application {
 
     private void suchen() {
         taAusgabe.setText("");
-        List<Passwort> liste = manager.suche(tfSuche.getText());
-        for (Passwort passwort : liste) {
-            taAusgabe.setText(""+ passwort + "\n");
+        List<Passwort> ergebnise=manager.suche(tfSuche.getText());
+        for(Passwort ergebnis:ergebnise){
+            taAusgabe.setText(taAusgabe.getText() + ergebnis.toString() + "\n");
         }
+        tfSuche.setText("");
     }
 }
