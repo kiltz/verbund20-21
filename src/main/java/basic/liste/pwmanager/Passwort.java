@@ -5,7 +5,7 @@ public class Passwort {
     private String benutzername;
     private String passwort;
 
-    public Passwort() {
+    public Passwort(Passwort passwort) {
     }
 
     public Passwort(String name, String benutzername, String passwort) {

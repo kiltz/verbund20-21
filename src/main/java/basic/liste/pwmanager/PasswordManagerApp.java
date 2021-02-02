@@ -11,6 +11,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import java.util.List;
+
 
 public class PasswordManagerApp extends Application {
     private static TextField NameField;
@@ -19,12 +21,17 @@ public class PasswordManagerApp extends Application {
     private static TextField SearchField;
     private static TextField ausgabe;
 
+
+    private static Manager manager;
+
+
     public static void main(String[] args) { launch(null);
     }
 
 
     public void start(Stage primaryStage) throws Exception {
 
+        manager = new Manager();
         Label Name = new Label("Name       ");
         NameField = new TextField();
         Label Benutzer = new Label("Benutzer  ");
@@ -35,7 +42,7 @@ public class PasswordManagerApp extends Application {
         eintragen.setOnAction(e -> eintragen(e));
         SearchField = new TextField();
         Button Search = new Button("Suche");
-        Search.setOnAction(e -> Search(e));
+        Search.setOnAction(e -> suche(e));
         ausgabe = new TextField();
 
         ausgabe.setPrefHeight(150);
@@ -54,15 +61,33 @@ public class PasswordManagerApp extends Application {
         root.setPadding(insets);
 
 
-        Scene scene = new Scene(root, 500, 500);
+        Scene scene = new Scene(root, 240, 300);
         primaryStage.setScene(scene);
         primaryStage.show();
 
     }
 
-    public static void Search(ActionEvent e) {
+
+
+    public static void suche(ActionEvent e) {
+
+        Passwort p = new Passwort("Facebook", "schnubselbrumm", "ganzGeheim");
+        manager.neu(p);
+        manager.neu(new Passwort("amazon", "nobody", "keins"));
+        manager.neu(new Passwort("github", "kiltz", "nix"));
+        manager.neu(new Passwort("email", "f@kiltz.de", "keins"));
+        List<Passwort> liste = manager.suche(SearchField.getText());
+        for (Passwort passwort : liste ) {
+            System.out.println(passwort);
+            ausgabe.setText(String.valueOf(liste));
+        }
+
     }
 
     public static void eintragen(ActionEvent e) {
+
+        manager.neu(new Passwort(NameField.getText(), UserField.getText(), PasswdField.getText()));
+
+
     }
 }
