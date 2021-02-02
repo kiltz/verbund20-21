@@ -21,16 +21,16 @@ public class PWManagerApp extends Application{
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        VBox root = new VBox(20);
-        root.setPadding(new Insets(10));
-        root.getChildren().add(getNameRow());
-        root.getChildren().add(getPrintRow());
-        root.getChildren().add(getUserRow());
-        root.getChildren().add(getPwdRow());
-        root.getChildren().add(getEnterRow());
-        root.getChildren().add(getSearchRow());
+        VBox vMain = new VBox(20);
+        vMain.setPadding(new Insets(10));
+        vMain.getChildren().add(getNameRow());
+        vMain.getChildren().add(getPrintRow());
+        vMain.getChildren().add(getUserRow());
+        vMain.getChildren().add(getPwdRow());
+        vMain.getChildren().add(getEnterRow());
+        vMain.getChildren().add(getSearchRow());
 
-        Scene scene = new Scene(root, 400, 300);
+        Scene scene = new Scene(vMain, 400, 300);
         primaryStage.setScene(scene);
         primaryStage.show();
 
@@ -49,7 +49,7 @@ public class PWManagerApp extends Application{
     private Node getEnterRow() {
         HBox box = new HBox(15);
         TextField tSuche = new TextField();
-        Button btnSuche = new Button("Suche");
+        Button btnSuche = new Button("Search");
         btnSuche.setAlignment(Pos.CENTER_RIGHT);
         btnSuche.setDefaultButton(true);
         btnSuche.setOnAction(e -> search());
@@ -62,7 +62,7 @@ public class PWManagerApp extends Application{
 
     private Node getPwdRow() {
         HBox box = new HBox(15);
-        Label lPassword = new Label("Passwd");
+        Label lPassword = new Label("Password");
         lPassword.setPrefSize(50,10);
         TextField tPassword = new TextField();
         box.getChildren().addAll(lPassword,tPassword);
@@ -71,7 +71,7 @@ public class PWManagerApp extends Application{
 
     private Node getUserRow() {
         HBox box = new HBox(15);
-        Label lUser = new Label("Benutzer");
+        Label lUser = new Label("Username");
         lUser.setPrefSize(50,10);
         TextField tUser = new TextField();
         box.getChildren().addAll(lUser,tUser);
@@ -80,7 +80,7 @@ public class PWManagerApp extends Application{
 
     private Node getPrintRow() {
         HBox box = new HBox(15);
-        Button btnPrint = new Button("Eintragen");
+        Button btnPrint = new Button("Print");
         btnPrint.setAlignment(Pos.CENTER);
         btnPrint.setDefaultButton(true);
         btnPrint.setOnAction(e -> print());
