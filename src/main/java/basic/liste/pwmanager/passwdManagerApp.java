@@ -9,6 +9,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import javax.swing.*;
+import java.util.List;
 
 public class passwdManagerApp extends Application {
     public TextField tfName;
@@ -106,6 +107,10 @@ public class passwdManagerApp extends Application {
         manager.neu(new Passwort(name,benutzer,password));
     }
     public void suchen(ActionEvent e){
-        manager.suche(tfSuchen.getText());
+        List<Passwort> ergebnise=manager.suche(tfSuchen.getText();
+        for(Passwort ergebnis:ergebnise){
+            taAusgabe.setText(taAusgabe.getText() + ergebnis.toString() + "\n");
+        }
+
     }
 }
