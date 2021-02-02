@@ -72,6 +72,7 @@ public class PasswdApp extends Application {
     }
 
     public void erzeugen(ActionEvent e){
+        seterlaubteZeichen();
         String password = "";
         int laenge=Integer.parseInt(tfLaenge.getText());
         for (int i = 0; i < laenge; i++) {
@@ -80,5 +81,16 @@ public class PasswdApp extends Application {
         }
         lAusgabe.setText("Ihr neues Passwort: " + password);
 
+    }
+    public void seterlaubteZeichen(){
+        if(cbGroßBuchstaben.isSelected()){
+            erlaubteZeichen+="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        }
+        else if(cbZahlen.isSelected()){
+            erlaubteZeichen+="0123456789";
+        }
+        else if(cbSonderzeichen.isSelected()){
+            erlaubteZeichen+="!@§$%&/()=?`{[]}#+-*";
+        }
     }
 }
