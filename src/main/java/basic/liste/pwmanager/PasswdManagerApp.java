@@ -82,6 +82,7 @@ public class PasswdManagerApp extends Application {
 
     private void eintragen() {
         manager.neu(new Passwort(tfName.getText(),tfBenutzer.getText(),tfPasswd.getText()));
+        System.out.println("Datensatz erfolgreich angelegt");
     }
 
     private Node getAusgabeZeile() {
