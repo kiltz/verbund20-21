@@ -9,7 +9,6 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-import javax.xml.soap.Text;
 import java.util.List;
 
 
@@ -74,7 +73,7 @@ public class PasswdManagerApp extends Application {
         taAusgabe.setText("");
         List<Passwort> passwords = manager.suche(tfSuchen.getText());
         for (Passwort password : passwords) {
-            taAusgabe.setText(taAusgabe.getText() + password +"\n");
+            taAusgabe.setText(taAusgabe.getText() + password + "\n");
         }
     }
 
