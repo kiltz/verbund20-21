@@ -1,4 +1,4 @@
-package basic.aufgabe2.muloe;
+package oop.basic.aufgabe2.muloe;
 
 public class KaffeeAutomat {
 
