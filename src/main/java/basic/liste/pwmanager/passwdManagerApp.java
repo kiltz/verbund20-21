@@ -108,11 +108,10 @@ public class passwdManagerApp extends Application {
         String benutzer=tfBenutzer.getText();
         String password=pfPassword.getText();
         manager.neu(new Passwort(name,benutzer,password));
-        taAusgabe.setText("Eintragung durchgeführt!");
+        taAusgabe.setText(String.format("Habe '%s' eingetragen!", name));
         tfName.setText("");
         tfBenutzer.setText("");
         pfPassword.setText("");
-        taAusgabe.setText("");
     }
     public void suchen(ActionEvent e){
         taAusgabe.setText("");
