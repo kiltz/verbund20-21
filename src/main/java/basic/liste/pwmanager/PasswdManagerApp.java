@@ -12,16 +12,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-
 import java.util.List;
 
 
 public class PasswdManagerApp extends Application {
-
-    public static void main(String[] args) {
-        launch(args);
-    }
-
     Manager manager = new Manager();
     Passwort p = new Passwort();
     TextField tfName;
@@ -29,6 +23,10 @@ public class PasswdManagerApp extends Application {
     TextField tfPasswd;
     TextField tfSuche;
     TextArea taAusgabe;
+
+    public static void main(String[] args) {
+        launch(args);
+    }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
