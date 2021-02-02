@@ -92,14 +92,14 @@ public class StatisitkApp extends Application {
             Collections.sort(list);
             minimum.setText("" + list.get(0));
             maximum.setText("" + list.get(list.size() - 1));
-            durchschnitt.setText("" + getDurchschnitt());
-            summe.setText("" + getSumme());
+            durchschnitt.setText("" + berechneDurchschnitt());
+            summe.setText("" + berechneSumme());
             anzahleingaben.setText("" + list.size());
         } catch (NumberFormatException f) {
             System.out.println("Fehler");
         }
     }
-    public int getSumme(){
+    public int berechneSumme(){
         int summe=0;
         for(Integer number:list){
             summe+=number;
@@ -108,9 +108,6 @@ public class StatisitkApp extends Application {
     }
 
 
-    public void aktualisieren(ActionEvent e) {
-        launch();
-    }
 
     public void leeren(ActionEvent e) {
         list = new ArrayList<>();
@@ -123,7 +120,7 @@ public class StatisitkApp extends Application {
         anzahleingaben.setText("");
     }
 
-    public double getDurchschnitt() {
+    public double berechneDurchschnitt() {
         int totalSum = 0;
         for (Integer number : list) {
             totalSum += number;
