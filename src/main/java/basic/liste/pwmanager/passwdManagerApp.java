@@ -92,6 +92,7 @@ public class passwdManagerApp extends Application {
 
     public HBox getLineAusgabe(){
         taAusgabe=new TextArea();
+        taAusgabe.setEditable(false);
         HBox box=new HBox();
         box.getChildren().add(taAusgabe);
         box.setSpacing(10);
