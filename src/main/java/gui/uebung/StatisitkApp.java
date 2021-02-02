@@ -27,6 +27,7 @@ public class StatisitkApp extends Application {
     private OptionalInt max;
     private OptionalDouble average;
     private int summe;
+    private int max2 = 0;
 
     public static void main(String[] args) {
         launch(args);
@@ -105,9 +106,9 @@ public class StatisitkApp extends Application {
                 .sum();
 
         lsummewert.setText(String.valueOf(summe));
-        ldurchschnittwert.setText(String.valueOf(average));
-        lminwert.setText(String.valueOf(min));
-        lmaxwert.setText(String.valueOf(max));
+        ldurchschnittwert.setText(String.valueOf(average.getAsDouble()));
+        lminwert.setText(String.valueOf(min.getAsInt()));
+        lmaxwert.setText(String.valueOf(max.getAsInt()));
         anzahl = liste.size();
         lanzahlwert.setText(String.valueOf(anzahl));
 
