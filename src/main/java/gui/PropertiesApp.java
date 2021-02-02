@@ -42,17 +42,9 @@ public class PropertiesApp extends Application {
         primaryStage.show();
     }
 
-
     private void getProperties(ActionEvent f) {
-        Properties props = System.getProperties();
-        for (Map.Entry<Object, Object> e : props.entrySet()) {
-            if (e.getKey().equals("os.name")) {
-                lOS.setText("OS: " + e.getValue().toString());
-            } else if (e.getKey().equals("user.name")) {
-                lUser.setText("User: " + e.getValue().toString());
-            } else if (e.getKey().equals("user.dir")) {
-                lVerzeichnis.setText("Verzeichnis: " + e.getValue().toString());
-            }
-        }
+        lOS.setText("OS: " + System.getProperty("os.name"));
+        lUser.setText("User: " + System.getProperty("user.name"));
+        lVerzeichnis.setText("Verzeichnis: " + System.getProperty("user.dir"));
     }
 }
