@@ -43,6 +43,7 @@ public class PasswdApp extends Application {
 
 
         root.getChildren().add(boxLaenge);
+        root.getChildren().add(boxCheckBoxen);
         root.getChildren().add(bErzeugen);
         root.getChildren().add(lAusgabe);
 
@@ -59,7 +60,7 @@ public class PasswdApp extends Application {
         Label lSonderzeichen=new Label("Sonderzeichen");
         Label lEinsvonAllem=new Label("Eins von Allem");
         HBox box=new HBox();
-        box.getChildren().add(lGroßbuchstaben)
+        box.getChildren().add(lGroßbuchstaben);
         box.getChildren().add(cbGroßBuchstaben);
         box.getChildren().add(lZahlen);
         box.getChildren().add(cbZahlen);
