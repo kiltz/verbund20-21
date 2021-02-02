@@ -1,6 +1,7 @@
 package gui.uebung;
 
 import javafx.application.Application;
+import javafx.collections.FXCollections;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -12,6 +13,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -31,6 +33,7 @@ public class StatisitkApp extends Application {
     private Label lAnzahlEingabe;
     private ArrayList<Integer> liste = new ArrayList<Integer>();
     private int zahl;
+    private int anzahl;
 
     public static void main(String[] args) {
         launch(null);
@@ -46,11 +49,24 @@ public class StatisitkApp extends Application {
         primaryStage.show();
     }
 
+
+
     private Node getAnzahlEingabe() {
         HBox box = new HBox(15);
-        lAnzahlEingabe = new Label("Anzahl Eingabe");
-        box.getChildren().add(lAnzahlEingabe);
+        lAnzahlEingabe = new Label("Anzahl Eingabe ");
+        Button listeLoeschen = new Button("Liste Leeren");
+        listeLoeschen.setOnAction(e->leeren());
+        box.getChildren().addAll(lAnzahlEingabe, listeLoeschen);
         return box;
+    }
+
+    private void leeren() {
+        liste.clear();
+        lSumme.setText("Summe");
+        lMin.setText("Min");
+        lMax.setText("Max");
+        lDurchschnitt.setText("Durchschnitt");
+
     }
 
     private Node getSumme() {
@@ -69,7 +85,7 @@ public class StatisitkApp extends Application {
 
     private Node getMinMax() {
         HBox box = new HBox(15);
-        lMin = new Label("Min" + liste.stream());
+        lMin = new Label("Min");
         lMax = new Label("Max");
         box.getChildren().addAll(lMin, lMax);
         return box;
@@ -93,5 +109,18 @@ public class StatisitkApp extends Application {
     private void hinzufuegen() {
         zahl = Integer.parseInt(tfEingabe.getText());
         liste.add(zahl);
+
+        anzahl +=1;
+
+        int sum = 0;
+        for(int i : liste)
+            sum += i;
+
+        lMin.setText("Min " + Collections.min(liste));
+        lMax.setText("Max " + Collections.max(liste));
+        lSumme.setText("Summe " + sum);
+        lDurchschnitt.setText("Durchschnitt " + (sum/liste.toArray().length));
+        lAnzahlEingabe.setText("Anzahl Eingabe " + anzahl);
+
     }
 }
