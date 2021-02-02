@@ -76,18 +76,22 @@ public class StatisitkApp extends Application {
 
     private void clear(ActionEvent g) {
         numbers.clear();
+        lMin.setText("Min: ");
+        lMax.setText("Max: ");
+        lDurchschnitt.setText("Durchschnitt: ");
+        lSumme.setText("Summe: ");
+        lAnzahl.setText("Anzahl Eingaben: ");
     }
 
     private void hinzufuegen(ActionEvent e) {
         try {
             numbers.add(Integer.parseInt(tfEingabe.getText()));
-            if(numbers.size() >= 2){
-                min();
-                max();
-                sum();
-                anzahl();
-                average();
-            }
+            min();
+            max();
+            sum();
+            anzahl();
+            average();
+
         } catch (NumberFormatException f) {
             System.out.println("Ungueltige Eingabe");
         }
