@@ -45,8 +45,8 @@ public class StatisitkApp extends Application {
 
         Label lInput = new Label("Eingabe: ");
         tfInput = new TextField();
-        Button btHinzufuegen = new Button("Hinzufuegen");
-        btHinzufuegen.setOnAction(e -> add(e));
+        Button btAdd = new Button("Hinzufuegen");
+        btAdd.setOnAction(e -> add(e));
 
         lMin = new Label("Min: ");
         lMax = new Label("Max: ");
@@ -60,7 +60,7 @@ public class StatisitkApp extends Application {
         btClear.setOnAction(g -> clear(g));
 
         HBox hInput = new HBox(10);
-        hInput.getChildren().addAll(lInput, tfInput, btHinzufuegen);
+        hInput.getChildren().addAll(lInput, tfInput, btAdd);
 
         HBox hMinMax = new HBox(10);
         hMinMax.getChildren().addAll(lMin, lMax);
@@ -70,7 +70,7 @@ public class StatisitkApp extends Application {
         vMain.getChildren().addAll(hInput, hMinMax, lAverage, lSum, lCount, btClear);
 
         Scene scene = new Scene(vMain, 500, 400);
-        primaryStage.setTitle("Statistik App");
+        primaryStage.setTitle("Statistik");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
