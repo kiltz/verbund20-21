@@ -67,7 +67,7 @@ public class PasswdManagerApp extends Application {
     }
 
     private void suche() {
-        List<Passwort> liste = manager.suche("m");
+        List<Passwort> liste = manager.suche(""+tfSuche.getText());
         for (Passwort passwort : liste) {
             textArea.setText(""+ passwort);
         }
