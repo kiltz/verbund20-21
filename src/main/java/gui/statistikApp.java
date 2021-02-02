@@ -15,6 +15,7 @@ import javafx.scene.layout.VBox;
 import javax.xml.soap.Text;
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /*
@@ -31,6 +32,7 @@ public class statistikApp extends Application {
     private Label lAnzahlEingabe;
     private TextField textEingabe;
     private int zahl;
+    private int sum;
     private ArrayList<Integer> liste = new ArrayList<Integer>();
 
 
@@ -43,8 +45,8 @@ public class statistikApp extends Application {
         VBox root = new VBox(15);
         root.getChildren().addAll(getEing(), getMinMax(), getDurchsch(), getSumme(), getAnzEingabe());
         Scene scene = new Scene(root, 300, 400);
-        primaryStage.getScene(scene);
-        primaryStage.getTitle("Statistik App");
+        primaryStage.setScene(scene);
+        primaryStage.setTitle("Statistik App");
         primaryStage.show();
     }
 
@@ -71,9 +73,9 @@ public class statistikApp extends Application {
 
     private Node getMinMax() {
         HBox box = new HBox(18);
-        lMin = new Label("Min" + liste.stream());
+        lMin = new Label("Min");
         lMax = new Label("Max");
-        box.getChildren().add(lMin, lMax);
+        box.getChildren().addAll(lMin, lMax);
         return box;
     }
 
@@ -82,7 +84,7 @@ public class statistikApp extends Application {
         box.setPadding(new Insets(10));
         Label lEingabe = new Label("Eingabe");
         textEingabe = new TextField();
-        textEingabe.getPreferredSize(50);
+        textEingabe.setPrefSize(50, 10);
         Button btnHinzufuegen = new Button("Add");
         btnHinzufuegen.setDefaultButton(true);
         btnHinzufuegen.setOnAction(e -> hinzufuegen());
@@ -91,7 +93,38 @@ public class statistikApp extends Application {
     }
 
     private void hinzufuegen() {
-        zahl = Integer.parseInt(textEingabe, getText());
+        zahl = Integer.parseInt(textEingabe.getText());
         liste.add(zahl);
+        min();
+        max();
+        sum();
+        anzahll();
+        average();
+    }
+
+    private void average() {
+        int average = (sum / liste.size());
+        lDurchschnitt.setText("Durchschnitt: " + average);
+    }
+
+    private void anzahll() {
+        lAnzahlEingabe.setText("Anzahl Elemente: " + liste.size());
+    }
+
+    private Integer sum() {
+        sum = 0;
+        for(Integer number : liste){
+            sum += number;
+        }
+        lSumme.setText("Summe: " + sum);
+        return sum;
+    }
+
+    private void max() {
+        lMax.setText("Max: " + Collections.max(liste));
+    }
+
+    private void min() {
+        lMin.setText("Min: " + Collections.min(liste));
     }
 }

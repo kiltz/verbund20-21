@@ -19,10 +19,7 @@ public class LoginDialog extends Application{
     }
 
     private TextField tfName;
-    private VBox vbox;
     private PasswordField password;
-    private String loginId = "Julian";
-    private String loginPw = "Passwort";
     private Label lprufen;
 
 
@@ -40,23 +37,26 @@ public class LoginDialog extends Application{
         password = new PasswordField();
 
         Button btnLogin = new Button("Login");
-        //btnLogin.setPadding(insets);
         Insets insets = new Insets(20);
-        //btnLogin.setOnAction(event -> login(e));
+        btnLogin.setPadding(insets);
+        btnLogin.setOnAction(event -> login(event));
 
         hBoxName.getChildren().addAll(lname, tfName);
-        hBoxPassword.getChildren().addAll(password, lpw);
+        hBoxPassword.getChildren().addAll(lpw, password);
 
-        Label lprufen = new Label("");
+        lprufen = new Label("");
 
         box.getChildren().addAll(hBoxName, hBoxPassword, btnLogin, lprufen);
 
+        Scene scene = new Scene(box, 300, 400);
+        primaryStage.setScene(scene);
+        primaryStage.setTitle("Login App");
+        primaryStage.show();
     }
 
     private void login(ActionEvent e) {
         String name = tfName.getText();
         String passwort = password.getText();
-        Label ausgabe = new Label();
 
             if ("".equals(name) || "".equals(passwort)){
             lprufen.setText("Es muss etwas eingegeben werden!");
