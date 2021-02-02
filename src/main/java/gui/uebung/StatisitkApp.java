@@ -28,16 +28,16 @@ public class StatisitkApp extends Application {
     private Label l5;
     private Label l3;
     private Label l7;
-    private List<Integer> liste;
+    private List<Integer> lListe;
 
 
 
     public void Listen() {
-        liste = new ArrayList<>();
+        lListe = new ArrayList<>();
     }
 
     public void add(Integer element) {
-        liste.add(element);
+        lListe.add(element);
     }
 
     public static void main(String[] args) {
@@ -46,7 +46,7 @@ public class StatisitkApp extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        liste = new ArrayList<>();
+        lListe = new ArrayList<>();
         Label l1 = new Label("Eingabe");
         tf1= new TextField();
         Button b1 = new Button("Eingabe");
@@ -67,6 +67,7 @@ public class StatisitkApp extends Application {
         l11 = new Label();
 
         Button b2 = new Button("Reset");
+        b2.setOnAction(e -> leereListe());
 
         HBox hb1 = new HBox();
         hb1.getChildren().addAll(l1, tf1, b1);
@@ -94,13 +95,47 @@ public class StatisitkApp extends Application {
         primaryStage.show();
     }
 
+    private void leereListe() {
+        lListe = new ArrayList<>();
+        l3.setText("0");
+        l5.setText("0");
+        l7.setText("0");
+        l9.setText("0");
+        l11.setText("0");
+    }
+
 
     private void statistik(ActionEvent e) {
 
-        String ret = "";
-        for (Integer s : liste) {
-            ret += s + "\n";
+
+        String eingabe = tf1.getText();
+        Integer eingabeAlsInt = Integer.parseInt(eingabe);
+        // hinzufügen des neuen Elementes zu der Liste
+        lListe.add(eingabeAlsInt);
+        l11.setText(""+lListe.size());
+        int summe = 0;
+        int min = -1;
+        int max = 0;
+        // Liste durchlaufen (iterieren)
+        for (Integer i : lListe) {
+            summe += i;
+            if (min == -1 || min > i) {
+                min = i;
+            }
+            if (max < i) {
+                max = i;
+            }
         }
+        l9.setText(""+summe);
+        l7.setText(""+(summe/lListe.size()));
+        l3.setText(""+min);
+        l5.setText(""+max);
+
+        tf1.setText("");
+
+
+
+
 
     }
 }
