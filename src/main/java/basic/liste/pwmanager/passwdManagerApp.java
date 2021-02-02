@@ -105,7 +105,7 @@ public class passwdManagerApp extends Application {
 
     public void eintragen(ActionEvent e){
         String name=tfName.getText();
-        String benutzer=tfName.getText();
+        String benutzer=tfBenutzer.getText();
         String password=pfPassword.getText();
         manager.neu(new Passwort(name,benutzer,password));
         taAusgabe.setText("Eintragung durchgeführt!");
