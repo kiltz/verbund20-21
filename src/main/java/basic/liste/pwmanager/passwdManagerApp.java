@@ -16,6 +16,8 @@ public class passwdManagerApp extends Application {
     public PasswordField pfPassword;
     public TextField tfSuchen;
     private TextArea taAusgabe;
+
+    public Manager manager;
     public static void main(String[] args) {
         launch(args);
     }
@@ -97,7 +99,7 @@ public class passwdManagerApp extends Application {
     }
 
     public void eintragen(ActionEvent e){
-
+        manager.neu(new Passwort(tfName.getText(),tfBenutzer.getText(), pfPassword.getText()));
     }
     public void suchen(ActionEvent e){
 
