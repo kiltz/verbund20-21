@@ -49,8 +49,7 @@ public class PasswdApp extends Application {
 
     private void PwGenerator(ActionEvent e) {
 
-        int Zähler = Integer.parseInt(Zahleingabe.getText());
-
+            int Zähler = Integer.parseInt(Zahleingabe.getText());
 
         //                        01234567890123456789
         String erlaubteZeichen = "abcdefghijklmnopqrstuvwxyz";
