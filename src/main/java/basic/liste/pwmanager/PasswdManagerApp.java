@@ -26,6 +26,7 @@ public class PasswdManagerApp extends Application {
     private Manager manager;
     private TextField tfsuche;
     private TextArea taergebnis;
+    private Label lsuche;
 
     public static void main(String[] args) {
         launch(null);
@@ -46,6 +47,7 @@ public class PasswdManagerApp extends Application {
         Button bsuche = new Button("Suche");
         bsuche.setOnAction(s-> suchen(s));
         taergebnis = new TextArea();
+        lsuche = new Label();
 
         manager = new Manager();
         Passwort p = new Passwort("Facebook", "schnubselbrumm", "ganzGeheim");
@@ -81,17 +83,21 @@ public class PasswdManagerApp extends Application {
         HBox zeile6 = new HBox();
         zeile6.getChildren().add(taergebnis);
 
+        HBox zeile7 = new HBox();
+        zeile7.getChildren().add(lsuche);
+
         root.getChildren().add(zeile1);
         root.getChildren().add(zeile2);
         root.getChildren().add(zeile3);
         root.getChildren().add(zeile4);
         root.getChildren().add(zeile5);
         root.getChildren().add(zeile6);
+        root.getChildren().add(zeile7);
 
 
         Insets insets = new Insets(50, 50, 10, 50);
         root.setPadding(insets);
-        Scene scene = new Scene(root, 550, 400);
+        Scene scene = new Scene(root, 550, 450);
         primaryStage.setScene(scene);
         primaryStage.show();
     }
@@ -126,6 +132,14 @@ public class PasswdManagerApp extends Application {
         taergebnis.setText("");
         for(Passwort ergebnis:ergebnise) {
             taergebnis.setText(taergebnis.getText() + ergebnis.toString() + "\n");
+        }
+
+        if (tfsuche.getText().equals(" ") ) {
+            lsuche.setText("Bitte etwas in die Suchleiste eingeben!");
+            lsuche.setTextFill(Color.web("#E23130"));
+        } else {
+            lsuche.setText("Suche ist erfolgt!");
+            lsuche.setTextFill(Color.web("#005091"));
         }
     }
 }
