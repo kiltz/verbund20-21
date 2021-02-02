@@ -1,7 +1,6 @@
 package basic.liste.pwmanager;
 
 import javafx.application.Application;
-
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
@@ -20,6 +19,12 @@ public class PasswdManagerApp extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+
+    Manager manager = new Manager();
+    TextField tfName;
+    TextField tfBenutzer;
+    TextField tfPasswd;
+    TextField tfSuche;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -48,7 +53,7 @@ public class PasswdManagerApp extends Application {
 
     private Node getSucheZeile() {
         HBox box = new HBox(15);
-        TextField tfSuche = new TextField();
+        tfSuche = new TextField();
         Button bSuche = new Button("Suche");
         bSuche.setAlignment(Pos.CENTER_RIGHT);
         bSuche.setDefaultButton(true);
@@ -57,7 +62,8 @@ public class PasswdManagerApp extends Application {
         return box;
     }
 
-    private void suche() {
+    private void suche(){
+        manager.suche(tfSuche.getText());
 
     }
 
@@ -72,13 +78,14 @@ public class PasswdManagerApp extends Application {
     }
 
     private void eintragen() {
+        manager.neu();
     }
 
     private Node getPasswdZeile() {
         HBox box = new HBox(15);
         Label lPasswd = new Label("Passwd");
         lPasswd.setPrefSize(50,10);
-        TextField tfPasswd = new TextField();
+        tfPasswd = new TextField();
         box.getChildren().addAll(lPasswd,tfPasswd);
         return box;
     }
@@ -87,7 +94,7 @@ public class PasswdManagerApp extends Application {
         HBox box = new HBox(15);
         Label lBenutzer = new Label("Benutzer");
         lBenutzer.setPrefSize(50,10);
-        TextField tfBenutzer = new TextField();
+        tfBenutzer = new TextField();
         box.getChildren().addAll(lBenutzer,tfBenutzer);
         return box;
     }
@@ -97,7 +104,7 @@ public class PasswdManagerApp extends Application {
         HBox box = new HBox(15);
         Label lName = new Label("Name");
         lName.setPrefSize(50,10);
-        TextField tfName = new TextField();
+        tfName = new TextField();
         box.getChildren().addAll(lName,tfName);
         return box;
     }
