@@ -2,6 +2,7 @@ package basic.liste.pwmanager;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
@@ -17,6 +18,7 @@ public class passwdManagerApp extends Application {
     public PasswordField pfPassword;
     public TextField tfSuchen;
     private TextArea taAusgabe;
+    public Insets insets=new Insets(10,10,10,10);
 
     public Manager manager=new Manager();
     public static void main(String[] args) {
@@ -38,6 +40,7 @@ public class passwdManagerApp extends Application {
         root.getChildren().add(boxLineSuchen);
         root.getChildren().add(boxLineAusgabe);
 
+        root.setPadding(insets);
         root.setSpacing(10);
 
         Scene scene=new Scene(root, 400,400);
