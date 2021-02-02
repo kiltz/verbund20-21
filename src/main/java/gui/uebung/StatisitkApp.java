@@ -1,6 +1,7 @@
 package gui.uebung;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -10,6 +11,10 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 /**
  * Aufgabe:
  * Zahleneingabe
@@ -18,7 +23,7 @@ import javafx.stage.Stage;
  * [.5.] + [.2.] (=) 7
  */
 public class StatisitkApp extends Application {
-
+    public List<Integer> list = new ArrayList<>();
     private TextField zahleingabe;
     private Button hinzufuegen;
     private Label minimum;
@@ -36,19 +41,21 @@ public class StatisitkApp extends Application {
     public void start(Stage primaryStage) throws Exception {
         Label eingabe = new Label("eingabe");
         zahleingabe = new TextField("Zahl eingeben");
-        hinzufuegen = new Button ("hinzufügen");
-        Label min = new Label ("min");
-        Label max = new Label ("max");
-        minimum = new Label ("1");
-        maximum = new Label ("15");
-        Label dschntt = new Label ("durchschnitt");
-        durchschnitt = new Label ("8");
-        Label Sum = new Label ("Summe");
-        summe = new Label ("16");
-        Label anzahl_eingaben = new Label ("Anzahl Eingaben");
-        anzahleingaben = new Label("2");
+        hinzufuegen = new Button("hinzufügen");
+        Label min = new Label("min");
+        Label max = new Label("max");
+        minimum = new Label("");
+        maximum = new Label("");
+        Label dschntt = new Label("durchschnitt");
+        durchschnitt = new Label("");
+        Label Sum = new Label("Summe");
+        summe = new Label("");
+        Label anzahl_eingaben = new Label("Anzahl Eingaben");
+        anzahleingaben = new Label("");
         leeren = new Button("Liste leeren");
 
+        hinzufuegen.setOnAction(e -> hinzufuegen(e));
+        leeren.setOnAction(e -> leeren(e));
 
 
         HBox HB1 = new HBox(eingabe, zahleingabe, hinzufuegen);
@@ -74,5 +81,54 @@ public class StatisitkApp extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
     }
-}
 
+
+
+
+
+    public void hinzufuegen(ActionEvent e) {
+        try {
+            list.add(Integer.parseInt(zahleingabe.getText()));
+            Collections.sort(list);
+            minimum.setText("" + list.get(0));
+            maximum.setText("" + list.get(list.size() - 1));
+            durchschnitt.setText("" + getDurchschnitt());
+            summe.setText("" + getSumme());
+            anzahleingaben.setText("" + list.size());
+        } catch (NumberFormatException f) {
+            System.out.println("Fehler");
+        }
+    }
+    public int getSumme(){
+        int summe=0;
+        for(Integer number:list){
+            summe+=number;
+        }
+        return summe;
+    }
+
+
+    public void aktualisieren(ActionEvent e) {
+        launch();
+    }
+
+    public void leeren(ActionEvent e) {
+        list = new ArrayList<>();
+
+        anzahleingaben.setText("" + list.size());
+        minimum.setText("");
+        maximum.setText("");
+        summe.setText("");
+        durchschnitt.setText("");
+        anzahleingaben.setText("");
+    }
+
+    public double getDurchschnitt() {
+        int totalSum = 0;
+        for (Integer number : list) {
+            totalSum += number;
+        }
+        double durchschnitt = totalSum / list.size();
+        return durchschnitt;
+    }
+}
