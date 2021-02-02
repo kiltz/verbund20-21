@@ -5,10 +5,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -16,13 +13,13 @@ import java.util.List;
 
 
 public class PasswdManagerApp extends Application {
-    Manager manager = new Manager();
-    Passwort p = new Passwort();
-    TextField tfName;
-    TextField tfBenutzer;
-    TextField tfPasswd;
-    TextField tfSuche;
-    TextArea taAusgabe;
+    private Manager manager = new Manager();
+    private Passwort p = new Passwort();
+    private TextField tfName;
+    private TextField tfBenutzer;
+    private TextField tfPasswd;
+    private TextField tfSuche;
+    private TextArea taAusgabe;
 
     public static void main(String[] args) {
         launch(args);
@@ -91,7 +88,10 @@ public class PasswdManagerApp extends Application {
         taAusgabe.setPrefRowCount(4);
         taAusgabe.setPrefColumnCount(20);
         taAusgabe.setWrapText(true);
-        box.getChildren().add(taAusgabe);
+        ScrollPane scrolli = new ScrollPane();
+        scrolli.setMaxWidth(200);
+        scrolli.setContent(taAusgabe);
+        box.getChildren().add(scrolli);
         return box;
     }
 
@@ -100,7 +100,6 @@ public class PasswdManagerApp extends Application {
         tfSuche = new TextField();
         Button bSuche = new Button("Suche");
         bSuche.setAlignment(Pos.CENTER_RIGHT);
-        bSuche.setDefaultButton(true);
         bSuche.setOnAction(e -> suchen());
         box.getChildren().addAll(tfSuche,bSuche);
         return box;
@@ -110,7 +109,7 @@ public class PasswdManagerApp extends Application {
         taAusgabe.setText("");
         List<Passwort> liste = manager.suche(tfSuche.getText());
         for (Passwort passwort : liste) {
-            taAusgabe.setText(""+ passwort+"\n");
+            taAusgabe.setText(""+ passwort + "\n");
         }
     }
 }
