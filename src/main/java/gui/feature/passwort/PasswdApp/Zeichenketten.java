@@ -80,11 +80,11 @@ public class Zeichenketten extends Application {
         String neu = ""+erlaubteZeichen.charAt(4)+erlaubteZeichen.charAt(7)+erlaubteZeichen.charAt(12);
 
         String test = "";
-        for (int i = 0; i < 15; ++i) {
+        for (int i = 0; i < passwort; ++i) {
             int pos = (int) (Math.random() * erlaubteZeichen.length());
             test += erlaubteZeichen.charAt(pos);
         }
-        System.out.println(test);
+        l2.setText(String.valueOf(test));
     }
 
 
