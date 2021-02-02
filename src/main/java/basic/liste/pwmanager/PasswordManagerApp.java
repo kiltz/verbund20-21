@@ -79,7 +79,7 @@ public class PasswordManagerApp extends Application {
         List<Passwort> liste = manager.suche(SearchField.getText());
         for (Passwort passwort : liste ) {
             System.out.println(passwort);
-            ausgabe.setText(String.valueOf(liste));
+            ausgabe.setText(passwort.toString());
         }
 
     }
