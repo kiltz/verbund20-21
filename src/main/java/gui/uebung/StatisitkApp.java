@@ -11,6 +11,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -25,7 +26,12 @@ import java.util.List;
 public class StatisitkApp extends Application {
 
     TextField tf;
-    List<Integer> list = new ArrayList<Integer>();
+    List<Integer> list = new ArrayList<>();
+    Label su;
+    Label du;
+    Label mi;
+    Label ma;
+    Label an;
 
     public static void main(String[] args) {
         launch(args);
@@ -54,29 +60,35 @@ public class StatisitkApp extends Application {
     private Node getSumme() {
         HBox box = new HBox(15);
         box.setPadding(new Insets(10));
+        Label summe = new Label("Summe: ");
+        su.setText(String.valueOf(summieren()));
+        box.getChildren().addAll(summe, su);
         return box;
     }
 
     private Node getAnzahl() {
         HBox box = new HBox(15);
         box.setPadding(new Insets(10));
+        Label anzahl = new Label("Anzahl :");
+        an.setText(String.valueOf(list.size()));
+        box.getChildren().addAll(anzahl,an);
         return box;
     }
 
     private Node getDurchschnitt() {
         HBox box = new HBox(15);
         box.setPadding(new Insets(10));
-        Label durchschnitt = new Label();
-        box.getChildren().add(durchschnitt);
+        Label durchschnitt = new Label("Durchschnitt: ");
+        du.setText(String.valueOf(berechneDurchschnitt()));
+        box.getChildren().addAll(durchschnitt, du);
         return box;
     }
 
     private Node getMinMax() {
         HBox box = new HBox(15);
         box.setPadding(new Insets(10));
-        Label min = new Label();
-        //list.sort();
-        Label max = new Label();
+        Label min = new Label("Min: ");
+        Label max = new Label("Max: ");
         box.getChildren().addAll(min,max);
         return box;
     }
@@ -92,7 +104,24 @@ public class StatisitkApp extends Application {
         return box;
     }
 
-    private void add() {
+    public void add() {
         list.add(Integer.parseInt(tf.getText()));
+        Collections.sort(list);
+    }
+    public int summieren(){
+        int summe = 0;
+        if (list.size()>=1){
+            for(int i:list) {
+                summe = summe + i;
+            }
+        }
+        return summe;
+    }
+    public float berechneDurchschnitt(){
+        float  durchschnitt=0;
+        if (list.size() >= 1) {
+           durchschnitt =  (float) summieren() / (float) list.size();
+        }
+        return durchschnitt;
     }
 }
