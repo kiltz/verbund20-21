@@ -71,11 +71,6 @@ public class PasswordManagerApp extends Application {
 
     public static void suche(ActionEvent e) {
 
-        Passwort p = new Passwort("Facebook", "schnubselbrumm", "ganzGeheim");
-        manager.neu(p);
-        manager.neu(new Passwort("amazon", "nobody", "keins"));
-        manager.neu(new Passwort("github", "kiltz", "nix"));
-        manager.neu(new Passwort("email", "f@kiltz.de", "keins"));
         List<Passwort> liste = manager.suche(SearchField.getText());
         for (Passwort passwort : liste ) {
             System.out.println(passwort);
