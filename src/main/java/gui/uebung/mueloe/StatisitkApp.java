@@ -12,6 +12,9 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Aufgabe:
  * Zahleneingabe
@@ -28,18 +31,21 @@ public class StatisitkApp extends Application {
     private Label lSumme;
     private Label lAnzahl;
 
+    private List<Integer> liste;
+
     public static void main(String[] args) {
         launch(null);
     }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        liste = new ArrayList<>();
         VBox root = new VBox(10);
         root.getChildren().add(getEingabeZeile());
         root.getChildren().add(getMinMaxZeile());
         root.getChildren().add(getDurchSchnittUndSummeZeile());
         root.getChildren().add(getAnzahlZeile());
-        Scene scene = new Scene(root, 300, 400);
+        Scene scene = new Scene(root, 300, 250);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Statistik");
         primaryStage.show();
@@ -57,7 +63,12 @@ public class StatisitkApp extends Application {
     }
 
     private void leereListe() {
-        System.out.println("Liste leeren");
+        liste = new ArrayList<>();
+        lMin.setText("0");
+        lMax.setText("0");
+        lDurchschnitt.setText("0");
+        lSumme.setText("0");
+        lAnzahl.setText("0");
     }
 
     private Node getDurchSchnittUndSummeZeile() {
@@ -97,6 +108,29 @@ public class StatisitkApp extends Application {
     }
 
     private void hinzufuegen() {
-        System.out.println("klick");
+        String eingabe = tfEingabe.getText();
+        Integer eingabeAlsInt = Integer.parseInt(eingabe);
+        // hinzufügen des neuen Elementes zu der Liste
+        liste.add(eingabeAlsInt);
+        lAnzahl.setText(""+liste.size());
+        int summe = 0;
+        int min = -1;
+        int max = 0;
+        // Liste durchlaufen (iterieren)
+        for (Integer i : liste) {
+            summe += i;
+            if (min == -1 || min > i) {
+                min = i;
+            }
+            if (max < i) {
+                max = i;
+            }
+        }
+        lSumme.setText(""+summe);
+        lDurchschnitt.setText(""+(summe/liste.size()));
+        lMin.setText(""+min);
+        lMax.setText(""+max);
+
+        tfEingabe.setText("");
     }
 }
