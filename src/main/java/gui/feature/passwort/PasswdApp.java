@@ -50,6 +50,7 @@ public class PasswdApp extends Application {
         HBox hAusgabe = new HBox(10);
         Label lAusgabe = new Label("Passwort: ");
         tfAusgabe = new TextField();
+        tfAusgabe.setEditable(false);
         hAusgabe.getChildren().addAll(lAusgabe, tfAusgabe);
 
         vBox.getChildren().addAll(hLaenge, chckCapitals, chckNumbers, chckExclusive, btnGenerate, hAusgabe);
@@ -73,7 +74,7 @@ public class PasswdApp extends Application {
         String numbersExclusive = "" + validNormal + validNumbers + validExclusives;
         String capitals = "" + validNormal + validCapital;
         String numbers = "" + validNormal + validNumbers;
-        String excluxive = "" + validNormal + validExclusives;
+        String exclusive = "" + validNormal + validExclusives;
 
         int length = Integer.parseInt(tfLaenge.getText());
         StringBuilder sb = new StringBuilder();
@@ -105,8 +106,8 @@ public class PasswdApp extends Application {
                 sb.append(numbers.charAt(j));
 
             } else if (chckExclusive.isSelected()) {
-                int j = (int) (Math.random() * (excluxive.length() - 1));
-                sb.append(excluxive.charAt(j));
+                int j = (int) (Math.random() * (exclusive.length() - 1));
+                sb.append(exclusive.charAt(j));
 
             } else {
                 int j = (int) (Math.random() * (validNormal.length() - 1));
