@@ -20,8 +20,10 @@ public class RechnerApp extends Application {
         launch(null);
     }
 
+
     @Override
     public void start(Stage primaryStage) throws Exception {
+
         lErgebnis = new Label(" ");
         eingabe1 = new TextField();
         Label p = new Label("+");
