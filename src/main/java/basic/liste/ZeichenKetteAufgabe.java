@@ -15,6 +15,8 @@ import javafx.stage.Stage;
 
 public class ZeichenKetteAufgabe extends Application {
     private TextField tfPasswortLaenge;
+    private Label lPasswort;
+    private String erlaubteZeichen = "abcdefghijklmnopqrstuvwxyz";
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -24,13 +26,29 @@ public class ZeichenKetteAufgabe extends Application {
         Button bGenerieren = new Button("Passwort generieren");
         bGenerieren.setOnAction(e-> generieren());
 
-        root.getChildren().addAll(getPasswort(), getCheckbox(), bGenerieren);
+        root.getChildren().addAll(getPasswortLaenge(), getCheckbox(), bGenerieren,getPasswort());
         primaryStage.setScene(scene);
         primaryStage.setTitle("gui.feature.passwort.PasswdApp");
         primaryStage.show();
     }
 
+    private Node getPasswort() {
+        HBox box = new HBox(10);
+        box.setPadding(new Insets(10));
+
+        lPasswort = new Label("");
+        box.getChildren().add(lPasswort);
+        return box;
+    }
+
     private void generieren() {
+        String eingabe = tfPasswortLaenge.getText();
+        int zahl = Integer.parseInt(eingabe);
+        String test = "";
+        for (int i = 0; i < 15; ++i) {
+            int pos = (int) (Math.random() * erlaubteZeichen.length());
+            test += erlaubteZeichen.charAt(pos);
+        }
     }
 
     private Node getCheckbox() {
@@ -45,7 +63,7 @@ public class ZeichenKetteAufgabe extends Application {
         return box;
     }
 
-    private Node getPasswort() {
+    private Node getPasswortLaenge() {
         HBox box = new HBox(10);
         box.setPadding(new Insets(10));
 
