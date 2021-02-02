@@ -109,6 +109,8 @@ public class StatisitkApp extends Application {
 
 
 
+
+
     public void leeren(ActionEvent e) {
         list = new ArrayList<>();
 
