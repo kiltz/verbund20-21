@@ -17,6 +17,7 @@ public class passwdManagerApp extends Application {
     public TextField tfName;
     public TextField tfBenutzer;
     public PasswordField pfPassword;
+    public TextField tfSuchen;
     public static void main(String[] args) {
         launch(args);
     }
@@ -27,10 +28,12 @@ public class passwdManagerApp extends Application {
         HBox boxLineName=getLineName();
         HBox boxLineBenutzer=getLineBenutzer();
         HBox boxLinePassword=getLinePassword();
+        HBox boxLineSuchen=getLineSuchen();
 
         root.getChildren().add(boxLineName);
         root.getChildren().add(boxLineBenutzer);
         root.getChildren().add(boxLinePassword);
+        root.getChildren().add(boxLineSuchen);
 
         Scene scene=new Scene(root, 400,400);
         primaryStage.setScene(scene);
@@ -65,10 +68,24 @@ public class passwdManagerApp extends Application {
         HBox box=new HBox();
         box.getChildren().add(lPassword);
         box.getChildren().add(pfPassword);
+        box.getChildren().add(bEintragen);
+        return box;
+    }
+
+    public HBox getLineSuchen(){
+        tfSuchen=new TextField();
+        Button bSuchen=new Button("Suchen");
+        bSuchen.setOnAction(e->suchen(e));
+        HBox box=new HBox();
+        box.getChildren().add(tfSuchen);
+        box.getChildren().add(bSuchen);
         return box;
     }
 
     public void eintragen(ActionEvent e){
+
+    }
+    public void suchen(ActionEvent e){
 
     }
 }
