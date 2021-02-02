@@ -134,9 +134,9 @@ public class StatisitkApp extends Application {
                 .sum();
 
         lsummewert.setText(String.valueOf(summe));
-        ldurchschnittwert.setText(String.valueOf(average));
-        lminwert.setText(String.valueOf(min));
-        lmaxwert.setText(String.valueOf(max));
+        ldurchschnittwert.setText(String.valueOf(average.getAsDouble()));
+        lminwert.setText(String.valueOf(min.getAsInt()));
+        lmaxwert.setText(String.valueOf(max.getAsInt()));
         anzahl = liste.size();
         lanzahlwert.setText(String.valueOf(anzahl));
 
