@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
@@ -17,6 +18,11 @@ public class PasswdApp extends Application {
     Label lAusgabe=new Label("Ihr neues Passwort: ");
 
     private String erlaubteZeichen = "abcdefghijklmnopqrstuvwxyz";
+
+    private CheckBox cbGroßBuchstaben=new CheckBox();
+    private CheckBox cbZahlen=new CheckBox();
+    private CheckBox cbSonderzeichen=new CheckBox();
+    private CheckBox cbEinsvonAllen=new CheckBox();
     public static void main(String[] args) {
         launch(args);
     }
@@ -30,7 +36,7 @@ public class PasswdApp extends Application {
         boxLaenge.getChildren().add(lLaenge);
         boxLaenge.getChildren().add(tfLaenge);
 
-
+        HBox boxCheckBoxen=getCheckBoxen();
         Button bErzeugen=new Button("Erzeuge Passwort");
         bErzeugen.setOnAction(e->erzeugen(e));
 
@@ -44,6 +50,24 @@ public class PasswdApp extends Application {
         primaryStage.setScene(scene);
         primaryStage.setTitle("PasswdApp");
         primaryStage.show();
+    }
+
+    public HBox getCheckBoxen(){
+
+        Label lGroßbuchstaben=new Label("Großbuchstaben");
+        Label lZahlen=new Label("Zahlen");
+        Label lSonderzeichen=new Label("Sonderzeichen");
+        Label lEinsvonAllem=new Label("Eins von Allem");
+        HBox box=new HBox();
+        box.getChildren().add(lGroßbuchstaben)
+        box.getChildren().add(cbGroßBuchstaben);
+        box.getChildren().add(lZahlen);
+        box.getChildren().add(cbZahlen);
+        box.getChildren().add(lSonderzeichen);
+        box.getChildren().add(cbSonderzeichen);
+        box.getChildren().add(lEinsvonAllem);
+        box.getChildren().add(cbEinsvonAllen);
+        return box;
     }
 
     public void erzeugen(ActionEvent e){
