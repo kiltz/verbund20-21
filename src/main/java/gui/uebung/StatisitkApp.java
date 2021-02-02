@@ -25,7 +25,7 @@ import java.util.List;
 public class StatisitkApp extends Application {
 
     TextField tf;
-    List list = new ArrayList();
+    List<Integer> list = new ArrayList<Integer>();
 
     public static void main(String[] args) {
         launch(args);
@@ -36,7 +36,7 @@ public class StatisitkApp extends Application {
         VBox root = new VBox(10);
         root.setPadding(new Insets(10,20,20,10));
         root.getChildren().addAll(getInput(),getMinMax(),getDurchschnitt(),getSumme(),getAnzahl(), getListeLeeren());
-        Scene scene = new Scene(root, 300, 400);
+        Scene scene = new Scene(root, 450, 300);
         primaryStage.setScene(scene);
         primaryStage.show();
     }
@@ -44,9 +44,10 @@ public class StatisitkApp extends Application {
     private Node getListeLeeren() {
         HBox box = new HBox(15);
         box.setPadding(new Insets(10));
-        Button bDelete = new Button();
+        Button bDelete = new Button("Liste leeren");
         bDelete.setDefaultButton(true);
         bDelete.setOnAction(e -> list.clear());
+        box.getChildren().add(bDelete);
         return box;
     }
 
@@ -87,11 +88,11 @@ public class StatisitkApp extends Application {
         Button bAdd = new Button("Hinzufuegen");
         bAdd.setDefaultButton(true);
         bAdd.setOnAction(e -> add());
-        box.getChildren().addAll(new Label("Eingabe"), tf);
+        box.getChildren().addAll(new Label("Eingabe"), tf,bAdd);
         return box;
     }
 
     private void add() {
-        //list.add(Integer.parseInt(tf));
+        list.add(Integer.parseInt(tf.getText()));
     }
 }
