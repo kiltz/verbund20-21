@@ -11,33 +11,31 @@ public class Datei {
     public String schreibe(String zeile){
         File datei = null;
         String dateiName = "test.txt";
-        String txt = "Ein kleiner I/O-Test.";
         datei = new File(dateiName);
         try (FileWriter outStream = new FileWriter(datei)) {
 
-            outStream.write(txt);
+            outStream.write(zeile);
 
         } catch (IOException e) {
             // Fehlerbehandlung
             e.printStackTrace();
         }
-        return zeile;
+        return datei.toString();
     }
 
     public String schreibe(String zeile, boolean wert){
         File datei = null;
         String dateiName = "test.txt";
-        String txt = "Ein kleiner I/O-Test.";
         datei = new File(dateiName);
         try (FileWriter outStream = new FileWriter(datei)) {
 
-            outStream.write(txt);
+            outStream.write(zeile);
 
         } catch (IOException e) {
             // Fehlerbehandlung
             e.printStackTrace();
         }
-        return zeile;
+        return datei.toString();
     }
 
     public String lese() {
@@ -61,6 +59,6 @@ public class Datei {
         catch (IOException e) {
             e.printStackTrace();
         }
-        return "Datei wurde gelesen";
+        return inhalt.toString();
     }
 }

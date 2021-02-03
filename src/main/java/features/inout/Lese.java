@@ -16,14 +16,14 @@ import java.io.IOException;
 public class Lese {
     public static void main(String[] arg) {
         StringBuffer inhalt = new StringBuffer();
-        File datei = null;
-        BufferedReader reader = null;
+        File datei;
+        BufferedReader reader;
         String dateiName = "test.txt";
         // einlesen der Datei
         datei = new File(dateiName); // Erzeuge ein Datei-Objekt
         try (FileReader inStream = new FileReader(datei)) {
             reader = new BufferedReader(inStream);
-            String zeile = "";
+            String zeile;
             while ((zeile = reader.readLine()) != null) // bis alles drin ist
             {
                 inhalt.append(zeile + "\n");
