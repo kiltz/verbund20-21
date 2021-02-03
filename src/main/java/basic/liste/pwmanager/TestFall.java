@@ -3,7 +3,7 @@ package basic.liste.pwmanager;
 import java.util.List;
 
 public class TestFall {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         Manager manager = new Manager();
         Passwort p = new Passwort("Facebook", "schnubselbrumm", "ganzGeheim");
         manager.neu(p);
