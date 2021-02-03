@@ -10,7 +10,7 @@ public class Datei {
     }
 
     public void schreibe(String text) throws Exception {
-        schreibe(text,false);
+        schreibe(text, false);
     }
 
     public void schreibe(String text, boolean append) throws Exception {
@@ -29,13 +29,14 @@ public class Datei {
         StringBuffer inhalt = new StringBuffer();
         File datei = null;
         BufferedReader reader = null;
+        // einlesen der Datei
         datei = new File(dateiName); // Erzeuge ein Datei-Objekt
         try (FileReader inStream = new FileReader(datei)) {
             reader = new BufferedReader(inStream);
             String zeile = "";
             while ((zeile = reader.readLine()) != null) // bis alles drin ist
             {
-                if (inhalt.length() > 0) {
+                if ( inhalt.length() > 0) {
                     inhalt.append("\n");
                 }
                 inhalt.append(zeile);
@@ -43,7 +44,7 @@ public class Datei {
         }
         // Etwas schief gegangen?
         catch (IOException e) {
-            throw new Exception("Fehler beim Lesen, e");
+            throw new Exception("Fehler beim lesen", e);
         }
         return inhalt.toString();
     }
