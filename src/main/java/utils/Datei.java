@@ -3,33 +3,32 @@ package utils;
 import java.io.*;
 
 public class Datei {
-    public Datei(String s) {
+    private String dateiName;
+
+    public Datei(String dateiName) {
+        this.dateiName = dateiName;
     }
 
-    public void schreibe(String zeile1, boolean b) {
+    public void schreibe(String text) throws Exception {
+        schreibe(text, false);
+    }
+
+    public void schreibe(String text, boolean append) throws Exception {
         File datei = null;
-        String dateiName = "test.txt";
-        String txt = "Eine Zeile\nnoch eine Zeile";
         datei = new File(dateiName);
+        try (FileWriter outStream = new FileWriter(datei, append)) {
 
-        try (FileWriter outStream = new FileWriter(datei)) {
-
-            outStream.write(txt);
+            outStream.write(text);
 
         } catch (IOException e) {
-            // Fehlerbehandlung
-            e.printStackTrace();
+            throw new Exception("Fehler beim schreiben", e);
         }
-
     }
 
-
-    public String lese() {
-
+    public String lese() throws Exception {
         StringBuffer inhalt = new StringBuffer();
         File datei = null;
         BufferedReader reader = null;
-        String dateiName = "test.txt";
         // einlesen der Datei
         datei = new File(dateiName); // Erzeuge ein Datei-Objekt
         try (FileReader inStream = new FileReader(datei)) {
@@ -37,16 +36,16 @@ public class Datei {
             String zeile = "";
             while ((zeile = reader.readLine()) != null) // bis alles drin ist
             {
+                if ( inhalt.length() > 0) {
+                    inhalt.append("\n");
+                }
                 inhalt.append(zeile);
             }
-            // Ausgabe der gesammelten Werke
-
         }
         // Etwas schief gegangen?
         catch (IOException e) {
-            e.printStackTrace();
+            throw new Exception("Fehler beim lesen", e);
         }
-            return (inhalt.toString());
-        }
+        return inhalt.toString();
     }
-
+}
