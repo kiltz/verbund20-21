@@ -35,6 +35,20 @@ public class DateiTester {
 		// Zusatzaufgabe (für die die Klasse geändert werden darf):
 		// Erzeuge eine 4 GB große Text-Datei und lese sie ein.
 
+		Datei nDatei=new Datei("4GB groß.txt");
+		for(int i=0; i<400000000;i++){
+			d.schreibe(generateText(), true);
+		}
+		System.out.println(nDatei.lese());
+
+	}
+	public static String generateText(){
+		String txt="";
+		String zeichen="abcdefghijklmnopqrstuvwxyz";
+		for(int i=0;i<10;i++){
+			txt+=zeichen.charAt((int)(Math.random()*zeichen.length()));
+		}
+		return txt;
 	}
 
 }
