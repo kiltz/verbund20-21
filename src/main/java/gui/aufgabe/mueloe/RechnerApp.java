@@ -10,47 +10,50 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
-/*
-  Aufgabe:
-  Kopiert diese Datei nach RechnerApp.
-  Zwei Textfelder, zwei Label und einen Button anzeigt.
-  <p>
-  [.5.] + [.2.] (=) 7
- @startuml
- class Application {
+/**
+ * Aufgabe:
+ * Kopiert diese Datei nach RechnerApp.
+ * Zwei Textfelder, zwei Label und einen Button anzeigt.
+ * <p>
+ * [.5.] + [.2.] (=) 7
+@startuml
+class Application {
+    start(..)
+}
 
+class RechnerApp {
+    Stage primaryStage
+    Scene scene
+    login()
+}
 
- }
- class RechnerApp{
+class HBox {
 
- }
- class HBox{
+}
 
- }
- class Label{
+class Label {
 
- }
- class Text Field{
+}
+class TextField {
 
- }
- class Button{
+}
 
- }
+class Button {
 
- RechnerApp *-- HBox
- HBox "1" *-- "2" Label
- HBox "1" *-- "2" TextField
- HBox "1" *-- "1" Button
+}
 
-  Application </-- RechnerApp
+RechnerApp *-- HBox
+HBox "1" *-- "2" Label
+HBox "1" *-- "2" TextField
+HBox "1" *-- "1" Button
 
-  @enduml
+Application <|-- RechnerApp
 
-  Assoziation: zwei Klassen haben eine Beziehung
-  Aggregation: Die Art der Beziehung ist ein Ganzes zu seinem Teil (hat ein...)
-  Komposition: ist eine Verstärkung der Agregation
+@enduml
 
-
+ Assoziation: Zwei Klassen haben eine Beziehung
+ Aggregation: Die Art der Beziehung ist ein Ganzes zu seinem Teil (hat ein...)
+ Komposition: ist eine Verstärkung der Aggreagtion
 
  */
 public class RechnerApp extends Application {

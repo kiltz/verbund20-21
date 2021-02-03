@@ -8,22 +8,12 @@ import javafx.stage.Stage;
 
 /**
  * Aufgabe:
- * Zeigt zwei Eingabefelder für Benutzername und Passwort
- * Beschribt die Eingabefelder mit einem Label
+ * Zahleneingabe
+ * Min, Max, Summe, Durchschnitt, anzahl Zahlen ausgeben
  *
- * Erzeugt einen Button (Login)
- *
- * Macht den Dialog hübsch
- *
- * Validiert den Dialog
- * 1. Benutzername darf nicht leer sein
- * 2. Passwort darf nicht leer sein
- * 3. Benutzernamen und Passwort müssen irgendwelchen festen Werten entsprechen
- *
- * Hinweis: Schachtelt VBox und HBox
- *
+ * [.5.] + [.2.] (=) 7
  */
-public class LoginApp extends Application {
+public class StatisitkApp extends Application {
 
     public static void main(String[] args) {
         launch(null);

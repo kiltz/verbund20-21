@@ -18,7 +18,7 @@ public class Einkaufsliste2 {
     public String print() {
         String ret = "";
         for (String s : liste) {
-            ret += s + "\n";
+               ret += s + "\n";
         }
         return ret;
     }
