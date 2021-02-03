@@ -15,7 +15,6 @@ public class PasswdApp extends Application {
 
     private TextField tfEingabe;
     private Label lAusgabe;
-    private String erlaubteZeichen = "abcdefghijklmnopqrstuvwxyz";
     private final String großBuchstaben="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     private final String zahlen="0123456789";
     private final String sonderZeichen="!@§$%&/()=?`{[]}#+-*";
@@ -48,6 +47,7 @@ public class PasswdApp extends Application {
         String password = "";
         int laenge = Integer.parseInt(tfEingabe.getText());
         for (int i = 0; i < laenge; i++) {
+            String erlaubteZeichen = "abcdefghijklmnopqrstuvwxyz";
             int pos = (int) (Math.random() * erlaubteZeichen.length());
             password += erlaubteZeichen.charAt(pos);
         }

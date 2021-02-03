@@ -5,10 +5,8 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -36,9 +34,10 @@ public class PasswdManagerApp extends Application {
     public void start(Stage primaryStage) throws Exception {
         manager = new Manager();
         VBox root = new VBox(10);
-        root.getChildren().add(getNameZeile());
-        root.getChildren().add(getBenutzerNameZeile());
-        root.getChildren().add(getPasswdZeile());
+        root.getChildren().add(getAnlegenZeile());
+        //root.getChildren().add(getNameZeile());
+        //root.getChildren().add(getBenutzerNameZeile());
+        //root.getChildren().add(getPasswdZeile());
         root.getChildren().add(getEintragenZeile());
         root.getChildren().add(getSuchZeile());
         root.getChildren().add(getSuchErgebnisZeile());
@@ -48,16 +47,32 @@ public class PasswdManagerApp extends Application {
         primaryStage.show();
     }
 
+    private Node getAnlegenZeile() {
+        GridPane gpAnlegen = new GridPane();
+        gpAnlegen.setVgap(5);
+        gpAnlegen.setHgap(8);
+        gpAnlegen.setPadding(new Insets(10));
+
+        gpAnlegen.add(getNameZeile(),1,0);
+        gpAnlegen.add(getBenutzerNameZeile(), 1,1);
+        gpAnlegen.add(getPasswdZeile(), 1,2);
+        gpAnlegen.add(new Separator(), 0,3,3,1);
+        return gpAnlegen;
+    }
+
     private Node getSuchErgebnisZeile() {
-        HBox box = new HBox(15);
-        box.setPadding(new Insets(10));
-        box.setAlignment(Pos.CENTER_RIGHT);
-        taErgebnis = new TextArea();
-        box.getChildren().add(taErgebnis);
-        return box;
+        Accordion aErgebnis = new Accordion();
+        for (int i = 1; i <= 5; ++i) {
+            HBox box = new HBox();
+            box.getChildren().add(new Label("Label der Box " + i));
+            TitledPane pane = new TitledPane("Box " + i, box);
+            aErgebnis.getPanes().add(pane);
+        }
+        return aErgebnis;
     }
 
     private Node getSuchZeile() {
+
         HBox box = new HBox(15);
         box.setPadding(new Insets(10));
         box.setAlignment(Pos.CENTER);
@@ -80,9 +95,9 @@ public class PasswdManagerApp extends Application {
     }
 
     private Node getEintragenZeile() {
-        HBox box = new HBox(15);
+        HBox box = new HBox(10);
         box.setPadding(new Insets(10));
-        box.setAlignment(Pos.CENTER_RIGHT);
+        box.setAlignment(Pos.CENTER);
         Button bEintragen = new Button("Eintragen");
         bEintragen.setOnAction(e -> eintragen());
         lStatus = new Label();
@@ -111,29 +126,38 @@ public class PasswdManagerApp extends Application {
     }
 
     private Node getPasswdZeile() {
-        HBox box = new HBox(15);
+        HBox box = new HBox(10);
         box.setPadding(new Insets(10));
         tfPasswort = new TextField();
+        tfPasswort.setPrefWidth(150);
+        Label lPasswort = new Label("Passwort");
+        lPasswort.setPrefWidth(50);
 
-        box.getChildren().addAll(new Label("Passwort"), tfPasswort);
+        box.getChildren().addAll(lPasswort, tfPasswort);
         return box;
     }
 
     private Node getBenutzerNameZeile() {
-        HBox box = new HBox(15);
+        HBox box = new HBox(10);
         box.setPadding(new Insets(10));
         tfBenutzerName = new TextField();
+        tfBenutzerName.setPrefWidth(150);
+        Label lBenutzer = new Label("Benutzer");
+        lBenutzer.setPrefWidth(50);
 
-        box.getChildren().addAll(new Label("Benutzer"), tfBenutzerName);
+        box.getChildren().addAll(lBenutzer, tfBenutzerName);
         return box;
     }
 
     private Node getNameZeile() {
-        HBox box = new HBox(15);
+        HBox box = new HBox(10);
         box.setPadding(new Insets(10));
         tfName = new TextField();
+        tfName.setPrefWidth(150);
+        Label lName = new Label("Name");
+        lName.setPrefWidth(50);
 
-        box.getChildren().addAll(new Label("Name"), tfName);
+        box.getChildren().addAll(lName, tfName);
         return box;
     }
 }
