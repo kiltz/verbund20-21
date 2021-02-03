@@ -25,6 +25,7 @@ public class EineMap {
         for (Map.Entry<Object, Object> e : props.entrySet()) {
             System.out.println(e.getKey()+": "+e.getValue());
         }
-
+        System.out.println("----------------------------");
+        System.out.println(System.getProperty("user.dir"));
     }
 }

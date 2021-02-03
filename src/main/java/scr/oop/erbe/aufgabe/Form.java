@@ -1,6 +1,7 @@
 package oop.erbe.aufgabe;
 
 public class Form {
+<<<<<<< HEAD
     private String formart;
     private int umfang;
 
@@ -36,5 +37,13 @@ public class Form {
     public void setumfang(int umfang) {
 
         this.umfang = umfang;
+=======
+
+    public Form (){
+    }
+
+    public int berechneUmfang(){
+        return 0;
+>>>>>>> origin/FabianLechner
     }
 }

@@ -2,7 +2,6 @@ package gui.controls;
 
 import javafx.application.Application;
 import javafx.application.Platform;
-import javafx.beans.value.ObservableValue;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -31,47 +30,12 @@ public class SammelApp extends Application {
         root.getChildren().add(getButtons());
         root.getChildren().add(getTextFelder());
         root.getChildren().add(getBoxAndButts());
-        root.getChildren().add(getCombo());
 
-        ScrollPane scrolli = new ScrollPane();
-        scrolli.setContent(root);
-
-        Scene scene = new Scene(scrolli, 600, 450);
+        Scene scene = new Scene(root, 800, 550);
         primaryStage.setTitle("Control-Sammlung");
         primaryStage.setScene(scene);
         primaryStage.show();
 
-    }
-
-    private Node getCombo() {
-        HBox box = new HBox();
-        box.setSpacing(15);
-        ComboBox<String> cb = new ComboBox<>();
-        cb.getItems().add("Combo");
-        cb.getItems().add("Zwei");
-        cb.getItems().add("Drei");
-
-        ChoiceBox<String> cb2 = new ChoiceBox<>();
-        cb2.getItems().add("Choice");
-        cb2.getItems().add("Zwei");
-        cb2.getItems().add("Drei");
-
-        ListView<String> liste = new ListView<>();
-        liste.getItems().addAll("Liste","Zwei", "Drei");
-        liste.getSelectionModel().selectedItemProperty().addListener(
-                (ObservableValue<? extends String> ov, String o, String n) -> {
-                    System.out.println("Liste: "+n);
-                });
-//        liste.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-        liste.setMaxWidth(100);
-        ScrollPane scrolli = new ScrollPane();
-        scrolli.setMaxWidth(100);
-        scrolli.setMaxHeight(150);
-        scrolli.setContent(liste);
-        scrolli.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-
-        box.getChildren().addAll(cb, cb2, scrolli);
-        return box;
     }
 
     private Node getTextFelder() {
@@ -85,16 +49,17 @@ public class SammelApp extends Application {
         TextField tfNurZahlen = new TextField() {
             @Override
             public void replaceText(int start, int end, String text) {
-                if (text.isEmpty() || text.matches("[0-9]")) {
+                if (text.matches("[0-9]") || text.equals("")) {
                     super.replaceText(start, end, text);
                 }
             }
 
             @Override
             public void replaceSelection(String text) {
-                if (text.matches("[0-9]")) {
+                if (text.matches("[0-9]") || text.equals("")) {
                     super.replaceSelection(text);
                 }
+
             }
         };
         tfNurZahlen.setPromptText("Nur Zahlen!");
@@ -167,13 +132,14 @@ public class SammelApp extends Application {
         labelMitBild.setGraphicTextGap(15);
         labelMitBild.setTooltip(new Tooltip("Ein Icon aus dem Netz."));
 
-        Label langerLabel = new Label("In den Betten \n\n der Hutmacher drehen gegen Türme. Wir haben nichts fangen können, nur eine Zeitung kurzweilig überhaupt gesehen. Jeder herein, ganz versessen den Ganges.");
+        Label langerLabel = new Label("In den Betten der Hutmacher drehen gegen Türme. Wir haben nichts fangen können, nur eine Zeitung kurzweilig überhaupt gesehen.Jeder herein, ganz versessen den Ganges.");
         langerLabel.setWrapText(true);
+        langerLabel.setPrefSize(200,200);
         langerLabel.setTooltip(new Tooltip(langerLabel.getText()));
         langerLabel.setContentDisplay(ContentDisplay.CENTER);
 
         ScrollPane scrolli = new ScrollPane();
-        scrolli.setMaxWidth(100);
+        scrolli.setMaxWidth(200);
         scrolli.setContent(langerLabel);
 
 

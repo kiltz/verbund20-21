@@ -1,6 +1,7 @@
 package oop.erbe.aufgabe;
 
 public class Rechteck extends Form{
+<<<<<<< HEAD
     private int seite1 = 0;
     private int seite2 = 0;
     private int umfang = 0;
@@ -14,4 +15,18 @@ public class Rechteck extends Form{
 }
 
 
+=======
+    private int laenge;
+    private int breite;
+
+    public Rechteck(int laenge, int breite) {
+        this.laenge = laenge;
+        this.breite = breite;
+    }
+
+    @Override
+    public int berechneUmfang() {
+        return 2 * (laenge + breite);
+    }
+>>>>>>> origin/FabianLechner
 }
