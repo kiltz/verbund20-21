@@ -1,6 +1,7 @@
 package gui.feature.passwort;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -12,8 +13,12 @@ import javafx.stage.Stage;
 
 public class PasswdApp extends Application {
 
-     TextField tfEingabe;
-     Label lAusgabe;
+    private TextField tfEingabe;
+    private Label lAusgabe;
+    private String erlaubteZeichen = "abcdefghijklmnopqrstuvwxyz";
+    private final String großBuchstaben="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    private final String zahlen="0123456789";
+    private final String sonderZeichen="!@§$%&/()=?`{[]}#+-*";
 
     public static void main(String[] args) {
         launch(args);
@@ -34,22 +39,19 @@ public class PasswdApp extends Application {
         tfEingabe = new TextField();
         Button bEingabe = new Button("Eingabe");
         bEingabe.setDefaultButton(true);
-        bEingabe.setOnAction(e ->eingeben() );
+        bEingabe.setOnAction(e ->eingeben(e) );
         box.getChildren().addAll(tfEingabe,bEingabe);
         return box;
     }
 
-    private String eingeben() {
-        int eingabe = Integer.parseInt(tfEingabe.getText());
-        String erlaubteZeichen = "abcdefghijklmnopqrstuvwxyz";
-        String neu = ""+erlaubteZeichen.charAt(4)+erlaubteZeichen.charAt(7)+erlaubteZeichen.charAt(12);
-        System.out.println(neu);
-        String test = "";
-        for (int i = 0; i < eingabe; ++i) {
+    private void eingeben(ActionEvent e) {
+        String password = "";
+        int laenge = Integer.parseInt(tfEingabe.getText());
+        for (int i = 0; i < laenge; i++) {
             int pos = (int) (Math.random() * erlaubteZeichen.length());
-            test += erlaubteZeichen.charAt(pos);
+            password += erlaubteZeichen.charAt(pos);
         }
-        return test;
+        lAusgabe.setText("Ihr neues Passwort: " + password);
     }
 
     private Node getAusgabeZeile() {
