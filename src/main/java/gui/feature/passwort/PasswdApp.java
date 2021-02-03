@@ -18,6 +18,9 @@ public class PasswdApp extends Application {
     Label lAusgabe=new Label("Ihr neues Passwort: ");
 
     private String erlaubteZeichen = "abcdefghijklmnopqrstuvwxyz";
+    private String großBuchstaben="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    private String zahlen="0123456789";
+    private String sonderZeichen="!@§$%&/()=?`{[]}#+-*";
 
     private CheckBox cbGroßBuchstaben=new CheckBox();
     private CheckBox cbZahlen=new CheckBox();
@@ -84,13 +87,13 @@ public class PasswdApp extends Application {
     }
     public void seterlaubteZeichen(){
         if(cbGroßBuchstaben.isSelected()){
-            erlaubteZeichen+="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            erlaubteZeichen+=großBuchstaben;
         }
         if(cbZahlen.isSelected()){
-            erlaubteZeichen+="0123456789";
+            erlaubteZeichen+=zahlen;
         }
         if(cbSonderzeichen.isSelected()){
-            erlaubteZeichen+="!@§$%&/()=?`{[]}#+-*";
+            erlaubteZeichen+=sonderZeichen;
         }
     }
 }
