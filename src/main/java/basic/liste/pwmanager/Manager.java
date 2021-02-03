@@ -24,7 +24,7 @@ public class Manager {
             String[] saetze = inhalt.split("\n");
             for (String satz : saetze) {
                 String[] teile = satz.split(";");
-                liste.put(teile[0], new Passwort(teile[0], teile[1], teile[2]));
+                liste.put(teile[0], new Passwort(teile[0], teile[1], teile[2], teile[3]));
             }
 
         } catch (Exception e) {

@@ -9,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -23,6 +24,7 @@ public class PasswdManagerApp extends Application {
     private Manager manager;
     private TextField tfName;
     private TextField tfBenutzerName;
+    private TextField tfMail;
     private TextField tfPasswort;
     private Label lStatus;
     private TextField tfSuche;
@@ -35,18 +37,21 @@ public class PasswdManagerApp extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         manager = new Manager();
-        VBox root = new VBox(10);
+        GridPane gridMain = new GridPane();
+        VBox root = new VBox(15);
         root.getChildren().add(getNameZeile());
         root.getChildren().add(getBenutzerNameZeile());
+        root.getChildren().add(getMailZeile());
         root.getChildren().add(getPasswdZeile());
         root.getChildren().add(getEintragenZeile());
         root.getChildren().add(getSuchZeile());
         root.getChildren().add(getSuchErgebnisZeile());
-        Scene scene = new Scene(root, 300, 400);
+        Scene scene = new Scene(root, 400, 600);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Passwort-Manager");
         primaryStage.show();
     }
+
 
     private Node getSuchErgebnisZeile() {
         HBox box = new HBox(15);
@@ -65,16 +70,17 @@ public class PasswdManagerApp extends Application {
         Button bSuche = new Button("Suche");
         bSuche.setOnAction(e -> suche());
         bSuche.setDefaultButton(true);
-        lStatus = new Label();
         box.getChildren().addAll(tfSuche, bSuche);
         return box;
     }
 
     private void suche() {
         List<Passwort> erg = manager.suche(tfSuche.getText());
-        StringBuffer txt = new StringBuffer("Name\tBenutzer\tPasswort\n");
+        StringBuffer txt = new StringBuffer("Name\t" + "  " + "Benutzer\t" + "  " + "Mail\t" + "  " + "Passwort\n");
+        VBox boxAusgabe = new VBox(50);
+        boxAusgabe.setPadding(new Insets(20));
         for (Passwort p : erg) {
-            txt.append(p.getName()+"\t"+p.getBenutzername()+"\t"+p.getPasswort()+"\n");
+            txt.append(p.getName() + "      " + "\t" + p.getBenutzername() + "     " + "\t" + p.getMail() + "     " + "\t" + p.getPasswort() + "      " + "\n");
         }
         taErgebnis.setText(txt.toString());
     }
@@ -97,21 +103,22 @@ public class PasswdManagerApp extends Application {
             lStatus.setText("Wen soll ich eintragen?");
         } else {
             try {
-                manager.neu(new Passwort(tfName.getText(), tfBenutzerName.getText(), tfPasswort.getText()));
+                manager.neu(new Passwort(tfName.getText(), tfBenutzerName.getText(), tfMail.getText(), tfPasswort.getText()));
                 lStatus.setTextFill(Color.web(BLAU));
-                lStatus.setText(tfName.getText()+" wurde eingetragen.");
+                lStatus.setText(tfName.getText()+ " wurde eingetragen.");
                 tfName.setText("");
                 tfBenutzerName.setText("");
+                tfMail.setText("");
                 tfPasswort.setText("");
             } catch (Exception e) {
                 lStatus.setTextFill(Color.web(ROT));
-                lStatus.setText("Fehler: "+e.getMessage());
+                lStatus.setText("Fehler: " + e.getMessage());
             }
         }
     }
 
     private Node getPasswdZeile() {
-        HBox box = new HBox(15);
+        HBox box = new HBox(30);
         box.setPadding(new Insets(10));
         tfPasswort = new TextField();
 
@@ -120,7 +127,7 @@ public class PasswdManagerApp extends Application {
     }
 
     private Node getBenutzerNameZeile() {
-        HBox box = new HBox(15);
+        HBox box = new HBox(30);
         box.setPadding(new Insets(10));
         tfBenutzerName = new TextField();
 
@@ -128,8 +135,17 @@ public class PasswdManagerApp extends Application {
         return box;
     }
 
+    private Node getMailZeile() {
+        HBox box = new HBox(30);
+        box.setPadding(new Insets(10));
+        tfMail = new TextField();
+
+        box.getChildren().addAll(new Label("E-Mail"), tfMail);
+        return box;
+    }
+
     private Node getNameZeile() {
-        HBox box = new HBox(15);
+        HBox box = new HBox(30);
         box.setPadding(new Insets(10));
         tfName = new TextField();
 
