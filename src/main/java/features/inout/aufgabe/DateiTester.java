@@ -18,7 +18,7 @@ public class DateiTester {
 
 	public static void main(String[] args) throws Exception {
 		String zeile1 = "Eine Zeile";
-		String zeile2 = "\nnoch eine Zeile";
+		String zeile2 = "\n noch eine Zeile";
 
 		// eine Instanz von "Datei" erzeugen
 		Datei d = new Datei("test.txt");
