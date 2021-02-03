@@ -43,7 +43,7 @@ public class StatikApp extends Application {
         Label lEingabe = new Label("Eingabe: ");
         tfEingabe = new TextField();
         Button btHinzufuegen = new Button("Hinzufuegen");
-        btHinzufuegen.setOnAction(e -> hinzufuegen(e));
+        btHinzufuegen.setOnAction(this::hinzufuegen);
 
         lMin = new Label("Min: ");
         lMax = new Label("Max: ");
@@ -54,7 +54,7 @@ public class StatikApp extends Application {
         numbers = new ArrayList<>();
 
         Button btClear = new Button("Liste leeren");
-        btClear.setOnAction(g -> clear(g));
+        btClear.setOnAction(this::clear);
 
         HBox hEingabe = new HBox(10);
         hEingabe.getChildren().addAll(lEingabe, tfEingabe, btHinzufuegen);
@@ -91,13 +91,12 @@ public class StatikApp extends Application {
         }
     }
 
-    private Integer sum() {
+    private void sum() {
         sum = 0;
         for (Integer number : numbers) {
             sum += number;
         }
         lSumme.setText("Summe: " + sum);
-        return sum;
     }
 
     private void anzahl() {

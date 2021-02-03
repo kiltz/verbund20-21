@@ -1,7 +1,6 @@
 package basic.aufgabe2;
 
 import javafx.application.Application;
-import javafx.event.ActionEvent;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -9,8 +8,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-
-import javax.xml.soap.Text;
 
 public class WuerfalStatistikGui extends Application {
 
@@ -30,7 +27,7 @@ public class WuerfalStatistikGui extends Application {
         Label lTitel = new Label("Wie oft willst du wuerfeln?");
         tfAnzahlRolls = new TextField();
         Button btnWuerfeln = new Button("Wuerfeln!");
-        btnWuerfeln.setOnAction(e -> wuerfeln(e));
+
         lResultate = new Label("");
 
         box.getChildren().addAll(lTitel, tfAnzahlRolls, btnWuerfeln, lResultate);
@@ -42,9 +39,6 @@ public class WuerfalStatistikGui extends Application {
 
     }
 
-    private void wuerfeln(ActionEvent e) {
-        WuerfelStatistik wuerfel = new WuerfelStatistik();
-        lResultate.setText(wuerfel.wuerfeln(Integer.parseInt(tfAnzahlRolls.getText())));
 
-    }
+
 }
