@@ -1,9 +1,18 @@
 package basic;
 
+import javafx.application.Application;
+import javafx.scene.control.Labeled;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+
+import javax.xml.soap.Text;
+
 /**
  * Aufgabe:
  *
  * Baut einen Dialog mit dem Namen gui.feature.passwort.PasswdApp
+ *
+ * gui
  *
  * Erzeugt in diesem Dialog Passwörter.
  *
@@ -18,8 +27,15 @@ package basic;
  *
  */
 
-public class Zeichenketten {
+public class Zeichenketten extends Application {
+
+    private TextField tfOne;
+    private TextField tfTwo;
+    private Labeled LabelOne;
+
     public static void main(String[] args) {
+        launch(args);
+
         //                        01234567890123456789
         String erlaubteZeichen = "abcdefghijklmnopqrstuvwxyz";
         String neu = ""+erlaubteZeichen.charAt(4)+erlaubteZeichen.charAt(7)+erlaubteZeichen.charAt(12);
@@ -30,5 +46,10 @@ public class Zeichenketten {
             test += erlaubteZeichen.charAt(pos);
         }
         System.out.println(test);
+    }
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+
     }
 }
