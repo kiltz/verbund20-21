@@ -4,6 +4,9 @@ import java.io.*;
 
 public class Datei {
     private String dateiName;
+    private final String grossBuchstaben = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    private final String zahlen = "0123456789";
+    private final String sonderZeichen = "!@§$%&/()=?`{[]}#+-*";
 
     public Datei(String dateiName) {
         this.dateiName = dateiName;
@@ -36,7 +39,7 @@ public class Datei {
             String zeile = "";
             while ((zeile = reader.readLine()) != null) // bis alles drin ist
             {
-                if ( inhalt.length() > 0) {
+                if (inhalt.length() > 0) {
                     inhalt.append("\n");
                 }
                 inhalt.append(zeile);
@@ -47,5 +50,16 @@ public class Datei {
             throw new Exception("Fehler beim lesen", e);
         }
         return inhalt.toString();
+    }
+
+    public String erzeugePassword(int anzahl) {
+        String password = "";
+        int laenge = 60;
+        for (int i = 0; i < laenge; i++) {
+            String erlaubteZeichen = "abcdefghijklmnopqrstuvwxyz";
+            int pos = (int) (Math.random() * erlaubteZeichen.length());
+            password += erlaubteZeichen.charAt(pos);
+        }
+        return password;
     }
 }

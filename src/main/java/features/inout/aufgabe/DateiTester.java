@@ -22,8 +22,10 @@ public class DateiTester {
 
 		// eine Instanz von "Datei" erzeugen
 		Datei d = new Datei("test.txt");
-		d.schreibe(zeile1);
-		d.schreibe(zeile2, true); // anfügen!
+		String password = d.erzeugePassword(60);
+		for (int i = 0; i < 666666667; i++) {
+			d.schreibe(password);
+		}
 
 		String inhalt = d.lese();
 		System.out.println("'" + inhalt + "'");
@@ -32,9 +34,10 @@ public class DateiTester {
 			System.out.println("Fehler: das was gelesen wurde ist nicht gleich dem was geschrieben wurde!");
 		}
 
+
+
 		// Zusatzaufgabe (für die die Klasse geändert werden darf):
 		// Erzeuge eine 4 GB große Text-Datei und lese sie ein.
 
 	}
-
 }
