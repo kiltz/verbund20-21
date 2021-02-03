@@ -26,8 +26,10 @@ public class DateiTester {
 		d.schreibe(zeile2, true); // anfügen!
 
 		String inhalt = d.lese();
+
 		System.out.println("'" + inhalt + "'");
 		System.out.println("'" + zeile1 + zeile2 + "'");
+
 		if (!inhalt.equals(zeile1 + zeile2)) {
 			System.out.println("Fehler: das was gelesen wurde ist nicht gleich dem was geschrieben wurde!");
 		}
