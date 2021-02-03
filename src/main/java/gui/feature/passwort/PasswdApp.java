@@ -1,7 +1,6 @@
 package gui.feature.passwort;
 
 import javafx.application.Application;
-import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -33,14 +32,31 @@ public class PasswdApp extends Application {
     private Node getEingabeZeile() {
         HBox box = new HBox();
         tfEingabe = new TextField();
-        Button bEingabe = new Button();
+        Button bEingabe = new Button("Eingabe");
         bEingabe.setDefaultButton(true);
-        bEingabe.setOnAction(e -> );
+        bEingabe.setOnAction(e ->eingeben() );
+        box.getChildren().addAll(tfEingabe,bEingabe);
         return box;
+    }
+
+    private String eingeben() {
+        int eingabe = Integer.parseInt(tfEingabe.getText());
+        String erlaubteZeichen = "abcdefghijklmnopqrstuvwxyz";
+        String neu = ""+erlaubteZeichen.charAt(4)+erlaubteZeichen.charAt(7)+erlaubteZeichen.charAt(12);
+        System.out.println(neu);
+        String test = "";
+        for (int i = 0; i < eingabe; ++i) {
+            int pos = (int) (Math.random() * erlaubteZeichen.length());
+            test += erlaubteZeichen.charAt(pos);
+        }
+        return test;
     }
 
     private Node getAusgabeZeile() {
         HBox box = new HBox();
+        lAusgabe = new Label();
+        lAusgabe.setText("test");
+        box.getChildren().add(lAusgabe);
         return box;
     }
 }
