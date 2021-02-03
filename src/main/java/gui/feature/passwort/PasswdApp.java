@@ -86,10 +86,10 @@ public class PasswdApp extends Application {
         if(cbGroßBuchstaben.isSelected()){
             erlaubteZeichen+="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         }
-        else if(cbZahlen.isSelected()){
+        if(cbZahlen.isSelected()){
             erlaubteZeichen+="0123456789";
         }
-        else if(cbSonderzeichen.isSelected()){
+        if(cbSonderzeichen.isSelected()){
             erlaubteZeichen+="!@§$%&/()=?`{[]}#+-*";
         }
     }
