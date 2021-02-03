@@ -35,9 +35,6 @@ public class PasswdManagerApp extends Application {
         manager = new Manager();
         VBox root = new VBox(10);
         root.getChildren().add(getAnlegenZeile());
-        //root.getChildren().add(getNameZeile());
-        //root.getChildren().add(getBenutzerNameZeile());
-        //root.getChildren().add(getPasswdZeile());
         root.getChildren().add(getEintragenZeile());
         root.getChildren().add(getSuchZeile());
         root.getChildren().add(getSuchErgebnisZeile());
@@ -61,6 +58,8 @@ public class PasswdManagerApp extends Application {
     }
 
     private Node getSuchErgebnisZeile() {
+        //TODO Ergebnis in einzelne Labels aufspalten und dem Akkordion übergeben
+        //Dazu suche() anpassen (return value)
         Accordion aErgebnis = new Accordion();
         for (int i = 1; i <= 5; ++i) {
             HBox box = new HBox();
@@ -105,7 +104,6 @@ public class PasswdManagerApp extends Application {
     }
 
     private void eintragen() {
-        // TODO Validate
         if (tfName.getText().isEmpty()) {
             lStatus.setTextFill(Color.web(ROT));
             lStatus.setText("Wen soll ich eintragen?");
