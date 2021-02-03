@@ -5,6 +5,7 @@ import java.io.*;
 public class Datei {
     private String dateiName;
 
+
     public Datei(String dateiName) {
         this.dateiName = dateiName;
     }
@@ -39,7 +40,8 @@ public class Datei {
                 if ( inhalt.length() > 0) {
                     inhalt.append("\n");
                 }
-                inhalt.append(zeile);
+                    inhalt.append(zeile);
+
             }
         }
         // Etwas schief gegangen?
