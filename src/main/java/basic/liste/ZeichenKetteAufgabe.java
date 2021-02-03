@@ -18,6 +18,7 @@ public class ZeichenKetteAufgabe extends Application {
     private Label lPasswort;
     private String erlaubteZeichen = "abcdefghijklmnopqrstuvwxyz";
 
+
     @Override
     public void start(Stage primaryStage) throws Exception {
         VBox root = new VBox(10);
@@ -49,6 +50,7 @@ public class ZeichenKetteAufgabe extends Application {
             int pos = (int) (Math.random() * erlaubteZeichen.length());
             test += erlaubteZeichen.charAt(pos);
         }
+        lPasswort.setText("Passwort: "+test);
     }
 
     private Node getCheckbox() {
