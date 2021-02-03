@@ -32,6 +32,7 @@ public class DateiTester {
 		System.out.println("'" + zeile1 + zeile2 + "'");
 		if (!inhalt.equals(zeile1 + zeile2)) {
 			System.out.println("Fehler: das was gelesen wurde ist nicht gleich dem was geschrieben wurde!");
+
 		}
 
 
