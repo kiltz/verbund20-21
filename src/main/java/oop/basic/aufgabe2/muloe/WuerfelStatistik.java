@@ -1,4 +1,4 @@
-package basic.aufgabe2.muloe;
+package oop.basic.aufgabe2.muloe;
 
 /**
  * Aufgabe:
@@ -37,5 +37,15 @@ public class WuerfelStatistik {
         }
 
 
+    }
+    public int[] wurf(int anzahl, int anzahlW){
+        int[] wuerfe = new int[anzahl];
+
+        for (int i = 0; i < anzahlW; ++i) {
+            int wuerfelErgebnis = (int) (Math.random() * wuerfe.length) + 1;
+            wuerfe[wuerfelErgebnis - 1]++;
+        }
+
+        return wuerfe;
     }
 }
