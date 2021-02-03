@@ -33,6 +33,9 @@ public class Info {
 		System.out.println("Nach dem Anlegen: "+f2.exists());
 		f2.delete();
 
+		File fTest = new File("test.txt");
+		System.out.println(fTest.length());
+
 
 	}
 
