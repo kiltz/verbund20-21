@@ -46,7 +46,7 @@ public class Datei extends File{
                 inhalt.append(zeile + "\n");
             }
             // Ausgabe der gesammelten Werke
-            return inhalt.toString();
+            return inhalt.toString().trim();
         }
         // Etwas schief gegangen?
         catch (IOException e) {
