@@ -63,7 +63,7 @@ public class RechnerApp extends Application {
     private TextField tfZwei;
 
     public static void main(String[] args) {
-        launch(null);
+        launch();
     }
 
     @Override
