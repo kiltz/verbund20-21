@@ -20,10 +20,11 @@ public class PasswdApp extends Application {
     private CheckBox chckNumbers;
     private CheckBox chckExclusive;
     private TextField tfAusgabe;
-    private String validNormal;
-    private String validCapital;
-    private String validNumbers;
-    private String validExclusives;
+    private String validNormal = "abcdefghijklmnopqrstuvwxyz";
+    private String validCapital = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    private String validNumbers = "0123456789";
+    private String validExclusives = "!@§$%&/()=?`{[]}#+-*";
+    private String allowedString;
 
     public static void main(String[] args) {
         launch();
@@ -59,61 +60,45 @@ public class PasswdApp extends Application {
         primaryStage.setTitle("PasswdApp");
         primaryStage.setScene(scene);
         primaryStage.show();
-
-        validNormal = "abcdefghijklmnopqrstuvwxyz";
-        validCapital = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        validNumbers = "0123456789";
-        validExclusives = "!@§$%&/()=?`{[]}#+-*";
     }
 
     private void generate(ActionEvent e) {
 
-        String allSelected = "" + validNormal + validCapital + validNumbers + validExclusives;
-        String capitalsNumbers = "" + validNormal + validCapital + validNumbers;
-        String capitalsExclusive = "" + validNormal + validCapital + validExclusives;
-        String numbersExclusive = "" + validNormal + validNumbers + validExclusives;
-        String capitals = "" + validNormal + validCapital;
-        String numbers = "" + validNormal + validNumbers;
-        String exclusive = "" + validNormal + validExclusives;
+        allowedString = validNormal;
+        getValidLetters();
+
+        String password = "";
 
         int length = Integer.parseInt(tfLaenge.getText());
-        StringBuilder sb = new StringBuilder();
 
         for (int i = 0; i < length; i++) {
-
-            if (chckCapitals.isSelected() && chckNumbers.isSelected() && chckExclusive.isSelected()) {
-                int j = (int) (Math.random() * (allSelected.length() - 1));
-                sb.append(allSelected.charAt(j));
-
-            } else if (chckCapitals.isSelected() && chckNumbers.isSelected()) {
-                int j = (int) (Math.random() * (capitalsNumbers.length() - 1));
-                sb.append(capitalsNumbers.charAt(j));
-
-            } else if (chckCapitals.isSelected() && chckExclusive.isSelected()) {
-                int j = (int) (Math.random() * (capitalsExclusive.length() - 1));
-                sb.append(capitalsExclusive.charAt(j));
-
-            } else if (chckNumbers.isSelected() && chckExclusive.isSelected()) {
-                int j = (int) (Math.random() * (numbersExclusive.length() - 1));
-                sb.append(numbersExclusive.charAt(j));
-
-            } else if (chckCapitals.isSelected()) {
-                int j = (int) (Math.random() * (capitals.length() - 1));
-                sb.append(capitals.charAt(j));
-
-            } else if (chckNumbers.isSelected()) {
-                int j = (int) (Math.random() * (numbers.length() - 1));
-                sb.append(numbers.charAt(j));
-
-            } else if (chckExclusive.isSelected()) {
-                int j = (int) (Math.random() * (exclusive.length() - 1));
-                sb.append(exclusive.charAt(j));
-
-            } else {
-                int j = (int) (Math.random() * (validNormal.length() - 1));
-                sb.append(validNormal.charAt(j));
-            }
+            int pos = (int) (Math.random() * allowedString.length());
+            password += allowedString.charAt(pos);
         }
-        tfAusgabe.setText(sb.toString());
+        if (chckExclusive.isSelected() && chckCapitals.isSelected() && chckNumbers.isSelected()) {
+
+            int capitals = (int) (Math.random() * validCapital.length());
+            password.replace(password.charAt(0), validCapital.charAt(capitals));
+
+            int numbers = (int) (Math.random() * validNumbers.length());
+            password.replace(password.charAt(1), validNumbers.charAt(numbers));
+
+            int exclusives = (int) (Math.random() * validExclusives.length());
+            password.replace(password.charAt(2), validExclusives.charAt(exclusives));
+        }
+        tfAusgabe.setText(password);
+    }
+
+
+    private void getValidLetters() {
+        if (chckCapitals.isSelected()) {
+            allowedString += validCapital;
+        }
+        if (chckNumbers.isSelected()) {
+            allowedString += validNumbers;
+        }
+        if (chckExclusive.isSelected()) {
+            allowedString += validExclusives;
+        }
     }
 }

@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 public class PropertyApp extends Application {
 
     public static void main(String[] args) {
-        launch(null);
+        launch();
     }
 
     @Override

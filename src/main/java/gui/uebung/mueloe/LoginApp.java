@@ -38,7 +38,7 @@ public class LoginApp extends Application {
     private TextField tfBenutzer;
 
     public static void main(String[] args) {
-        launch(null);
+        launch();
     }
 
     @Override

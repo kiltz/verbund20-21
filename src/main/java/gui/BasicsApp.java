@@ -16,7 +16,7 @@ import javafx.stage.Stage;
 public class BasicsApp extends Application {
 
     public static void main(String[] args) {
-        launch(null);
+        launch();
     }
 
     @Override
