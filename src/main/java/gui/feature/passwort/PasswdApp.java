@@ -82,6 +82,15 @@ public class PasswdApp extends Application {
             int pos = (int) (Math.random() * erlaubteZeichen.length());
             password += erlaubteZeichen.charAt(pos);
         }
+        if(cbEinsvonAllen.isSelected()){
+            int posGroß=(int) (Math.random()*großBuchstaben.length());
+            password.replace(password.charAt(0), großBuchstaben.charAt(posGroß));
+            int posZahl=(int) (Math.random()*zahlen.length());
+            password.replace(password.charAt(1), zahlen.charAt(posZahl));
+            int posSonder=(int) (Math.random()*sonderZeichen.length());
+            password.replace(password.charAt(2), sonderZeichen.charAt(posSonder));
+
+        }
         lAusgabe.setText("Ihr neues Passwort: " + password);
 
     }
