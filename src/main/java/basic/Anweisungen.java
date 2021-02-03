@@ -28,10 +28,9 @@ public class Anweisungen {
         }
         System.out.println(zahl);
 
-        int monat = 1;
+        int monat = 3;
         switch (monat) {
             case 1:
-                System.out.println("Januar");
             case 2:
                 System.out.println("Winter");
                 break;
@@ -39,15 +38,16 @@ public class Anweisungen {
                 System.out.println("Frühling");
                 break;
             case 6:
+            case 7:
                 System.out.println("Sommer");
                 break;
+
             default:
                 System.out.println("Keine Ahnung");
         }
 
         for (int i = 1; i <= 10; i++) {
-            int q = i * i;
-            System.out.println(i +": "+ q);
+            System.out.println(i +": "+ (i*i));
         }
         System.out.println("nun mit while");
         int i = 1;

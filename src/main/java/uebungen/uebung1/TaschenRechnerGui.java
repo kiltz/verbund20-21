@@ -1,61 +1,69 @@
 package uebungen.uebung1;
 
 import javafx.application.Application;
-import javafx.event.ActionEvent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
-import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.control.TextField;
+import javafx.scene.control.Label;
+import javafx.scene.control.Button;
+import javafx.geometry.Insets;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 
-public class TaschenRechnerGui extends Application {
-
-    private TextField tZahl1;
-    private TextField tZahl2;
-    private Label lErgebnis;
-
-    public static void main(String[] args) {
+public class TaschenRechnerGui extends javafx.application.Application
+{
+    public static void main(String[] args)
+    {
         launch(args);
     }
 
-    public void start(Stage primaryStage) throws Exception {
-        VBox box = new VBox(10);
+    @Override
+    public void start(Stage primaryStage) throws Exception
+    {
+        BorderPane box = new BorderPane();
+        box.setPadding(new Insets(10,10,10,10));
 
-        HBox hbox = new HBox();
-        tZahl1 = new TextField();
-        Label lPlus = new Label("+");
-        tZahl2 = new TextField();
-        hbox.getChildren().addAll(tZahl1, lPlus, tZahl2);
+        box.setTop(new Label("Trage eine Zahl ein: "));
 
-        Button bGleich = new Button("=");
-        bGleich.setOnAction(e -> rechne(e));
+        Label lblAddition = new Label("");
+        box.setBottom(lblAddition);
 
-        lErgebnis = new Label();
+        GridPane center = new GridPane();
+        center.setVgap(5);
+        center.setHgap(5);
+        TextField zahl1 = new TextField("0");
+        zahl1.setPrefWidth(150);
+        TextField zahl2 = new TextField("0");
+        zahl2.setPrefWidth(150);
 
-        box.getChildren().addAll(hbox, bGleich, lErgebnis);
+        center.add(new Label("Zahl1"), 0, 0);
+        center.add(new Label("+"), 0, 0);
+        Button rechne = new Button("=");
+        Label nez = new Label("+");
 
-        Scene scene = new Scene(box, 400, 250);
-        primaryStage.setScene(scene);
+        center.add(new Label("Zahl2"), 0, 2);
+        center.add(zahl1, 1, 0);
+        center.add(nez, 1, 1);
+        center.add(zahl2, 1, 2);
+        center.add(rechne, 1, 3);
+        box.setCenter(center);
+
+        rechne.setOnAction(new EventHandler<ActionEvent>() {
+        @Override
+        public void handle(ActionEvent event){ //ich bin so dumm! 
+            int num1 = Integer.parseInt(zahl1.getText());
+            int num2 = Integer.parseInt(zahl2.getText());
+            int ergebnis = num1 + num2;
+            lblAddition.setText("Das Ergebnis ist: " + ergebnis);
+            }
+            }
+        );
+
+        Scene scene = new Scene(box, 450, 150);
         primaryStage.setTitle("Taschenrechner");
+        primaryStage.setScene(scene);
         primaryStage.show();
-
-    }
-
-    private void rechne(ActionEvent e) {
-        String text1 = tZahl1.getText();
-        String text2 = tZahl2.getText();
-        try {
-            int zahl1 = Integer.parseInt(text1);
-            int zahl2 = Integer.parseInt(text2);
-            int ergebnis = zahl1 + zahl2;
-            lErgebnis.setText("Ihr Ergebnis ist: " + ergebnis);
-            lErgebnis.setTextFill(Paint.valueOf("#00ff00"));
-        } catch (NumberFormatException f) {
-            lErgebnis.setText("Ihre Eingabe war falsch!");
-            lErgebnis.setTextFill(Paint.valueOf("#ff0000"));
-        }
     }
 }

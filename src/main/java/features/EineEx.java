@@ -13,6 +13,5 @@ public class EineEx {
             System.out.println("Fertig");
         }
 
-        //
     }
 }

@@ -18,14 +18,12 @@ public class Konto {
         kontostand+=input;
     }
     public void auszahlen(int output){
-        if(kontostand-output>=dispo*-1) {
+        if(kontostand-output>dispo) {
             kontostand -= output;
-        }
-        else{
-            System.out.println("Ihr maximales Auszahllimit wurde erreicht!");
-
+        } else{
+            System.out.println("Dispolimit erreicht! Sie können nicht so viel auszahlen");
         }
     }
-    //Test für push
-
 }
+
+//created by paul hofmann

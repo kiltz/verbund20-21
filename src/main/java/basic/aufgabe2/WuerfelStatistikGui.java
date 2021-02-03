@@ -10,12 +10,12 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import javax.xml.soap.Text;
+
 public class WuerfelStatistikGui extends Application {
 
-    private TextField tfAnzahl;
-    private TextField tfReichweite;
-    private Label ausgabe;
-    VBox box;
+    private TextField tfAnzahlRolls;
+    private Label lResultate;
 
     public static void main(String[] args) {
         launch(args);
@@ -24,78 +24,27 @@ public class WuerfelStatistikGui extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        box = new VBox(10);
-        box.setPadding(new Insets(20, 20, 10, 20));
+        VBox box = new VBox(10);
+        box.setPadding(new Insets(10, 20, 20, 20));
 
-        tfAnzahl = new TextField(){
-            @Override
-            public void replaceText(int start, int end, String text) {
-                if (text.matches("[0-9]") || text.equals("")) {
-                    super.replaceText(start, end, text);
-                }
-            }
+        Label lTitel = new Label("Wie Oft willst du würfeln?");
+        tfAnzahlRolls = new TextField();
+        Button btnWuerfeln = new Button("Wuerfeln!");
+        btnWuerfeln.setOnAction(e -> wuerfeln(e));
+        lResultate = new Label("");
 
-            @Override
-            public void replaceSelection(String text) {
-                if (text.matches("[0-9]") || text.equals("")) {
-                    super.replaceSelection(text);
-                }
+        box.getChildren().addAll(lTitel, tfAnzahlRolls, btnWuerfeln, lResultate);
 
-            }
-        };
-        tfReichweite = new TextField(){
-            @Override
-            public void replaceText(int start, int end, String text) {
-                if (text.matches("[0-9]")) {
-                    super.replaceText(start, end, text);
-                }
-            }
-
-            @Override
-            public void replaceSelection(String text) {
-                if (text.matches("[0-9]")) {
-                    super.replaceSelection(text);
-                }
-
-            }
-        };
-
-        tfAnzahl.setPromptText("Anzahl eingeben");
-        tfReichweite.setPromptText("Reichweite eingeben");
-        ausgabe = new Label();
-        Button bWuerfeln = new Button("Würfeln");
-        bWuerfeln.setOnAction(e -> wuerfeln(e));
-
-
-        box.getChildren().addAll(tfAnzahl, tfReichweite,bWuerfeln, ausgabe);
-
-        Scene scene = new Scene(box, 400, 400);
+        Scene scene = new Scene(box, 400, 250);
         primaryStage.setScene(scene);
-        primaryStage.setTitle("WuerfelStatistik");
+        primaryStage.setTitle("Wuerfeln");
         primaryStage.show();
 
     }
 
     private void wuerfeln(ActionEvent e) {
-        try {
-            int zahl = 1;
-            int reichweite = Integer.parseInt(tfReichweite.getText());
-            int durchlaeufe = Integer.parseInt(tfAnzahl.getText());
-            int[] anzahl = new int [reichweite];
-            for (int i = 0; i < durchlaeufe; i++) {
-                int min = 1;
-                int zufall = (int)(Math.random() * reichweite) + min;
-                anzahl[zufall-1] = anzahl[zufall-1]+1;
-            }
-            for (int j : anzahl) {
-                ausgabe = new Label();
-                ausgabe.setText("Die Zahl " + zahl + " wurde " + j + " mal gewuerfelt");
-                ++zahl;
-                box.getChildren().addAll(ausgabe);
-            }
+        WuerfelStatistik wuerfel = new WuerfelStatistik();
+        lResultate.setText(wuerfel.wuerfeln(Integer.parseInt(tfAnzahlRolls.getText())));
 
-        } catch (NumberFormatException e1){
-            ausgabe.setText("Fehlerhafte Eingabe");
-        }
     }
 }

@@ -10,54 +10,50 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
-/**
- * Aufgabe:
- * Kopiert diese Datei nach RechnerApp.
- * Zwei Textfelder, zwei Label und einen Button anzeigt.
- * <p>
- * [.5.] + [.2.] (=) 7
- */
 public class RechnerApp extends Application {
-
-    private Label label2;
-    private TextField textfiel1;
-    private TextField textfield2;
-
+    private TextField text1;
+    private TextField text2;
+    private Label ergebnis;
     public static void main(String[] args) {
         launch(null);
     }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Label lEins = new Label("+");
-        label2 = new Label("7");
-        textfiel1 = new TextField("5");
-        textfiel1.setMaxWidth(50);
-        textfield2 = new TextField("2");
-        textfield2.setMaxWidth(50);
-        Button bRechne = new Button(" = ");
-        bRechne.setDefaultButton(true);
-        bRechne.setOnAction(e -> rechne(e));
-
+        Label l1 = new Label("+");
+        text1=new TextField();
+        text2=new TextField();
+        Button button=new Button("=");
+        button.setOnAction(e->rechne(e));
+        ergebnis=new Label("");
         HBox root = new HBox();
-        root.setSpacing(10.0);
-        Insets insets = new Insets(20, 10, 10, 50);
+        root.setSpacing(10);
+        Insets insets= new Insets(10,10,10,10);
         root.setPadding(insets);
-        root.getChildren().addAll(textfiel1, lEins,textfield2, bRechne, label2);
-        Scene scene = new Scene(root, 400, 200);
-        primaryStage.setTitle("Rechner");
+        root.getChildren().add(text1);
+        root.getChildren().add(l1);
+        root.getChildren().add(text2);
+        root.getChildren().add(button);
+        root.getChildren().add(ergebnis);
+        Scene scene = new Scene(root, 500, 100);
         primaryStage.setScene(scene);
         primaryStage.show();
-
-
     }
 
-    private void rechne(ActionEvent e) {
-        String eingabe1 = textfiel1.getText();
-        String eingabe2 = textfield2.getText();
-        int zahl1 = Integer.parseInt(eingabe1);
-        int zahl2 = Integer.parseInt(eingabe2);
-        int ergebnis = zahl1 + zahl2;
-        label2.setText(""+ergebnis);
+    public void rechne(ActionEvent e){
+        String t1=text1.getText();
+        String t2=text2.getText();
+        try{
+
+            int zahl1=Integer.parseInt(t1);
+            int zahl2=Integer.parseInt(t2);
+            int endwert=zahl1+zahl2;
+            endwert= (int) (Math.round((zahl1+zahl2)*100)/100.0);
+            ergebnis.setText("Ihr Ergebnis ist: " + endwert);
+        }
+        catch(NumberFormatException f){
+            ergebnis.setText("Fehlerhafte Eingabe!");
+        }
     }
 }
+

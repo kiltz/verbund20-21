@@ -15,9 +15,12 @@ Open-Book-Klausur: Alle nicht-personellen Hilfsmittel (Unterlage, Beispieldateie
 3. Erweitere die Klasse "TaschenRechnerGui" durch die Main-Methode. In dieser Methode soll die Allpication "gelaunched"
     werden.
 
+
+
 (3 Punkte)
 4. Erzeuge in der Start-Methode eine VBox als WurzelKnoten und weise ihn einer Szene zu.
 Übergebe die Szene an die primaryStage, setze den Titel auf "Taschenrechner" und zeige die Bühne an.
+
 
 (7 Punkte)
 5. Erzeuge zwei Textfelder, zwei Label und einen Button.

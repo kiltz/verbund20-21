@@ -1,29 +1,36 @@
 package basic.aufgabe2;
 
 public class WuerfelStatistik {
-	public static void main(String[] args) {
-		int[] anzahl = new int[6];
-		int max = 6;
-		int min = 1;
-		int zahl = 1;
-		int range = max - min + 1;
-		int durchlaeufe = 100000000;
 
-		long zeitAnfang = System.currentTimeMillis();
+	public String wuerfeln(int amountOfRolls){
 
-		for (int i = 0; i < durchlaeufe; i++) {
+		int[] arrayOfNumbers = new int[amountOfRolls];
+		int anzahl1 = 0;
+		int anzahl2 = 0;
+		int anzahl3 = 0;
+		int anzahl4 = 0;
+		int anzahl5 = 0;
+		int anzahl6 = 0;
 
-			int zufall = (int)(Math.random() * range) + min;
-			anzahl[zufall-1] = anzahl[zufall-1]+1;
+		for (int i = 0; i < amountOfRolls; i++) {
+			int zufall = (int) (Math.random() * 6 + 1);
+			if (zufall == 1) {
+				anzahl1 += 1;
+			} else if (zufall == 2) {
+				anzahl2 += 1;
+			} else if (zufall == 3) {
+				anzahl3 += 1;
+			} else if (zufall == 4) {
+				anzahl4 += 1;
+			} else if (zufall == 5) {
+				anzahl5 += 1;
+			} else if (zufall == 6) {
+				anzahl6 += 1;
+			}
+			arrayOfNumbers[i] = zufall;
 		}
-		for (int j : anzahl) {
-			System.out.println("Die Zahl " + zahl + " wurde " + j + " mal gewuerfelt");
-			++zahl;
-		}
 
-		long zeitEnde = System.currentTimeMillis();
-		long zeitDif = zeitEnde - zeitAnfang;
-		System.out.println("Der Computer hat fuer die Aufgabe " + zeitDif + "ms gebraucht");
+		return("1: " + anzahl1+ ", 2: " + anzahl2+ ", 3: " + anzahl3+ ", 4: " + anzahl4+ ", 5: " + anzahl5+ ", 6: " + anzahl6);
 
 	}
 }

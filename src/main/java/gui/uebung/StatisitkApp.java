@@ -11,134 +11,113 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.OptionalDouble;
-import java.util.OptionalInt;
+import javax.swing.text.html.Option;
+import javax.xml.soap.Text;
+import java.awt.font.NumericShaper;
+import java.lang.reflect.Array;
+import java.util.*;
 
+/**
+ * Aufgabe:
+ * Zahleneingabe
+ * Min, Max, Summe, Durchschnitt, anzahl Zahlen ausgeben
+ *
+ * [.5.] + [.2.] (=) 7
+ */
 public class StatisitkApp extends Application {
-    private VBox box;
-    private Label leingabe, lmin, lminwert, lmax, lmaxwert, ldurchschnitt, ldurchschnittwert, lsumme, lsummewert, lanzahl, lanzahlwert;
-    private TextField txteingabe;
-    private List<Integer> liste;
-    private int anzahl = 0;
-    private String eingabe = "";
-    private OptionalInt min;
-    private OptionalInt max;
-    private OptionalDouble average;
-    private int summe;
-    private int max2 = 0;
+
+    private TextField tfInput;
+    private Label lMin;
+    private Label lMax;
+    private Label lAverage;
+    private Label lSum;
+    private Label lCount;
+    private List<Integer> numbers;
+    private Integer sum;
 
     public static void main(String[] args) {
-        launch(args);
+        launch(null);
+        launch();
     }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        liste = new ArrayList<>();
-        box = new VBox(10);
-        box.setPadding(new Insets(10, 20, 20, 20));
 
-        HBox hBox1 = new HBox(10);
-        leingabe = new Label("Eingabe");
-        txteingabe = new TextField();
-        Button btnhinzufügen = new Button("Hinzufügen");
-        btnhinzufügen.setOnAction(e -> hinzufuegen(e));
-        hBox1.getChildren().addAll(leingabe,txteingabe,btnhinzufügen);
+        Label lInput = new Label("Eingabe: ");
+        tfInput = new TextField();
+        Button btAdd = new Button("Hinzufuegen");
+        btAdd.setOnAction(e -> add(e));
 
-        HBox hBox2 = new HBox(10);
-        lmin = new Label("Min: ");
-        lminwert = new Label("");
-        lmax = new Label("Max: ");
-        lmaxwert = new Label("");
-        hBox2.getChildren().addAll(lmin,lminwert,lmax,lmaxwert);
+        lMin = new Label("Min: ");
+        lMax = new Label("Max: ");
+        lAverage = new Label("Durchschnitt: ");
+        lSum = new Label("Summe: ");
+        lCount = new Label("Anzahl Eingaben: ");
 
-        HBox hBox3 = new HBox(10);
-        ldurchschnitt = new Label("Durchschnitt: ");
-        ldurchschnittwert = new Label("");
-        hBox3.getChildren().addAll(ldurchschnitt,ldurchschnittwert);
+        numbers = new ArrayList<>();
 
-        HBox hBox4 = new HBox(10);
-        lsumme = new Label("Summe: ");
-        lsummewert = new Label("");
-        hBox4.getChildren().addAll(lsumme,lsummewert);
+        Button btClear = new Button("Liste leeren");
+        btClear.setOnAction(g -> clear(g));
 
-        HBox hBox5 = new HBox(10);
-        lanzahl = new Label("Anzahl: ");
-        lanzahlwert = new Label("");
-        hBox5.getChildren().addAll(lanzahl,lanzahlwert);
+        HBox hInput = new HBox(10);
+        hInput.getChildren().addAll(lInput, tfInput, btAdd);
 
-        HBox hBox6 = new HBox(10);
-        Button btnlisteleeren = new Button("Liste Leeren");
-        btnlisteleeren.setOnAction(e -> ListeLeeren(e));
-        hBox6.getChildren().addAll(btnlisteleeren);
+        HBox hMinMax = new HBox(10);
+        hMinMax.getChildren().addAll(lMin, lMax);
 
-        box.getChildren().addAll(hBox1, hBox2, hBox3, hBox4, hBox5, hBox6);
+        VBox vMain = new VBox(10);
+        vMain.setPadding(new Insets(20, 20, 20, 20));
+        vMain.getChildren().addAll(hInput, hMinMax, lAverage, lSum, lCount, btClear);
 
-        Scene scene = new Scene(box, 400, 250);
+        Scene scene = new Scene(vMain, 500, 400);
+        primaryStage.setTitle("Statistik");
         primaryStage.setScene(scene);
-
-
-        primaryStage.setTitle("Login");
         primaryStage.show();
-
     }
 
-    private void hinzufuegen(ActionEvent e) {
-        eingabe = String.valueOf(txteingabe.getText());
-        liste.add(Integer.valueOf(eingabe));
-        max = liste
-                .stream()
-                .mapToInt(v -> v)
-                .max();
-        min = liste
-                .stream()
-                .mapToInt(v -> v)
-                .min();
-
-        average = liste
-                .stream()
-                .mapToInt(v -> v)
-                .average();
-        summe = liste
-                .stream()
-                .mapToInt(v -> v)
-                .sum();
-
-        lsummewert.setText(String.valueOf(summe));
-        ldurchschnittwert.setText(String.valueOf(average.getAsDouble()));
-        lminwert.setText(String.valueOf(min.getAsInt()));
-        lmaxwert.setText(String.valueOf(max.getAsInt()));
-        anzahl = liste.size();
-        lanzahlwert.setText(String.valueOf(anzahl));
-
+    private void clear(ActionEvent g) {
+        numbers.clear();
     }
-    private void ListeLeeren(ActionEvent e) {
-        liste.clear();
-        max = liste
-                .stream()
-                .mapToInt(v -> v)
-                .max();
-        min = liste
-                .stream()
-                .mapToInt(v -> v)
-                .min();
 
-        average = liste
-                .stream()
-                .mapToInt(v -> v)
-                .average();
-        summe = liste
-                .stream()
-                .mapToInt(v -> v)
-                .sum();
+    private void add(ActionEvent e) {
+        try {
+            numbers.add(Integer.parseInt(tfInput.getText()));
+            if(numbers.size() >= 2){
+                min();
+                max();
+                sum();
+                count();
+                average();
+            }
+        } catch (NumberFormatException f) {
+            System.out.println("Ungültige Eingabe");
+        }
+    }
 
-        lsummewert.setText(String.valueOf(summe));
-        ldurchschnittwert.setText(String.valueOf(average.getAsDouble()));
-        lminwert.setText(String.valueOf(min.getAsInt()));
-        lmaxwert.setText(String.valueOf(max.getAsInt()));
-        anzahl = liste.size();
-        lanzahlwert.setText(String.valueOf(anzahl));
+    private Integer sum() {
+        sum = 0;
+        for (Integer number : numbers) {
+            sum += number;
+        }
+        lSum.setText("Summe: " + sum);
+        return sum;
+    }
 
+    private void count() {
+        lCount.setText("Anzahl Elemente: " + numbers.size());
+    }
+
+    private void average() {
+        int average = (sum / numbers.size());
+        lAverage.setText(("Durchschnitt: " + average));
+    }
+
+    private void min(){
+        lMin.setText("Minimum: " + Collections.min(numbers));
+    }
+
+    private void max(){
+        lMax.setText("Maximum: " + Collections.max(numbers));
     }
 }
+

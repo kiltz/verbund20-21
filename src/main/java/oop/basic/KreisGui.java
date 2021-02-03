@@ -6,71 +6,58 @@ import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 
-import static javafx.application.Application.launch;
-
 public class KreisGui extends Application {
 
-    private TextField tRadius;
-    private Label lAusgabe;
-    private int radius;
-    private Kreis k;
-
-    public static void main(String[] args) {
-        launch(args);
-    }
+    private TextField tfEingabe;
+    private Label lResult;
+    private Kreis kreis = new Kreis();
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        VBox box= new VBox(10);
-        box.setPadding(new Insets(10, 20, 20, 20));
+        VBox box = new VBox(10);
+
+        HBox hBoxEingabe = new HBox(25);
+        HBox hBoxHeader = new HBox(25);
+
+        tfEingabe = new TextField();
+        lResult = new Label("Umfang: ");
+        Label lRadius = new Label("radius");
+        hBoxHeader.getChildren().add(lRadius);
+
+        primaryStage.setTitle("Umfang");
+
+        Button calculate = new Button("Berechne");
 
 
-        lAusgabe=new Label();
+        calculate.setOnAction(this::berechneUmfang);
+        hBoxEingabe.getChildren().addAll( tfEingabe, calculate);
+        box.getChildren().addAll(hBoxHeader, hBoxEingabe, lResult);
 
-        HBox hBox=new HBox();
-        Label lRadius=new Label("Radius: ");
-        tRadius=new TextField();
-        hBox.getChildren().addAll(lRadius, tRadius);
-
-        Button bRechnen=new Button("Berechne Umfang");
-        bRechnen.setOnAction(e->rechneUmfang(e));
-
-        box.getChildren().addAll(hBox, lAusgabe, bRechnen);
-
-        Scene scene = new Scene(box, 400, 250);
+        Scene scene = new Scene(box, 500, 250);
         primaryStage.setScene(scene);
-        primaryStage.setTitle("Kreis");
+
         primaryStage.show();
-
     }
 
-    private void rechneUmfang(ActionEvent e) {
-        k=new Kreis();
+    private void berechneUmfang(ActionEvent e) {
+        try {
+            int value = Integer.parseInt(tfEingabe.getText());
+            kreis.setRadius(value);
+            lResult.setText("Umfang: " + kreis.berechneUmfang());
 
-        try{
-            int r=Integer.parseInt(tRadius.getText());
-            k.setRadius(r);
-            lAusgabe.setText("Umfang: " +k.berechneUmfang());
-            lAusgabe.setTextFill(Paint.valueOf("#000000"));
-        }
-        catch(NumberFormatException f){
-            lAusgabe.setText("Falsche Eingabe");
-            lAusgabe.setTextFill(Paint.valueOf("#ff0000"));
+        } catch (NumberFormatException f) {
+            lResult.setText("Falscher Wert - " + f.getMessage());
+
+
         } catch (Exception exception) {
-            lAusgabe.setText("Radius zu klein");
-            lAusgabe.setTextFill(Paint.valueOf("ff0000"));
+            lResult.setText("radius zu klein!");
+
         }
-
     }
-
-
-
-
 }
