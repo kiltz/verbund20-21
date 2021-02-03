@@ -3,28 +3,32 @@ package utils;
 import java.io.*;
 
 public class Datei {
-    private StringBuffer inhalt = new StringBuffer();
+    private String dateiName;
 
-    public void schreibe(String zeile1) {
+    public Datei(String dateiName) {
+        this.dateiName = dateiName;
+    }
+
+    public void schreibe(String text) throws Exception {
+        schreibe(text, false);
+    }
+
+    public void schreibe(String text, boolean append) throws Exception {
         File datei = null;
-        String dateiName = "test.txt";
-        String txt = "Ein kleiner I/O-Test.";
         datei = new File(dateiName);
-        try (FileWriter outStream = new FileWriter(datei)) {
+        try (FileWriter outStream = new FileWriter(datei, append)) {
 
-            outStream.write(txt);
+            outStream.write(text);
 
         } catch (IOException e) {
-            // Fehlerbehandlung
-            e.printStackTrace();
+            throw new Exception("Fehler beim schreiben", e);
         }
     }
 
-    public String lese() {
-
+    public String lese() throws Exception {
+        StringBuffer inhalt = new StringBuffer();
         File datei = null;
         BufferedReader reader = null;
-        String dateiName = "test.txt";
         // einlesen der Datei
         datei = new File(dateiName); // Erzeuge ein Datei-Objekt
         try (FileReader inStream = new FileReader(datei)) {
@@ -32,23 +36,16 @@ public class Datei {
             String zeile = "";
             while ((zeile = reader.readLine()) != null) // bis alles drin ist
             {
-                inhalt.append(zeile + "\n");
+                if ( inhalt.length() > 0) {
+                    inhalt.append("\n");
+                }
+                inhalt.append(zeile);
             }
-            // Ausgabe der gesammelten Werke
-            System.out.println(inhalt);
         }
         // Etwas schief gegangen?
         catch (IOException e) {
-            e.printStackTrace();
+            throw new Exception("Fehler beim lesen", e);
         }
         return inhalt.toString();
     }
-
-    public void schreibe(String zeile2, boolean b) {
-
-    }
 }
-
-
-
-
