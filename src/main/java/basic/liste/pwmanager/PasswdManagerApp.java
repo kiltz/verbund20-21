@@ -61,10 +61,12 @@ public class PasswdManagerApp extends Application {
         //TODO Ergebnis in einzelne Labels aufspalten und dem Akkordion übergeben
         //Dazu suche() anpassen (return value)
         Accordion aErgebnis = new Accordion();
-        for (int i = 1; i <= 5; ++i) {
-            HBox box = new HBox();
-            box.getChildren().add(new Label("Label der Box " + i));
-            TitledPane pane = new TitledPane("Box " + i, box);
+        manager = new Manager();
+        List<Passwort> erg = manager.suche("");
+        for (Passwort p:erg) {
+            VBox box = new VBox();
+            box.getChildren().addAll(new Label(p.getBenutzername()), new Label(p.getPasswort()));
+            TitledPane pane = new TitledPane(p.getName(),box);
             aErgebnis.getPanes().add(pane);
         }
         return aErgebnis;
@@ -89,7 +91,6 @@ public class PasswdManagerApp extends Application {
         for (Passwort p : erg) {
             txt.append(p.getName()+"\t"+p.getBenutzername()+"\t"+p.getPasswort()+"\n");
         }
-        taErgebnis.setText(txt.toString());
     }
 
     private Node getEintragenZeile() {
