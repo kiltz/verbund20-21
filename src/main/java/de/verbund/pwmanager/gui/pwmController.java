@@ -35,11 +35,13 @@ public class pwmController {
                 throw new Exception();
             }
         } catch (Exception e) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Help. I need somebody. Help. Not just anybody. Help. Why don't you please, please help me?");
-            alert.setHeaderText("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH");
+            alert.setHeaderText("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH");
             alert.setContentText("Chef, Aquarium brennt!");
             alert.show();
+            alert.setHeight(200);
+            alert.setWidth(600);
         }
     }
 
