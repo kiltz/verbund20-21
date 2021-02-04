@@ -17,25 +17,25 @@
                               <HBox prefHeight="41.0" prefWidth="100.0" spacing="32.0">
                                  <children>
                                     <Label text="Name" />
-                                    <TextField id="tfName" prefHeight="25.0" prefWidth="142.0" />
+                                    <TextField fx:id="tfName" prefHeight="25.0" prefWidth="142.0" />
                                  </children>
                               </HBox>
                               <HBox prefHeight="36.0" prefWidth="100.0" spacing="13.0">
                                  <children>
                                     <Label text="Benutzer" />
-                                    <TextField id="tfBenutzer" prefHeight="25.0" prefWidth="145.0" />
+                                    <TextField fx:id="tfBenutzer" prefHeight="25.0" prefWidth="145.0" />
                                  </children>
                               </HBox>
                               <HBox prefHeight="40.0" prefWidth="100.0" spacing="12.0">
                                  <children>
                                     <Label text="Passwort" />
-                                    <TextField id="tfPasswort" />
+                                    <TextField fx:id="tfPasswort" />
                                  </children>
                               </HBox>
                               <HBox prefHeight="100.0" prefWidth="200.0" spacing="30.0">
                                  <children>
-                                    <Button id="berstellen" mnemonicParsing="false" onAction="#doCreate" text="erstellen" />
-                                    <Label id="lAntwort" />
+                                    <Button fx:id="berstellen" mnemonicParsing="false" onAction="#doCreate" text="erstellen" />
+                                    <Label fx:id="lAntwort" />
                                  </children>
                               </HBox>
                            </children>
@@ -57,31 +57,31 @@
                         <HBox prefHeight="48.0" prefWidth="58.0" spacing="60.0">
                            <children>
                               <Label text="Name" />
-                              <TextField id="tfWechselName" />
+                              <TextField fx:id="tfWechselName" />
                            </children>
                         </HBox>
                         <HBox prefHeight="54.0" prefWidth="572.0" spacing="44.0">
                            <children>
                               <Label text="Benutzer" />
-                              <TextField id="tfWechselBenutzer" />
+                              <TextField fx:id="tfWechselBenutzer" />
                            </children>
                         </HBox>
                         <HBox prefHeight="44.0" prefWidth="572.0" spacing="17.0">
                            <children>
                               <Label text="altes Passwort" />
-                              <TextField id="tfAltPasswort" />
+                              <TextField fx:id="tfAltPasswort" />
                            </children>
                         </HBox>
                         <HBox prefHeight="44.0" prefWidth="572.0" spacing="9.0">
                            <children>
                               <Label text="neues Passwort" />
-                              <TextField id="tfNeuPasswort" />
+                              <TextField fx:id="tfNeuPasswort" />
                            </children>
                         </HBox>
                         <HBox prefHeight="51.0" prefWidth="572.0" spacing="50.0">
                            <children>
-                              <Button id="bwechsel" mnemonicParsing="false" onAction="#doSwitch" text="wechsel" />
-                              <Label id="lWechselErfolgreich" />
+                              <Button fx:id="bwechsel" mnemonicParsing="false" onAction="#doSwitch" text="wechsel" />
+                              <Label fx:id="lWechselErfolgreich" />
                            </children>
                         </HBox>
                      </children>
@@ -98,15 +98,15 @@
                <children>
                   <VBox layoutX="22.0" layoutY="48.0" prefHeight="271.0" prefWidth="537.0">
                      <children>
-                        <HBox id="bSuche" prefHeight="51.0" prefWidth="537.0" spacing="20.0">
+                        <HBox fx:id="bSuche" prefHeight="51.0" prefWidth="537.0" spacing="20.0">
                            <children>
-                              <TextField id="tfSuche" prefHeight="27.0" prefWidth="224.0" />
-                              <Button id="bsuche" mnemonicParsing="false" onAction="#doSuche" text="Suche" />
+                              <TextField fx:id="tfSuche" prefHeight="27.0" prefWidth="224.0" />
+                              <Button fx:id="bsuche" mnemonicParsing="false" onAction="#doSuche" text="Suche" />
                            </children>
                         </HBox>
                         <HBox prefHeight="221.0" prefWidth="537.0">
                            <children>
-                              <TextArea id="taSuchErgebnis" prefHeight="221.0" prefWidth="553.0" />
+                              <TextArea fx:id="taSuchErgebnis" prefHeight="221.0" prefWidth="553.0" />
                            </children>
                         </HBox>
                      </children>
