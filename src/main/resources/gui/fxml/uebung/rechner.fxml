@@ -13,6 +13,6 @@
       <Label fx:id="lErgebnis" text="Ergebnis" />
    </children>
    <padding>
-      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+      <Insets bottom="10.0" left="10.0" right="10.0" top="60.0" />
    </padding>
 </HBox>
