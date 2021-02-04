@@ -34,20 +34,30 @@ public class PwManagerController {
     }
 
     public void erstellePW(ActionEvent actionEvent) throws Exception {
-        manager.neu(new Passwort (tfName.getText(),tfBenutzer.getText(),tfPasswort.getText()));
-        lAusgabe.setText("Erstellen erfolgreich");
-        lAusgabe.setTextFill(Color.BLUE);
-        tfName.setText("");
-        tfBenutzer.setText("");
-        tfPasswort.setText("");
+        try {
+            manager.neu(new Passwort(tfName.getText(), tfBenutzer.getText(), tfPasswort.getText()));
+            lAusgabe.setTextFill(Color.BLUE);
+            lAusgabe.setText(tfName.getText()+" wurde eingetragen.");
+            tfName.setText("");
+            tfBenutzer.setText("");
+            tfPasswort.setText("");
+        } catch (Exception e) {
+            lAusgabe.setTextFill(Color.RED);
+            lAusgabe.setText("Fehler: "+e.getMessage());
+        }
     }
 
     public void aenderePW(ActionEvent actionEvent) throws Exception {
-        manager.neu(new Passwort (tfName.getText(),tfBenutzer.getText(),tfPasswort.getText()));
-        tfName.setText("");
-        tfBenutzer.setText("");
-        tfPasswort.setText("");
-        lAusgabe.setText("Änderung erfolgreich");
-        lAusgabe.setTextFill(Color.BLUE);
+        try {
+            manager.neu(new Passwort(tfName.getText(), tfBenutzer.getText(), tfPasswort.getText()));
+            lAusgabe.setTextFill(Color.BLUE);
+            lAusgabe.setText(tfName.getText()+" wurde eingetragen.");
+            tfName.setText("");
+            tfBenutzer.setText("");
+            tfPasswort.setText("");
+        } catch (Exception e) {
+            lAusgabe.setTextFill(Color.RED);
+            lAusgabe.setText("Fehler: "+e.getMessage());
+        }
     }
 }
