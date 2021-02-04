@@ -26,6 +26,9 @@ public class PwManagerController {
         }
         lAusgabe.setText("Suche erfolgreich");
         lAusgabe.setTextFill(Color.BLUE);
+        tfName.setText("");
+        tfBenutzer.setText("");
+        tfPasswort.setText("");
         taAusgabe.setText(txt.toString());
 
     }
@@ -34,10 +37,16 @@ public class PwManagerController {
         manager.neu(new Passwort (tfName.getText(),tfBenutzer.getText(),tfPasswort.getText()));
         lAusgabe.setText("Erstellen erfolgreich");
         lAusgabe.setTextFill(Color.BLUE);
+        tfName.setText("");
+        tfBenutzer.setText("");
+        tfPasswort.setText("");
     }
 
     public void aenderePW(ActionEvent actionEvent) throws Exception {
         manager.neu(new Passwort (tfName.getText(),tfBenutzer.getText(),tfPasswort.getText()));
+        tfName.setText("");
+        tfBenutzer.setText("");
+        tfPasswort.setText("");
         lAusgabe.setText("Änderung erfolgreich");
         lAusgabe.setTextFill(Color.BLUE);
     }
