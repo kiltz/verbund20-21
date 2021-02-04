@@ -1,2 +1,6 @@
+
 Amazon;Patrik;Geheim
-Amazon;Patrik;Geheim
+Amazon;Patrik;Test
+Ebay;Tamim;Geheim
+Ebay;Tamim;MegaGeheim
+GitHub;Friedrich;Katze
