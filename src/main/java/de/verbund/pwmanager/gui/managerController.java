@@ -41,7 +41,7 @@ public class managerController {
                 throw new Exception();
             }
         } catch (Exception e) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("WHAT DID YOU DO?!?!?!");
             alert.setHeaderText("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH");
             alert.setContentText("Chef, Aquarium brennt!");
