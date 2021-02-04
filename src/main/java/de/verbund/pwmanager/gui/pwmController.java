@@ -25,19 +25,20 @@ public class pwmController {
 
     public void hinzufügen(ActionEvent actionEvent) throws Exception {
         try {
-            if (!tfName.getText().equals("") && !tfBenutzer.getText().equals("") && !pfPassword.getText().equals("")) {
+            if (!tfName.getText().isEmpty() && !tfBenutzer.getText().isEmpty() && !pfPassword.getText().isEmpty()) {
                 manager.neu(new Passwort(tfName.getText(), tfBenutzer.getText(), pfPassword.getText()));
                 tfName.setText("");
                 tfBenutzer.setText("");
                 pfPassword.setText("");
                 taAusgabe.setText("Eintrag eingefügt!");
             } else {
-                throw new NullPointerException();
+                throw new Exception();
             }
         } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setHeaderText("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH");
             alert.setContentText("Chef, Aquarium brennt!");
+            alert.show();
         }
     }
 
