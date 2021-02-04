@@ -53,4 +53,8 @@ public class Manager {
         }
         return ergebnisListe;
     }
+
+    public void loeschen(){
+        datei.schreibe("");
+    }
 }

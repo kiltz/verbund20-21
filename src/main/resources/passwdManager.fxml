@@ -21,13 +21,14 @@
          <children>
             <Label text="Passwort: " />
             <PasswordField fx:id="pfPassword" />
-            <Button fx:id="bGeneratePassword" mnemonicParsing="false" text="Generiere Passwort" onAction="#generate"/>
+            <Button fx:id="bGeneratePassword" mnemonicParsing="false" onAction="#generate" text="Generiere Passwort" />
             <Button fx:id="bHinzufügen" mnemonicParsing="false" onAction="#hinzufügen" text="Hinzufügen" />
          </children></HBox>
       <HBox prefHeight="50.0" prefWidth="200.0" spacing="10.0">
          <children>
             <TextField fx:id="tfSuche" />
             <Button fx:id="bSuche" mnemonicParsing="false" onAction="#suchen" text="Suchen" />
+            <Button mnemonicParsing="false" text="Lösche alle Einträge" onAction="#loeschen"/>
          </children>
       </HBox>
       <TextArea fx:id="taAusgabe" editable="false" prefHeight="200.0" prefWidth="200.0" />

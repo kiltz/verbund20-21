@@ -38,7 +38,7 @@ public class pwmController {
 
     public void generate(ActionEvent actionEvent) {
         String erlaubteZeichen="abcdefghijklmnopqrstuvwxyz";
-        for(int i=0; i<10;i++){
+        for(int i=0; i<15;i++){
             int pos = (int) (Math.random() * erlaubteZeichen.length());
             password += erlaubteZeichen.charAt(pos);
         }
@@ -48,4 +48,7 @@ public class pwmController {
     }
 
 
+    public void loeschen(ActionEvent actionEvent){
+        manager.loeschen();
+    }
 }
