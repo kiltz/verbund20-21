@@ -1,0 +1,31 @@
+Passwort-Manager erstellen
+==========================
+
+---------------------
+I. Minimal-Version
+---------------------
+Ziel:
+Erstellen eines Passwort-Managers mit den Funktionen:
+* Passwort suchen
+* Passwort erstellen
+* Passwort ändern
+
+Struktur der Daten:
+   - name
+   - benutzerName
+   - passwort
+
+Techn. Anforderungen:
+- Passwörter werden in einer Datei gespeichert
+- Realisierung in JavaFX mit FXML-Files
+
+Ablauf:
+-------
+1. Aufbau der Struktur Basis: "de.verbund.pwmanager"
+    - Kopie vom Manager, Passwort nach "de.verbund.pwmanager.service"
+    - Kopie von TestFall nach "de.verbund.pwmanager.test"
+    - Kopie von Datei nach "de.verbund.pwmanager.utils"
+
+2. Start-Klasse: StarterApp (abgeleitet von Application) im Paket "de.verbund.pwmanager"
+
+3. GUIs (Controller und FXML-Dateien) aufbauen im Paket "de.verbund.pwmanager.gui"
