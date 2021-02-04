@@ -1,7 +1,7 @@
 package de.verbund.pwmanager.service;
 
 import de.verbund.pwmanager.service.Passwort;
-import utils.Datei;
+import de.verbund.pwmanager.utils.Datei;
 
 import java.util.ArrayList;
 import java.util.HashMap;
