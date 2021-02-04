@@ -2,6 +2,7 @@ package de.verbund.pwmanager.service;
 
 import de.verbund.pwmanager.service.Passwort;
 import de.verbund.pwmanager.utils.Datei;
+import javafx.scene.control.Alert;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -29,7 +30,9 @@ public class Manager {
             }
 
         } catch (Exception e) {
-            // dann ist die halt nicht da!
+            Alert alert=new Alert(Alert.AlertType.INFORMATION);
+            alert.setHeaderText("ALAAAAARM!");
+            alert.setContentText("ALARM! ALAAAAAAAAAARM!");
         }
         return liste;
     }
