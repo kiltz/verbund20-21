@@ -5,6 +5,7 @@ import de.verbund.pwmanager.service.Manager;
 import de.verbund.pwmanager.service.Passwort;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
@@ -28,18 +29,23 @@ public class managerController {
 
     @FXML
     private void eintragen() {
-        if (!tfName.getText().isEmpty() && !tfBenutzer.getText().isEmpty() && !pfPasswort.getText().isEmpty()) {
-            taAusgabe.setText("");
-            try {
+
+        try {
+            if (!tfName.getText().isEmpty() && !tfBenutzer.getText().isEmpty() && !pfPasswort.getText().isEmpty()) {
+                taAusgabe.setText("");
                 manager.neu(new Passwort(tfName.getText(), tfBenutzer.getText(), pfPasswort.getText()));
                 tfName.setText("");
                 tfBenutzer.setText("");
                 pfPasswort.setText("");
-            } catch (Exception e) {
-                System.out.println("Ich bin kaputt D:");
+            } else {
+                throw new Exception();
             }
-        } else {
-            taAusgabe.setText("Eingabe darf nicht leer sein!");
+        } catch (Exception e) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("WHAT DID YOU DO?!?!?!");
+            alert.setHeaderText("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH");
+            alert.setContentText("Chef, Aquarium brennt!");
+            alert.show();
         }
     }
 
