@@ -5,10 +5,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
-      prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.verbund.pwmanager.gui.PwManagerController">
    <children>
-      <GridPane prefHeight="148.0" prefWidth="600.0">
+      <GridPane prefHeight="100.0" prefWidth="600.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="600.0" minWidth="10.0" prefWidth="600.0" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="295.0" minWidth="0.0" prefWidth="0.0" />
@@ -31,7 +30,7 @@
                      <font>
                         <Font size="14.0" />
                      </font></Label>
-                  <TextField prefWidth="200.0" promptText="Name eingeben">
+                  <TextField fx:id="tfName" prefWidth="200.0" promptText="Name eingeben">
                      <padding>
                         <Insets top="10.0" />
                      </padding>
@@ -51,7 +50,7 @@
                      <font>
                         <Font size="14.0" />
                      </font></Label>
-                  <TextField prefWidth="200.0" promptText="Benutzer eingeben">
+                  <TextField fx:id="tfBenutzer" prefWidth="200.0" promptText="Benutzer eingeben">
                      <padding>
                         <Insets top="10.0" />
                      </padding>
@@ -72,7 +71,7 @@
                      <font>
                         <Font size="14.0" />
                      </font></Label>
-                  <TextField prefWidth="200.0" promptText="Passwort eingeben">
+                  <TextField fx:id="tfPasswort" prefWidth="200.0" promptText="Passwort eingeben">
                      <padding>
                         <Insets top="10.0" />
                      </padding>
@@ -91,31 +90,66 @@
             <Separator prefWidth="600.0">
                <padding>
                   <Insets top="10.0" />
-               </padding></Separator>
+               </padding>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin></Separator>
          </children>
          <padding>
             <Insets top="10.0" />
          </padding>
       </HBox>
-      <HBox prefHeight="50.0" prefWidth="600.0">
-         <children>
-            <Button mnemonicParsing="false" text="Passwort suchen">
-               <HBox.margin>
-                  <Insets left="50.0" top="15.0" />
-               </HBox.margin></Button>
-            <Button mnemonicParsing="false" text="Passwort erstellen">
-               <HBox.margin>
-                  <Insets left="50.0" top="15.0" />
-               </HBox.margin></Button>
-            <Button mnemonicParsing="false" text="Passwort ändern">
-               <HBox.margin>
-                  <Insets bottom="15.0" left="50.0" right="15.0" top="15.0" />
-               </HBox.margin></Button>
-         </children></HBox>
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Separator prefWidth="600.0" />
-         </children>
-      </HBox>
+            <Button minHeight="25.0" mnemonicParsing="false" onAction="#erstellePW" text="Passwort erstellen">
+               <HBox.margin>
+                  <Insets bottom="20.0" left="75.0" right="20.0" top="20.0" />
+               </HBox.margin>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding></Button>
+            <Button mnemonicParsing="false" onAction="#aenderePW" text="Passwort ändern">
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+               <HBox.margin>
+                  <Insets left="75.0" top="20.0" />
+               </HBox.margin></Button>
+         </children></HBox>
+      <HBox prefHeight="151.0" prefWidth="500.0">
+         <children>
+            <Accordion minHeight="120.0" minWidth="500.0" prefHeight="146.0" prefWidth="500.0">
+              <panes>
+                <TitledPane animated="false" prefHeight="75.0" prefWidth="500.0" text="Suchen">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Button layoutX="249.0" layoutY="10.0" mnemonicParsing="false" onAction="#suchePW" text="Passwort suchen" />
+                              <TextField fx:id="tfSuche" layoutX="14.0" layoutY="10.0" prefWidth="200.0" />
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </TitledPane>
+                <TitledPane animated="false" prefHeight="52.0" prefWidth="500.0" text="Erstellen">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                  </content>
+                </TitledPane>
+                <TitledPane animated="false" text="Ändern">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                  </content>
+                </TitledPane>
+              </panes>
+            </Accordion>
+         </children></HBox>
+      <HBox prefHeight="220.0" prefWidth="500.0">
+         <children>
+                <TextArea fx:id="taAusgabe" prefHeight="161.0" prefWidth="500.0" />
+         </children></HBox>
+      <HBox prefHeight="12.0" prefWidth="457.0" />
    </children>
+   <padding>
+      <Insets top="10.0" />
+   </padding>
 </VBox>
