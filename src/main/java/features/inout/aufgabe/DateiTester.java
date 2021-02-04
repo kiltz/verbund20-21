@@ -22,7 +22,7 @@ public class DateiTester {
 
 		// eine Instanz von "Datei" erzeugen
 		Datei d = new Datei("test.txt");
-		d.schreibe(zeile1);
+		d.schreibe(zeile1, true);
 		d.schreibe(zeile2, true); // anfügen!
 
 		String inhalt = d.lese();

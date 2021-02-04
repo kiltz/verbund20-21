@@ -1,4 +1,4 @@
-package gui.feature.passwort.PasswdApp;
+package gui.feature.passwort;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
