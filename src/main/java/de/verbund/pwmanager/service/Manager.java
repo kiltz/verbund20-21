@@ -40,6 +40,7 @@ public class Manager {
     }
 
     public List<Passwort> suche(String s) {
+        datensaetze = lese();
         List<Passwort> ergebnisListe = new ArrayList<>();
         for (Map.Entry<String, Passwort> entry : datensaetze.entrySet()) {
             if (entry.getValue().getName().contains(s)) {
@@ -47,5 +48,9 @@ public class Manager {
             }
         }
         return ergebnisListe;
+    }
+
+    public void loeschen(){
+        datei.schreibe("");
     }
 }

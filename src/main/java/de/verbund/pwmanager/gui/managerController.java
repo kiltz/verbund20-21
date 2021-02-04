@@ -1,7 +1,9 @@
 package de.verbund.pwmanager.gui;
 
+import gui.feature.passwort.PasswdApp;
 import de.verbund.pwmanager.service.Manager;
 import de.verbund.pwmanager.service.Passwort;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -12,20 +14,32 @@ public class managerController {
 
     public TextField tfName;
     public TextField tfBenutzer;
-    public TextField tfPasswort;
+    public TextField pfPasswort;
     public TextArea taAusgabe;
     public TextField tfSuche;
+
+    private String validNormal = "abcdefghijklmnopqrstuvwxyz";
+    private String validCapital = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    private String validNumbers = "0123456789";
+    private String validExclusives = "!@§$%&/()=?`{[]}#+-*";
+    private String generatedPassword;
+
     private Manager manager = new Manager();
 
     @FXML
     private void eintragen() {
-        try {
-            manager.neu(new Passwort(tfName.getText(), tfBenutzer.getText(), tfPasswort.getText()));
-            tfName.setText("");
-            tfBenutzer.setText("");
-            tfPasswort.setText("");
-        } catch (Exception e) {
-            System.out.println("Ich bin kaputt D:");
+        if (!tfName.getText().isEmpty() && !tfBenutzer.getText().isEmpty() && !pfPasswort.getText().isEmpty()) {
+            taAusgabe.setText("");
+            try {
+                manager.neu(new Passwort(tfName.getText(), tfBenutzer.getText(), pfPasswort.getText()));
+                tfName.setText("");
+                tfBenutzer.setText("");
+                pfPasswort.setText("");
+            } catch (Exception e) {
+                System.out.println("Ich bin kaputt D:");
+            }
+        } else {
+            taAusgabe.setText("Eingabe darf nicht leer sein!");
         }
     }
 
@@ -37,5 +51,36 @@ public class managerController {
             txt.append(p.getName() + "\t" + p.getBenutzername() + "\t" + p.getPasswort() + "\n");
         }
         taAusgabe.setText(txt.toString());
+    }
+
+    public String generate(ActionEvent actionEvent) {
+
+        String allowedString = validNormal + validCapital + validNumbers + validExclusives;
+        generatedPassword = "";
+
+        for (int i = 0; i < 12; i++) {
+            int pos = (int) (Math.random() * allowedString.length());
+            generatedPassword += allowedString.charAt(pos);
+        }
+        int capitals = (int) (Math.random() * validCapital.length());
+        generatedPassword.replace(generatedPassword.charAt(0), validCapital.charAt(capitals));
+
+        int numbers = (int) (Math.random() * validNumbers.length());
+        generatedPassword.replace(generatedPassword.charAt(1), validNumbers.charAt(numbers));
+
+        int exclusives = (int) (Math.random() * validExclusives.length());
+        generatedPassword.replace(generatedPassword.charAt(2), validExclusives.charAt(exclusives));
+
+        taAusgabe.setText("Vorgeschlagenes Passwort: " + generatedPassword);
+
+        return generatedPassword;
+    }
+
+    public void loeschen(ActionEvent actionEvent) {
+        manager.loeschen();
+    }
+
+    public void einfuegen(ActionEvent actionEvent) {
+        pfPasswort.setText(generatedPassword);
     }
 }
