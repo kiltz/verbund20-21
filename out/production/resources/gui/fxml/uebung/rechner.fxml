@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="194.0" prefWidth="394.0" spacing="10.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.fxml.uebung.RechnerController">
+   <children>
+      <TextField fx:id="tfEins" prefHeight="25.0" prefWidth="95.0" />
+      <Label fx:id="lPlus" text="+" />
+      <TextField fx:id="tfZwei" prefHeight="25.0" prefWidth="95.0" />
+      <Button fx:id="bRechne" mnemonicParsing="false" onAction="#doRechne" text="=" />
+      <Label fx:id="lErgebnis" prefHeight="17.0" prefWidth="55.0" />
+   </children>
+   <padding>
+      <Insets bottom="2030.0" left="20.0" right="30.0" top="50.0" />
+   </padding>
+</HBox>
