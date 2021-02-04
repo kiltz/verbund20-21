@@ -1,0 +1,23 @@
+package de.verbund.pwmanager.test;
+
+import de.verbund.pwmanager.service.Manager;
+import de.verbund.pwmanager.service.Passwort;
+
+import java.util.List;
+
+public class TestFall {
+    public static void main(String[] args) throws Exception {
+        Manager manager = new Manager();
+        Passwort p = new Passwort("Facebook", "schnubselbrumm", "ganzGeheim");
+        manager.neu(p);
+        manager.neu(new Passwort("amazon", "nobody", "keins"));
+        manager.neu(new Passwort("github", "kiltz", "nix"));
+        manager.neu(new Passwort("email", "f@kiltz.de", "keins"));
+
+        List<Passwort> liste = manager.suche("m");
+        for (Passwort passwort : liste ) {
+            System.out.println(passwort);
+        }
+
+    }
+}

@@ -11,9 +11,9 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 public class RechnerApp extends Application {
-    private TextField text1;
-    private TextField text2;
-    private Label ergebnis;
+        private TextField text1;
+        private TextField text2;
+        private Label ergebnis;
     public static void main(String[] args) {
         launch(null);
     }
@@ -44,11 +44,9 @@ public class RechnerApp extends Application {
         String t1=text1.getText();
         String t2=text2.getText();
         try{
-
-            int zahl1=Integer.parseInt(t1);
-            int zahl2=Integer.parseInt(t2);
-            int endwert=zahl1+zahl2;
-            endwert= (int) (Math.round((zahl1+zahl2)*100)/100.0);
+            double zahl1=Double.parseDouble(t1);
+            double zahl2=Double.parseDouble(t2);
+            double endwert=Math.round((zahl1+zahl2)*100)/100.0;
             ergebnis.setText("Ihr Ergebnis ist: " + endwert);
         }
         catch(NumberFormatException f){
@@ -56,4 +54,3 @@ public class RechnerApp extends Application {
         }
     }
 }
-
