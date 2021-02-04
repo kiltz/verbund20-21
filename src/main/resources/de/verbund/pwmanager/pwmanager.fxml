@@ -32,7 +32,7 @@
                      </font></Label>
                   <TextField prefWidth="200.0" promptText="Name eingeben">
                      <padding>
-                        <Insets top="15.0" />
+                        <Insets top="10.0" />
                      </padding>
                      <HBox.margin>
                         <Insets top="10.0" />
@@ -52,7 +52,7 @@
                      </font></Label>
                   <TextField prefWidth="200.0" promptText="Benutzer eingeben">
                      <padding>
-                        <Insets top="15.0" />
+                        <Insets top="10.0" />
                      </padding>
                      <HBox.margin>
                         <Insets top="10.0" />
@@ -73,7 +73,7 @@
                      </font></Label>
                   <TextField prefWidth="200.0" promptText="Passwort eingeben">
                      <padding>
-                        <Insets top="15.0" />
+                        <Insets top="10.0" />
                      </padding>
                      <HBox.margin>
                         <Insets top="10.0" />

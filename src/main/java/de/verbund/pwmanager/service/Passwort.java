@@ -2,7 +2,7 @@ package de.verbund.pwmanager.service;
 
 public class Passwort {
     private String name;
-    private String benutzername;
+    private String benutzerName;
     private String passwort;
 
     public Passwort() {
@@ -10,7 +10,7 @@ public class Passwort {
 
     public Passwort(String name, String benutzername, String passwort) {
         this.name = name;
-        this.benutzername = benutzername;
+        this.benutzerName = benutzername;
         this.passwort = passwort;
     }
 
@@ -23,11 +23,11 @@ public class Passwort {
     }
 
     public String getBenutzername() {
-        return benutzername;
+        return benutzerName;
     }
 
     public void setBenutzername(String benutzername) {
-        this.benutzername = benutzername;
+        this.benutzerName = benutzerName;
     }
 
     public String getPasswort() {
@@ -42,7 +42,7 @@ public class Passwort {
     public String toString() {
         return "Passwort{" +
                 "name='" + name + '\'' +
-                ", benutzername='" + benutzername + '\'' +
+                ", benutzername='" + benutzerName + '\'' +
                 ", passwort='" + passwort + '\'' +
                 '}';
     }

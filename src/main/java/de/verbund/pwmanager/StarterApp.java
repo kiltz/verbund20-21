@@ -5,7 +5,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 import java.net.URL;
 
 
@@ -21,7 +20,6 @@ public class StarterApp extends Application {
         primaryStage.setTitle("Starter-App");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
-
     }
 }
 
