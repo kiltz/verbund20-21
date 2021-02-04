@@ -18,5 +18,7 @@ public class TestFall {
             System.out.println(passwort);
         }
 
+        System.getProperties();
+
     }
 }

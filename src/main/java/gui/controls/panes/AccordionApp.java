@@ -18,7 +18,7 @@ public class AccordionApp  extends Application {
         Accordion root = new Accordion();
         for (int i = 1; i <= 5; ++i) {
             HBox box = new HBox();
-            box.getChildren().add(new Label("Label der Box "+i));
+            box.getChildren().add(new Label("Das sind nicht die Droiden die ihr sucht"));
             TitledPane pane = new TitledPane("Box "+i, box);
             root.getPanes().add(pane);
 

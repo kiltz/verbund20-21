@@ -1,5 +1,6 @@
 package features.inout.aufgabe;
 
+
 import utils.Datei;
 
 /**
@@ -31,10 +32,15 @@ public class DateiTester {
 		if (!inhalt.equals(zeile1 + zeile2)) {
 			System.out.println("Fehler: das was gelesen wurde ist nicht gleich dem was geschrieben wurde!");
 		}
+		String erlaubteZeichen = "abcdefghijklmnopqrstuvwxyz";
 
+
+		System.out.println(inhalt.getBytes());
+		
 		// Zusatzaufgabe (für die die Klasse geändert werden darf):
 		// Erzeuge eine 4 GB große Text-Datei und lese sie ein.
 
 	}
+
 
 }
