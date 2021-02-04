@@ -22,15 +22,19 @@ public class DateiTester {
 
 		// eine Instanz von "Datei" erzeugen
 		Datei d = new Datei("test.txt");
-		d.schreibe(zeile1);
-		d.schreibe(zeile2, true); // anfügen!
 
-		String inhalt = d.lese();
-		System.out.println("'" + inhalt + "'");
-		System.out.println("'" + zeile1 + zeile2 + "'");
-		if (!inhalt.equals(zeile1 + zeile2)) {
-			System.out.println("Fehler: das was gelesen wurde ist nicht gleich dem was geschrieben wurde!");
-		}
+			d.schreibe(zeile1);
+			d.schreibe(zeile2, true); // anfügen!
+
+			String inhalt = d.lese();
+			System.out.println("'" + inhalt + "'");
+			System.out.println("'" + zeile1 + zeile2 + "'");
+
+			if (!inhalt.equals(zeile1 + zeile2)) {
+				System.out.println("Fehler: das was gelesen wurde ist nicht gleich dem was geschrieben wurde!");
+			}
+			System.out.println("'" + inhalt.length() + "'");
+
 
 		// Zusatzaufgabe (für die die Klasse geändert werden darf):
 		// Erzeuge eine 4 GB große Text-Datei und lese sie ein.
