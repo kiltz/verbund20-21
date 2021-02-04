@@ -20,12 +20,17 @@ public class pwmController {
 
     public void hinzufügen(ActionEvent actionEvent) throws Exception{
         manager.neu(new Passwort(tfName.getText(), tfBenutzer.getText(), tfPasswort.getText()));
+        tfName.setText("");
+        tfBenutzer.setText("");
+        tfPasswort.setText("");
+        taAusgabe.setText("Eintrag eingefügt!");
     }
 
     public void suchen(ActionEvent actionEvent) {
         List<Passwort> foundList=manager.suche(tfSuche.getText());
+        taAusgabe.setText("Name: \t Benutzer: \t Passwort:");
         for(Passwort entry:foundList){
-            taAusgabe.setText(taAusgabe.getText() + "\n" + entry.getName() + ";" + entry.getBenutzername() + ";" + entry.getPasswort());
+            taAusgabe.setText(taAusgabe.getText() + "\n" + entry.getName() + ", \t" + entry.getBenutzername() + ", \t" + entry.getPasswort());
         }
     }
 }
