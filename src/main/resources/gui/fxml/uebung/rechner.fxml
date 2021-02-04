@@ -6,19 +6,19 @@
 
 <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" spacing="10.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.fxml.uebung.RechnerController">
    <children>
-      <TextField>
+      <TextField fx:id="tf1">
          <opaqueInsets>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </opaqueInsets>
       </TextField>
       <Label text="+" />
-      <TextField>
+      <TextField fx:id="tf2">
          <opaqueInsets>
             <Insets top="10.0" />
          </opaqueInsets>
       </TextField>
-      <Button mnemonicParsing="false" text="=" onAction="#rechne" />
-      <Label />
+      <Button mnemonicParsing="false" onAction="#rechne" text="=" />
+      <Label fx:id="lErgebnis" />
    </children>
    <opaqueInsets>
       <Insets right="10.0" top="10.0" />
