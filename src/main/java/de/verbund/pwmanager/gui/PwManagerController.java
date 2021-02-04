@@ -36,7 +36,8 @@ public class PwManagerController {
         lAusgabe.setTextFill(Color.BLUE);
     }
 
-    public void aenderePW(ActionEvent actionEvent) {
+    public void aenderePW(ActionEvent actionEvent) throws Exception {
+        manager.neu(new Passwort (tfName.getText(),tfBenutzer.getText(),tfPasswort.getText()));
         lAusgabe.setText("Änderung erfolgreich");
         lAusgabe.setTextFill(Color.BLUE);
     }
