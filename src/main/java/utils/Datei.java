@@ -2,50 +2,50 @@ package utils;
 
 import java.io.*;
 
-public class Datei {
-    private String dateiName;
+public class Datei extends File {
 
-    public Datei(String dateiName) {
-        this.dateiName = dateiName;
+    public Datei(String pathname) {
+        super(pathname);
     }
 
-    public void schreibe(String text) throws Exception {
-        schreibe(text, false);
-    }
-
-    public void schreibe(String text, boolean append) throws Exception {
-        File datei = null;
-        datei = new File(dateiName);
-        try (FileWriter outStream = new FileWriter(datei, append)) {
-
-            outStream.write(text);
+    public void schreibe(String line1) {
+        try (FileWriter outStream = new FileWriter(this)) {
+            outStream.write(line1);
 
         } catch (IOException e) {
-            throw new Exception("Fehler beim schreiben", e);
+            e.printStackTrace();
         }
     }
 
-    public String lese() throws Exception {
+    public void schreibe(String line2, Boolean isTrue) {
+
+        try (FileWriter outStream = new FileWriter(this, isTrue)) {
+            outStream.write(line2);
+
+        } catch (IOException e) {
+            // Fehlerbehandlung
+            e.printStackTrace();
+        }
+    }
+
+    public String lese() {
+
         StringBuffer inhalt = new StringBuffer();
-        File datei = null;
         BufferedReader reader = null;
-        // einlesen der Datei
-        datei = new File(dateiName); // Erzeuge ein Datei-Objekt
-        try (FileReader inStream = new FileReader(datei)) {
+
+        try (FileReader inStream = new FileReader(this)) {
             reader = new BufferedReader(inStream);
             String zeile = "";
             while ((zeile = reader.readLine()) != null) // bis alles drin ist
             {
-                if ( inhalt.length() > 0) {
-                    inhalt.append("\n");
-                }
-                inhalt.append(zeile);
+                inhalt.append(zeile + "\n");
             }
+            // Ausgabe der gesammelten Werke
+            return inhalt.toString().trim();
         }
-        // Etwas schief gegangen?
         catch (IOException e) {
-            throw new Exception("Fehler beim lesen", e);
+            e.printStackTrace();
         }
-        return inhalt.toString();
+        return "";
     }
 }
