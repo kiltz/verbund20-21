@@ -3,11 +3,13 @@ package de.verbund.pwmanager.gui;
 import de.verbund.pwmanager.service.Manager;
 import de.verbund.pwmanager.service.Passwort;
 import javafx.event.ActionEvent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 public class pwmController {
 
@@ -21,11 +23,23 @@ public class pwmController {
 
     public String password;
     public void hinzufügen(ActionEvent actionEvent) throws Exception{
-        manager.neu(new Passwort(tfName.getText(), tfBenutzer.getText(), pfPassword.getText()));
-        tfName.setText("");
-        tfBenutzer.setText("");
-        pfPassword.setText("");
-        taAusgabe.setText("Eintrag eingefügt!");
+        try {
+            if(!tfName.getText().equals("") &&!tfBenutzer.getText().equals("") &&!pfPassword.getText().equals("")) {
+                manager.neu(new Passwort(tfName.getText(), tfBenutzer.getText(), pfPassword.getText()));
+                tfName.setText("");
+                tfBenutzer.setText("");
+                pfPassword.setText("");
+                taAusgabe.setText("Eintrag eingefügt!");
+            }
+            else{
+                throw new NullPointerException();
+            }
+        }
+        catch(Exception e){
+            Alert alert=new Alert(Alert.AlertType.INFORMATION);
+            alert.setHeaderText("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH");
+            alert.setContentText("Chef, Aquarium brennt!");
+        }
     }
 
     public void suchen(ActionEvent actionEvent) {
