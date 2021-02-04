@@ -58,8 +58,6 @@ public class PasswdManagerApp extends Application {
     }
 
     private Node getSuchErgebnisZeile() {
-        //TODO Ergebnis in einzelne Labels aufspalten und dem Akkordion übergeben
-        //Dazu suche() anpassen (return value)
         Accordion aErgebnis = new Accordion();
         manager = new Manager();
         List<Passwort> erg = manager.suche("");
