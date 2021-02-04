@@ -103,41 +103,7 @@ public class Wurfel extends Application {
 
                 new Translate(75, 0, -750));
         scene.setCamera(camera);
-        cub c1 = new cub(50,Color.BLUE.darker(),Color.BLUE.darker(),Color.ORANGE.darker(),Color.BLUE.darker(),Color.BLUE.darker(),Color.RED.darker(),1);
-        c1.setTranslateX(100);
 
-        cub c2 = new cub(50,Color.GREEN.darker(),Color.GREEN.darker(),Color.GREEN.darker(),Color.YELLOW.darker(),Color.BLUE.darker(),Color.RED.darker(),1);
-        c2.setTranslateX(50);
-
-        cub c3 = new cub(50,Color.YELLOW.brighter(),Color.GREEN.darker(),Color.GREEN.darker(),Color.YELLOW.darker(),Color.BLUE.darker(),Color.RED.darker(),1);
-        c3.setTranslateX(50);
-        c3.setTranslateZ(50);
-
-        cub c4 = new cub(50,Color.YELLOW.brighter(),Color.GREEN.darker(),Color.ORANGE.darker(),Color.YELLOW.darker(),Color.BLUE.darker(),Color.RED.darker(),1);
-        c4.setTranslateX(100);
-        c4.setTranslateZ(50);
-
-        cub c5 = new cub(50,Color.BLUE.darker(),Color.GREEN.darker(),Color.ORANGE.darker(),Color.BLUE.darker(),Color.BLUE.darker(),Color.RED.darker(),1);
-        c5.setTranslateX(100);
-        c5.setTranslateY(50);
-
-        cub c6 = new cub(50,Color.GREEN.darker(),Color.GREEN.darker(),Color.GREEN.darker(),Color.YELLOW.darker(),Color.BLUE.darker(),Color.RED.darker(),1);
-        c6.setTranslateX(50);
-        c6.setTranslateY(50);
-
-        cub c7 = new cub(50,Color.YELLOW.brighter(),Color.GREEN.darker(),Color.GREEN.darker(),Color.YELLOW.darker(),Color.BLUE.darker(),Color.RED.darker(),1);
-        c7.setTranslateX(50);
-        c7.setTranslateZ(50);
-        c7.setTranslateY(50);
-
-        cub c8 = new cub(50,Color.YELLOW.brighter(),Color.GREEN.darker(),Color.ORANGE.darker(),Color.YELLOW.darker(),Color.BLUE.darker(),Color.RED.darker(),1);
-        c8.setTranslateX(100);
-        c8.setTranslateZ(50);
-        c8.setTranslateY(50);
-        handleMouse(scene,root);
-        Group k=new Group(c1,c2,c3,c4,c5,c6,c7,c8);
-        k.setTranslateZ(70);
-        root.getChildren().addAll(k);
         primaryStage.setScene(scene);
         primaryStage.show();
     }

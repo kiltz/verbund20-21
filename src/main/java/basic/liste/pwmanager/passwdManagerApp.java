@@ -65,7 +65,6 @@ public class PasswdManagerApp extends Application {
         Button bSuche = new Button("Suche");
         bSuche.setOnAction(e -> suche());
         bSuche.setDefaultButton(true);
-        lStatus = new Label();
         box.getChildren().addAll(tfSuche, bSuche);
         return box;
     }

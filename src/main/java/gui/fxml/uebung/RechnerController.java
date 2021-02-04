@@ -6,15 +6,11 @@ import javafx.scene.control.TextField;
 
 public class RechnerController {
 
-    public TextField tfEins;
-    public TextField tfZwei;
+    public TextField tf1;
+    public TextField tf2;
     public Label lErgebnis;
 
-    public void doRechne(ActionEvent actionEvent){
-        System.out.println(tfEins.getText()+"/"+tfZwei.getText());
-        int zahl = Integer.parseInt(tfEins.getText());
-        int zahl2 = Integer.parseInt(tfZwei.getText());
-        lErgebnis.setText("" + (zahl+zahl2));
-
+    public void rechne(ActionEvent e){
+        lErgebnis.setText(Integer.parseInt(tf1.getText()) + Integer.parseInt(tf2.getText()) + "");
     }
 }
