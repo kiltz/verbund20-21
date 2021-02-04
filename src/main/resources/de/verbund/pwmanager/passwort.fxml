@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="389.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.verbund.pwmanager.gui.PasswortController">
+    <children>
+        <HBox fx:id="box" prefHeight="34.0" prefWidth="394.0" spacing="10.0">
+            <children>
+                <Label fx:id="lName" prefHeight="17.0" prefWidth="51.0" text="Name" />
+                <TextField fx:id="tfName" prefHeight="25.0" prefWidth="180.0" />
+            </children>
+            <padding>
+                <Insets left="10.0" top="10.0" />
+            </padding></HBox>
+        <HBox fx:id="box" prefHeight="42.0" prefWidth="394.0" spacing="10.0">
+            <children>
+                <Label fx:id="lBenutzer" prefHeight="17.0" prefWidth="52.0" text="Benutzer" />
+                <TextField fx:id="tfBenutzer" prefHeight="25.0" prefWidth="180.0" />
+            </children>
+            <padding>
+                <Insets left="10.0" top="10.0" />
+            </padding>
+        </HBox>
+        <HBox fx:id="box" prefHeight="41.0" prefWidth="394.0" spacing="10.0">
+            <children>
+                <Label fx:id="lPasswort" prefHeight="17.0" prefWidth="52.0" text="Passwort" />
+                <TextField fx:id="tfPasswort" prefHeight="25.0" prefWidth="180.0" />
+            </children>
+            <padding>
+                <Insets left="10.0" top="10.0" />
+            </padding>
+        </HBox>
+        <HBox fx:id="box" prefHeight="61.0" prefWidth="282.0">
+            <children>
+                <Button fx:id="bPwErstellen" mnemonicParsing="false" onAction="#erstellen" text="Passwort erstellen">
+                    <HBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                    </HBox.margin>
+                </Button>
+                <Button fx:id="bPwAendern" mnemonicParsing="false" text="Passwort ändern">
+                    <HBox.margin>
+                        <Insets left="20.0" top="10.0" />
+                    </HBox.margin>
+                </Button>
+            </children>
+         <padding>
+            <Insets left="10.0" top="10.0" />
+         </padding>
+        </HBox>
+      <Accordion>
+        <panes>
+          <TitledPane animated="false" text="Suche">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <HBox fx:id="box" layoutY="14.0" prefHeight="43.0" prefWidth="318.0">
+                           <children>
+                              <TextField fx:id="tfSuche">
+                                 <HBox.margin>
+                                    <Insets left="20.0" top="10.0" />
+                                 </HBox.margin>
+                              </TextField>
+                              <Button fx:id="bSuche" mnemonicParsing="false" onAction="#suche" text="Suche">
+                                 <HBox.margin>
+                                    <Insets left="10.0" top="10.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                        </HBox>
+                        <TableView layoutY="65.0" prefHeight="117.0" prefWidth="400.0">
+                          <columns>
+                            <TableColumn fx:id="tvName" prefWidth="120.33333837985992" text="Name" />
+                            <TableColumn fx:id="tvBenutzer" prefWidth="134.3333282470703" text="Benutzer" />
+                              <TableColumn fx:id="tvPasswort" prefWidth="143.3333282470703" text="Passwort" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </TitledPane>
+        </panes>
+      </Accordion>
+    </children>
+</VBox>
