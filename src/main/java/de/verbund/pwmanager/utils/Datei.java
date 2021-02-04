@@ -2,7 +2,7 @@ package de.verbund.pwmanager.utils;
 
 import java.io.*;
 
-public class Datei extends File{
+public class Datei extends File {
     private String dateiName;
 
     public Datei(String pathname) {
@@ -43,7 +43,7 @@ public class Datei extends File{
             String zeile = "";
             while ((zeile = reader.readLine()) != null) // bis alles drin ist
             {
-                if ( inhalt.length() > 0) {
+                if (inhalt.length() > 0) {
                     inhalt.append("\n");
                 }
                 inhalt.append(zeile);

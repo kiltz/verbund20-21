@@ -16,43 +16,42 @@ public class pwmController {
 
     public TextField tfName;
     public TextField tfBenutzer;
-    public Manager manager=new Manager();
+    public Manager manager = new Manager();
     public TextField tfSuche;
     public TextArea taAusgabe;
     public PasswordField pfPassword;
 
     public String password;
-    public void hinzufügen(ActionEvent actionEvent) throws Exception{
+
+    public void hinzufügen(ActionEvent actionEvent) throws Exception {
         try {
-            if(!tfName.getText().equals("") &&!tfBenutzer.getText().equals("") &&!pfPassword.getText().equals("")) {
+            if (!tfName.getText().equals("") && !tfBenutzer.getText().equals("") && !pfPassword.getText().equals("")) {
                 manager.neu(new Passwort(tfName.getText(), tfBenutzer.getText(), pfPassword.getText()));
                 tfName.setText("");
                 tfBenutzer.setText("");
                 pfPassword.setText("");
                 taAusgabe.setText("Eintrag eingefügt!");
-            }
-            else{
+            } else {
                 throw new NullPointerException();
             }
-        }
-        catch(Exception e){
-            Alert alert=new Alert(Alert.AlertType.INFORMATION);
+        } catch (Exception e) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setHeaderText("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH");
             alert.setContentText("Chef, Aquarium brennt!");
         }
     }
 
     public void suchen(ActionEvent actionEvent) {
-        List<Passwort> foundList=manager.suche(tfSuche.getText());
+        List<Passwort> foundList = manager.suche(tfSuche.getText());
         taAusgabe.setText("Name: \t Benutzer: \t Passwort:");
-        for(Passwort entry:foundList){
+        for (Passwort entry : foundList) {
             taAusgabe.setText(taAusgabe.getText() + "\n" + entry.getName() + ", \t" + entry.getBenutzername() + ", \t" + entry.getPasswort());
         }
     }
 
     public void generate(ActionEvent actionEvent) {
-        String erlaubteZeichen="abcdefghijklmnopqrstuvwxyz";
-        for(int i=0; i<15;i++){
+        String erlaubteZeichen = "abcdefghijklmnopqrstuvwxyz";
+        for (int i = 0; i < 15; i++) {
             int pos = (int) (Math.random() * erlaubteZeichen.length());
             password += erlaubteZeichen.charAt(pos);
         }
@@ -62,7 +61,7 @@ public class pwmController {
     }
 
 
-    public void loeschen(ActionEvent actionEvent){
+    public void loeschen(ActionEvent actionEvent) {
         manager.loeschen();
     }
 }
