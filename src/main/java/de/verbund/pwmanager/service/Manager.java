@@ -9,7 +9,7 @@ import java.util.Map;
 
 public class Manager {
     private final Datei datei;
-    private Map<String, Passwort> datensaetze;
+    private final Map<String, Passwort> datensaetze;
 
     public Manager() {
         datei =new Datei("passwd.txt");

@@ -16,7 +16,7 @@ public class PwManagerController {
     public TextField tfSuche;
     public TextArea taAusgabe;
     public Label lAusgabe;
-    private Manager manager = new Manager();
+    private final Manager manager = new Manager();
 
     public void suchePW(ActionEvent actionEvent) {
         List<Passwort> erg = manager.suche(tfSuche.getText());
