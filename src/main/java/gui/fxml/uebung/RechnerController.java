@@ -10,7 +10,7 @@ public class RechnerController {
     public TextField tf2;
     public Label lErgebnis;
 
-    public void rechne(ActionEvent e){
-        lErgebnis.setText(Integer.parseInt(tf1.getText()) + Integer.parseInt(tf2.getText()) + "");
+    public void rechne(ActionEvent actionEvent) {
+        lErgebnis.setText("" + (Integer.parseInt(tf1.getText())+Integer.parseInt(tf2.getText())));
     }
 }
