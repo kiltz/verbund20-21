@@ -36,7 +36,7 @@ public class pwmController {
             }
         } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Help. I need somebody. Help. Not just anybody. Help. Why don't you please, please help me?")
+            alert.setTitle("Help. I need somebody. Help. Not just anybody. Help. Why don't you please, please help me?");
             alert.setHeaderText("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH");
             alert.setContentText("Chef, Aquarium brennt!");
             alert.show();
