@@ -35,6 +35,21 @@ public class DateiTester {
 		// Zusatzaufgabe (für die die Klasse geändert werden darf):
 		// Erzeuge eine 4 GB große Text-Datei und lese sie ein.
 
+
+
+
+		Datei bigfile = new Datei("bigfile.txt");
+		bigfile.schreibe(zeile1);
+		bigfile.schreibe(zeile2, true);
+		String password = bigfile.erzeugePassword(60);
+		for (int i = 0; i < 400000000; i++) {
+			d.schreibe(password);
+		}
+
+		String inhalte = bigfile.lese();
+		System.out.println("'" + inhalte + "'");
+
 	}
+
 
 }

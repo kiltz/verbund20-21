@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+      prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.verbund.pwmanager.gui.StarterController">
+    <children>
+        <HBox prefHeight="53.0" prefWidth="600.0" spacing="10.0">
+            <children>
+                <Label text="Name"/>
+                <TextField/>
+            </children>
+            <opaqueInsets>
+                <Insets/>
+            </opaqueInsets>
+            <padding>
+                <Insets left="60.0" right="20.0" top="20.0"/>
+            </padding>
+        </HBox>
+        <HBox prefHeight="32.0" prefWidth="600.0" spacing="10.0">
+            <children>
+                <Label text="Benutzername"/>
+                <TextField/>
+            </children>
+            <padding>
+                <Insets left="15.0"/>
+            </padding>
+        </HBox>
+        <HBox prefHeight="59.0" prefWidth="600.0" spacing="10.0">
+            <children>
+                <Label text="Passwort"/>
+                <TextField/>
+            </children>
+            <padding>
+                <Insets left="45.0"/>
+            </padding>
+        </HBox>
+        <HBox prefHeight="61.0" prefWidth="600.0">
+            <children>
+                <HBox prefHeight="61.0" prefWidth="251.0">
+                    <children>
+                        <Button mnemonicParsing="false" onAction="#doSave" text="Passwort speichern"/>
+                    </children>
+                    <padding>
+                        <Insets left="105.0"/>
+                    </padding>
+                </HBox>
+                <Button mnemonicParsing="false" onAction="#doChange" text="Passwort ändern"/>
+            </children>
+        </HBox>
+        <HBox prefHeight="40.0" prefWidth="600.0" spacing="30.0">
+            <children>
+                <TextField/>
+                <Button mnemonicParsing="false" onAction="#doSearch" text="Suchen"/>
+            </children>
+            <padding>
+                <Insets left="50.0"/>
+            </padding>
+        </HBox>
+        <HBox prefHeight="146.0" prefWidth="600.0">
+            <children>
+                <TextArea prefHeight="146.0" prefWidth="501.0"/>
+            </children>
+            <padding>
+                <Insets left="50.0"/>
+            </padding>
+        </HBox>
+    </children>
+</VBox>

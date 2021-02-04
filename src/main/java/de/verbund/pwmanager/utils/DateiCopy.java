@@ -1,13 +1,13 @@
-package utils;
+package de.verbund.pwmanager.utils;
 
 import java.io.*;
 
-public class Datei {
+public class DateiCopy {
     private String dateiName;
 
     private String filename;
 
-    public Datei(String dateiName) {
+    public DateiCopy(String dateiName) {
         this.dateiName = dateiName;
     }
 
