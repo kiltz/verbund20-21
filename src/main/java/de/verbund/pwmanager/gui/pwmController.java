@@ -19,6 +19,7 @@ public class pwmController {
     public TextArea taAusgabe;
     public PasswordField pfPassword;
 
+    public String password;
     public void hinzufügen(ActionEvent actionEvent) throws Exception{
         manager.neu(new Passwort(tfName.getText(), tfBenutzer.getText(), pfPassword.getText()));
         tfName.setText("");
@@ -34,4 +35,17 @@ public class pwmController {
             taAusgabe.setText(taAusgabe.getText() + "\n" + entry.getName() + ", \t" + entry.getBenutzername() + ", \t" + entry.getPasswort());
         }
     }
+
+    public void generate(ActionEvent actionEvent) {
+        String erlaubteZeichen="abcdefghijklmnopqrstuvwxyz";
+        for(int i=0; i<10;i++){
+            int pos = (int) (Math.random() * erlaubteZeichen.length());
+            password += erlaubteZeichen.charAt(pos);
+        }
+        pfPassword.setText(password);
+        taAusgabe.setText("Vorgeschlagenes Passwort: " + password);
+
+    }
+
+
 }

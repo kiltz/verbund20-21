@@ -21,6 +21,7 @@
          <children>
             <Label text="Passwort: " />
             <PasswordField fx:id="pfPassword" />
+            <Button fx:id="bGeneratePassword" mnemonicParsing="false" text="Generiere Passwort" onAction="#generate"/>
             <Button fx:id="bHinzufügen" mnemonicParsing="false" onAction="#hinzufügen" text="Hinzufügen" />
          </children></HBox>
       <HBox prefHeight="50.0" prefWidth="200.0" spacing="10.0">
