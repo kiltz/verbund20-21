@@ -104,9 +104,9 @@
                               <Button fx:id="bsuche" mnemonicParsing="false" onAction="#doSuche" text="Suche" />
                            </children>
                         </HBox>
-                        <HBox prefHeight="221.0" prefWidth="537.0">
+                        <HBox prefHeight="153.0" prefWidth="537.0">
                            <children>
-                              <TextArea fx:id="taSuchErgebnis" prefHeight="221.0" prefWidth="553.0" />
+                              <TextArea fx:id="taSuchErgebnis" prefHeight="153.0" prefWidth="295.0" />
                            </children>
                         </HBox>
                      </children>
