@@ -37,9 +37,30 @@ public class TabelleApp extends Application {
         BorderPane root = new BorderPane();
         root.setTop(getSuchLeiste());
         root.setCenter(getTabelle());
-        Scene scene = new Scene(root, 300, 400);
+        root.setBottom(getButtons());
+        Scene scene = new Scene(root, 400, 400);
         primaryStage.setScene(scene);
         primaryStage.show();
+    }
+
+    private Node getButtons() {
+        HBox box = new HBox(15);
+        box.setPadding(new Insets(10));
+        box.setAlignment(Pos.CENTER_RIGHT);
+        Button bInfo = new Button("Info");
+        bInfo.setOnAction(e -> info());
+        bInfo.setDefaultButton(true);
+        box.getChildren().addAll(bInfo);
+        return box;
+    }
+
+    private void info() {
+        Passwort auswahl = tabelle.getSelectionModel().getSelectedItem();
+        if(auswahl != null) {
+            System.out.println(auswahl);
+        } else {
+            System.out.println("Keiner ausgewählt");
+        }
     }
 
     private Node getSuchLeiste() {
@@ -71,11 +92,18 @@ public class TabelleApp extends Application {
         nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
         nameCol.setText("Name");
         nameCol.setPrefWidth(120);
+
         TableColumn<Passwort, String> benutzerCol = new TableColumn<>();
         benutzerCol.setCellValueFactory(new PropertyValueFactory<>("benutzername"));
         benutzerCol.setText("Benutzer");
         benutzerCol.setPrefWidth(150);
-        tabelle.getColumns().addAll(nameCol, benutzerCol);
+
+        TableColumn<Passwort, String> passwortCol = new TableColumn<>();
+        passwortCol.setCellValueFactory(new PropertyValueFactory<>("passwort"));
+        passwortCol.setText("Passwort");
+        passwortCol.setPrefWidth(100);
+
+        tabelle.getColumns().addAll(nameCol, benutzerCol, passwortCol);
         return scrolli;
     }
 
