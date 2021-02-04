@@ -39,7 +39,13 @@ public class PasswordManagerApp extends Application {
         Label Passwd = new Label("Passwd    ");
         PasswdField = new TextField();
         Button eintragen = new Button("eintragen");
-        eintragen.setOnAction(e -> eintragen(e));
+        eintragen.setOnAction(e -> {
+            try {
+                eintragen(e);
+            } catch (Exception exception) {
+                exception.printStackTrace();
+            }
+        });
         SearchField = new TextField();
         Button Search = new Button("Suche");
         Search.setOnAction(e -> suche(e));
@@ -79,7 +85,7 @@ public class PasswordManagerApp extends Application {
 
     }
 
-    public static void eintragen(ActionEvent e) {
+    public static void eintragen(ActionEvent e) throws Exception {
 
         manager.neu(new Passwort(NameField.getText(), UserField.getText(), PasswdField.getText()));
 

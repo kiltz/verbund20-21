@@ -35,6 +35,23 @@ public class DateiTester {
 		// Zusatzaufgabe (für die die Klasse geändert werden darf):
 		// Erzeuge eine 4 GB große Text-Datei und lese sie ein.
 
+		// eine Instanz von "Datei" erzeugen
+		String erlaubteZeichen = "abcdefghijklmnopqrstuvwxyz";
+		String test = "1";
+		Datei b = new Datei("groß.txt");
+		for (int i = 0; i < 6000000; ++i) {
+			int pos = (int) (Math.random() * erlaubteZeichen.length());
+			test += erlaubteZeichen.charAt(pos);
+			b.schreibe(test, true); // anfügen
+		}
+
+
+
+
 	}
 
 }
+
+
+
+

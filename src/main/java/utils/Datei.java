@@ -4,6 +4,7 @@ import java.io.*;
 
 public class Datei {
     private String dateiName;
+    private StringBuffer inhalt;
 
     public Datei(String dateiName) {
         this.dateiName = dateiName;
@@ -26,7 +27,7 @@ public class Datei {
     }
 
     public String lese() throws Exception {
-        StringBuffer inhalt = new StringBuffer();
+        inhalt = new StringBuffer();
         File datei = null;
         BufferedReader reader = null;
         // einlesen der Datei
@@ -36,7 +37,7 @@ public class Datei {
             String zeile = "";
             while ((zeile = reader.readLine()) != null) // bis alles drin ist
             {
-                if ( inhalt.length() > 0) {
+                if (inhalt.length() > 0) {
                     inhalt.append("\n");
                 }
                 inhalt.append(zeile);
