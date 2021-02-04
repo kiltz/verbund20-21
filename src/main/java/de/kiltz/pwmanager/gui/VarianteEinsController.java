@@ -6,11 +6,19 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 
+import java.io.IOException;
+import java.net.URL;
 import java.util.List;
 
 public class VarianteEinsController {
@@ -19,12 +27,27 @@ public class VarianteEinsController {
     public TableColumn colName;
     public TextField tfSuche;
     private Manager manager;
+    public static Passwort auswahl;
 
     @FXML
     void initialize() {
         manager = new Manager();
         colName.setCellValueFactory(new PropertyValueFactory<>("name"));
         colBenutzer.setCellValueFactory(new PropertyValueFactory<>("benutzername"));
+        tabelle.setRowFactory(tv -> {
+            TableRow<Passwort> row = new TableRow<>();
+            row.setOnMouseClicked(event -> {
+                if (event.getClickCount() == 2 && (!row.isEmpty())) {
+                    try {
+                        doZeigDetail(null);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+            return row;
+        });
+
     }
 
     public void doSuche(ActionEvent actionEvent) {
@@ -34,11 +57,15 @@ public class VarianteEinsController {
         tabelle.setItems(pw);
     }
 
-    public void doZeigDetail(ActionEvent actionEvent) {
-        Passwort auswahl = (Passwort) tabelle.getSelectionModel().getSelectedItem();
-        // TODO Fenster mit Detailansicht anzeigen
+    public void doZeigDetail(ActionEvent actionEvent) throws IOException {
+        auswahl = (Passwort) tabelle.getSelectionModel().getSelectedItem();
         if(auswahl != null) {
-            System.out.println(auswahl);
+            URL res = getClass().getResource("detail.fxml");
+            Parent root = FXMLLoader.load(res);
+            Stage stage = new Stage();
+            stage.setTitle("Detail");
+            stage.setScene(new Scene(root));
+            stage.show();
         } else {
             System.out.println("Keiner ausgewählt");
         }
