@@ -27,7 +27,7 @@ public class PremiumPwManagerApp  extends Application {
         pane = (BorderPane) root;
         pane.setCenter(center);
         primaryStage.setTitle("Passwort-Manager");
-        primaryStage.setScene(new Scene(root, 550,700));
+        primaryStage.setScene(new Scene(root));
         primaryStage.show();
 
     }
