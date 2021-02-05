@@ -3,10 +3,10 @@ package de.verbund.pwmanager.gui;
 import de.verbund.pwmanager.service.Manager;
 import de.verbund.pwmanager.service.Passwort;
 import javafx.event.ActionEvent;
-import javafx.scene.control.Alert;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 
 import java.util.List;
 import java.util.concurrent.ExecutionException;
@@ -30,6 +30,14 @@ public class pwmController {
                 tfName.setText("");
                 tfBenutzer.setText("");
                 pfPassword.setText("");
+
+                HBox text=new HBox();
+                Label lText=new Label("Eintrag eingefügt!");
+                text.getChildren().add(lText);
+                Scene scene=new Scene(text, 100,100);
+                Stage newStage=new Stage();
+                newStage.setScene(scene);
+                newStage.show();
                 taAusgabe.setText("Eintrag eingefügt!");
             } else {
                 throw new Exception();
