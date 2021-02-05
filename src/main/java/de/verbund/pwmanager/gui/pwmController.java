@@ -36,9 +36,9 @@ public class pwmController {
             }
         } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Help. I need somebody. Help. Not just anybody. Help. Why don't you please, please help me?");
-            alert.setHeaderText("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH");
-            alert.setContentText("Chef, Aquarium brennt!");
+            alert.setTitle("Fehler!");
+            alert.setHeaderText("Eingaben sind leer!");
+            alert.setContentText("Eingaben für Name, Benutzer und Passwort dürfen nicht leer sein!");
             alert.show();
             alert.setHeight(200);
             alert.setWidth(600);
