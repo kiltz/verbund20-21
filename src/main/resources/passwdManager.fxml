@@ -32,6 +32,7 @@
             <PasswordField fx:id="pfPassword" />
             <Button fx:id="bGenerieren" mnemonicParsing="false" text="Generieren" onAction="#pwgenerieren"/>
             <Button fx:id="bHinzufügen" mnemonicParsing="false" onAction="#hinzufügen" text="Hinzufügen" />
+            <Button fx:id="bCopy" mnemonicParsing="false" onAction="#copy" text="In Zwischenablage Kopieren!"/>
          </children></HBox>
       <HBox prefHeight="50.0" prefWidth="200.0" spacing="10.0">
          <children>

@@ -74,4 +74,18 @@ public class pwmController {
         pfPassword.setText(password);
         taAusgabe.setText("Passwort: " + password);
     }
+
+
+    public void copy(ActionEvent actionEvent) {
+        String str = savedpasswordcleartext;
+        Toolkit toolkit = Toolkit.getDefaultToolkit();
+        Clipboard clipboard = toolkit.getSystemClipboard();
+        StringSelection strSel = new StringSelection(str);
+        clipboard.setContents(strSel, null);
+
+    }
+
+
+
+
 }
