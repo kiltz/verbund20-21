@@ -41,7 +41,7 @@ public class pwmController {
             alert.setContentText("Eingaben für Name, Benutzer und Passwort dürfen nicht leer sein!");
             alert.show();
             alert.setHeight(200);
-            alert.setWidth(600);
+            alert.setWidth(300);
         }
     }
 
