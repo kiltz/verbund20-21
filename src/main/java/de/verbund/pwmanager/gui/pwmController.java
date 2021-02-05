@@ -38,7 +38,6 @@ public class pwmController {
                 Stage newStage=new Stage();
                 newStage.setScene(scene);
                 newStage.show();
-                taAusgabe.setText("Eintrag eingefügt!");
             } else {
                 throw new Exception();
             }
