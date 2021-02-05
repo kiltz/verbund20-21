@@ -4,7 +4,6 @@ import de.verbund.pwmanager.service.Manager;
 import de.verbund.pwmanager.service.Passwort;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
@@ -12,14 +11,14 @@ import java.util.List;
 
 public class managerController {
 
-    public TextField tfName;
-    public TextField tfBenutzer;
-    public TextField pfPasswort;
-    public TextArea taAusgabe;
-    public TextField tfSuche;
+    public TextField textName;
+    public TextField textUser;
+    public TextField textPasswort;
+    public TextArea textAusgabe;
+    public TextField textSuche;
 
 
-    private String generatedPassword;
+    private String vorschlagPasswort;
 
     private Manager manager = new Manager();
 
@@ -27,55 +26,50 @@ public class managerController {
     private void eintragen() {
 
         try {
-            if (!tfName.getText().isEmpty() && !tfBenutzer.getText().isEmpty() && !pfPasswort.getText().isEmpty()) {
-                taAusgabe.setText("");
-                manager.neu(new Passwort(tfName.getText(), tfBenutzer.getText(), pfPasswort.getText()));
-                tfName.setText("");
-                tfBenutzer.setText("");
-                pfPasswort.setText("");
+            if (!textName.getText().isEmpty() && !textUser.getText().isEmpty() && !textPasswort.getText().isEmpty()) {
+                textAusgabe.setText("");
+                manager.neu(new Passwort(textName.getText(), textUser.getText(), textPasswort.getText()));
+                textName.setText("");
+                textUser.setText("");
+                textPasswort.setText("");
             } else {
                 throw new Exception();
             }
         } catch (Exception e) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Ungueltige Eingaben!");
-            alert.setHeaderText("Eingabefelder duerfen nicht leer sein!");
-            alert.setContentText("Bitte fuelle alle Felder aus!");
-            alert.show();
+            System.out.println("Fehler!");
         }
     }
 
     @FXML
     private void suche() {
-        List<Passwort> erg = manager.suche(tfSuche.getText());
+        List<Passwort> erg = manager.suche(textSuche.getText());
         StringBuffer txt = new StringBuffer("Name\tBenutzer\tPasswort\n");
         for (Passwort p : erg) {
             txt.append(p.getName() + "\t" + p.getBenutzername() + "\t" + p.getPasswort() + "\n");
         }
-        taAusgabe.setText(txt.toString());
+        textAusgabe.setText(txt.toString());
     }
 
     public String generate(ActionEvent actionEvent) {
 
         String allowedString = "abcdefghijklmnopqrstuvwxyz";
-        generatedPassword = "";
+        vorschlagPasswort = "";
 
         for (int i = 0; i < 12; i++) {
             int pos = (int) (Math.random() * allowedString.length());
-            generatedPassword += allowedString.charAt(pos);
+            vorschlagPasswort += allowedString.charAt(pos);
         }
 
+        textAusgabe.setText("Vorschlag: " + vorschlagPasswort);
 
-        taAusgabe.setText("Vorgeschlagenes Passwort: " + generatedPassword);
-
-        return generatedPassword;
+        return vorschlagPasswort;
     }
 
-    public void loeschen(ActionEvent actionEvent) {
-        manager.loeschen();
+    public void listeLeeren(ActionEvent actionEvent) {
+        manager.listeLoeschen();
     }
 
     public void einfuegen(ActionEvent actionEvent) {
-        pfPasswort.setText(generatedPassword);
+        textPasswort.setText(vorschlagPasswort);
     }
 }

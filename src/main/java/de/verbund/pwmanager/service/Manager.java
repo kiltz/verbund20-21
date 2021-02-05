@@ -50,7 +50,7 @@ public class Manager {
         return ergebnisListe;
     }
 
-    public void loeschen(){
+    public void listeLoeschen(){
         datei.schreibe("");
     }
 }
