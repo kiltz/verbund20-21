@@ -3,9 +3,27 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+            prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="de.kiltz.pwmanager.gui.MainController">
-   <children>
-      <Label text="PW-Manager" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="50.0" />
-   </children>
-</AnchorPane>
+    <top>
+        <MenuBar BorderPane.alignment="CENTER">
+            <menus>
+                <Menu mnemonicParsing="false" text="Datei">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#doBeenden" text="Beenden"/>
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Layout">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#doLeer" text="Leer"/>
+                        <MenuItem mnemonicParsing="false" onAction="#doErsteVersion" text="1. Version"/>
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </top>
+    <center>
+        <Label fx:id="lLogo"/>
+    </center>
+</BorderPane>
