@@ -33,7 +33,7 @@ public class PwManagerController {
         colBenutzer.setCellValueFactory(new PropertyValueFactory<>("benutzername"));
         colPasswort.setCellValueFactory(new PropertyValueFactory<>("passwort"));
         tvAusgabe.setRowFactory(tv -> {
-            TableRow<de.kiltz.pwmanager.service.Passwort> row = new TableRow<>();
+            TableRow<Passwort> row = new TableRow<>();
             row.setOnMouseClicked(event -> {
                 if (event.getClickCount() == 2 && (!row.isEmpty())) {
                     manager.suche(null);
