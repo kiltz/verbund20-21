@@ -61,7 +61,7 @@ public class pwmController {
     }
 
     public void generate(ActionEvent actionEvent) {
-        String erlaubteZeichen = "abcdefghijklmnopqrstuvwxyz";
+        String erlaubteZeichen = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789!§$%&/()=?`+*#{}[]";
         for (int i = 0; i < 15; i++) {
             int pos = (int) (Math.random() * erlaubteZeichen.length());
             password += erlaubteZeichen.charAt(pos);
