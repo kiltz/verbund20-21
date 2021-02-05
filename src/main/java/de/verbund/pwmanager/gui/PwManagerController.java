@@ -19,11 +19,18 @@ public class PwManagerController {
     public TextField tfSuche;
     public Label lAusgabe;
     public Label lName;
+    public Label lBenutzer;
+    public Label lPasswort;
+    public Button bErstellen;
+    public Button bAendern;
+    public TitledPane acSuche;
+    public Button bSuche;
     private Manager manager;
     public TableView tvAusgabe;
     public TableColumn colBenutzer;
     public TableColumn colName;
     public TableColumn colPasswort;
+
 
     @FXML
     void initialize() {

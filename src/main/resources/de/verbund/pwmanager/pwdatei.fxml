@@ -5,12 +5,11 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.verbund.pwmanager.gui.PwdateiController">
    <children>
       <HBox prefHeight="64.0" prefWidth="600.0">
          <children>
-            <Label prefWidth="100.0" text="Datei: ">
+            <Label fx:id="lDatei" prefWidth="100.0" text="Datei: ">
                <font>
                   <Font size="14.0" />
                </font>
@@ -18,8 +17,14 @@
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </HBox.margin>
             </Label>
-            <TextField />
-            <Button mnemonicParsing="false" text="Button" />
+            <TextField fx:id="lDateiName">
+               <HBox.margin>
+                  <Insets bottom="10.0" right="10.0" top="10.0" />
+               </HBox.margin></TextField>
+            <Button fx:id="bAnzeigen" mnemonicParsing="false" onAction="#zeigeDatei" text="Button">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </HBox.margin></Button>
          </children>
       </HBox>
    </children>
