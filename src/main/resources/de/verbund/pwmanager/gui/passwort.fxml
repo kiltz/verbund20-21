@@ -68,12 +68,6 @@
                         </HBox>
                         <HBox prefHeight="44.0" prefWidth="572.0" spacing="17.0">
                            <children>
-                              <Label text="altes Passwort" />
-                              <TextField fx:id="tfAltPasswort" />
-                           </children>
-                        </HBox>
-                        <HBox prefHeight="44.0" prefWidth="572.0" spacing="9.0">
-                           <children>
                               <Label text="neues Passwort" />
                               <TextField fx:id="tfNeuPasswort" />
                            </children>
@@ -81,6 +75,7 @@
                         <HBox prefHeight="51.0" prefWidth="572.0" spacing="50.0">
                            <children>
                               <Button fx:id="bwechsel" mnemonicParsing="false" onAction="#doSwitch" text="wechsel" />
+                              <Label fx:id="lWechselAntwort" />
                               <Label fx:id="lWechselErfolgreich" />
                            </children>
                         </HBox>

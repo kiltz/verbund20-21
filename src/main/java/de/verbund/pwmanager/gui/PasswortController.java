@@ -33,6 +33,8 @@ public class PasswortController {
     private TextField tfSuche;
     @FXML
     private TextArea taSuchErgebnis;
+    @FXML
+    private Label lWechselAntwort;
 
     @FXML
     void initialize() {
@@ -68,6 +70,20 @@ public class PasswortController {
     }
 
     public void doSwitch(ActionEvent actionEvent) {
+        if (tfWechselName.getText().isEmpty()) {
+            lWechselAntwort.setText("Wen soll ich eintragen?");
+        } else {
+            try {
+                manager.neu(new Passwort(tfWechselName.getText(), tfWechselBenutzer.getText(), tfNeuPasswort.getText()));
 
+                lWechselAntwort.setText(tfWechselName.getText()+" wurde eingetragen.");
+                tfWechselName.setText("");
+                tfWechselBenutzer.setText("");
+                tfNeuPasswort.setText("");
+            } catch (Exception e) {
+
+                lWechselAntwort.setText("Fehler: "+e.getMessage());
+            }
+        }
     }
 }
