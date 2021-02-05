@@ -3,11 +3,14 @@ package de.verbund.pwmanager.gui;
 import de.verbund.pwmanager.service.Manager;
 import de.verbund.pwmanager.service.Passwort;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
+import java.net.URL;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
@@ -74,5 +77,14 @@ public class pwmController {
 
     public void loeschen(ActionEvent actionEvent) {
         manager.loeschen();
+    }
+
+    public void eddit(ActionEvent actionEvent) throws Exception{
+        URL res=getClass().getResource("/edditFenster.fxml");
+        Parent root= FXMLLoader.load(res);
+        Stage newStage=new Stage();
+        newStage.setScene(new Scene(root));
+        newStage.setTitle("Edditieren");
+        newStage.show();
     }
 }

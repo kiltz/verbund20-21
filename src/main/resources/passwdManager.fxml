@@ -48,6 +48,7 @@
                               <children>
                                   <TextField fx:id="tfSuche" />
                                   <Button fx:id="bSuche" mnemonicParsing="false" onAction="#suchen" text="Suchen" />
+                              <Button fx:id="bEddit" mnemonicParsing="false" onAction="#eddit" text="Eintrag edditieren" />
                               </children>
                           </HBox>
                      </children>
