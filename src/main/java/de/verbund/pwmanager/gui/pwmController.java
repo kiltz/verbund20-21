@@ -23,7 +23,7 @@ public class pwmController {
     public TextField tfSuche;
     public TextArea taAusgabe;
     public PasswordField pfPassword;
-
+    public static Passwort passwort;
     public String password;
 
     public void hinzufügen(ActionEvent actionEvent) throws Exception {
@@ -60,6 +60,7 @@ public class pwmController {
         taAusgabe.setText("Name: \t Benutzer: \t Passwort:");
         for (Passwort entry : foundList) {
             taAusgabe.setText(taAusgabe.getText() + "\n" + entry.getName() + ", \t" + entry.getBenutzername() + ", \t" + entry.getPasswort());
+            passwort=entry;
         }
     }
 
