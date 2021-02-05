@@ -14,20 +14,24 @@
                      <children>
                           <HBox layoutX="14.0" layoutY="14.0" prefHeight="50.0" prefWidth="200.0" spacing="10.0">
                               <children>
-                                  <Label text="Name:" />
-                                  <TextField fx:id="tfName" />
-                              </children>
-                          </HBox>
-                          <HBox layoutX="14.0" layoutY="57.0" prefHeight="50.0" prefWidth="200.0" spacing="10.0">
-                              <children>
-                                  <Label text="Benutzername: " />
-                                  <TextField fx:id="tfBenutzer" />
+                              <VBox prefHeight="200.0" prefWidth="100.0">
+                                 <children>
+                                        <Label text="Name:" />
+                                        <Label text="Benutzername: " />
+                                        <Label text="Passwort: " />
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="200.0" prefWidth="100.0">
+                                 <children>
+                                        <TextField fx:id="tfName" />
+                                        <TextField fx:id="tfBenutzer" />
+                                        <PasswordField fx:id="pfPassword" />
+                                 </children>
+                              </VBox>
                               </children>
                           </HBox>
                           <HBox layoutX="6.0" layoutY="94.0" prefHeight="50.0" prefWidth="565.0" spacing="10.0">
                               <children>
-                                  <Label text="Passwort: " />
-                                  <PasswordField fx:id="pfPassword" />
                                   <Button fx:id="bGeneratePassword" mnemonicParsing="false" onAction="#generate" text="Generiere Passwort" />
                                   <Button fx:id="bHinzufügen" mnemonicParsing="false" onAction="#hinzufügen" text="Hinzufügen" />
                               </children>
