@@ -71,6 +71,7 @@ public class StatisitkApp extends Application {
         HB5.setSpacing(15.0);
         HB6.setSpacing(15.0);
 
+
         VBox root = new VBox(HB1, HB2, HB3, HB4, HB5, HB6);
         root.setSpacing(10.0);
         Insets insets = new Insets(20, 10, 20, 10);
