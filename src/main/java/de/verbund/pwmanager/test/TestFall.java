@@ -1,7 +1,7 @@
 package de.verbund.pwmanager.test;
 
-import basic.liste.pwmanager.Manager;
-import basic.liste.pwmanager.Passwort;
+import de.verbund.pwmanager.service.Manager;
+import de.verbund.pwmanager.service.Passwort;
 
 import java.util.List;
 

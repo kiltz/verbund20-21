@@ -4,7 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.verbund.pwmanager.gui.">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.verbund.pwmanager.gui.pwmanagerController">
    <children>
       <HBox spacing="15">
          <children>
@@ -14,7 +14,7 @@
       </HBox>
       <HBox>
          <children>
-            <Label text="Benutzer" />
+            <Label fx:id="User" text="Benutzer" />
             <TextField fx:id="UserField" />
          </children>
       </HBox>
@@ -26,7 +26,7 @@
       </HBox>
       <HBox>
          <children>
-            <Button fx:id="eintragen" mnemonicParsing="false" text="eintragen" />
+            <Button fx:id="eintragen" mnemonicParsing="false" text="eintragen" onAction="#eintragen"/>
          </children>
       </HBox>
       <HBox>
@@ -35,7 +35,7 @@
                <opaqueInsets>
                   <Insets />
                </opaqueInsets></TextField>
-            <Button fx:id="Search" mnemonicParsing="false" text="suche" />
+            <Button fx:id="Search" mnemonicParsing="false" text="suche" onAction="#Search"/>
          </children>
       </HBox>
       <HBox prefHeight="200.0" prefWidth="483.0">
