@@ -37,7 +37,7 @@
                   <Label text="Passwort: " />
                   <PasswordField fx:id="pfPasswort" />
                   <Button mnemonicParsing="false" onAction="#generate" text="Passwort generieren" />
-                  <Button mnemonicParsing="false" onAction="#einfuegen" text="Einfuegen" />
+                  <Button mnemonicParsing="false" onAction="#einfuegen" text="Passwort einfuegen" />
                </children>
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
