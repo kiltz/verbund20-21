@@ -4,7 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="1000.0" spacing="10.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.verbund.pwmanager.gui.pwmController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" spacing="10.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.verbund.pwmanager.gui.pwmController">
    <children>
       <HBox prefHeight="50.0" prefWidth="200.0" spacing="10.0">
          <children>
@@ -19,18 +19,19 @@
          </children></HBox>
       <HBox prefHeight="50.0" prefWidth="500.0" spacing="10.0">
          <children>
+            <Label text="Passwort Länge: " />
+            <TextField fx:id="tflenght" />
+            <CheckBox fx:id="cbSonderzeichen" mnemonicParsing="false" text="Sonderzeichen"/>
+            <CheckBox fx:id="cbZahlen" mnemonicParsing="false" text="Zahlen"/>
+            <CheckBox fx:id="cbGroßundKlein" mnemonicParsing="false" text="Groß und Klein Buchstaben"/>
+            <CheckBox fx:id="cbAlles" mnemonicParsing="false" text="Alles"/>
+         </children></HBox>
+      <HBox prefHeight="50.0" prefWidth="500.0" spacing="10.0">
+         <children>
             <Label text="Passwort: " />
             <PasswordField fx:id="pfPassword" />
-
-            <Button fx:id="bGeneratePasswordSpecialTen" mnemonicParsing="false" text="Spezial 10" onAction="#generatepasswordnumberspecialcharactersTEN"/>
-            <Button fx:id="bGeneratePasswordSpecialTwenty" mnemonicParsing="false" text="Spezial 20" onAction="#generatepasswordnumberspecialcharactersTWENTY"/>
-            <Button fx:id="bGeneratePasswordTen" mnemonicParsing="false" text="Normal 10" onAction="#generatepasswordTEN"/>
-            <Button fx:id="bGeneratePasswordTwenty" mnemonicParsing="false" text="Normal 20" onAction="#generatepasswordTWENTY"/>
-
-
+            <Button fx:id="bGenerieren" mnemonicParsing="false" text="Generieren" onAction="#pwgenerieren"/>
             <Button fx:id="bHinzufügen" mnemonicParsing="false" onAction="#hinzufügen" text="Hinzufügen" />
-
-            <Button fx:id="bCopy" mnemonicParsing="false" onAction="#copy" text="In Zwischenablage kopieren!" />
          </children></HBox>
       <HBox prefHeight="50.0" prefWidth="200.0" spacing="10.0">
          <children>

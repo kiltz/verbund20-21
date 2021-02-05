@@ -6,11 +6,12 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-
+import javafx.scene.control.CheckBox;
 import java.awt.*;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
 import java.util.List;
+
 
 public class pwmController {
 
@@ -21,8 +22,11 @@ public class pwmController {
     public TextField tfSuche;
     public TextArea taAusgabe;
     public PasswordField pfPassword;
-    int ten = 10;
-    int twenty = 20;
+    public CheckBox cbSonderzeichen;
+    public CheckBox cbGroßundKlein;
+    public CheckBox cbZahlen;
+    public CheckBox cbAlles;
+    public TextField tflenght;
 
     String savedpasswordcleartext;
 
@@ -42,73 +46,32 @@ public class pwmController {
             taAusgabe.setText(taAusgabe.getText() + "\n" + entry.getName() + ", \t" + entry.getBenutzername() + ", \t" + entry.getPasswort());
         }
     }
-
-    public void generatepasswordnumberspecialcharactersTEN(ActionEvent actionEvent) {
+    public void pwgenerieren(ActionEvent actionEvent) {
         password = "";
-        String erlaubteZeichen="abcdefghijklmnopqrstuvwxyz0123456789!§$%&/()=?`´";
-        for(int i=0; i<10;i++){
-            int pos = (int) (Math.random() * erlaubteZeichen.length());
-            password += erlaubteZeichen.charAt(pos);
-            savedpasswordcleartext = password;
-        }
-        pfPassword.setText(password);
-        taAusgabe.setText("Passwort: " + password);
-
-    }
-
-    public void generatepasswordnumberspecialcharactersTWENTY(ActionEvent actionEvent) {
-        password = "";
-
-        String erlaubteZeichen="abcdefghijklmnopqrstuvwxyz0123456789!§$%&/()=?`´";
-        for(int i=0; i<20;i++){
-            int pos = (int) (Math.random() * erlaubteZeichen.length());
-            password += erlaubteZeichen.charAt(pos);
-            savedpasswordcleartext = password;
-        }
-        pfPassword.setText(password);
-        taAusgabe.setText("Passwort: " + password);
-
-    }
-
-    public void generatepasswordTEN(ActionEvent actionEvent) {
-        password = "";
-
         String erlaubteZeichen="abcdefghijklmnopqrstuvwxyz";
-        for(int i=0; i<10;i++){
+        if(cbSonderzeichen.isSelected())
+        {
+            erlaubteZeichen = "abcdefghijklmnopqrstuvwxyz!§$%&/()=?";
+        }
+        if(cbZahlen.isSelected())
+        {
+            erlaubteZeichen = "1234567890";
+        }
+        if(cbGroßundKlein.isSelected())
+        {
+            erlaubteZeichen = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        }
+        if(cbAlles.isSelected())
+        {
+            erlaubteZeichen = "abcdefghijklmnopqrstuvwxyz!§$%&/()=?ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+        }
+
+        for(int i=0; i<Integer.valueOf(tflenght.getText());i++){
             int pos = (int) (Math.random() * erlaubteZeichen.length());
             password += erlaubteZeichen.charAt(pos);
             savedpasswordcleartext = password;
         }
         pfPassword.setText(password);
         taAusgabe.setText("Passwort: " + password);
-
     }
-
-    public void generatepasswordTWENTY(ActionEvent actionEvent) {
-        password = "";
-
-        String erlaubteZeichen="abcdefghijklmnopqrstuvwxyz";
-        for(int i=0; i<20;i++){
-            int pos = (int) (Math.random() * erlaubteZeichen.length());
-            password += erlaubteZeichen.charAt(pos);
-            savedpasswordcleartext = password;
-        }
-        pfPassword.setText(password);
-        taAusgabe.setText("Passwort: " + password);
-
-    }
-
-
-    public void copy(ActionEvent actionEvent) {
-        String str = savedpasswordcleartext;
-        Toolkit toolkit = Toolkit.getDefaultToolkit();
-        Clipboard clipboard = toolkit.getSystemClipboard();
-        StringSelection strSel = new StringSelection(str);
-        clipboard.setContents(strSel, null);
-
-    }
-
-
-
-
 }
