@@ -1,4 +1,4 @@
-package de.kiltz.pwmanager.service;
+package de.verbund.pwmanager.service;
 
 public class Passwort {
     private String name;
