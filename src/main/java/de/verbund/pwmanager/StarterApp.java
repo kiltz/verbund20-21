@@ -17,7 +17,7 @@ public class StarterApp extends Application {
     public void start(Stage primaryStage) throws Exception {
         URL res = getClass().getResource("pwmanager.fxml");
         Parent root = FXMLLoader.load(res);
-        primaryStage.setTitle("Starter-App");
+        primaryStage.setTitle("PwManager-App");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
