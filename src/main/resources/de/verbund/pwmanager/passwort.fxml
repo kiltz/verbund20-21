@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.verbund.pwmanager.gui.Controller">
+    <children>
+        <HBox prefHeight="46.0" prefWidth="200.0" spacing="10.0">
+            <children>
+                <Label prefWidth="100.0" text="Name">
+                    <HBox.margin>
+                        <Insets left="16.0" />
+                    </HBox.margin>
+                </Label>
+                <TextField />
+            </children>
+            <padding>
+                <Insets top="10.0" />
+            </padding>
+            <VBox.margin>
+                <Insets top="10.0" />
+            </VBox.margin>
+        </HBox>
+        <HBox prefHeight="36.0" prefWidth="200.0" spacing="10.0">
+            <children>
+                <Label prefWidth="100.0" text="Benutzer">
+                    <HBox.margin>
+                        <Insets left="16.0" />
+                    </HBox.margin>
+                </Label>
+                <TextField />
+            </children>
+            <VBox.margin>
+                <Insets />
+            </VBox.margin>
+        </HBox>
+        <HBox prefHeight="36.0" prefWidth="200.0" spacing="10.0">
+            <children>
+                <Label prefWidth="100.0" text="Passwort">
+                    <HBox.margin>
+                        <Insets left="16.0" top="-17.0" />
+                    </HBox.margin>
+                </Label>
+                <TextField>
+                    <HBox.margin>
+                        <Insets top="-19.0" />
+                    </HBox.margin>
+                </TextField>
+            </children>
+            <VBox.margin>
+                <Insets top="9.0" />
+            </VBox.margin>
+            <padding>
+                <Insets top="10.0" />
+            </padding>
+        </HBox>
+        <HBox prefHeight="36.0" prefWidth="200.0" spacing="10.0">
+            <children>
+                <Button mnemonicParsing="false" onAction="#erstellePW" prefHeight="26.0" prefWidth="148.0" text="Passwort erstellen">
+                    <HBox.margin>
+                        <Insets left="16.0" right="44.0" top="-16.0" />
+                    </HBox.margin>
+                </Button>
+                <Button mnemonicParsing="false" onAction="#aenderePW" text="Passwort ändern">
+                    <HBox.margin>
+                        <Insets left="-34.0" top="-16.0" />
+                    </HBox.margin>
+                </Button>
+            </children>
+            <VBox.margin>
+                <Insets />
+            </VBox.margin>
+            <padding>
+                <Insets top="10.0" />
+            </padding>
+        </HBox>
+        <HBox prefHeight="50.0" prefWidth="200.0">
+            <children>
+                <TextField>
+                    <HBox.margin>
+                        <Insets left="16.0" right="92.0" />
+                    </HBox.margin>
+                </TextField>
+                <Button mnemonicParsing="false" onAction="#suche" text="Suchen">
+                    <HBox.margin>
+                        <Insets left="-51.0" />
+                    </HBox.margin>
+                </Button>
+            </children>
+        </HBox>
+        <HBox prefHeight="100.0" prefWidth="200.0">
+            <children>
+                <TextArea prefHeight="111.0" prefWidth="296.0">
+                    <HBox.margin>
+                        <Insets left="18.0" top="-11.0" />
+                    </HBox.margin>
+                </TextArea>
+            </children>
+        </HBox>
+    </children>
+</VBox>

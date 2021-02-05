@@ -22,7 +22,7 @@ Techn. Anforderungen:
 Ablauf:
 -------
 1. Aufbau der Struktur Basis: "de.verbund.pwmanager"
-    - Kopie vom Manager, Passwort nach "de.verbund.pwmanager.service"
+    - Kopie vom Manager, Passwort nach
     - Kopie von TestFall nach "de.verbund.pwmanager.test"
     - Kopie von Datei nach "de.verbund.pwmanager.utils"
 
