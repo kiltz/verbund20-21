@@ -2,15 +2,22 @@ package de.verbund.pwmanager.utils;
 
 import java.io.*;
 
-public class Datei {
+public class Datei extends File {
     private String dateiName;
 
-    public Datei(String dateiName) {
-        this.dateiName = dateiName;
+    public Datei(String pathname) {
+        super(pathname);
+        dateiName = pathname;
     }
 
-    public void schreibe(String text) throws Exception {
-        schreibe(text, false);
+    public void schreibe(String line1) {
+        try (FileWriter outStream = new FileWriter(this)) {
+            outStream.write(line1);
+
+        } catch (IOException e) {
+            // Fehlerbehandlung
+            e.printStackTrace();
+        }
     }
 
     public void schreibe(String text, boolean append) throws Exception {
@@ -36,7 +43,7 @@ public class Datei {
             String zeile = "";
             while ((zeile = reader.readLine()) != null) // bis alles drin ist
             {
-                if ( inhalt.length() > 0) {
+                if (inhalt.length() > 0) {
                     inhalt.append("\n");
                 }
                 inhalt.append(zeile);

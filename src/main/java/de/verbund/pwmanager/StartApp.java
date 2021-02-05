@@ -14,9 +14,9 @@ public class StartApp extends Application {
         launch(args);
     }
 
-    public void start(Stage primaryStage) throws Exception{
-        URL res=getClass().getResource("/passwdManager.fxml");
-        Parent root= FXMLLoader.load(res);
+    public void start(Stage primaryStage) throws Exception {
+        URL res = getClass().getResource("/passwdManager.fxml");
+        Parent root = FXMLLoader.load(res);
         primaryStage.setScene(new Scene(root));
         primaryStage.setTitle("PasswortManager");
         primaryStage.show();
