@@ -11,7 +11,7 @@ public class Datei extends File{
     }
 
 
-    public void schreibe(String line1) {
+    public void schreibe(String line1) { //Ersetzen
         try (FileWriter outStream = new FileWriter(this)) {
             outStream.write(line1);
 
@@ -20,7 +20,8 @@ public class Datei extends File{
             e.printStackTrace();
         }
     }
-    public void schreibe(String text, boolean append) throws Exception {
+
+    public void schreibe(String text, boolean append) throws Exception { //Anfügen
         File datei = null;
         datei = new File(dateiName);
         try (FileWriter outStream = new FileWriter(datei, append)) {
@@ -32,7 +33,7 @@ public class Datei extends File{
         }
     }
 
-    public String lese() throws Exception {
+    public String lese() throws Exception { //Alle Werte holen
         StringBuilder inhalt = new StringBuilder();
         File datei = null;
         BufferedReader reader = null;

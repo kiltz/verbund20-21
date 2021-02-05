@@ -39,7 +39,7 @@ public class Manager {
         datei.schreibe(satz, true);
     }
 
-    public List<Passwort> suche(String s) {
+    public List<Passwort> suche(String s) { //Filtern
         datensaetze = lese();
         List<Passwort> ergebnisListe = new ArrayList<>();
         for (Map.Entry<String, Passwort> entry : datensaetze.entrySet()) {

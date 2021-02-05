@@ -17,7 +17,6 @@ public class managerController {
     public TextArea textAusgabe;
     public TextField textSuche;
 
-
     private String vorschlagPasswort;
 
     private Manager manager = new Manager();
@@ -36,12 +35,12 @@ public class managerController {
                 throw new Exception();
             }
         } catch (Exception e) {
-            System.out.println("Fehler!");
+            System.out.println("Keine leeren Eingaben!");
         }
     }
 
     @FXML
-    private void suche() {
+    private void suche() { //Anzeige in Fenster
         List<Passwort> erg = manager.suche(textSuche.getText());
         StringBuffer txt = new StringBuffer("Name\tBenutzer\tPasswort\n");
         for (Passwort p : erg) {
