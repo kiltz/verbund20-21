@@ -25,6 +25,7 @@ public class PwManagerController {
     public TableColumn colName;
     public TableColumn colPasswort;
 
+
     @FXML
     void initialize() {
         manager = new Manager();
@@ -78,7 +79,7 @@ public class PwManagerController {
         try {
             manager.neu(new Passwort(tfName.getText(), tfBenutzer.getText(), tfPasswort.getText()));
             lAusgabe.setTextFill(Color.BLUE);
-            lAusgabe.setText(tfName.getText() + " wurde eingetragen.");
+            lAusgabe.setText(tfName.getText() + " wurde geändert.");
             tfName.setText("");
             tfBenutzer.setText("");
             tfPasswort.setText("");

@@ -147,9 +147,9 @@
    </HBox>
    <TableView fx:id="tvAusgabe" prefHeight="248.0" prefWidth="500.0">
      <columns>
-       <TableColumn fx:id="colName" prefWidth="173.0" text="Name" />
-       <TableColumn fx:id="colBenutzer" minWidth="0.0" prefWidth="161.0" text="Benutzer" />
-         <TableColumn fx:id="colPasswort" prefWidth="165.0" text="Passwort" />
+       <TableColumn fx:id="colName" prefWidth="165.0" text="Name" />
+       <TableColumn fx:id="colBenutzer" minWidth="0.0" prefWidth="165.0" text="Benutzer" />
+         <TableColumn fx:id="colPasswort" prefWidth="168.0" text="Passwort" />
      </columns>
    </TableView>
 </VBox>
