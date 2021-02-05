@@ -11,16 +11,12 @@ import java.net.URL;
 
 public class StarterApp extends Application {
 
-    private Manager manager;
-
     public static void main(String[] args) {
         launch();
     }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-
-        manager = new Manager();
 
         URL ref = getClass().getResource("/de.verbund.pwmanager/manager.fxml");
         Parent root = FXMLLoader.load(ref);

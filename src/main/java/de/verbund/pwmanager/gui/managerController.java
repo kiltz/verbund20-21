@@ -1,6 +1,5 @@
 package de.verbund.pwmanager.gui;
 
-import gui.feature.passwort.PasswdApp;
 import de.verbund.pwmanager.service.Manager;
 import de.verbund.pwmanager.service.Passwort;
 import javafx.event.ActionEvent;
@@ -42,9 +41,9 @@ public class managerController {
             }
         } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("WHAT DID YOU DO?!?!?!");
-            alert.setHeaderText("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH");
-            alert.setContentText("Chef, Aquarium brennt!");
+            alert.setTitle("Ungueltige Eingaben!");
+            alert.setHeaderText("Eingabefelder duerfen nicht leer sein!");
+            alert.setContentText("Bitte fuelle alle Felder aus!");
             alert.show();
         }
     }
