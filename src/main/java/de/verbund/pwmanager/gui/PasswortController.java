@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 
 import java.util.List;
@@ -62,4 +63,16 @@ public class PasswortController {
             tfPasswort.setText("");
         }
     }
-}
+
+    public void ausfuellen(KeyEvent keyEvent) {
+        List<de.verbund.pwmanager.service.Passwort> erg = manager.suche(tfName.getText());
+        if(erg.size() == 1){
+            Passwort pw = erg.get(0);
+            tfName.setText(pw.getName());
+            tfBenutzer.setText(pw.getBenutzername());
+            tfPasswort.setText(pw.getPasswort());
+            }
+
+        }
+    }
+

@@ -4,12 +4,12 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.verbund.pwmanager.gui.PasswortController">
+<VBox fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.verbund.pwmanager.gui.PasswortController">
     <children>
         <HBox fx:id="box" prefHeight="34.0" prefWidth="394.0" spacing="10.0">
             <children>
                 <Label fx:id="lName" prefHeight="17.0" prefWidth="51.0" text="Name" />
-                <TextField fx:id="tfName" prefHeight="25.0" prefWidth="180.0" />
+                <TextField fx:id="tfName" onKeyTyped="#ausfuellen" prefHeight="25.0" prefWidth="180.0" />
             </children>
             <padding>
                 <Insets left="10.0" top="10.0" />
@@ -54,7 +54,7 @@
             <Insets left="10.0" top="10.0" />
          </padding>
         </HBox>
-      <Accordion maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="310.0" prefWidth="400.0">
+      <Accordion maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="400.0">
         <panes>
           <TitledPane animated="false" prefHeight="43.0" prefWidth="400.0" text="Suche">
             <content>

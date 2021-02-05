@@ -10,6 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 
@@ -17,12 +18,21 @@ public class ZeichenKetteAufgabe extends Application {
     private TextField tfPasswortLaenge;
     private Label lPasswort;
     private String erlaubteZeichen = "abcdefghijklmnopqrstuvwxyz";
+    private String grossbuchstaben = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    private String zahlen = "1234567890";
+    private String sonderzeichen = "!?.;_-";
+    private CheckBox cGroß;
+    private CheckBox cZahl;
+    private CheckBox cSonder;
+    private CheckBox cAlles;
+
+
 
 
     @Override
     public void start(Stage primaryStage) throws Exception {
         VBox root = new VBox(10);
-        Scene scene = new Scene(root, 400, 400);
+        Scene scene = new Scene(root, 400, 180);
 
         Button bGenerieren = new Button("Passwort generieren");
         bGenerieren.setOnAction(e-> generieren());
@@ -44,23 +54,46 @@ public class ZeichenKetteAufgabe extends Application {
 
     private void generieren() {
         String eingabe = tfPasswortLaenge.getText();
-        int zahl = Integer.parseInt(eingabe);
-        String test = "";
-        for (int i = 0; i < 15; ++i) {
-            int pos = (int) (Math.random() * erlaubteZeichen.length());
-            test += erlaubteZeichen.charAt(pos);
+        if(eingabe.equals(""))
+        {
+            lPasswort.setText("Geben Sie eine länge an!");
+            lPasswort.setTextFill(Color.RED);
         }
-        lPasswort.setText("Passwort: "+test);
+        int zahl = Integer.parseInt(eingabe);
+        if(zahl <= 0){
+            lPasswort.setText("Ungültige Eingabe");
+            lPasswort.setTextFill(Color.RED);
+        } else {
+            String test = "";
+            if (cGroß.isSelected()) {
+                erlaubteZeichen += grossbuchstaben;
+            }
+            if (cZahl.isSelected()) {
+                erlaubteZeichen += zahlen;
+            }
+            if (cSonder.isSelected()) {
+                erlaubteZeichen += sonderzeichen;
+            }
+            if (cAlles.isSelected()) {
+                erlaubteZeichen += sonderzeichen += zahlen += grossbuchstaben;
+            }
+            for (int i = 0; i < zahl; ++i) {
+                int pos = (int) (Math.random() * erlaubteZeichen.length());
+                test += erlaubteZeichen.charAt(pos);
+            }
+            lPasswort.setText("Passwort: " + test);
+            lPasswort.setTextFill(Color.BLUE);
+        }
     }
 
     private Node getCheckbox() {
         HBox box = new HBox(10);
         box.setPadding(new Insets(10));
 
-        CheckBox cGroß = new CheckBox("Großbuchstaben");
-        CheckBox cSonder = new CheckBox("Sonderzeichen");
-        CheckBox cZahl = new CheckBox("Zahlen");
-        CheckBox cAlles = new CheckBox("Alles");
+        cGroß = new CheckBox("Großbuchstaben");
+        cSonder = new CheckBox("Sonderzeichen");
+        cZahl = new CheckBox("Zahlen");
+        cAlles = new CheckBox("Alles");
         box.getChildren().addAll(cGroß, cZahl, cSonder, cAlles);
         return box;
     }
