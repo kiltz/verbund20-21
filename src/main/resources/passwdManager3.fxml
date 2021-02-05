@@ -9,15 +9,27 @@
     <children>
         <HBox prefHeight="20" prefWidth="200.0" spacing="10.0">
             <children>
-                <Label text="Passwort generieren: " prefWidth="200"/>
-                <Label text="2. Funktion"/>
+                <Label fx:id="lsonderCounter" text=""/>
             </children>
         </HBox>
-        <HBox prefHeight="50.0" prefWidth="200.0" spacing="10.0">
+        <HBox prefHeight="20" prefWidth="200.0" spacing="10.0">
             <children>
-                <Button fx:id="bPasswortgenerieren" mnemonicParsing="false" text="Passwort generieren"
-                        onAction="#passwortGenerieren" prefHeight="200" prefWidth="200"/>
-                <Button mnemonicParsing="false" text="Statistik" prefWidth="200" prefHeight="200" onAction="#statistik"/>
+                <Label fx:id="lzahlenCounter"/>
+            </children>
+        </HBox>
+        <HBox prefHeight="20" prefWidth="200.0" spacing="10.0">
+            <children>
+                <Label fx:id="lgroßkleinCounter"/>
+            </children>
+        </HBox>
+        <HBox prefHeight="20" prefWidth="200.0" spacing="10.0">
+            <children>
+                <Label fx:id="lallesCounter"/>
+            </children>
+        </HBox>
+        <HBox prefHeight="20" prefWidth="200.0" spacing="10.0">
+            <children>
+                <Label fx:id="lgenerateCounter"/>
             </children>
         </HBox>
     </children>

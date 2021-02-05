@@ -18,7 +18,7 @@ public class StartApp extends Application {
         URL res = getClass().getResource("/passwdManager.fxml");
         Parent root = FXMLLoader.load(res);
         primaryStage.setScene(new Scene(root));
-        primaryStage.setTitle("PasswortManager");
+        primaryStage.setTitle("Menue");
         primaryStage.show();
     }
 }

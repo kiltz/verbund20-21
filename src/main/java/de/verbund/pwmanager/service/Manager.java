@@ -26,10 +26,13 @@ public class Manager {
             String[] saetze = inhalt.split("\n");
             for (String satz : saetze) {
                 String[] teile = satz.split(";");
-                liste.put(teile[0], new Passwort(teile[0], teile[1], teile[2]));
+                if (teile.length == 3) {
+                    liste.put(teile[0], new Passwort(teile[0], teile[1], teile[2]));
+                }
             }
 
         } catch (Exception e) {
+            e.printStackTrace();
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setHeaderText("ALAAAAARM!");
             alert.setContentText("ALARM! ALAAAAAAAAAARM!");
@@ -42,6 +45,7 @@ public class Manager {
         datensaetze.put(p.getName(), p);
         String satz = p.getName() + ";" + p.getBenutzername() + ";" + p.getPasswort() + "\n";
         datei.schreibe(satz, true);
+
     }
 
     public List<Passwort> suche(String s) {
