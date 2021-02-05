@@ -4,41 +4,58 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
-      prefWidth="600.0" spacing="10.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="de.verbund.pwmanager.gui.pwmController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" spacing="10.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.verbund.pwmanager.gui.pwmController">
     <children>
-        <HBox prefHeight="50.0" prefWidth="200.0" spacing="10.0">
-            <children>
-                <Label text="Name:"/>
-                <TextField fx:id="tfName"/>
-            </children>
-        </HBox>
-        <HBox prefHeight="50.0" prefWidth="200.0" spacing="10.0">
-            <children>
-                <Label text="Benutzername: "/>
-                <TextField fx:id="tfBenutzer"/>
-            </children>
-        </HBox>
-        <HBox prefHeight="50.0" prefWidth="200.0" spacing="10.0">
-            <children>
-                <Label text="Passwort: "/>
-                <PasswordField fx:id="pfPassword"/>
-                <Button fx:id="bGeneratePassword" mnemonicParsing="false" onAction="#generate"
-                        text="Generiere Passwort"/>
-                <Button fx:id="bHinzufügen" mnemonicParsing="false" onAction="#hinzufügen" text="Hinzufügen"/>
-            </children>
-        </HBox>
-        <HBox prefHeight="50.0" prefWidth="200.0" spacing="10.0">
-            <children>
-                <TextField fx:id="tfSuche"/>
-                <Button fx:id="bSuche" mnemonicParsing="false" onAction="#suchen" text="Suchen"/>
-                <Button mnemonicParsing="false" text="Lösche alle Einträge" onAction="#loeschen"/>
-            </children>
-        </HBox>
-        <TextArea fx:id="taAusgabe" editable="false" prefHeight="200.0" prefWidth="200.0"/>
+      <Accordion>
+        <panes>
+          <TitledPane animated="false" text="Hinzufügen">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                          <HBox layoutX="14.0" layoutY="14.0" prefHeight="50.0" prefWidth="200.0" spacing="10.0">
+                              <children>
+                                  <Label text="Name:" />
+                                  <TextField fx:id="tfName" />
+                              </children>
+                          </HBox>
+                          <HBox layoutX="14.0" layoutY="57.0" prefHeight="50.0" prefWidth="200.0" spacing="10.0">
+                              <children>
+                                  <Label text="Benutzername: " />
+                                  <TextField fx:id="tfBenutzer" />
+                              </children>
+                          </HBox>
+                          <HBox layoutX="6.0" layoutY="94.0" prefHeight="50.0" prefWidth="565.0" spacing="10.0">
+                              <children>
+                                  <Label text="Passwort: " />
+                                  <PasswordField fx:id="pfPassword" />
+                                  <Button fx:id="bGeneratePassword" mnemonicParsing="false" onAction="#generate" text="Generiere Passwort" />
+                                  <Button fx:id="bHinzufügen" mnemonicParsing="false" onAction="#hinzufügen" text="Hinzufügen" />
+                              </children>
+                          </HBox>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </TitledPane>
+          <TitledPane animated="false" text="Suchen">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                          <HBox layoutX="13.0" layoutY="50.0" prefHeight="50.0" prefWidth="460.0" spacing="10.0">
+                              <children>
+                                  <TextField fx:id="tfSuche" />
+                                  <Button fx:id="bSuche" mnemonicParsing="false" onAction="#suchen" text="Suchen" />
+                                  <Button mnemonicParsing="false" onAction="#loeschen" text="Lösche alle Einträge" />
+                              </children>
+                          </HBox>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </TitledPane>
+        </panes>
+      </Accordion>
+        <TextArea fx:id="taAusgabe" editable="false" prefHeight="200.0" prefWidth="200.0" />
     </children>
     <padding>
-        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
     </padding>
 </VBox>
