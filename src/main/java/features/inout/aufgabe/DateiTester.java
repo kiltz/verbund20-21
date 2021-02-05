@@ -1,7 +1,5 @@
 package features.inout.aufgabe;
 
-import utils.Datei;
-
 /**
  * Invariante: Ändere diese Klasse nicht!
  * 
@@ -14,6 +12,7 @@ import utils.Datei;
  * @author fk
  *
  */
+/*
 public class DateiTester {
 
 	public static void main(String[] args) throws Exception {
@@ -38,3 +37,5 @@ public class DateiTester {
 	}
 
 }
+
+ */

@@ -1,4 +1,4 @@
-package gui.fxml;
+package de.verbund.pwmanager;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -8,10 +8,7 @@ import javafx.stage.Stage;
 
 import java.net.URL;
 
-/**
- * @author tz
- */
-public class LoginApplication extends Application {
+public class StarterApp  extends Application {
 
     public static void main(String[] args) {
         launch(args);
@@ -20,10 +17,10 @@ public class LoginApplication extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        URL res = getClass().getResource("login.fxml");
+        URL res = getClass().getResource("/de.verbund.pwmanager/manager.fxml");
         Parent root = FXMLLoader.load(res);
-        primaryStage.setTitle("Login-Text");
-        primaryStage.setScene(new Scene(root, 400, 300));
+        primaryStage.setTitle("Passwort-Manager");
+        primaryStage.setScene(new Scene(root));
 
         primaryStage.show();
 
