@@ -33,4 +33,3 @@ public class StarterApp  extends Application {
 
     }
 }
-

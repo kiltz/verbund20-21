@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
@@ -17,6 +18,11 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
+import java.awt.*;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.ClipboardOwner;
+import java.awt.datatransfer.StringSelection;
+import java.awt.datatransfer.Transferable;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
@@ -26,6 +32,7 @@ public class VarianteEinsController {
     public TableColumn colBenutzer;
     public TableColumn colName;
     public TextField tfSuche;
+    public Label lInfo;
     private Manager manager;
     public static Passwort auswahl;
 
@@ -67,7 +74,21 @@ public class VarianteEinsController {
             stage.setScene(new Scene(root));
             stage.show();
         } else {
-            System.out.println("Keiner ausgewählt");
+            lInfo.setText("Keiner ausgewählt");
+        }
+    }
+
+    public void doCopyPasswd(ActionEvent actionEvent) {
+        auswahl = (Passwort) tabelle.getSelectionModel().getSelectedItem();
+        if(auswahl != null) {
+            StringSelection content = new StringSelection(auswahl.getPasswort());
+
+            Toolkit.getDefaultToolkit().getSystemClipboard().setContents(content, new ClipboardOwner() {
+                @Override
+                public void lostOwnership(Clipboard clipboard, Transferable contents) {
+                }
+            });
+            lInfo.setText("PW kopiert");
         }
     }
 }
