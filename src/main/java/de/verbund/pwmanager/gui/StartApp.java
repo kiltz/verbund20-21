@@ -1,4 +1,4 @@
-package de.verbund.pwmanager;
+package de.verbund.pwmanager.gui;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

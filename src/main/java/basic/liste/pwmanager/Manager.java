@@ -40,7 +40,7 @@ public class Manager {
         datei.schreibe(satz, true);
     }
 
-    public List<Passwort> suche(String s) {
+    public List<basic.liste.pwmanager.Passwort> suche(String s) {
         List<Passwort> ergebnisListe = new ArrayList<>();
         for (Map.Entry<String, Passwort> entry : datensaetze.entrySet()) {
             if (entry.getValue().getName().contains(s)) {
