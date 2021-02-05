@@ -13,31 +13,35 @@ import javafx.scene.paint.Color;
 
 import java.util.List;
 
+
 public class pwmanagerController {
 
 
     public Manager manager;
     @FXML
-    public Button Search;
+    public Button bSuche;
     @FXML
-    public TextField NameField;
+    public TextField tfName;
     @FXML
-    public TextField UserField;
+    public TextField tfUser;
     @FXML
-    public TextField PasswdField;
+    public TextField tfPasswd;
     @FXML
-    public Label lStatus; //anschauen
+    public Label lStatus;
     @FXML
-    public TextField SearchField;
+    public TextField tfSuche;
     @FXML
-    public TextArea ausgabe;
+    public TextArea taAusgabe;
 
 
-    public void Search(ActionEvent actionEvent) {
-        List<Passwort> foundList = manager.suche(SearchField.getText());
-        ausgabe.setText("Name: \t Benutzer: \t Passwort:");
+    public void suche(ActionEvent actionEvent) {
+        Manager manager = new Manager();
+        System.out.println(manager + "/" + tfSuche);
+
+        List<Passwort> foundList = manager.suche(tfSuche.getText());
+        taAusgabe.setText("Name: \t Benutzer: \t Passwort:");
         for (Passwort entry : foundList) {
-            ausgabe.setText(ausgabe.getText() + "\n" + entry.getName() + ", \t" + entry.getBenutzername() + ", \t" + entry.getPasswort());
+            taAusgabe.setText(taAusgabe.getText() + "\n" + entry.getName() + ", \t" + entry.getBenutzername() + ", \t" + entry.getPasswort());
         }
     }
 
@@ -45,17 +49,17 @@ public class pwmanagerController {
     public void eintragen(ActionEvent actionEvent) {
         {
 
-            if (NameField.getText().isEmpty()) {
+            if (tfName.getText().isEmpty()) {
                 lStatus.setTextFill(Color.web("#E23130"));
                 lStatus.setText("Wen soll ich eintragen?");
             } else {
                 try {
-                    manager.neu(new Passwort(NameField.getText(), UserField.getText(), PasswdField.getText()));
+                    manager.neu(new Passwort(tfName.getText(), tfUser.getText(), tfPasswd.getText()));
                     lStatus.setTextFill(Color.web("#005091"));
-                    lStatus.setText(NameField.getText() + " wurde eingetragen.");
-                    NameField.setText("");
-                    UserField.setText("");
-                    PasswdField.setText("");
+                    lStatus.setText(tfName.getText() + " wurde eingetragen.");
+                    tfName.setText("");
+                    tfUser.setText("");
+                    tfPasswd.setText("");
                 } catch (Exception e) {
                    lStatus.setTextFill(Color.web("#E23130"));
                    lStatus.setText("Fehler: " + e.getMessage());
