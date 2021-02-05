@@ -25,7 +25,6 @@ public class PwManagerController {
     public TableColumn colName;
     public TableColumn colPasswort;
 
-
     @FXML
     void initialize() {
         manager = new Manager();
