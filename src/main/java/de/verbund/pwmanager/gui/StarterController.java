@@ -2,6 +2,7 @@ package de.verbund.pwmanager.gui;
 
 import java.awt.*;
 import basic.liste.pwmanager.Manager;
+import de.verbund.pwmanager.service.ManagerCopy;
 import javafx.fxml.FXML;
 import java.awt.event.ActionEvent;
 import java.util.List;
@@ -25,15 +26,17 @@ public class StarterController {
 
 
     public void doSave(javafx.event.ActionEvent save) throws Exception {
+
+
         manager.neu(new Passwort(tfname.getText(),tfbenutzer.getText(), tfpasswort.getText()));
 
-        DateiCopy passwörter = new DateiCopy("Passwörter.txt");
+        //DateiCopy passwörter = new DateiCopy("Passwörter.txt");
 ///        passwörter.schreibe(manager.neu(new Passwort(tfname.getText(),tfbenutzer.getText(), tfpasswort.getText())));
 
 //        String passwort = manager
 
-        String inhalt = passwörter.lese();
-        System.out.println("'" + inhalt + "'");
+       // String inhalt = passwörter.lese();
+       // System.out.println("'" + inhalt + "'");
 //        System.out.println("'" + passwort + "'");
 
     }

@@ -21,7 +21,7 @@ public class StarterApp extends Application {
         Parent root = FXMLLoader.load(res);
 
         primaryStage.setTitle("Starter-App");
-        primaryStage.setScene(new Scene(root, 400, 300));
+        primaryStage.setScene(new Scene(root, 600, 500));
         primaryStage.show();
     }
 }
