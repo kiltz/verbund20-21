@@ -1,6 +1,5 @@
 package de.verbund.pwmanager;
 
-import de.verbund.pwmanager.service.Manager;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
