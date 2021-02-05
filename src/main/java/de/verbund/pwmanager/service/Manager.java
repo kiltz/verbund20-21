@@ -2,6 +2,7 @@ package de.verbund.pwmanager.service;
 
 import de.verbund.pwmanager.service.Passwort;
 import de.verbund.pwmanager.utils.Datei;
+import javafx.scene.control.Alert;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -13,13 +14,13 @@ public class Manager {
     private Map<String, Passwort> datensaetze;
 
     public Manager() {
-        datei =new Datei("passwd.txt");
+        datei = new Datei("passwd.txt");
         datensaetze = lese();
 
     }
 
-    private Map<String,Passwort> lese() {
-        Map<String,Passwort> liste = new HashMap<>();
+    private Map<String, Passwort> lese() {
+        Map<String, Passwort> liste = new HashMap<>();
         try {
             String inhalt = datei.lese();
             String[] saetze = inhalt.split("\n");
@@ -29,7 +30,9 @@ public class Manager {
             }
 
         } catch (Exception e) {
-            // dann ist die halt nicht da!
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setHeaderText("ALAAAAARM!");
+            alert.setContentText("ALARM! ALAAAAAAAAAARM!");
         }
         return liste;
     }
@@ -37,11 +40,12 @@ public class Manager {
     public void neu(Passwort p) throws Exception {
         // Validierung
         datensaetze.put(p.getName(), p);
-        String satz =p.getName()+";"+p.getBenutzername()+";"+p.getPasswort()+"\n";
+        String satz = p.getName() + ";" + p.getBenutzername() + ";" + p.getPasswort() + "\n";
         datei.schreibe(satz, true);
     }
 
     public List<Passwort> suche(String s) {
+        datensaetze = lese();
         List<Passwort> ergebnisListe = new ArrayList<>();
         for (Map.Entry<String, Passwort> entry : datensaetze.entrySet()) {
             if (entry.getValue().getName().contains(s)) {
@@ -49,5 +53,8 @@ public class Manager {
             }
         }
         return ergebnisListe;
+    }
+    public void loeschen() {
+        datei.schreibe("");
     }
 }

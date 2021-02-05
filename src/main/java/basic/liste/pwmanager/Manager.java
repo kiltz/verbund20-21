@@ -1,6 +1,6 @@
 package basic.liste.pwmanager;
 
-import utils.Datei;
+import de.verbund.pwmanager.utils.Datei;
 
 import java.util.ArrayList;
 import java.util.HashMap;
