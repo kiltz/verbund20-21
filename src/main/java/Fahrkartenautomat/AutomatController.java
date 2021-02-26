@@ -41,7 +41,7 @@ public class AutomatController {
             cbTicket3.setDisable(true);
             cbTicket4.setDisable(true);
             cbTicket5.setDisable(true);
-            lChosenTicket.setText(Ticketautomat.Ticketlist[1] +" Kostet: " + String.valueOf(Ticketautomat.Costlist[1]) + " Euro");
+            //lChosenTicket.setText(Ticketautomat.Ticketlist[1] +" Kostet: " + String.valueOf(Ticketautomat.Costlist[1]) + " Euro");
         }
         }
 

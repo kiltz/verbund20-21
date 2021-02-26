@@ -9,14 +9,16 @@ import java.util.Map;
 
 public class test {
     public static void main(String[] args) throws Exception {
-        Ticket Ticket1 = new Ticket(1,"Kurzstrecke",7.45);
         FileManager filemanager = new FileManager();
-        filemanager.neu(Ticket1);
-        Map<Integer,Ticket> foundList=filemanager.lese();
-        for (Ticket ticket : foundList.values()) {
-            System.out.println(ticket.getTicketID() + "" + ticket.getTicketname()+ "" + ticket.getTicketCost());
-        }
+        Speicher speicher1 = new Speicher(1,10);
+        filemanager.neuSpeicher(speicher1);
+
+        Map<Integer, Speicher> foundlist2=filemanager.leseSpeicher();
+        System.out.println(foundlist2.values());
+        for(Speicher speicher: foundlist2.values()) {
+            System.out.println(speicher.getSpeicherID() + ";" + speicher.getSpeicherValue());
         }
 
-        }
+    }
+}
 

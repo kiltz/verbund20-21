@@ -7,22 +7,16 @@ import java.util.Scanner;
 
 
 public class Ticketautomat {
-    public static Ticket Ticket1 = new Ticket(1,"Kurzstrecke", 4.5);
-    public static Ticket Ticket2 = new Ticket(2,"Langstrecke", 6.75);
-    public static Ticket Ticket3 = new Ticket(3,"Streifenkarte",10);
-    public static Ticket Ticket4 = new Ticket(4,"Wochenend-Karte",9.25);
-    public static Ticket Ticket5 = new Ticket(5,"Monatskarte",87.5);
     private static HashMap<Integer,Ticket> availableTickets = new HashMap<>();
-    public static String[] Ticketlist = {Ticket1.getTicketname(), Ticket2.getTicketname(), Ticket3.getTicketname(), Ticket4.getTicketname(), Ticket5.getTicketname()};
-    public static Double[] Costlist = {Ticket1.getTicketCost(), Ticket2.getTicketCost(), Ticket3.getTicketCost(), Ticket4.getTicketCost(), Ticket5.getTicketCost()};
     public static String[] MoneyInput = {"1 Cent", "2 Cent", "5 Cent", "10 Cent", "20 Cent", "50 Cent", "1 Euro", "2 Euro", "5 Euro", "10 Euro", "20 Euro", "50 Euro"};
     public static Double[] multiplikatoren = {0.01,0.02,0.05,0.10,0.20,0.50,1.0,2.0,5.0,10.0,20.0,50.0};
     public static int[] Cash = new int[12];
     public static int[] iCashBack = new int[12];
+    public static int iInput;
 
+    public static Ticket result;
     static DecimalFormat df = new DecimalFormat("####0.00");
 
-    public static int iInput;
     public static int counter1 = 0;
     public static double total = 0;
     public static double cashback = 0;
@@ -42,12 +36,10 @@ public class Ticketautomat {
     public static int twoCentInTank = 10;
     public static int oneCentInTank = 10;
 
-    public static void main(String[] args) {
-        availableTickets.put(Ticket1.getTicketID(), Ticket1);
+    public static void main(String[] args) throws Exception {
         if(printableTickets > 0) {
             while(playAgain.equals("j")) {
                 ticketChoice();
-                costOutput();
                 moneyInput();
                 moneyCompare();
             }
@@ -57,27 +49,25 @@ public class Ticketautomat {
         }
     }
 
-    public static void ticketChoice() {
-        System.out.println("Wähle ein Ticket");
-        System.out.println("1. Kurzstrecke");
-        //System.out.println(ticket.getID() + ticket.getName()"1. Kurzstrecke");
-        System.out.println("2. Langstrecke");
-        System.out.println("3. Streifenkarte");
-        System.out.println("4. Wochenend-Karte");
-        System.out.println("5. Monatskarte");
+    public static void ticketChoice() throws Exception {
+        FileManager fileManager = new FileManager();
+        Map<Integer, Ticket> availableTickets=fileManager.leseTickets();
+        for (Ticket ticket : availableTickets.values()) {
+            System.out.println(ticket.getTicketID()+". "+ticket.getTicketname()+ "\n" +"> Kostet: "+ticket.getTicketCost()+" Euro");
+        }
         Scanner scannerVariable = new Scanner(System.in);
         iInput = Integer.valueOf(scannerVariable.nextLine());
-    }
-
-    public static void costOutput() {
-        iInput -= 1;
-        if (iInput < 5 && -1 < iInput) {
-            System.out.println(Ticketlist[iInput] +" Kostet: " + Costlist[iInput] + " Euro");
+        if (availableTickets.containsKey(iInput)) {
+            result = availableTickets.get(iInput);
+            System.out.println("Sie haben " + result.getTicketname() + " Gewaehlt, dieses Ticket Kostet " +result.getTicketCost()+" Euro \n " +
+                    "Bitte Werfen sie Geld ein");
             counter1 = 1;
-        } else {
-            System.out.println("Ungültige Eingabe, versuchen sie es erneut!");
+        }
+        else {
+            System.out.println("Ticket existiert nicht!");
         }
     }
+
 
     public static void moneyInput() {
         if (counter1 == 1) {
@@ -94,16 +84,16 @@ public class Ticketautomat {
     }
 
     public static void moneyCompare() {
-        if(Costlist[iInput] > total) {
+        if(result.getTicketCost() > total) {
             System.out.println("Es wurde noch nicht genuegend Geld eingeworfen");
             moneyInput();
         }
-        else if(Costlist[iInput] == total) {
+        else if(result.getTicketCost() == total) {
             System.out.println("Das Ticket ist bezahlt und wird gedruckt!");
             printableTickets -= 1;
         }
         else {
-            cashback = total - Costlist[iInput];
+            cashback = total - result.getTicketCost();
             System.out.println("Das Ticket ist bezahlt und wird gedruckt!");
             System.out.println("Rückgeld: " + df.format(cashback) + " Euro");
             printableTickets -= 1;
