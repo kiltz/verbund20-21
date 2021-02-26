@@ -1,6 +1,6 @@
 package oop.erbe;
 
-public class Kombi extends Auto {
+public class Kombi extends oop.erbe.Auto {
 
     public Kombi() {
     }

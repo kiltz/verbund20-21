@@ -6,7 +6,7 @@ package oop.erbe;
 public class Parkplatz {
 
     public static void main(String[] args) {
-        Auto zoe = new Auto("ZOE", 70);
+        oop.erbe.Auto zoe = new oop.erbe.Auto("ZOE", 70);
         System.out.println(zoe.getTyp());
 
         Cabriolet c = new Cabriolet("Alpha Romeo", 170);

@@ -1,6 +1,6 @@
 package oop.erbe;
 
-public class Cabriolet extends Auto {
+public class Cabriolet extends oop.erbe.Auto {
 
     private boolean verdeckOffen = false;
     public Cabriolet(String marke, int ps) {

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<?import javafx.geometry.Insets?>
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+      prefWidth="1000.0" spacing="10.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="Fahrkartenautomat.AutomatController">
+    <children>
+        <HBox prefHeight="20" prefWidth="200.0" spacing="10.0">
+            <children>
+                <Label text="Waehlen sie ein Ticket: " prefWidth="200"/>
+            </children>
+        </HBox>
+        <VBox spacing="10.0">
+            <CheckBox fx:id = "cbTicket1" mnemonicParsing="false" text="Kurzstrecke" onAction="#disableCheckboxes">
+            </CheckBox>
+            <CheckBox fx:id = "cbTicket2" mnemonicParsing="false" text="Langstrecke" onAction="#disableCheckboxes">
+            </CheckBox>
+            <CheckBox fx:id = "cbTicket3" mnemonicParsing="false" text="Streifenkarte" onAction="#disableCheckboxes">
+            </CheckBox>
+            <CheckBox fx:id = "cbTicket4" mnemonicParsing="false" text="Wochenend-Karte" onAction="#disableCheckboxes">
+            </CheckBox>
+            <CheckBox fx:id = "cbTicket5" mnemonicParsing="false" text="Monatskarte" onAction="#disableCheckboxes">
+            </CheckBox>
+        </VBox>
+        <HBox prefWidth="200.0" spacing="10.0">
+            <children>
+                <Label text="Ausgewaehltes Ticket"></Label>
+                <Label fx:id="lChosesnTicket" text=">"></Label>
+            </children>
+        </HBox>
+        <HBox>
+            <Label text="Eingeworfenes Geld"></Label>
+        </HBox>
+    <HBox spacing="70.0">
+        <Label text="1c"></Label>
+        <Label text="2c"></Label>
+        <Label text="5c"></Label>
+        <Label text="10c"></Label>
+        <Label text="20c"></Label>
+        <Label text="50c"></Label>
+        <Label text="1€"></Label>
+        <Label text="2€"></Label>
+        <Label text="5€"></Label>
+        <Label text="10€"></Label>
+        <Label text="20€"></Label>
+        <Label text="50€"></Label>
+    </HBox>
+        <HBox spacing="5.0">
+            <TextField text="0x" fx:id="tfOneCent"></TextField>
+            <TextField text="0x" fx:id="tfTwoCent"></TextField>
+            <TextField text="0x" fx:id="tfFiveCent"></TextField>
+            <TextField text="0x" fx:id="tfTenCent"></TextField>
+            <TextField text="0x" fx:id="tfTwentyCent"></TextField>
+            <TextField text="0x" fx:id="tfFiftyCent"></TextField>
+            <TextField text="0x" fx:id="tfOneEuro"></TextField>
+            <TextField text="0x" fx:id="tfTwoEuro"></TextField>
+            <TextField text="0x" fx:id="tfFiveEuro"></TextField>
+            <TextField text="0x" fx:id="tfTenEuro"></TextField>
+            <TextField text="0x" fx:id="tfTwentyEuro"></TextField>
+            <TextField text="0x" fx:id="tfFiftyEuro"></TextField>
+        </HBox>
+        <HBox>
+            <Button fx:id="bAuswahl" mnemonicParsing="false" text="Ticket kaufen"
+                    prefHeight="40" prefWidth="200"/>
+        </HBox>
+    </children>
+    <padding>
+        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+    </padding>
+</VBox>
