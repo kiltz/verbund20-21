@@ -16,7 +16,7 @@ public class FileManager {
         tickets = lese();
     }
 
-    private Map<Integer, Ticket> lese() {
+    public Map<Integer, Ticket> lese() {
         Map<Integer, Ticket> liste = new HashMap<>();
         try {
             String inhalt = datei.lese();
@@ -37,7 +37,7 @@ public class FileManager {
     public void neu(Ticket t) throws Exception {
         // Validierung
         tickets.put(t.getTicketID(), t);
-        String satz = t.getTicketname() + ";" + String.valueOf(t.getTicketCost()) +  "\n";
+        String satz = t.getTicketID() + ";" + t.getTicketname() + ";" + String.valueOf(t.getTicketCost()) +  "\n";
         datei.schreibe(satz, true);
 
     }

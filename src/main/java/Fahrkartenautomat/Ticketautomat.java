@@ -60,6 +60,7 @@ public class Ticketautomat {
     public static void ticketChoice() {
         System.out.println("Wähle ein Ticket");
         System.out.println("1. Kurzstrecke");
+        //System.out.println(ticket.getID() + ticket.getName()"1. Kurzstrecke");
         System.out.println("2. Langstrecke");
         System.out.println("3. Streifenkarte");
         System.out.println("4. Wochenend-Karte");
