@@ -4,13 +4,53 @@ public class eckarte {
     private int kartennummer;
     private int bankleitzahl;
     private int kontonummer;
+    private int geheimzahl;
+    private int dailyLimit;
+    private int gotToday;
+    private int kontostand;
     private String gültigkeitsdatum;
 
-    public eckarte(int kartennummer, int bankleitzahl, int kontonummer, String gültigkeitsdatum) {
+    public eckarte(int kartennummer, int bankleitzahl, int kontonummer, String gültigkeitsdatum, int geheimzahl, int dailyLimit, int kontostand, int gotToday) {
         this.kartennummer = kartennummer;
         this.bankleitzahl = bankleitzahl;
         this.kontonummer = kontonummer;
+        this.geheimzahl = geheimzahl;
+        this.dailyLimit = dailyLimit;
+        this.kontostand = kontostand;
+        this.gotToday = gotToday;
         this.gültigkeitsdatum = gültigkeitsdatum;
+    }
+
+    public int getKontostand() {
+        return kontostand;
+    }
+
+    public void setKontostand(int kontostand) {
+        this.kontostand = kontostand;
+    }
+
+    public int getGotToday() {
+        return gotToday;
+    }
+
+    public void setGotToday(int gotToday) {
+        this.gotToday = gotToday;
+    }
+
+    public int getDailyLimit() {
+        return dailyLimit;
+    }
+
+    public void setDailyLimit(int dailyLimit) {
+        this.dailyLimit = dailyLimit;
+    }
+
+    public int getGeheimzahl() {
+        return geheimzahl;
+    }
+
+    public void setGeheimzahl(int geheimzahl) {
+        this.geheimzahl = geheimzahl;
     }
 
     public int getKartennummer() {
