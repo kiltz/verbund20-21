@@ -1,17 +1,23 @@
 package basic.Übung_Geldautomat;
 
-import java.text.SimpleDateFormat;
+import basic.Übung_Geldautomat.FileManager2;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 
 public class Geldautomat {
-    public static eckarte ECKarte1 = new eckarte(1, 1, 100, "2021-12-23", 1234, 1500, 5000, 0);
+    public static eckarte ECKarte1 = new eckarte(1, 1, 0, "2021-12-23", 1234, 1500, 5000, 0);
     public static eckarte ECKarte2 = new eckarte(2, 1, 200, "2021-12-23", 1234, 1500, 5000, 1300);
     public static eckarte ECKarte3 = new eckarte(3, 1, 300, "2021-12-23", 1234, 1500, 5000, 1500);
     public static eckarte ECKarte4 = new eckarte(4, 1, 400, "2021-12-23", 1234, 1500, 400, 0);
     public static eckarte ECKarte5 = new eckarte(5, 1, 500, "2020-12-23", 1234, 1500, 5000, 0);
+    public static eckarte ECKarte6 = new eckarte(5, 1, 600, "2021-12-23", 1234, 15000, 20000, 0);
     public static int kontonummer;
     public static int konto;
     public static int geheimzahl;
@@ -20,24 +26,41 @@ public class Geldautomat {
     public static List<eckarte> eckarten = new ArrayList<eckarte>();
     public static boolean keepGoing = true;
     public static int zaehler = 0;
+    public static List<String[]> content = new ArrayList<>();
 
 
-    public static void main(String[] args) {
-        do {
+    public static void main(String[] args) throws IOException {
+            readData();
+            ECKarte1.setKartennummer(Integer.valueOf(String.valueOf(content.get(1))));
+            ECKarte1.setKartennummer(Integer.valueOf(String.valueOf(content.get(2))));
+            ECKarte1.setKartennummer(Integer.valueOf(String.valueOf(content.get(3))));
             eckarten.add(ECKarte1);
             eckarten.add(ECKarte2);
             eckarten.add(ECKarte3);
             eckarten.add(ECKarte4);
             eckarten.add(ECKarte5);
-            Karteeinlesen();
-            for (int i = 0; i < eckarten.size(); i++) {
-                if (eckarten.get(i).getKontonummer() == kontonummer) {
-                    Gueltigkeitsdatum_prüfen();
-                    konto = i;
+            eckarten.add(ECKarte6);
+            while(true) {
+                Karteeinlesen();
+                for (int i = 0; i < eckarten.size(); i++) {
+                    if (eckarten.get(i).getKontonummer() == kontonummer) {
+                        konto = i;
+                        Gueltigkeitsdatum_prüfen();
+                    }
                 }
             }
-        } while(keepGoing == true);
 
+    }
+
+    public static void readData() throws IOException {
+        String file = "tickets.csv";
+        try(BufferedReader br = new BufferedReader(new FileReader(file))) {
+            String line = "";
+            while ((line = br.readLine()) != null) {
+                content.add(line.split(";"));
+            }
+        } catch (FileNotFoundException e) {
+        }
     }
 
     public static void Karteeinlesen() {
@@ -54,7 +77,7 @@ public class Geldautomat {
         LocalDateTime now = LocalDateTime.now();
         DateTimeFormatter df;
         df = DateTimeFormatter.ISO_LOCAL_DATE;
-        if(DateCompare.isBefore(now.format(df), eckarten.get(konto).getGültigkeitsdatum()) == true) {
+        if(DateCompare.isBefore("2021-03-29", eckarten.get(konto).getGültigkeitsdatum()) == true) {
             geheimzahl();
         }
         else {
@@ -109,20 +132,17 @@ public class Geldautomat {
                     System.out.println("--Gewuenschter Betrag von " + gewuenschterBetrag + " Euro wird ausgegeben--");
                     eckarten.get(konto).setKontostand(eckarten.get(konto).getKontostand()-gewuenschterBetrag);
                     eckarten.get(konto).setGotToday(eckarten.get(konto).getGotToday()+gewuenschterBetrag);
-                    System.out.println("Noch etwas abheben? (J/N)");
-                    Scanner scannerVariable2 = new Scanner(System.in);
-                    again = scannerVariable2.nextLine();
-                    if(again.equals("j") || again.equals("J")) {
-                        keepGoing = true;
-                    }
-                    else {
-                        System.out.println("--Karte ausgeben--");
-                        zaehler = 4;
-                        keepGoing = false;
-                    }
+
                 }
                 else{
                     System.out.println("-----------------AUSER BETRIEB-----------------");
+                    while(true) {
+                        try {
+                            Thread.sleep(1000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
                 }
             }
             else {
