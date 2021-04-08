@@ -1,11 +1,6 @@
 package basic.Übung_Geldautomat;
 
-import basic.Übung_Geldautomat.FileManager2;
-
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
@@ -26,40 +21,47 @@ public class Geldautomat {
     public static List<eckarte> eckarten = new ArrayList<eckarte>();
     public static boolean keepGoing = true;
     public static int zaehler = 0;
-    public static List<String[]> content = new ArrayList<>();
+    public static String[] values;
+
 
 
     public static void main(String[] args) throws IOException {
-            readData();
-            ECKarte1.setKartennummer(Integer.valueOf(String.valueOf(content.get(1))));
-            ECKarte1.setKartennummer(Integer.valueOf(String.valueOf(content.get(2))));
-            ECKarte1.setKartennummer(Integer.valueOf(String.valueOf(content.get(3))));
-            eckarten.add(ECKarte1);
-            eckarten.add(ECKarte2);
-            eckarten.add(ECKarte3);
-            eckarten.add(ECKarte4);
-            eckarten.add(ECKarte5);
-            eckarten.add(ECKarte6);
-            while(true) {
-                Karteeinlesen();
-                for (int i = 0; i < eckarten.size(); i++) {
-                    if (eckarten.get(i).getKontonummer() == kontonummer) {
-                        konto = i;
-                        Gueltigkeitsdatum_prüfen();
-                    }
+        readData();
+        ECKarte1.setGeheimzahl(Integer.valueOf(values[4]));
+        ECKarte1.setKontonummer(Integer.valueOf(values[2]));
+        //ECKarte1.setKartennummer(Integer.valueOf(String.valueOf(content.get(2))));
+        //ECKarte1.setKartennummer(Integer.valueOf(String.valueOf(content.get(3))));
+        eckarten.add(ECKarte1);
+        eckarten.add(ECKarte2);
+        eckarten.add(ECKarte3);
+        eckarten.add(ECKarte4);
+        eckarten.add(ECKarte5);
+        eckarten.add(ECKarte6);
+        while(true) {
+            Karteeinlesen();
+            for (int i = 0; i < eckarten.size(); i++) {
+                if (eckarten.get(i).getKontonummer() == kontonummer) {
+                    konto = i;
+                    Gueltigkeitsdatum_prüfen();
                 }
             }
-
+        }
     }
 
     public static void readData() throws IOException {
-        String file = "tickets.csv";
-        try(BufferedReader br = new BufferedReader(new FileReader(file))) {
-            String line = "";
-            while ((line = br.readLine()) != null) {
-                content.add(line.split(";"));
+        String fileName = "eckarten.csv";
+        File file = new File(fileName);
+        try {
+            Scanner inputStream = new Scanner(file);
+            while (inputStream.hasNext()) {
+                String data = inputStream.next();
+                values = data.split(";");
+                System.out.println(values[1]);
             }
-        } catch (FileNotFoundException e) {
+            inputStream.close();
+        }
+        catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
     }
 
